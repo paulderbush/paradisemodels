@@ -636,7 +636,14 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .gallery-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
 .gallery-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.35);cursor:pointer;transition:all 0.2s}
 .gallery-dot.active{background:#fff;width:14px;border-radius:3px}
+.gallery-dot.video-dot{width:14px;border-radius:3px;background:rgba(255,255,255,0.5)}
+.gallery-dot.video-dot.active{background:#fff;width:18px}
 .gallery-counter{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.45);backdrop-filter:blur(8px);border-radius:20px;padding:3px 10px;font-size:11px;color:rgba(255,255,255,0.75);z-index:3}
+.video-slide{position:relative;background:#000;display:flex;align-items:center;justify-content:center}
+.video-slide video{width:100%;height:100%;object-fit:contain}
+.video-play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:68px;cursor:pointer;z-index:4;pointer-events:all;transition:transform 0.15s}
+.video-play-icon:hover{transform:translate(-50%,-50%) scale(1.08)}
+.video-play-icon svg{width:100%;height:100%;filter:drop-shadow(0 2px 14px rgba(0,0,0,0.8))}
 /* Extended stats */
 .stat-grid-ext{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem}
 /* Pricing */
@@ -869,7 +876,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .review-submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 </style>
-<script>window.BUILD_TS='20260531';</script>
+<script>window.BUILD_TS='20260602';</script>
 
 </head>
 <body>
@@ -1083,8 +1090,8 @@ const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob W
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 </script>
-<script src="/assets/main.js?v=20260531"></script>
-<script src="/assets/become.js?v=20260531"></script>
+<script src="/assets/main.js?v=20260602"></script>
+<script src="/assets/become.js?v=20260602"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   initBecomePage();
