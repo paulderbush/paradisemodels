@@ -1,32 +1,49 @@
 // =================== PROFILE PAGE ===================
-let _gallery = {photos: [], current: 0};
+let _gallery = {items: [], current: 0};
 let _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), model: null};
 let _reviewRating = 0;
 
 // =================== GALLERY ===================
-function probeModelPhotos(folder, cb) {
-  const found = []; let done = 0; const max = 20;
-  for (let i = 1; i <= max; i++) {
-    const img = new Image(); const idx = i;
-    img.onload = () => { found.push({idx, src: img.src}); finish(); };
-    img.onerror = finish;
-    img.src = `/${folder}/${idx}.webp${window.BUILD_TS ? '?v=' + window.BUILD_TS : ''}`;
+function probeModelMedia(folder, cb) {
+  const found = []; let done = 0;
+  const photoMax = 20, videoMax = 10, total = photoMax + videoMax;
+  function finish() {
+    if (++done === total) {
+      const photos = found.filter(x => x.type === 'photo').sort((a, b) => a.idx - b.idx);
+      const videos = found.filter(x => x.type === 'video').sort((a, b) => a.idx - b.idx);
+      cb([...photos, ...videos]);
+    }
   }
-  function finish() { if (++done === max) cb(found.sort((a, b) => a.idx - b.idx).map(x => x.src)); }
+  for (let i = 1; i <= photoMax; i++) {
+    const img = new Image(); const idx = i;
+    const src = `/${folder}/${idx}.webp${window.BUILD_TS ? '?v=' + window.BUILD_TS : ''}`;
+    img.onload = () => { found.push({type: 'photo', idx, src}); finish(); };
+    img.onerror = finish;
+    img.src = src;
+  }
+  for (let i = 1; i <= videoMax; i++) {
+    const v = document.createElement('video'); const idx = i;
+    const src = `/${folder}/v${idx}.mp4${window.BUILD_TS ? '?v=' + window.BUILD_TS : ''}`;
+    v.onloadedmetadata = () => { found.push({type: 'video', idx, src}); finish(); };
+    v.onerror = finish;
+    v.preload = 'metadata';
+    v.src = src;
+  }
 }
 
 function _galleryMove() {
   const track = document.getElementById('gallery-track');
   if (!track) return;
+  track.querySelectorAll('video').forEach(v => v.pause());
   const w = track.parentElement.offsetWidth;
   track.style.transform = `translateX(-${_gallery.current * w}px)`;
   document.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === _gallery.current));
   const ctr = document.getElementById('gallery-counter');
-  if (ctr) ctr.textContent = `${_gallery.current + 1} / ${_gallery.photos.length}`;
+  if (ctr) ctr.textContent = `${_gallery.current + 1} / ${_gallery.items.length}`;
 }
 
 function galleryGo(dir) {
-  const n = _gallery.photos.length; if (!n) return;
+  const n = _gallery.items.length; if (!n) return;
   _gallery.current = (_gallery.current + dir + n) % n;
   _galleryMove();
 }
@@ -300,15 +317,31 @@ function openRealModel(m) {
     const r = computeRating(reviews);
     if (ratingEl) ratingEl.innerHTML = r ? `<span style="color:#FFD700;font-size:14px">★ ${r}</span>` : '';
   });
-  probeModelPhotos(m.folder, photos => {
-    _gallery.photos = photos;
+  probeModelMedia(m.folder, items => {
+    _gallery.items = items;
     const track = document.getElementById('gallery-track');
     if (!track) return;
-    track.innerHTML = photos.map(src => `<img class="gallery-slide" src="${src}" alt="${m.name}">`).join('');
+    track.innerHTML = items.map(item => {
+      if (item.type === 'video') {
+        return `<div class="gallery-slide video-slide">
+          <video src="${item.src}" preload="none" playsinline controls style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+          <div class="video-play-icon" onclick="this.parentElement.querySelector('video').play();this.style.display='none'">
+            <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="22" cy="22" r="22" fill="rgba(0,0,0,0.55)"/>
+              <polygon points="17,13 34,22 17,31" fill="white"/>
+            </svg>
+          </div>
+        </div>`;
+      }
+      return `<img class="gallery-slide" src="${item.src}" alt="${m.name}">`;
+    }).join('');
     const dotsEl = document.getElementById('gallery-dots');
-    if (dotsEl) dotsEl.innerHTML = photos.map((_, i) => `<span class="gallery-dot${i === 0 ? ' active' : ''}" onclick="galleryGoTo(${i})"></span>`).join('');
+    if (dotsEl) dotsEl.innerHTML = items.map((item, i) => {
+      const cls = item.type === 'video' ? ' video-dot' : '';
+      return `<span class="gallery-dot${cls}${i === 0 ? ' active' : ''}" onclick="galleryGoTo(${i})"></span>`;
+    }).join('');
     const ctr = document.getElementById('gallery-counter');
-    if (ctr) ctr.textContent = `1 / ${photos.length}`;
-    if (photos.length <= 1) document.querySelectorAll('.gallery-arrow').forEach(a => a.style.display = 'none');
+    if (ctr) ctr.textContent = `1 / ${items.length}`;
+    if (items.length <= 1) document.querySelectorAll('.gallery-arrow').forEach(a => a.style.display = 'none');
   });
 }
