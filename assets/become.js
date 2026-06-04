@@ -32,13 +32,14 @@ function toggleRates(type, checked) {
   document.getElementById(type + 'Fields').classList.toggle('active', checked);
 }
 
-function handlePhotos(input) {
+function handleFiles(input) {
   const list = document.getElementById('photoList');
   list.innerHTML = '';
   Array.from(input.files).forEach(f => {
     const chip = document.createElement('div');
     chip.className = 'photo-chip';
-    chip.textContent = f.name.length > 22 ? f.name.slice(0, 20) + '…' : f.name;
+    const isVideo = f.type.startsWith('video/');
+    chip.textContent = (isVideo ? '▶ ' : '') + (f.name.length > 22 ? f.name.slice(0, 20) + '…' : f.name);
     list.appendChild(chip);
   });
 }
@@ -125,7 +126,7 @@ ${svcs}
       body: new URLSearchParams({chat_id: TG_CHAT_MODELS, text: msg, parse_mode: 'HTML'})
     });
 
-    // 2. Send photos if any
+    // 2. Send photos & videos if any
     const photoInput = document.getElementById('photoInput');
     const files = photoInput ? Array.from(photoInput.files) : [];
     if (files.length > 0) {
@@ -134,13 +135,16 @@ ${svcs}
         const fd = new FormData();
         fd.append('chat_id', TG_CHAT_MODELS);
         if (batch.length === 1) {
-          fd.append('photo', batch[0]);
-          fd.append('caption', i === 0 ? `📸 Photos — ${v('workingName')}` : '');
-          await fetch(TG_BOT_BASE + '/sendPhoto', {method: 'POST', body: fd});
+          const f = batch[0];
+          const isVideo = f.type.startsWith('video/');
+          fd.append(isVideo ? 'video' : 'photo', f);
+          fd.append('caption', i === 0 ? `📸 Media — ${v('workingName')}` : '');
+          await fetch(TG_BOT_BASE + (isVideo ? '/sendVideo' : '/sendPhoto'), {method: 'POST', body: fd});
         } else {
           const media = batch.map((file, idx) => {
             fd.append('file' + idx, file, file.name);
-            return {type: 'photo', media: 'attach://file' + idx, ...(idx === 0 && i === 0 ? {caption: `📸 Photos — ${v('workingName')}`} : {})};
+            const type = file.type.startsWith('video/') ? 'video' : 'photo';
+            return {type, media: 'attach://file' + idx, ...(idx === 0 && i === 0 ? {caption: `📸 Media — ${v('workingName')}`} : {})};
           });
           fd.append('media', JSON.stringify(media));
           await fetch(TG_BOT_BASE + '/sendMediaGroup', {method: 'POST', body: fd});

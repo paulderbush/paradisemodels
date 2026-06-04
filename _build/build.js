@@ -601,18 +601,18 @@ ${ageModalHTML()}
         <div class="services-chk-grid" id="servicesCheckList"></div>
       </div>
 
-      <!-- PHOTOS -->
+      <!-- PHOTOS & VIDEOS -->
       <div class="form-section">
-        <div class="form-section-title">Photos</div>
-        <p style="font-size:13px;color:var(--text-soft);margin-bottom:1rem">Upload clear, recent photos. Minimum 3, maximum 20. JPG or PNG.</p>
+        <div class="form-section-title">Photos &amp; Videos</div>
+        <p style="font-size:13px;color:var(--text-soft);margin-bottom:1rem">Upload clear, recent photos and/or short video clips. Minimum 3 photos. JPG, PNG, MP4, MOV.</p>
         <div class="photo-upload-area" onclick="document.getElementById('photoInput').click()">
-          <input type="file" id="photoInput" multiple accept="image/*" onchange="handlePhotos(this)">
+          <input type="file" id="photoInput" multiple accept="image/*,video/*" onchange="handleFiles(this)">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(176,127,222,0.5)" stroke-width="1.5" style="margin-bottom:0.75rem"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          <p style="color:var(--text-soft);font-size:14px;margin:0">Click to select photos</p>
-          <p style="color:var(--text-muted);font-size:12px;margin:4px 0 0">JPG, PNG · multiple files allowed</p>
+          <p style="color:var(--text-soft);font-size:14px;margin:0">Click to select photos &amp; videos</p>
+          <p style="color:var(--text-muted);font-size:12px;margin:4px 0 0">JPG, PNG · MP4, MOV · multiple files allowed</p>
         </div>
         <div class="photo-list" id="photoList"></div>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:0.75rem">Photos are stored securely. Upload endpoint (Telegram / email) will be configured separately.</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:0.75rem">All files are sent securely to our team. Video files are shown with a ▶ icon.</p>
       </div>
 
       <button type="submit" class="submit-app-btn">Submit Application →</button>

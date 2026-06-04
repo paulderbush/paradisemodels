@@ -876,7 +876,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .review-submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 </style>
-<script>window.BUILD_TS='20260602';</script>
+<script>window.BUILD_TS='20260604';</script>
 
 </head>
 <body>
@@ -1042,18 +1042,18 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
         <div class="services-chk-grid" id="servicesCheckList"></div>
       </div>
 
-      <!-- PHOTOS -->
+      <!-- PHOTOS & VIDEOS -->
       <div class="form-section">
-        <div class="form-section-title">Photos</div>
-        <p style="font-size:13px;color:var(--text-soft);margin-bottom:1rem">Upload clear, recent photos. Minimum 3, maximum 20. JPG or PNG.</p>
+        <div class="form-section-title">Photos &amp; Videos</div>
+        <p style="font-size:13px;color:var(--text-soft);margin-bottom:1rem">Upload clear, recent photos and/or short video clips. Minimum 3 photos. JPG, PNG, MP4, MOV.</p>
         <div class="photo-upload-area" onclick="document.getElementById('photoInput').click()">
-          <input type="file" id="photoInput" multiple accept="image/*" onchange="handlePhotos(this)">
+          <input type="file" id="photoInput" multiple accept="image/*,video/*" onchange="handleFiles(this)">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(176,127,222,0.5)" stroke-width="1.5" style="margin-bottom:0.75rem"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          <p style="color:var(--text-soft);font-size:14px;margin:0">Click to select photos</p>
-          <p style="color:var(--text-muted);font-size:12px;margin:4px 0 0">JPG, PNG · multiple files allowed</p>
+          <p style="color:var(--text-soft);font-size:14px;margin:0">Click to select photos &amp; videos</p>
+          <p style="color:var(--text-muted);font-size:12px;margin:4px 0 0">JPG, PNG · MP4, MOV · multiple files allowed</p>
         </div>
         <div class="photo-list" id="photoList"></div>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:0.75rem">Photos are stored securely. Upload endpoint (Telegram / email) will be configured separately.</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:0.75rem">All files are sent securely to our team. Video files are shown with a ▶ icon.</p>
       </div>
 
       <button type="submit" class="submit-app-btn">Submit Application →</button>
@@ -1090,8 +1090,8 @@ const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob W
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 </script>
-<script src="/assets/main.js?v=20260602"></script>
-<script src="/assets/become.js?v=20260602"></script>
+<script src="/assets/main.js?v=20260604"></script>
+<script src="/assets/become.js?v=20260604"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   initBecomePage();
