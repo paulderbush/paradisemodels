@@ -1,0 +1,64 @@
+/* =========================================================
+   PARADISE MODELS — homepage rebrand theme (preview)
+   Overrides the brand palette for the homepage only.
+   Base colors: background #4ba4c5 (cyan) · elements #3a4081 (indigo)
+   ========================================================= */
+:root{
+  /* Solid brand colors */
+  --purple:#3a4081;          /* primary element / button (indigo) */
+  --purple2:#4b52a8;         /* lighter indigo */
+  --purple3:#4ba4c5;         /* cyan accent */
+  --purple-dark:#2a2f66;     /* deep indigo */
+  --bg:#3a4081;
+  --bg2:#34467e;
+
+  /* RGB components used across the stylesheet */
+  --brand-rgb:58,64,129;         /* #3a4081 indigo */
+  --brand2-rgb:75,164,197;       /* #4ba4c5 cyan */
+  --brand-light-rgb:120,196,222; /* light cyan */
+  --brand-dark-rgb:42,47,102;    /* deep indigo */
+  --panel-rgb:22,28,66;          /* dark indigo panels (nav, cart, dropdowns) */
+  --panel2-rgb:28,36,82;
+
+  /* Gradient glow (logo, headings) */
+  --glow-light:#8fd8ec;      /* light cyan */
+  --glow-mid:#4ba4c5;        /* cyan */
+
+  /* Text tuned for the lighter background */
+  --text:#F4F9FC;
+  --text-soft:rgba(244,249,252,0.72);
+  --text-muted:rgba(244,249,252,0.5);
+}
+
+/* Page background: cyan → indigo gradient (matches brand direction) */
+body{
+  background:linear-gradient(158deg,#4ba4c5 0%,#4173a3 38%,#3a4081 72%,#333a75 100%);
+  background-attachment:fixed;
+}
+
+/* Buttons/gradients that mix the two brand colors read best cyan → indigo */
+.nav-btn,.cart-checkout,.make-booking-btn,.submit-app-btn,.review-submit-btn{
+  background:linear-gradient(135deg,var(--purple3),var(--purple))!important;
+}
+
+/* Hero glow shadow in-palette */
+.hero{box-shadow:0 0 80px rgba(var(--brand2-rgb),0.5),0 0 160px rgba(var(--brand-rgb),0.3)!important}
+
+/* =================== PARADISE MODELS LOGO =================== */
+.nav-logo-paradise{
+  display:inline-flex;flex-direction:column;align-items:center;
+  line-height:1;text-decoration:none;
+  background:none;-webkit-text-fill-color:initial;
+  margin-right:0.5rem;
+}
+.nav-logo-paradise .nlp-main{
+  font-size:1.4rem;font-weight:700;letter-spacing:-0.01em;
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.nav-logo-paradise .nlp-sub{
+  font-size:0.56rem;font-weight:600;letter-spacing:0.34em;
+  text-transform:uppercase;color:#fff;-webkit-text-fill-color:#fff;
+  margin-top:2px;padding-left:0.34em;
+}
