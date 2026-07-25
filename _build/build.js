@@ -173,8 +173,8 @@ ${fakeModelOverlayHTML()}
   <!-- HERO -->
   <div class="hero" style="position:relative;z-index:1">
     <div class="hero-bg"></div>
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/images/PC.jpg?v=${BUILD_TS}">
-      <source src="/images/background.mp4?v=${BUILD_TS}" type="video/mp4">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/images/hero-poster.jpg?v=${BUILD_TS}">
+      <source src="https://paradiseagency.b-cdn.net/background.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
       <div class="hero-hours">
