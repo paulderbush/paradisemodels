@@ -10,9 +10,9 @@
 <meta property="og:description" content="Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions you will find nowhere else.">
 <meta property="og:url" content="https://velvetescort.co.uk/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260725195751">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260725195751">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260725195751">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260725200954">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260725200954">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260725200954">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -374,6 +374,15 @@ nav{
   transition:all 0.25s;text-decoration:none;
 }
 .btn-model-cta:hover{background:rgba(var(--brand-rgb),0.28);transform:translateY(-1px)}
+.btn-blog{
+  display:flex;align-items:center;gap:8px;
+  padding:0.7rem 1.4rem;border-radius:var(--r);
+  background:rgba(var(--brand-rgb),0.15);
+  border:1px solid rgba(var(--brand-light-rgb),0.3);
+  color:var(--purple3);font-size:14px;font-weight:500;cursor:pointer;
+  transition:all 0.25s;text-decoration:none;
+}
+.btn-blog:hover{background:rgba(var(--brand-rgb),0.28);transform:translateY(-1px)}
 
 /* SECTION */
 .section{padding:4rem 2rem;max-width:1280px;margin:0 auto;position:relative;z-index:1}
@@ -933,8 +942,8 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .review-submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 </style>
-<script>window.BUILD_TS='20260725195751';</script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260725195751">
+<script>window.BUILD_TS='20260725200954';</script>
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260725200954">
 </head>
 <body>
 <div class="orb-container">
@@ -958,7 +967,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260725195751" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260725200954" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1018,7 +1027,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   <!-- HERO -->
   <div class="hero" style="position:relative;z-index:1">
     <div class="hero-bg"></div>
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/images/hero-poster.jpg?v=20260725195751">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/images/hero-poster.jpg?v=20260725200954">
       <source src="https://paradiseagency.b-cdn.net/background.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
@@ -1048,63 +1057,63 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   <!-- CITY SECTIONS -->
   <div class="section">
     <div class="section-header">
-      <div class="section-title">📍 <span>London</span></div>
+      <div class="section-title section-title-city"><span>London</span></div>
       <a class="see-all" href="/models/?city=london">See all →</a>
     </div>
     <div class="models-row" id="cityRow-london"></div>
   </div>
   <div class="section" style="padding-top:0">
     <div class="section-header">
-      <div class="section-title">📍 <span>Paris</span></div>
+      <div class="section-title section-title-city"><span>Paris</span></div>
       <a class="see-all" href="/models/?city=paris">See all →</a>
     </div>
     <div class="models-row" id="cityRow-paris"></div>
   </div>
   <div class="section" style="padding-top:0">
     <div class="section-header">
-      <div class="section-title">📍 <span>Monaco</span></div>
+      <div class="section-title section-title-city"><span>Monaco</span></div>
       <a class="see-all" href="/models/?city=monaco">See all →</a>
     </div>
     <div class="models-row" id="cityRow-monaco"></div>
   </div>
   <div class="section" style="padding-top:0">
     <div class="section-header">
-      <div class="section-title">📍 <span>Milan</span></div>
+      <div class="section-title section-title-city"><span>Milan</span></div>
       <a class="see-all" href="/models/?city=milan">See all →</a>
     </div>
     <div class="models-row" id="cityRow-milan"></div>
   </div>
   <div class="section" style="padding-top:0">
     <div class="section-header">
-      <div class="section-title">📍 <span>Dubai</span></div>
+      <div class="section-title section-title-city"><span>Dubai</span></div>
       <a class="see-all" href="/models/?city=dubai">See all →</a>
     </div>
     <div class="models-row" id="cityRow-dubai"></div>
   </div>
   <div class="section" style="padding-top:0">
     <div class="section-header">
-      <div class="section-title">📍 <span>New York</span></div>
+      <div class="section-title section-title-city"><span>New York</span></div>
       <a class="see-all" href="/models/?city=new-york">See all →</a>
     </div>
     <div class="models-row" id="cityRow-new-york"></div>
   </div>
   <div class="section" style="padding-top:0">
     <div class="section-header">
-      <div class="section-title">📍 <span>Miami</span></div>
+      <div class="section-title section-title-city"><span>Miami</span></div>
       <a class="see-all" href="/models/?city=miami">See all →</a>
     </div>
     <div class="models-row" id="cityRow-miami"></div>
   </div>
   <div class="section" style="padding-top:0">
     <div class="section-header">
-      <div class="section-title">📍 <span>Zurich</span></div>
+      <div class="section-title section-title-city"><span>Zurich</span></div>
       <a class="see-all" href="/models/?city=zurich">See all →</a>
     </div>
     <div class="models-row" id="cityRow-zurich"></div>
   </div>
   <div class="section" style="padding-top:0">
     <div class="section-header">
-      <div class="section-title">📍 <span>Amsterdam</span></div>
+      <div class="section-title section-title-city"><span>Amsterdam</span></div>
       <a class="see-all" href="/models/?city=amsterdam">See all →</a>
     </div>
     <div class="models-row" id="cityRow-amsterdam"></div>
@@ -1151,6 +1160,10 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Become a Model
       </a>
+      <a href="/blog/" class="btn-blog" style="font-size:13px;padding:0.5rem 1.1rem;text-decoration:none">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Blog
+      </a>
     </div>
   </div>
 </footer>
@@ -1161,7 +1174,7 @@ const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British"
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 const CITIES = ["London","Paris","Monaco","Milan","Dubai","New York","Miami","Zurich","Amsterdam"];
 </script>
-<script src="/assets/main.js?v=20260725195751"></script>
+<script src="/assets/main.js?v=20260725200954"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   renderHomeCityRows();

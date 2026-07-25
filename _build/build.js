@@ -115,6 +115,10 @@ function footerHTML(paradise = false) {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Become a Model
       </a>
+      <a href="/blog/" class="btn-blog" style="font-size:13px;padding:0.5rem 1.1rem;text-decoration:none">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Blog
+      </a>
     </div>
   </div>
 </footer>`;
@@ -219,7 +223,7 @@ ${fakeModelOverlayHTML()}
   <!-- CITY SECTIONS -->
 ${CITIES.map((c, i) => `  <div class="section"${i === 0 ? '' : ' style="padding-top:0"'}>
     <div class="section-header">
-      <div class="section-title">📍 <span>${c}</span></div>
+      <div class="section-title section-title-city"><span>${c}</span></div>
       <a class="see-all" href="/models/?city=${citySlug(c)}">See all →</a>
     </div>
     <div class="models-row" id="cityRow-${citySlug(c)}"></div>
@@ -757,6 +761,16 @@ function buildAbout() {
   });
 }
 
+function buildBlog() {
+  return buildPlaceholder({
+    metaTitle: 'Blog — Paradise Models',
+    metaDesc: 'The Paradise Models blog — insights, city guides and news from the world of high-class companionship.',
+    slug: '/blog/',
+    heading: 'The', headingAccent: 'Blog',
+    lead: 'Insights, city guides, and news from the world of high-class companionship.',
+  });
+}
+
 // =================== SITEMAP ===================
 function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
@@ -767,6 +781,7 @@ function buildSitemap() {
     {url: '/concierge/', priority: '0.7'},
     {url: '/events/', priority: '0.7'},
     {url: '/about/', priority: '0.7'},
+    {url: '/blog/', priority: '0.7'},
     {url: '/faq/', priority: '0.7'},
     {url: '/become-a-model/', priority: '0.6'},
     ...REAL_MODELS.map(m => ({url: `/models/${m.slug}/`, priority: '0.8'})),
@@ -802,6 +817,7 @@ write(path.join(OUT, 'vip-models/index.html'), buildVipModels());
 write(path.join(OUT, 'concierge/index.html'), buildConcierge());
 write(path.join(OUT, 'events/index.html'), buildEvents());
 write(path.join(OUT, 'about/index.html'), buildAbout());
+write(path.join(OUT, 'blog/index.html'), buildBlog());
 write(path.join(OUT, 'sitemap.xml'), buildSitemap());
 
 console.log('\nBuild complete!');

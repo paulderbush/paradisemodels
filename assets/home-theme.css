@@ -63,6 +63,8 @@ nav{
 .section-title,.section-title span{
   background:none!important;-webkit-text-fill-color:initial!important;color:#2a2f66!important;
 }
+/* City section titles: larger, cleaner (no pin icon) for a premium look */
+.section-title-city{font-size:clamp(2rem,3vw,2.6rem)!important;letter-spacing:-0.02em}
 
 /* Section subtext readable on cyan */
 .section-header .see-all{color:#2a2f66}
@@ -158,3 +160,10 @@ footer{
 .footer-btns .btn-model-cta{
   border:1px solid #70e9ff!important;
 }
+/* Footer Blog button — dark like the others, cyan outline, white label */
+.footer-btns .btn-blog{
+  background:#1a1e42!important;
+  border:1px solid #70e9ff!important;
+  color:#ffffff!important;
+}
+.footer-btns .btn-blog:hover{background:#242a54!important}
