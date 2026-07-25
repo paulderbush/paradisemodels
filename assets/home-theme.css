@@ -51,6 +51,13 @@ nav{
   background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
   box-shadow:0 4px 20px rgba(var(--brand-dark-rgb),0.45)!important;
 }
+/* VIP Models button: light (site bg color) with dark menu-colored text */
+.nav-btn-vip{
+  background:#70e9ff!important;
+  color:#1a1e42!important;
+  box-shadow:0 4px 20px rgba(112,233,255,0.4)!important;
+}
+.nav-btn-vip:hover{box-shadow:0 6px 28px rgba(112,233,255,0.6)!important}
 
 /* Section headings: solid deep indigo for contrast on cyan */
 .section-title,.section-title span{

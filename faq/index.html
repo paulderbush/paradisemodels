@@ -142,6 +142,12 @@ nav{
   box-shadow:0 4px 20px rgba(var(--brand-rgb),0.35);
 }
 .nav-btn:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(var(--brand-rgb),0.5)}
+.nav-btn-vip{
+  background:#70e9ff;
+  color:#1a1e42;
+  box-shadow:0 4px 20px rgba(112,233,255,0.35);
+}
+.nav-btn-vip:hover{box-shadow:0 6px 28px rgba(112,233,255,0.55)}
 
 /* CART PANEL */
 .cart-panel{
@@ -885,7 +891,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .review-submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 </style>
-<script>window.BUILD_TS='20260725180659';</script>
+<script>window.BUILD_TS='20260725181538';</script>
 
 </head>
 <body>
@@ -922,6 +928,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
     <div class="cart-badge" id="cartBadge">0</div>
   </div>
   <a class="nav-btn" href="/models/" style="text-decoration:none">Models</a>
+  <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
   <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
 </nav>
 <!-- AGE VERIFICATION MODAL -->
@@ -983,7 +990,7 @@ const SERVICES = [];
 const NATIONALITIES = [];
 const STATIONS = [];
 </script>
-<script src="/assets/main.js?v=20260725180659"></script>
+<script src="/assets/main.js?v=20260725181538"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const allIds = Array.from({length: 17}, (_, i) => i);
