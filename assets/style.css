@@ -48,8 +48,8 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
 /* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;gap:0.6rem;
-  padding:0.75rem 1.25rem;
+  display:flex;align-items:center;gap:0.4rem;
+  padding:0.75rem 1.1rem;
   background:rgba(var(--panel-rgb),0.75);
   backdrop-filter:blur(24px) saturate(1.5);
   -webkit-backdrop-filter:blur(24px) saturate(1.5);
@@ -62,7 +62,7 @@ nav{
   white-space:nowrap;margin-right:0.5rem;
 }
 .nav-search{
-  flex:0 1 238px;max-width:238px;
+  flex:0 1 185px;max-width:185px;
   display:flex;align-items:center;gap:8px;
   background:rgba(var(--brand-rgb),0.1);
   border:1px solid var(--glass-border);
@@ -136,7 +136,7 @@ nav{
 /* Ghost nav links (Models / Locations / Concierge / Events) */
 .nav-link{
   display:inline-flex;align-items:center;gap:5px;
-  padding:0.5rem 0.75rem;border-radius:var(--r);
+  padding:0.5rem 0.6rem;border-radius:var(--r);
   background:rgba(var(--brand-rgb),0.1);
   border:1px solid var(--glass-border);
   color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;
@@ -736,13 +736,13 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 /* NAV BADGE */
 .nav-badge{
   display:inline-flex;align-items:center;gap:7px;
-  padding:0.4rem 0.85rem;
+  padding:0.4rem 0.7rem;
   background:rgba(var(--brand-rgb),0.2);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
   border:1px solid rgba(var(--brand-light-rgb),0.35);
   border-radius:var(--r);
-  font-size:12px;letter-spacing:0.07em;text-transform:uppercase;
+  font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
   color:var(--purple3);white-space:nowrap;
   margin-left:auto;
 }

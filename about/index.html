@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FAQ — Velvet London</title>
-<meta name="description" content="Frequently asked questions about our services, companions, and bookings at Velvet London.">
-<link rel="canonical" href="https://velvetescort.co.uk/faq/">
-<meta property="og:title" content="FAQ — Velvet London">
-<meta property="og:description" content="Frequently asked questions about our services, companions, and bookings at Velvet London.">
-<meta property="og:url" content="https://velvetescort.co.uk/faq/">
+<title>About Us — Paradise Models</title>
+<meta name="description" content="About Paradise Models — a high-class international escort agency built on absolute discretion and impeccable service.">
+<link rel="canonical" href="https://velvetescort.co.uk/about/">
+<meta property="og:title" content="About Us — Paradise Models">
+<meta property="og:description" content="About Paradise Models — a high-class international escort agency built on absolute discretion and impeccable service.">
+<meta property="og:url" content="https://velvetescort.co.uk/about/">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="/images/favicon.png?v=20260725195423">
 <link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260725195423">
@@ -932,7 +932,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 </style>
 <script>window.BUILD_TS='20260725195423';</script>
-
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260725195423">
 </head>
 <body>
 <div class="orb-container">
@@ -956,7 +956,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="/" style="cursor:pointer;text-decoration:none">VELVET</a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260725195423" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1010,14 +1010,14 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 </div>
 
 <div style="position:relative;z-index:1">
-  <div class="faq-page">
-    <a class="back-btn" href="/">
+  <div class="faq-page" style="text-align:center;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+    <a class="back-btn" href="/" style="position:absolute;top:90px;left:2rem">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
       Back to Home
     </a>
-    <h1>FAQ — <span style="background:linear-gradient(135deg,#C49FEE,#8B3FCA);-webkit-background-clip:text;-webkit-text-fill-color:transparent">All Questions</span></h1>
-    <p class="sub">Frequently asked questions about our services, companions, and bookings.</p>
-    <div id="faqAll"></div>
+    <h1 style="font-size:clamp(2.4rem,5vw,4rem);font-weight:700;margin-bottom:1rem">About <span style="background:linear-gradient(135deg,#1a5f7a,#123a66);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Us</span></h1>
+    <p style="color:var(--text-soft);font-size:1.1rem;max-width:520px">A high-class international agency built on absolute discretion, impeccable service, and an eye for the extraordinary.</p>
+    <p style="color:var(--text-muted);font-size:1rem;margin-top:1.5rem">Coming soon.</p>
   </div>
 </div>
 
@@ -1025,7 +1025,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <footer>
   <div class="footer-inner">
     <div class="footer-left">
-      <p>© 2026 Velvet London. All rights reserved. For adults 18+ only.</p>
+      <p>© 2026 Paradise Models. All rights reserved. For adults 18+ only.</p>
     </div>
     <div class="footer-btns">
       <a href="https://wa.me/447450842231?text=Hello%20Velvet%20Agency%20%F0%9F%91%8B%F0%9F%8F%BC" class="btn-wa" target="_blank" style="font-size:13px;padding:0.5rem 1.1rem">
@@ -1048,13 +1048,8 @@ const MODELS = [];
 const SERVICES = [];
 const NATIONALITIES = [];
 const STATIONS = [];
+const CITIES = [];
 </script>
 <script src="/assets/main.js?v=20260725195423"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const allIds = Array.from({length: 17}, (_, i) => i);
-  renderFAQs(allIds, 'faqAll');
-});
-</script>
 </body>
 </html>
