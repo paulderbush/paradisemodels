@@ -1,16 +1,29 @@
 // =================== CATALOG PAGE ===================
 let filteredModels = [...MODELS];
 let activeCat = 'all';
-let selectedStations = [];
+let selectedCities = [];
 let selectedNats = [];
 let selectedSvcs = [];
 let ageRange = [18, 60];
 let weightRange = [40, 100];
 let heightRange = [150, 185];
 
+function cityToSlug(c) { return c.toLowerCase().replace(/\s+/g, '-'); }
+
+function applyCityFromURL() {
+  const q = new URLSearchParams(window.location.search).get('city');
+  if (!q) return;
+  const match = CITIES.find(c => cityToSlug(c) === q.toLowerCase());
+  if (!match) return;
+  selectedCities = [match];
+  const cb = document.querySelector('#cityList input[value="' + match + '"]');
+  if (cb) cb.checked = true;
+}
+
 function initModelsPage() {
   renderModelsGrid(MODELS);
-  buildStationList();
+  buildCityList();
+  applyCityFromURL();
   buildNatList();
   buildSvcList();
   updateRange('age');
@@ -28,7 +41,7 @@ function initModelsPage() {
 function applyFilters() {
   let ms = [...MODELS];
   if (activeCat !== 'all') ms = ms.filter(m => m.cats.includes(activeCat));
-  if (selectedStations.length) ms = ms.filter(m => selectedStations.includes(m.station));
+  if (selectedCities.length) ms = ms.filter(m => selectedCities.includes(m.city));
   if (selectedNats.length) ms = ms.filter(m => selectedNats.includes(m.nationality));
   if (selectedSvcs.length) ms = ms.filter(m => selectedSvcs.every(s => m.svcs.includes(s)));
   ms = ms.filter(m => m.age >= ageRange[0] && m.age <= ageRange[1]);
@@ -57,21 +70,21 @@ function setCat(el, cat) {
   applyFilters();
 }
 
-function buildStationList() {
-  const el = document.getElementById('stationList');
+function buildCityList() {
+  const el = document.getElementById('cityList');
   if (!el) return;
-  el.innerHTML = STATIONS.map(s => `
+  el.innerHTML = CITIES.map(c => `
     <label class="filter-check">
-      <input type="checkbox" value="${s}" onchange="toggleStation('${s}',this.checked)"> ${s}
+      <input type="checkbox" value="${c}" onchange="toggleCity('${c}',this.checked)"> ${c}
     </label>`).join('');
 }
-function filterStations(q) {
-  const els = document.querySelectorAll('#stationList .filter-check');
+function filterCities(q) {
+  const els = document.querySelectorAll('#cityList .filter-check');
   els.forEach(el => { el.style.display = el.textContent.toLowerCase().includes(q.toLowerCase()) ? 'flex' : 'none'; });
 }
-function toggleStation(s, checked) {
-  if (checked) selectedStations.push(s);
-  else selectedStations = selectedStations.filter(x => x !== s);
+function toggleCity(c, checked) {
+  if (checked) selectedCities.push(c);
+  else selectedCities = selectedCities.filter(x => x !== c);
   applyFilters();
 }
 
@@ -144,7 +157,7 @@ function sortModels(val) {
 }
 
 function clearFilters() {
-  activeCat = 'all'; selectedStations = []; selectedNats = []; selectedSvcs = [];
+  activeCat = 'all'; selectedCities = []; selectedNats = []; selectedSvcs = [];
   ageRange = [18, 60]; weightRange = [40, 100]; heightRange = [150, 185];
   document.querySelectorAll('#catChips .filter-chip').forEach((c, i) => c.classList.toggle('active', i === 0));
   document.querySelectorAll('.filter-check input').forEach(cb => cb.checked = false);

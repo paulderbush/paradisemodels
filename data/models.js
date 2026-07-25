@@ -5,6 +5,8 @@ const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British"
 
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 
+const CITIES = ["London","Paris","Monaco","Milan","Dubai","New York","Miami","Zurich","Amsterdam"];
+
 const NAMES_F = ["Anastasia","Isabella","Valentina","Sophia","Natasha","Elena","Mia","Camille","Oksana","Alicia","Diana","Kate","Veronika","Lara","Monica","Zara","Nikita","Simone","Irina","Tatiana","Daria","Alina","Yvette","Chloe","Gabrielle","Polina","Roxana","Bianca","Jade","Crystal"];
 
 const COLORS = [
@@ -24,7 +26,7 @@ function makeRng(seed) {
 }
 
 function generateModels() {
-  return Array.from({length: 30}, (_, i) => {
+  return Array.from({length: 45}, (_, i) => {
     const rng = makeRng(i * 999 + 1);
     const rndInt = (a, b) => Math.floor(rng() * (b - a + 1)) + a;
     const pickN = (arr, n) => {
@@ -55,6 +57,7 @@ function generateModels() {
       weight: rndInt(48, 72),
       nationality: NATIONALITIES[rndInt(0, NATIONALITIES.length - 1)],
       station: STATIONS[rndInt(0, STATIONS.length - 1)],
+      city: CITIES[i % CITIES.length],
       cats,
       svcs,
       rateHour: rndInt(3, 8) * 50,
@@ -71,7 +74,7 @@ function generateModels() {
 const ROSA_DATA = {
   id: 9998, real: true, folder: 'Rosa', slug: 'rosa',
   name: 'Rosa', age: 18, height: 168, weight: 55,
-  nationality: 'Russian', station: 'Angel',
+  nationality: 'Russian', station: 'Angel', city: 'London',
   rateHour: 600,
   color: ['rgba(190,60,120,0.4)', 'rgba(110,30,70,0.7)'],
   initials: 'RO',
@@ -115,7 +118,7 @@ const ROSA_DATA = {
 const MANNY_DATA = {
   id: 9997, real: true, folder: 'Manny', slug: 'manny',
   name: 'Manny', age: 23, height: 173, weight: 60,
-  nationality: 'British', station: 'Southwark',
+  nationality: 'British', station: 'Southwark', city: 'London',
   rateHour: 350,
   color: ['rgba(70,130,180,0.4)', 'rgba(30,80,130,0.7)'],
   initials: 'MA',
@@ -157,4 +160,4 @@ const MANNY_DATA = {
 const FAKE_MODELS = generateModels();
 const MODELS = [ROSA_DATA, MANNY_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, ROSA_DATA, MANNY_DATA, SERVICES, NATIONALITIES, STATIONS, NAMES_F };
+module.exports = { MODELS, ROSA_DATA, MANNY_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };

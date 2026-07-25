@@ -202,7 +202,7 @@ async function loadAllReviews() {
     all.forEach(rv => { (byModel[rv.model_id] = byModel[rv.model_id] || []).push(rv); });
     MODELS.forEach(m => { if (byModel[m.id]) m.reviews = byModel[m.id]; });
     // refresh grids if present
-    if (typeof renderHomeRows === 'function') renderHomeRows();
+    if (typeof renderHomeCityRows === 'function') renderHomeCityRows();
     if (typeof applyFilters === 'function') applyFilters();
   } catch(e) {}
 }
@@ -276,16 +276,15 @@ function openFakeModel(id) {
 }
 
 // =================== HOME SECTIONS ===================
-function renderHomeRows() {
-  const rec = MODELS.filter(m => m.cats.includes('recommended')).slice(0, 4);
-  const u25 = MODELS.filter(m => m.cats.includes('under25')).slice(0, 4);
-  const top = MODELS.filter(m => m.cats.includes('toprated')).slice(0, 4);
-  const recEl = document.getElementById('recommendedRow');
-  const u25El = document.getElementById('under25Row');
-  const topEl = document.getElementById('topRatedRow');
-  if (recEl) recEl.innerHTML = rec.map(m => modelCardHTML(m)).join('');
-  if (u25El) u25El.innerHTML = u25.map(m => modelCardHTML(m)).join('');
-  if (topEl) topEl.innerHTML = top.map(m => modelCardHTML(m)).join('');
+function renderHomeCityRows() {
+  if (typeof CITIES === 'undefined' || !CITIES) return;
+  CITIES.forEach(c => {
+    const slug = c.toLowerCase().replace(/\s+/g, '-');
+    const el = document.getElementById('cityRow-' + slug);
+    if (!el) return;
+    const ms = MODELS.filter(m => m.city === c).slice(0, 4);
+    el.innerHTML = ms.map(m => modelCardHTML(m)).join('');
+  });
 }
 
 // =================== FAQ ===================
