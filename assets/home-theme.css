@@ -115,7 +115,7 @@ nav{
    rounded corners since .hero has overflow:hidden. */
 .hero::after{
   content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:rgba(0,0,0,0.2);
+  background:rgba(0,0,0,0.35);
 }
 /* Desktop: underlay the video with its own first frame, so there is no
    flash of the old still image before the video starts playing. */
@@ -138,3 +138,23 @@ nav{
 
 /* FAQ section title on cyan */
 .faq-section .section-title,.faq-section .section-title span{color:#2a2f66!important}
+
+/* "See all FAQs" as a solid button like Become a Model (dark indigo, white text) */
+.faq-see-all .see-all{
+  background:#1a1e42!important;
+  border:1px solid rgba(255,255,255,0.12)!important;
+  color:#ffffff!important;
+  padding:0.65rem 1.5rem!important;font-weight:600;
+}
+.faq-see-all .see-all:hover{background:#242a54!important}
+
+/* Footer: dark like the nav; buttons keep their look but get a cyan (page-bg) outline */
+footer{
+  background:rgba(26,30,66,0.97)!important;
+  border-top:1px solid rgba(255,255,255,0.12)!important;
+}
+.footer-btns .btn-wa,
+.footer-btns .btn-tg,
+.footer-btns .btn-model-cta{
+  border:1px solid #70e9ff!important;
+}

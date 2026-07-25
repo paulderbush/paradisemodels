@@ -6,7 +6,9 @@ const path = require('path');
 const css = fs.readFileSync(path.join(__dirname, '../assets/style.css'), 'utf8');
 
 // Load models
-const { MODELS, SERVICES, NATIONALITIES, STATIONS } = require('../data/models.js');
+const { MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES } = require('../data/models.js');
+// URL-safe slug for a city name, used for element ids and query params.
+const citySlug = (c) => c.toLowerCase().replace(/\s+/g, '-');
 const REAL_MODELS = MODELS.filter(m => m.real);
 const SITE_URL = 'https://velvetescort.co.uk';
 // Full timestamp (YYYYMMDDHHMMSS) so every build busts browser cache,
@@ -69,13 +71,23 @@ function _navHTML(logo) {
     <div class="search-dropdown" id="searchDropdown"></div>
   </div>
   <button class="nav-search-cancel" id="navSearchCancel" onclick="cancelNavSearch()">Cancel</button>
+  <a class="nav-link" href="/models/">Models</a>
+  <div class="nav-dropdown">
+    <button class="nav-link" type="button">Locations
+      <svg class="nav-dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="nav-dropdown-menu">
+      ${CITIES.map(c => `<a href="/models/?city=${citySlug(c)}">${c}</a>`).join('\n      ')}
+    </div>
+  </div>
+  <a class="nav-link" href="/concierge/">Concierge</a>
+  <a class="nav-link" href="/events/">Events</a>
+  <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
+  <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
   <div class="nav-cart glass" onclick="openCart()" style="cursor:pointer;padding:0.45rem 0.9rem;border-radius:var(--r);display:flex;align-items:center;gap:6px;font-size:13px;transition:all 0.25s;white-space:nowrap;color:var(--text);">
     Booking
     <div class="cart-badge" id="cartBadge">0</div>
   </div>
-  <a class="nav-btn" href="/models/" style="text-decoration:none">Models</a>
-  <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
-  <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
 </nav>`;
 }
 
@@ -150,6 +162,7 @@ const MODELS = ${JSON.stringify(data)};
 const SERVICES = ${JSON.stringify(SERVICES)};
 const NATIONALITIES = ${JSON.stringify(NATIONALITIES)};
 const STATIONS = ${JSON.stringify(STATIONS)};
+const CITIES = ${JSON.stringify(CITIES)};
 <\/script>`;
 }
 
@@ -200,32 +213,14 @@ ${fakeModelOverlayHTML()}
     </div>
   </div>
 
-  <!-- RECOMMENDED -->
-  <div class="section">
+  <!-- CITY SECTIONS -->
+${CITIES.map((c, i) => `  <div class="section"${i === 0 ? '' : ' style="padding-top:0"'}>
     <div class="section-header">
-      <div class="section-title">⭐ <span>Recommended</span> Girls</div>
-      <a class="see-all" href="/models/">See all →</a>
+      <div class="section-title">📍 <span>${c}</span></div>
+      <a class="see-all" href="/models/?city=${citySlug(c)}">See all →</a>
     </div>
-    <div class="models-row" id="recommendedRow"></div>
-  </div>
-
-  <!-- UNDER 25 -->
-  <div class="section" style="padding-top:0">
-    <div class="section-header">
-      <div class="section-title">🌸 <span>Under 25</span></div>
-      <a class="see-all" href="/models/">See all →</a>
-    </div>
-    <div class="models-row" id="under25Row"></div>
-  </div>
-
-  <!-- TOP RATED -->
-  <div class="section" style="padding-top:0">
-    <div class="section-header">
-      <div class="section-title">🏆 <span>Top Rated</span></div>
-      <a class="see-all" href="/models/">See all →</a>
-    </div>
-    <div class="models-row" id="topRatedRow"></div>
-  </div>
+    <div class="models-row" id="cityRow-${citySlug(c)}"></div>
+  </div>`).join('\n')}
 
   <!-- FAQ -->
   <div class="faq-section">
@@ -254,7 +249,7 @@ ${modelsDataScript()}
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  renderHomeRows();
+  renderHomeCityRows();
   loadAllReviews();
   renderFAQs([0,1,2], 'faqHome');
 });
@@ -310,12 +305,12 @@ ${fakeModelOverlayHTML()}
 
         <!-- Location -->
         <div class="filter-group">
-          <div class="filter-title">Location (London Underground)</div>
+          <div class="filter-title">Location</div>
           <div class="filter-search">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="text" placeholder="Search station…" oninput="filterStations(this.value)" id="stationSearch">
+            <input type="text" placeholder="Search city…" oninput="filterCities(this.value)" id="citySearch">
           </div>
-          <div class="filter-list" id="stationList"></div>
+          <div class="filter-list" id="cityList"></div>
         </div>
 
         <!-- Nationality -->
@@ -691,6 +686,64 @@ const STATIONS = [];
 </html>`;
 }
 
+// =================== SIMPLE PLACEHOLDER PAGE ===================
+function buildPlaceholder({title, slug, heading, headingAccent, lead, metaTitle, metaDesc}) {
+  return head(
+    metaTitle,
+    metaDesc,
+    SITE_URL + slug,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`
+  ) + `
+<body>
+${orbsHTML()}
+${navHTML(true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="faq-page" style="text-align:center;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+    <a class="back-btn" href="/" style="position:absolute;top:90px;left:2rem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+    <h1 style="font-size:clamp(2.4rem,5vw,4rem);font-weight:700;margin-bottom:1rem">${heading} <span style="background:linear-gradient(135deg,#1a5f7a,#123a66);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${headingAccent}</span></h1>
+    <p style="color:var(--text-soft);font-size:1.1rem;max-width:520px">${lead}</p>
+    <p style="color:var(--text-muted);font-size:1rem;margin-top:1.5rem">Coming soon.</p>
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = [];
+const NATIONALITIES = [];
+const STATIONS = [];
+const CITIES = [];
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+</body>
+</html>`;
+}
+
+function buildConcierge() {
+  return buildPlaceholder({
+    metaTitle: 'Concierge — Paradise Models',
+    metaDesc: 'The Paradise Models concierge service — bespoke travel, private events and tailored arrangements handled to perfection.',
+    slug: '/concierge/',
+    heading: 'Paradise', headingAccent: 'Concierge',
+    lead: 'A dedicated concierge for the details that matter — bespoke travel, private events, and tailored arrangements handled with absolute discretion.',
+  });
+}
+
+function buildEvents() {
+  return buildPlaceholder({
+    metaTitle: 'Events — Paradise Models',
+    metaDesc: 'Exclusive Paradise Models events — private gatherings and curated experiences for our members.',
+    slug: '/events/',
+    heading: 'Private', headingAccent: 'Events',
+    lead: 'Curated private gatherings and exclusive experiences, arranged for our members and their guests.',
+  });
+}
+
 // =================== SITEMAP ===================
 function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
@@ -698,6 +751,8 @@ function buildSitemap() {
     {url: '/', priority: '1.0'},
     {url: '/models/', priority: '0.9'},
     {url: '/vip-models/', priority: '0.9'},
+    {url: '/concierge/', priority: '0.7'},
+    {url: '/events/', priority: '0.7'},
     {url: '/faq/', priority: '0.7'},
     {url: '/become-a-model/', priority: '0.6'},
     ...REAL_MODELS.map(m => ({url: `/models/${m.slug}/`, priority: '0.8'})),
@@ -730,6 +785,8 @@ REAL_MODELS.forEach(m => {
 write(path.join(OUT, 'faq/index.html'), buildFaq());
 write(path.join(OUT, 'become-a-model/index.html'), buildBecome());
 write(path.join(OUT, 'vip-models/index.html'), buildVipModels());
+write(path.join(OUT, 'concierge/index.html'), buildConcierge());
+write(path.join(OUT, 'events/index.html'), buildEvents());
 write(path.join(OUT, 'sitemap.xml'), buildSitemap());
 
 console.log('\nBuild complete!');

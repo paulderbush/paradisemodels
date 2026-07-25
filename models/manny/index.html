@@ -64,8 +64,8 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
 /* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;gap:1rem;
-  padding:0.75rem 2rem;
+  display:flex;align-items:center;gap:0.6rem;
+  padding:0.75rem 1.25rem;
   background:rgba(var(--panel-rgb),0.75);
   backdrop-filter:blur(24px) saturate(1.5);
   -webkit-backdrop-filter:blur(24px) saturate(1.5);
@@ -78,7 +78,7 @@ nav{
   white-space:nowrap;margin-right:0.5rem;
 }
 .nav-search{
-  flex:1;max-width:340px;
+  flex:0 1 238px;max-width:238px;
   display:flex;align-items:center;gap:8px;
   background:rgba(var(--brand-rgb),0.1);
   border:1px solid var(--glass-border);
@@ -148,6 +148,43 @@ nav{
   box-shadow:0 4px 20px rgba(112,233,255,0.35);
 }
 .nav-btn-vip:hover{box-shadow:0 6px 28px rgba(112,233,255,0.55)}
+
+/* Ghost nav links (Models / Locations / Concierge / Events) */
+.nav-link{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:0.5rem 0.75rem;border-radius:var(--r);
+  background:rgba(var(--brand-rgb),0.1);
+  border:1px solid var(--glass-border);
+  color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all 0.25s;white-space:nowrap;text-decoration:none;
+}
+.nav-link:hover{background:rgba(var(--brand-rgb),0.25);border-color:var(--purple3)}
+
+/* Locations dropdown */
+.nav-dropdown{position:relative}
+.nav-dropdown-caret{transition:transform 0.2s;opacity:0.7}
+.nav-dropdown:hover .nav-dropdown-caret,
+.nav-dropdown:focus-within .nav-dropdown-caret{transform:rotate(180deg)}
+.nav-dropdown-menu{
+  position:absolute;top:calc(100% + 8px);left:0;min-width:180px;
+  background:rgba(var(--panel2-rgb),0.98);
+  backdrop-filter:blur(24px) saturate(1.5);
+  -webkit-backdrop-filter:blur(24px) saturate(1.5);
+  border:1px solid var(--glass-border);border-radius:var(--r-sm);
+  padding:0.4rem;z-index:999;
+  display:none;flex-direction:column;gap:2px;
+  box-shadow:0 16px 44px rgba(0,0,0,0.35);
+}
+/* invisible bridge so the menu doesn't close in the 8px gap */
+.nav-dropdown:hover::after{content:'';position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{display:flex}
+.nav-dropdown-menu a{
+  padding:0.5rem 0.8rem;border-radius:8px;
+  color:var(--text);text-decoration:none;font-size:14px;white-space:nowrap;
+  transition:background 0.15s;
+}
+.nav-dropdown-menu a:hover{background:rgba(var(--brand-rgb),0.28)}
 
 /* CART PANEL */
 .cart-panel{
@@ -714,14 +751,14 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 /* NAV BADGE */
 .nav-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:0.4rem 1.2rem;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:0.4rem 0.85rem;
   background:rgba(var(--brand-rgb),0.2);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
   border:1px solid rgba(var(--brand-light-rgb),0.35);
   border-radius:var(--r);
-  font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+  font-size:12px;letter-spacing:0.07em;text-transform:uppercase;
   color:var(--purple3);white-space:nowrap;
   margin-left:auto;
 }
@@ -819,12 +856,15 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .mobile-filter-toggle{display:none;width:100%;padding:0.75rem 1rem;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--r-sm);color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;align-items:center;justify-content:space-between;gap:8px;transition:all 0.2s}
 .mobile-filter-toggle.active{background:rgba(var(--brand-rgb),0.2);border-color:rgba(var(--brand-light-rgb),0.4);color:var(--purple3)}
 @media(max-width:768px){
-  nav{padding:0.75rem 1rem}
+  nav{padding:0.6rem 1rem;flex-wrap:wrap;gap:0.5rem}
   .nav-search{max-width:160px}
   .nav-search input{font-size:16px}
   .nav-badge{display:none}
+  .nav-cart{margin-left:auto}
+  .nav-link{padding:0.4rem 0.7rem;font-size:13px}
+  nav.search-mode{flex-wrap:nowrap}
   nav.search-mode .nav-search{max-width:none;flex:1}
-  nav.search-mode .nav-cart,nav.search-mode .nav-btn{display:none!important}
+  nav.search-mode .nav-cart,nav.search-mode .nav-btn,nav.search-mode .nav-link,nav.search-mode .nav-dropdown{display:none!important}
   nav.search-mode .nav-search-cancel{display:flex;align-items:center;padding:0.3rem 0.5rem;background:none;border:none;color:var(--purple3);font-family:'Outfit',sans-serif;font-size:13px;cursor:pointer;flex-shrink:0;white-space:nowrap}
   .models-layout{grid-template-columns:1fr}
   .mobile-filter-toggle{display:flex;grid-column:1/-1}
@@ -891,7 +931,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .review-submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 </style>
-<script>window.BUILD_TS='20260725190829';</script>
+<script>window.BUILD_TS='20260725193239';</script>
 <meta property="og:image" content="https://velvetescort.co.uk/Manny/1.webp">
 </head>
 <body>
@@ -923,13 +963,31 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
     <div class="search-dropdown" id="searchDropdown"></div>
   </div>
   <button class="nav-search-cancel" id="navSearchCancel" onclick="cancelNavSearch()">Cancel</button>
+  <a class="nav-link" href="/models/">Models</a>
+  <div class="nav-dropdown">
+    <button class="nav-link" type="button">Locations
+      <svg class="nav-dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="/models/?city=london">London</a>
+      <a href="/models/?city=paris">Paris</a>
+      <a href="/models/?city=monaco">Monaco</a>
+      <a href="/models/?city=milan">Milan</a>
+      <a href="/models/?city=dubai">Dubai</a>
+      <a href="/models/?city=new-york">New York</a>
+      <a href="/models/?city=miami">Miami</a>
+      <a href="/models/?city=zurich">Zurich</a>
+      <a href="/models/?city=amsterdam">Amsterdam</a>
+    </div>
+  </div>
+  <a class="nav-link" href="/concierge/">Concierge</a>
+  <a class="nav-link" href="/events/">Events</a>
+  <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
+  <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
   <div class="nav-cart glass" onclick="openCart()" style="cursor:pointer;padding:0.45rem 0.9rem;border-radius:var(--r);display:flex;align-items:center;gap:6px;font-size:13px;transition:all 0.25s;white-space:nowrap;color:var(--text);">
     Booking
     <div class="cart-badge" id="cartBadge">0</div>
   </div>
-  <a class="nav-btn" href="/models/" style="text-decoration:none">Models</a>
-  <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
-  <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
 </nav>
 <!-- AGE VERIFICATION MODAL -->
 <div id="ageModal" class="age-modal-overlay">
@@ -979,14 +1037,14 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   </div>
 </footer>
 <script>
-const MODEL_DATA = {"id":9997,"real":true,"folder":"Manny","slug":"manny","name":"Manny","age":23,"height":173,"weight":60,"nationality":"British","station":"Southwark","rateHour":350,"color":["rgba(70,130,180,0.4)","rgba(30,80,130,0.7)"],"initials":"MA","cats":["recommended","under25","new"],"breastSize":"34C","breastType":"Silicone","clothingSize":"8","eyeColor":"Blue","hairColor":"Blonde","orientation":"Bisexual","languages":"English (Fluent)","svcs":["69","Bisexual DUO","Couples","Deep French Kissing","Erotic Massage","Group For Extra","Handcuffs","Lap Dancing","MMF For Double Price","Party Girl","Peeing On Model","Professional Massage","Roleplay","Sensual Massage","Strapon"],"extraSvcs":[{"name":"Anal Sex","price":150},{"name":"Blowjob Without Condom","price":50}],"incallRates":[{"label":"30 min","price":300},{"label":"45 min","price":330},{"label":"1 Hour","price":350},{"label":"2 Hours","price":600},{"label":"3 Hours","price":850},{"label":"4 Hours","price":1100},{"label":"Overnight","price":1900}],"outcallRates":[{"label":"30 min","price":350},{"label":"45 min","price":370},{"label":"1 Hour","price":400},{"label":"2 Hours","price":650},{"label":"3 Hours","price":900},{"label":"4 Hours","price":1150},{"label":"Overnight","price":1900}],"description":["Manny is a captivating young British companion based in London, combining natural confidence with a warm, open personality that puts you instantly at ease. With striking blonde hair, vivid blue eyes, and a tall, elegant figure, she carries herself with effortless poise and an understated sensuality that is entirely her own.","Bisexual and genuinely open-minded, Manny welcomes a broad range of encounters — from intimate one-on-one meetings to couples experiences and group bookings. She takes real pleasure in creating a relaxed, unhurried atmosphere where every moment feels personal and entirely for you.","A native English speaker, Manny is as engaging in conversation as she is in company. Available daily across London from her South Bank location, close to Southwark station, for both incall and outcall bookings — all arranged with complete discretion."],"reviews":[]};
+const MODEL_DATA = {"id":9997,"real":true,"folder":"Manny","slug":"manny","name":"Manny","age":23,"height":173,"weight":60,"nationality":"British","station":"Southwark","city":"London","rateHour":350,"color":["rgba(70,130,180,0.4)","rgba(30,80,130,0.7)"],"initials":"MA","cats":["recommended","under25","new"],"breastSize":"34C","breastType":"Silicone","clothingSize":"8","eyeColor":"Blue","hairColor":"Blonde","orientation":"Bisexual","languages":"English (Fluent)","svcs":["69","Bisexual DUO","Couples","Deep French Kissing","Erotic Massage","Group For Extra","Handcuffs","Lap Dancing","MMF For Double Price","Party Girl","Peeing On Model","Professional Massage","Roleplay","Sensual Massage","Strapon"],"extraSvcs":[{"name":"Anal Sex","price":150},{"name":"Blowjob Without Condom","price":50}],"incallRates":[{"label":"30 min","price":300},{"label":"45 min","price":330},{"label":"1 Hour","price":350},{"label":"2 Hours","price":600},{"label":"3 Hours","price":850},{"label":"4 Hours","price":1100},{"label":"Overnight","price":1900}],"outcallRates":[{"label":"30 min","price":350},{"label":"45 min","price":370},{"label":"1 Hour","price":400},{"label":"2 Hours","price":650},{"label":"3 Hours","price":900},{"label":"4 Hours","price":1150},{"label":"Overnight","price":1900}],"description":["Manny is a captivating young British companion based in London, combining natural confidence with a warm, open personality that puts you instantly at ease. With striking blonde hair, vivid blue eyes, and a tall, elegant figure, she carries herself with effortless poise and an understated sensuality that is entirely her own.","Bisexual and genuinely open-minded, Manny welcomes a broad range of encounters — from intimate one-on-one meetings to couples experiences and group bookings. She takes real pleasure in creating a relaxed, unhurried atmosphere where every moment feels personal and entirely for you.","A native English speaker, Manny is as engaging in conversation as she is in company. Available daily across London from her South Bank location, close to Southwark station, for both incall and outcall bookings — all arranged with complete discretion."],"reviews":[]};
 const MODELS = [MODEL_DATA];
 const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob With Condom","Blowjob Without Condom","Body to Body Massage","Couples","Cum In Mouth","Cum On Body","Cum On Face","Deep French Kissing","Deep Throat","Dirty Talk","Domination","Double Penetration","DUO","Erotic Massage","Face Sitting","Fetish","Filming With Mask","Filming Without Mask","Fingering","Fisting Giving","Foot Fetish","French Kissing","Girlfriend Experience","Group For Extra","Handcuffs","Lady's Services","Lap Dancing","Light Domination","Lomilomi Massage","Massage","MMF For Double Price","Nuru Massage","Open Minded","Party Girl","Peeing On Client","Peeing On Model","Photos With Mask","Poppers","Pornstar Experience","Professional Massage","Prostate Massage","Rimming Gives","Rimming Receives","Roleplay","Sensual Massage","Shower Together","Smoking Fetish","Snowballing","Soft Spanking Receiving","Spanking Giving","Strapon","Striptease","Swallow Sperm","Tantric Massage","Tie & Tease","Toys","Uniform","Women Clients"];
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 </script>
-<script src="/assets/main.js?v=20260725190829"></script>
-<script src="/assets/profile.js?v=20260725190829"></script>
+<script src="/assets/main.js?v=20260725193239"></script>
+<script src="/assets/profile.js?v=20260725193239"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   openRealModel(MODEL_DATA);

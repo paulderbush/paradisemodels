@@ -64,8 +64,8 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
 /* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;gap:1rem;
-  padding:0.75rem 2rem;
+  display:flex;align-items:center;gap:0.6rem;
+  padding:0.75rem 1.25rem;
   background:rgba(var(--panel-rgb),0.75);
   backdrop-filter:blur(24px) saturate(1.5);
   -webkit-backdrop-filter:blur(24px) saturate(1.5);
@@ -78,7 +78,7 @@ nav{
   white-space:nowrap;margin-right:0.5rem;
 }
 .nav-search{
-  flex:1;max-width:340px;
+  flex:0 1 238px;max-width:238px;
   display:flex;align-items:center;gap:8px;
   background:rgba(var(--brand-rgb),0.1);
   border:1px solid var(--glass-border);
@@ -148,6 +148,43 @@ nav{
   box-shadow:0 4px 20px rgba(112,233,255,0.35);
 }
 .nav-btn-vip:hover{box-shadow:0 6px 28px rgba(112,233,255,0.55)}
+
+/* Ghost nav links (Models / Locations / Concierge / Events) */
+.nav-link{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:0.5rem 0.75rem;border-radius:var(--r);
+  background:rgba(var(--brand-rgb),0.1);
+  border:1px solid var(--glass-border);
+  color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all 0.25s;white-space:nowrap;text-decoration:none;
+}
+.nav-link:hover{background:rgba(var(--brand-rgb),0.25);border-color:var(--purple3)}
+
+/* Locations dropdown */
+.nav-dropdown{position:relative}
+.nav-dropdown-caret{transition:transform 0.2s;opacity:0.7}
+.nav-dropdown:hover .nav-dropdown-caret,
+.nav-dropdown:focus-within .nav-dropdown-caret{transform:rotate(180deg)}
+.nav-dropdown-menu{
+  position:absolute;top:calc(100% + 8px);left:0;min-width:180px;
+  background:rgba(var(--panel2-rgb),0.98);
+  backdrop-filter:blur(24px) saturate(1.5);
+  -webkit-backdrop-filter:blur(24px) saturate(1.5);
+  border:1px solid var(--glass-border);border-radius:var(--r-sm);
+  padding:0.4rem;z-index:999;
+  display:none;flex-direction:column;gap:2px;
+  box-shadow:0 16px 44px rgba(0,0,0,0.35);
+}
+/* invisible bridge so the menu doesn't close in the 8px gap */
+.nav-dropdown:hover::after{content:'';position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{display:flex}
+.nav-dropdown-menu a{
+  padding:0.5rem 0.8rem;border-radius:8px;
+  color:var(--text);text-decoration:none;font-size:14px;white-space:nowrap;
+  transition:background 0.15s;
+}
+.nav-dropdown-menu a:hover{background:rgba(var(--brand-rgb),0.28)}
 
 /* CART PANEL */
 .cart-panel{
@@ -714,14 +751,14 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 /* NAV BADGE */
 .nav-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:0.4rem 1.2rem;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:0.4rem 0.85rem;
   background:rgba(var(--brand-rgb),0.2);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
   border:1px solid rgba(var(--brand-light-rgb),0.35);
   border-radius:var(--r);
-  font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+  font-size:12px;letter-spacing:0.07em;text-transform:uppercase;
   color:var(--purple3);white-space:nowrap;
   margin-left:auto;
 }
@@ -819,12 +856,15 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .mobile-filter-toggle{display:none;width:100%;padding:0.75rem 1rem;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--r-sm);color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;align-items:center;justify-content:space-between;gap:8px;transition:all 0.2s}
 .mobile-filter-toggle.active{background:rgba(var(--brand-rgb),0.2);border-color:rgba(var(--brand-light-rgb),0.4);color:var(--purple3)}
 @media(max-width:768px){
-  nav{padding:0.75rem 1rem}
+  nav{padding:0.6rem 1rem;flex-wrap:wrap;gap:0.5rem}
   .nav-search{max-width:160px}
   .nav-search input{font-size:16px}
   .nav-badge{display:none}
+  .nav-cart{margin-left:auto}
+  .nav-link{padding:0.4rem 0.7rem;font-size:13px}
+  nav.search-mode{flex-wrap:nowrap}
   nav.search-mode .nav-search{max-width:none;flex:1}
-  nav.search-mode .nav-cart,nav.search-mode .nav-btn{display:none!important}
+  nav.search-mode .nav-cart,nav.search-mode .nav-btn,nav.search-mode .nav-link,nav.search-mode .nav-dropdown{display:none!important}
   nav.search-mode .nav-search-cancel{display:flex;align-items:center;padding:0.3rem 0.5rem;background:none;border:none;color:var(--purple3);font-family:'Outfit',sans-serif;font-size:13px;cursor:pointer;flex-shrink:0;white-space:nowrap}
   .models-layout{grid-template-columns:1fr}
   .mobile-filter-toggle{display:flex;grid-column:1/-1}
@@ -891,7 +931,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .review-submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 </style>
-<script>window.BUILD_TS='20260725190829';</script>
+<script>window.BUILD_TS='20260725193239';</script>
 
 </head>
 <body>
@@ -923,13 +963,31 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
     <div class="search-dropdown" id="searchDropdown"></div>
   </div>
   <button class="nav-search-cancel" id="navSearchCancel" onclick="cancelNavSearch()">Cancel</button>
+  <a class="nav-link" href="/models/">Models</a>
+  <div class="nav-dropdown">
+    <button class="nav-link" type="button">Locations
+      <svg class="nav-dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="/models/?city=london">London</a>
+      <a href="/models/?city=paris">Paris</a>
+      <a href="/models/?city=monaco">Monaco</a>
+      <a href="/models/?city=milan">Milan</a>
+      <a href="/models/?city=dubai">Dubai</a>
+      <a href="/models/?city=new-york">New York</a>
+      <a href="/models/?city=miami">Miami</a>
+      <a href="/models/?city=zurich">Zurich</a>
+      <a href="/models/?city=amsterdam">Amsterdam</a>
+    </div>
+  </div>
+  <a class="nav-link" href="/concierge/">Concierge</a>
+  <a class="nav-link" href="/events/">Events</a>
+  <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
+  <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
   <div class="nav-cart glass" onclick="openCart()" style="cursor:pointer;padding:0.45rem 0.9rem;border-radius:var(--r);display:flex;align-items:center;gap:6px;font-size:13px;transition:all 0.25s;white-space:nowrap;color:var(--text);">
     Booking
     <div class="cart-badge" id="cartBadge">0</div>
   </div>
-  <a class="nav-btn" href="/models/" style="text-decoration:none">Models</a>
-  <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
-  <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
 </nav>
 <!-- AGE VERIFICATION MODAL -->
 <div id="ageModal" class="age-modal-overlay">
@@ -990,7 +1048,7 @@ const SERVICES = [];
 const NATIONALITIES = [];
 const STATIONS = [];
 </script>
-<script src="/assets/main.js?v=20260725190829"></script>
+<script src="/assets/main.js?v=20260725193239"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const allIds = Array.from({length: 17}, (_, i) => i);
