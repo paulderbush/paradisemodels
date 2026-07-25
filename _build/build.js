@@ -38,7 +38,7 @@ ${extra}
 
 function navHTML(paradise = false) {
   const logo = paradise
-    ? `<a class="nav-logo nav-logo-paradise" href="/" style="cursor:pointer;text-decoration:none"><span class="nlp-main">PARADISE</span><span class="nlp-sub">Models</span></a>`
+    ? `<a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=${BUILD_TS}" alt="Paradise Models"></a>`
     : `<a class="nav-logo" href="/" style="cursor:pointer;text-decoration:none">VELVET</a>`;
   return _navHTML(logo);
 }

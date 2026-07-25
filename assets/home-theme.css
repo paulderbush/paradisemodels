@@ -1,64 +1,83 @@
 /* =========================================================
    PARADISE MODELS — homepage rebrand theme (preview)
    Overrides the brand palette for the homepage only.
-   Base colors: background #4ba4c5 (cyan) · elements #3a4081 (indigo)
+   Background: solid #70e9ff (bright cyan)
+   Elements: indigo #3a4081 + gradients for contrast
    ========================================================= */
 :root{
   /* Solid brand colors */
   --purple:#3a4081;          /* primary element / button (indigo) */
   --purple2:#4b52a8;         /* lighter indigo */
-  --purple3:#4ba4c5;         /* cyan accent */
+  --purple3:#2ec4e6;         /* cyan accent */
   --purple-dark:#2a2f66;     /* deep indigo */
-  --bg:#3a4081;
-  --bg2:#34467e;
+  --bg:#70e9ff;
+  --bg2:#5fd8f0;
 
   /* RGB components used across the stylesheet */
   --brand-rgb:58,64,129;         /* #3a4081 indigo */
-  --brand2-rgb:75,164,197;       /* #4ba4c5 cyan */
-  --brand-light-rgb:120,196,222; /* light cyan */
+  --brand2-rgb:46,196,230;       /* cyan */
+  --brand-light-rgb:75,82,168;   /* indigo (kept dark for contrast on cyan bg) */
   --brand-dark-rgb:42,47,102;    /* deep indigo */
-  --panel-rgb:22,28,66;          /* dark indigo panels (nav, cart, dropdowns) */
-  --panel2-rgb:28,36,82;
+  --panel-rgb:32,38,92;          /* indigo panels (nav, cart, dropdowns) */
+  --panel2-rgb:30,36,82;
 
-  /* Gradient glow (logo, headings) */
-  --glow-light:#8fd8ec;      /* light cyan */
-  --glow-mid:#4ba4c5;        /* cyan */
+  /* Gradient glow (headings) */
+  --glow-light:#2a2f66;      /* deep indigo */
+  --glow-mid:#3a4081;        /* indigo */
 
-  /* Text tuned for the lighter background */
+  /* Text */
   --text:#F4F9FC;
-  --text-soft:rgba(244,249,252,0.72);
-  --text-muted:rgba(244,249,252,0.5);
+  --text-soft:rgba(244,249,252,0.78);
+  --text-muted:rgba(244,249,252,0.58);
 }
 
-/* Page background: cyan → indigo gradient (matches brand direction) */
+/* Solid bright-cyan page background */
 body{
-  background:linear-gradient(158deg,#4ba4c5 0%,#4173a3 38%,#3a4081 72%,#333a75 100%);
-  background-attachment:fixed;
+  background:#70e9ff;
 }
 
-/* Buttons/gradients that mix the two brand colors read best cyan → indigo */
+/* NAV — deep indigo so the teal→cyan logo stands out */
+nav{
+  background:rgba(26,30,66,0.97)!important;
+  border-bottom:1px solid rgba(255,255,255,0.12)!important;
+}
+
+/* Logo image in nav */
+.nav-logo-img{display:inline-flex;align-items:center;margin-right:0.5rem}
+.nav-logo-img img{height:40px;width:auto;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.35))}
+
+/* Buttons / primary gradients: indigo → cyan for contrast on cyan bg */
 .nav-btn,.cart-checkout,.make-booking-btn,.submit-app-btn,.review-submit-btn{
-  background:linear-gradient(135deg,var(--purple3),var(--purple))!important;
+  background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
+  box-shadow:0 4px 20px rgba(var(--brand-dark-rgb),0.45)!important;
+}
+
+/* Section headings: solid deep indigo for contrast on cyan */
+.section-title,.section-title span{
+  background:none!important;-webkit-text-fill-color:initial!important;color:#2a2f66!important;
+}
+
+/* Section subtext readable on cyan */
+.section-header .see-all{color:#2a2f66}
+
+/* Model cards: indigo glass so they pop off the cyan background */
+.model-card{
+  background:linear-gradient(160deg,rgba(var(--brand-rgb),0.92),rgba(var(--brand-dark-rgb),0.95))!important;
+  border:1px solid rgba(255,255,255,0.14)!important;
+  box-shadow:0 8px 30px rgba(42,47,102,0.35)!important;
+}
+
+/* Prices in white */
+.model-rate,.model-rate span,.price-main,.price-total-val{
+  color:#ffffff!important;
 }
 
 /* Hero glow shadow in-palette */
-.hero{box-shadow:0 0 80px rgba(var(--brand2-rgb),0.5),0 0 160px rgba(var(--brand-rgb),0.3)!important}
+.hero{box-shadow:0 0 80px rgba(var(--brand-rgb),0.5),0 0 160px rgba(var(--brand-dark-rgb),0.35)!important}
+.hero-content h1 span{
+  background:linear-gradient(135deg,#8fe9ff,#2ec4e6)!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
 
-/* =================== PARADISE MODELS LOGO =================== */
-.nav-logo-paradise{
-  display:inline-flex;flex-direction:column;align-items:center;
-  line-height:1;text-decoration:none;
-  background:none;-webkit-text-fill-color:initial;
-  margin-right:0.5rem;
-}
-.nav-logo-paradise .nlp-main{
-  font-size:1.4rem;font-weight:700;letter-spacing:-0.01em;
-  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid));
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.nav-logo-paradise .nlp-sub{
-  font-size:0.56rem;font-weight:600;letter-spacing:0.34em;
-  text-transform:uppercase;color:#fff;-webkit-text-fill-color:#fff;
-  margin-top:2px;padding-left:0.34em;
-}
+/* FAQ section title on cyan */
+.faq-section .section-title,.faq-section .section-title span{color:#2a2f66!important}
