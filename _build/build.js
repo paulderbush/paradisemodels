@@ -9,7 +9,9 @@ const css = fs.readFileSync(path.join(__dirname, '../assets/style.css'), 'utf8')
 const { MODELS, SERVICES, NATIONALITIES, STATIONS } = require('../data/models.js');
 const REAL_MODELS = MODELS.filter(m => m.real);
 const SITE_URL = 'https://velvetescort.co.uk';
-const BUILD_TS = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+// Full timestamp (YYYYMMDDHHMMSS) so every build busts browser cache,
+// even multiple deploys on the same day.
+const BUILD_TS = new Date().toISOString().replace(/[-:T.]/g, '').slice(0, 14);
 
 // =================== SHARED PARTS ===================
 
