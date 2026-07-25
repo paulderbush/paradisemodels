@@ -60,16 +60,37 @@ nav{
 /* Section subtext readable on cyan */
 .section-header .see-all{color:#2a2f66}
 
-/* Model cards: indigo glass so they pop off the cyan background */
+/* Model cards: dark menu-colored border + footer, popping off the cyan bg */
 .model-card{
-  background:linear-gradient(160deg,rgba(var(--brand-rgb),0.92),rgba(var(--brand-dark-rgb),0.95))!important;
-  border:1px solid rgba(255,255,255,0.14)!important;
-  box-shadow:0 8px 30px rgba(42,47,102,0.35)!important;
+  background:#1a1e42!important;
+  border:1px solid #1a1e42!important;
+  box-shadow:0 8px 30px rgba(20,24,52,0.4)!important;
+}
+.model-card:hover{border-color:#1a1e42!important}
+.model-card-footer{
+  background:#1a1e42!important;
+  border-top:1px solid rgba(255,255,255,0.08)!important;
 }
 
 /* Prices in white */
 .model-rate,.model-rate span,.price-main,.price-total-val{
   color:#ffffff!important;
+}
+
+/* Hero / footer buttons: dark like the menu, brand-colored labels */
+.hero-btns .btn-wa,.footer-btns .btn-wa,
+.hero-btns .btn-tg,.footer-btns .btn-tg,
+.hero-btns .btn-model-cta,.footer-btns .btn-model-cta{
+  background:#1a1e42!important;
+  border:1px solid rgba(255,255,255,0.12)!important;
+}
+.hero-btns .btn-wa,.footer-btns .btn-wa{color:#25D366!important}
+.hero-btns .btn-tg,.footer-btns .btn-tg{color:#29B6F6!important}
+.hero-btns .btn-model-cta,.footer-btns .btn-model-cta{color:#ffffff!important}
+.hero-btns .btn-wa:hover,.footer-btns .btn-wa:hover,
+.hero-btns .btn-tg:hover,.footer-btns .btn-tg:hover,
+.hero-btns .btn-model-cta:hover,.footer-btns .btn-model-cta:hover{
+  background:#242a54!important;
 }
 
 /* Hero glow shadow in-palette */
