@@ -173,6 +173,9 @@ ${fakeModelOverlayHTML()}
   <!-- HERO -->
   <div class="hero" style="position:relative;z-index:1">
     <div class="hero-bg"></div>
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/images/PC.jpg?v=${BUILD_TS}">
+      <source src="/images/background.mp4?v=${BUILD_TS}" type="video/mp4">
+    </video>
     <div class="hero-content">
       <div class="hero-hours">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
