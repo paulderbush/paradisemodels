@@ -74,6 +74,7 @@ function _navHTML(logo) {
     <div class="cart-badge" id="cartBadge">0</div>
   </div>
   <a class="nav-btn" href="/models/" style="text-decoration:none">Models</a>
+  <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
   <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
 </nav>`;
 }
@@ -650,12 +651,50 @@ document.addEventListener('DOMContentLoaded', function() {
 </html>`;
 }
 
+// =================== VIP MODELS PAGE (placeholder) ===================
+function buildVipModels() {
+  return head(
+    'VIP Models — Paradise Models',
+    'An exclusive selection of VIP companions at Paradise Models. Coming soon.',
+    SITE_URL + '/vip-models/',
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`
+  ) + `
+<body>
+${orbsHTML()}
+${navHTML(true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="faq-page" style="text-align:center;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+    <a class="back-btn" href="/" style="position:absolute;top:90px;left:2rem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+    <h1 style="font-size:clamp(2.4rem,5vw,4rem);font-weight:700;margin-bottom:1rem">VIP <span style="background:linear-gradient(135deg,#1a5f7a,#123a66);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Models</span></h1>
+    <p style="color:var(--text-soft);font-size:1.1rem;max-width:520px">Our most exclusive selection of companions — available by private introduction only.</p>
+    <p style="color:var(--text-muted);font-size:1rem;margin-top:1.5rem">Coming soon.</p>
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = [];
+const NATIONALITIES = [];
+const STATIONS = [];
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+</body>
+</html>`;
+}
+
 // =================== SITEMAP ===================
 function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const pages = [
     {url: '/', priority: '1.0'},
     {url: '/models/', priority: '0.9'},
+    {url: '/vip-models/', priority: '0.9'},
     {url: '/faq/', priority: '0.7'},
     {url: '/become-a-model/', priority: '0.6'},
     ...REAL_MODELS.map(m => ({url: `/models/${m.slug}/`, priority: '0.8'})),
@@ -687,6 +726,7 @@ REAL_MODELS.forEach(m => {
 });
 write(path.join(OUT, 'faq/index.html'), buildFaq());
 write(path.join(OUT, 'become-a-model/index.html'), buildBecome());
+write(path.join(OUT, 'vip-models/index.html'), buildVipModels());
 write(path.join(OUT, 'sitemap.xml'), buildSitemap());
 
 console.log('\nBuild complete!');
