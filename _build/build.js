@@ -30,10 +30,12 @@ function head(title, desc, canonical, extra = '') {
 <meta property="og:description" content="${desc}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=2">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=2">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=2">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=${BUILD_TS}">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=${BUILD_TS}">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=${BUILD_TS}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>${css}</style>
 <script>window.BUILD_TS='${BUILD_TS}';</script>
 ${extra}
@@ -82,6 +84,7 @@ function _navHTML(logo) {
   </div>
   <a class="nav-link" href="/concierge/">Concierge</a>
   <a class="nav-link" href="/events/">Events</a>
+  <a class="nav-link" href="/about/">About Us</a>
   <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
   <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
   <div class="nav-cart glass" onclick="openCart()" style="cursor:pointer;padding:0.45rem 0.9rem;border-radius:var(--r);display:flex;align-items:center;gap:6px;font-size:13px;transition:all 0.25s;white-space:nowrap;color:var(--text);">
@@ -169,7 +172,7 @@ const CITIES = ${JSON.stringify(CITIES)};
 // =================== HOME PAGE ===================
 function buildHome() {
   return head(
-    'Paradise Models — Elite Escort Agency',
+    'Paradise Models — HIGH CLASS INTERNATIONAL ESCORT AGENCY',
     'Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions you will find nowhere else.',
     SITE_URL + '/',
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`
@@ -744,6 +747,16 @@ function buildEvents() {
   });
 }
 
+function buildAbout() {
+  return buildPlaceholder({
+    metaTitle: 'About Us — Paradise Models',
+    metaDesc: 'About Paradise Models — a high-class international escort agency built on absolute discretion and impeccable service.',
+    slug: '/about/',
+    heading: 'About', headingAccent: 'Us',
+    lead: 'A high-class international agency built on absolute discretion, impeccable service, and an eye for the extraordinary.',
+  });
+}
+
 // =================== SITEMAP ===================
 function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
@@ -753,6 +766,7 @@ function buildSitemap() {
     {url: '/vip-models/', priority: '0.9'},
     {url: '/concierge/', priority: '0.7'},
     {url: '/events/', priority: '0.7'},
+    {url: '/about/', priority: '0.7'},
     {url: '/faq/', priority: '0.7'},
     {url: '/become-a-model/', priority: '0.6'},
     ...REAL_MODELS.map(m => ({url: `/models/${m.slug}/`, priority: '0.8'})),
@@ -787,6 +801,7 @@ write(path.join(OUT, 'become-a-model/index.html'), buildBecome());
 write(path.join(OUT, 'vip-models/index.html'), buildVipModels());
 write(path.join(OUT, 'concierge/index.html'), buildConcierge());
 write(path.join(OUT, 'events/index.html'), buildEvents());
+write(path.join(OUT, 'about/index.html'), buildAbout());
 write(path.join(OUT, 'sitemap.xml'), buildSitemap());
 
 console.log('\nBuild complete!');

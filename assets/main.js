@@ -97,7 +97,7 @@ function renderCart() {
         <div class="cart-item-detail">£${m.rateHour}/hr · ${m.nationality}</div>
         <div style="display:flex;align-items:center;gap:6px;margin-top:4px">
           <span style="font-size:12px;color:var(--text-muted)">Hours:</span>
-          <select style="background:rgba(123,47,190,0.15);border:1px solid var(--glass-border);border-radius:8px;color:var(--text);font-size:12px;padding:2px 6px;font-family:Outfit,sans-serif" onchange="setDuration(${m.id},this.value)">
+          <select style="background:rgba(123,47,190,0.15);border:1px solid var(--glass-border);border-radius:8px;color:var(--text);font-size:12px;padding:2px 6px;font-family:'Zalando Sans',sans-serif" onchange="setDuration(${m.id},this.value)">
             ${[1, 2, 3, 4, 6, 8].map(h => `<option value="${h}" ${m.duration == h ? 'selected' : ''}>${h}h — £${m.rateHour * h}</option>`).join('')}
           </select>
         </div>
@@ -165,7 +165,7 @@ async function submitBooking() {
     const json = await res.json();
     if (json.ok) {
       _bookingDraft = null;
-      document.getElementById('cartContent').innerHTML = `<div style="text-align:center;padding:3rem 1rem"><div style="font-size:3rem;margin-bottom:1rem">✓</div><div style="font-size:1.1rem;font-weight:600;margin-bottom:0.5rem">Booking Sent!</div><div style="font-size:13px;color:var(--text-soft)">Our team will contact you shortly to confirm your appointment with ${d.modelName}.</div><button onclick="closeCart();renderCart()" style="margin-top:2rem;background:var(--purple);border:none;color:#fff;padding:0.75rem 2rem;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;font-family:Outfit,sans-serif">Close</button></div>`;
+      document.getElementById('cartContent').innerHTML = `<div style="text-align:center;padding:3rem 1rem"><div style="font-size:3rem;margin-bottom:1rem">✓</div><div style="font-size:1.1rem;font-weight:600;margin-bottom:0.5rem">Booking Sent!</div><div style="font-size:13px;color:var(--text-soft)">Our team will contact you shortly to confirm your appointment with ${d.modelName}.</div><button onclick="closeCart();renderCart()" style="margin-top:2rem;background:var(--purple);border:none;color:#fff;padding:0.75rem 2rem;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;font-family:'Zalando Sans',sans-serif">Close</button></div>`;
       document.getElementById('cartBadge').textContent = '0';
     } else { throw new Error(json.description || 'Telegram API error'); }
   } catch(e) {
@@ -270,7 +270,7 @@ function openFakeModel(id) {
         <div style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem">${m.name}</div>
         <div style="color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:1.5rem">${m.age} yrs · ${m.nationality}</div>
         <div style="color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:1.5rem">This companion's full profile is available by enquiry. Contact us to learn more.</div>
-        <button onclick="this.closest('[style*=fixed]').remove()" style="background:linear-gradient(135deg,#7B2FBE,#4a1880);border:none;color:#fff;padding:0.75rem 2rem;border-radius:40px;font-size:14px;font-weight:600;cursor:pointer;font-family:Outfit,sans-serif">Close</button>
+        <button onclick="this.closest('[style*=fixed]').remove()" style="background:linear-gradient(135deg,#7B2FBE,#4a1880);border:none;color:#fff;padding:0.75rem 2rem;border-radius:40px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Zalando Sans',sans-serif">Close</button>
       </div>
     </div>`;
 }
