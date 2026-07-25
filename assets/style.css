@@ -356,6 +356,15 @@ nav{
   transition:all 0.25s;text-decoration:none;
 }
 .btn-model-cta:hover{background:rgba(var(--brand-rgb),0.28);transform:translateY(-1px)}
+.btn-blog{
+  display:flex;align-items:center;gap:8px;
+  padding:0.7rem 1.4rem;border-radius:var(--r);
+  background:rgba(var(--brand-rgb),0.15);
+  border:1px solid rgba(var(--brand-light-rgb),0.3);
+  color:var(--purple3);font-size:14px;font-weight:500;cursor:pointer;
+  transition:all 0.25s;text-decoration:none;
+}
+.btn-blog:hover{background:rgba(var(--brand-rgb),0.28);transform:translateY(-1px)}
 
 /* SECTION */
 .section{padding:4rem 2rem;max-width:1280px;margin:0 auto;position:relative;z-index:1}
