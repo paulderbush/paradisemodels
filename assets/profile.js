@@ -294,7 +294,7 @@ function buildRealModelHTML(m) {
           ${[1, 2, 3, 4, 5].map(n => `<button onclick="setReviewStar(${n})">★</button>`).join('')}
         </div>
         <div class="bf-label">Your review</div>
-        <textarea class="bf-input" id="rv-text" rows="4" placeholder="Share your experience…" style="resize:vertical;font-family:Outfit,sans-serif"></textarea>
+        <textarea class="bf-input" id="rv-text" rows="4" placeholder="Share your experience…" style="resize:vertical;font-family:'Zalando Sans',sans-serif"></textarea>
         <button class="review-submit-btn" id="rv-submit" onclick="submitReview(${m.id})">Submit Review</button>
         <div style="font-size:11px;color:var(--text-muted);margin-top:0.5rem;text-align:center">Your review is published instantly. Inappropriate reviews may be removed.</div>
       </div>

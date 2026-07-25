@@ -33,7 +33,9 @@ function head(title, desc, canonical, extra = '') {
 <link rel="icon" type="image/png" href="/images/favicon.png?v=${BUILD_TS}">
 <link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=${BUILD_TS}">
 <link rel="apple-touch-icon" href="/images/favicon.png?v=${BUILD_TS}">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>${css}</style>
 <script>window.BUILD_TS='${BUILD_TS}';</script>
 ${extra}
