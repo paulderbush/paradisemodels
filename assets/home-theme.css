@@ -100,8 +100,8 @@ nav{
   background:#242a54!important;
 }
 
-/* Hero glow shadow in-palette */
-.hero{box-shadow:0 0 80px rgba(var(--brand-rgb),0.5),0 0 160px rgba(var(--brand-dark-rgb),0.35)!important}
+/* Clean, soft downward shadow (the old dark glow muddied the rounded corners) */
+.hero{box-shadow:0 24px 60px rgba(42,47,102,0.28)!important}
 /* Remove the dark overlay on the hero banner image */
 .hero-bg::after{background:none!important}
 /* Hero background video (desktop). Image stays as poster/mobile fallback. */
@@ -109,6 +109,21 @@ nav{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:top center;
   z-index:0;pointer-events:none;
+}
+/* 20% darkening over the banner — better readability & perceived quality.
+   Sits above the video (z0) and below the text (z2); clipped by the hero's
+   rounded corners since .hero has overflow:hidden. */
+.hero::after{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:rgba(0,0,0,0.2);
+}
+/* Desktop: underlay the video with its own first frame, so there is no
+   flash of the old still image before the video starts playing. */
+@media(min-width:769px){
+  .hero-bg{
+    background-image:url('/images/hero-poster.jpg')!important;
+    background-position:top center!important;
+  }
 }
 @media(max-width:768px){
   /* Save mobile data: hide the video, keep the image background */
