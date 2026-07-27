@@ -17,12 +17,13 @@ const BUILD_TS = new Date().toISOString().replace(/[-:T.]/g, '').slice(0, 14);
 
 // =================== SHARED PARTS ===================
 
-function head(title, desc, canonical, extra = '') {
+function head(title, desc, canonical, extra = '', themeColor = '#0D0812') {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="${themeColor}">
 <title>${title}</title>
 <meta name="description" content="${desc}">
 <link rel="canonical" href="${canonical}">
@@ -240,7 +241,8 @@ function buildHome() {
     'Paradise Models — HIGH CLASS INTERNATIONAL ESCORT AGENCY',
     'Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions you will find nowhere else.',
     SITE_URL + '/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
   ) + `
 <body>
 ${orbsHTML()}
@@ -730,7 +732,8 @@ function buildVipModels() {
     'VIP Models — Paradise Models',
     'An exclusive selection of VIP companions at Paradise Models. Coming soon.',
     SITE_URL + '/vip-models/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
   ) + `
 <body>
 ${orbsHTML()}
@@ -768,7 +771,8 @@ function buildPlaceholder({title, slug, heading, headingAccent, lead, metaTitle,
     metaTitle,
     metaDesc,
     SITE_URL + slug,
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
   ) + `
 <body>
 ${orbsHTML()}
