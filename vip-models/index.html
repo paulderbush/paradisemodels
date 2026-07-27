@@ -10,9 +10,9 @@
 <meta property="og:description" content="An exclusive selection of VIP companions at Paradise Models. Coming soon.">
 <meta property="og:url" content="https://velvetescort.co.uk/vip-models/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260727142626">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260727142626">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260727142626">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260727144543">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260727144543">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260727144543">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -944,19 +944,22 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 /* LIVE CHAT WIDGET */
 .chat-bubble{
   position:fixed;bottom:22px;right:22px;z-index:600;
-  width:56px;height:56px;border-radius:50%;
+  height:50px;padding:0 1.15rem 0 1rem;border-radius:var(--r);
   background:linear-gradient(135deg,var(--purple),var(--purple-dark));
   border:none;color:#fff;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:center;gap:8px;
   box-shadow:0 6px 24px rgba(var(--brand-rgb),0.55);
   transition:transform 0.25s;
 }
-.chat-bubble:hover{transform:translateY(-2px) scale(1.05)}
-.chat-unread-dot{
-  position:absolute;top:2px;right:2px;width:12px;height:12px;border-radius:50%;
-  background:#ff5050;border:2px solid var(--bg);display:none;
+.chat-bubble:hover{transform:translateY(-2px) scale(1.03)}
+.chat-bubble-label{font-family:'Zalando Sans',sans-serif;font-size:14px;font-weight:600;color:#fff;white-space:nowrap}
+.chat-unread-badge{
+  position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;
+  background:#ff3b30;border:2px solid var(--bg);
+  color:#fff;font-family:'Zalando Sans',sans-serif;font-size:11px;font-weight:700;
+  display:none;align-items:center;justify-content:center;line-height:1;
 }
-.chat-unread-dot.show{display:block}
+.chat-unread-badge.show{display:flex}
 .chat-panel{
   position:fixed;bottom:22px;right:22px;z-index:601;
   width:340px;max-width:calc(100vw - 32px);height:460px;max-height:calc(100vh - 100px);
@@ -976,7 +979,8 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 }
 .chat-panel-title{font-weight:600;font-size:14px}
 .chat-panel-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
-.chat-close-btn{background:none;border:none;color:var(--text-soft);cursor:pointer;font-size:1.1rem;padding:4px}
+.chat-close-btn{background:none;border:none;color:var(--text-soft);cursor:pointer;padding:6px;display:flex;align-items:center;justify-content:center;border-radius:8px;transition:background 0.2s,color 0.2s}
+.chat-close-btn:hover{background:rgba(var(--brand-rgb),0.2);color:var(--text)}
 .chat-messages{flex:1;overflow-y:auto;padding:0.9rem;display:flex;flex-direction:column;gap:8px}
 .chat-empty{color:var(--text-muted);font-size:13px;text-align:center;padding:2rem 0.5rem;line-height:1.6}
 .chat-msg{
@@ -1018,9 +1022,9 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 }
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 </style>
-<script>window.BUILD_TS='20260727142626';</script>
+<script>window.BUILD_TS='20260727144543';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260727142626">
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260727144543">
 </head>
 <body>
 <div class="orb-container">
@@ -1044,7 +1048,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260727142626" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260727144543" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1141,7 +1145,7 @@ const SERVICES = [];
 const NATIONALITIES = [];
 const STATIONS = [];
 </script>
-<script src="/assets/main.js?v=20260727142626"></script>
-<script src="/assets/chat.js?v=20260727142626"></script>
+<script src="/assets/main.js?v=20260727144543"></script>
+<script src="/assets/chat.js?v=20260727144543"></script>
 </body>
 </html>

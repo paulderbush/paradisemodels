@@ -11,6 +11,7 @@
   let sending = false;
   let sbClient = null;
   let realtimeChannel = null;
+  let unreadCount = 0;
 
   function el(html) {
     const t = document.createElement('template');
@@ -26,9 +27,10 @@
 
   function injectWidget() {
     const bubble = el(`
-      <button id="chatBubble" class="chat-bubble" aria-label="Chat with us">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <span id="chatUnreadDot" class="chat-unread-dot"></span>
+      <button id="chatBubble" class="chat-bubble" aria-label="Live chat with us">
+        <span class="dot"></span>
+        <span class="chat-bubble-label">Live Chat</span>
+        <span id="chatUnreadBadge" class="chat-unread-badge"></span>
       </button>
     `);
     const panel = el(`
@@ -38,7 +40,9 @@
             <div class="chat-panel-title">Chat with us</div>
             <div class="chat-panel-sub">A real person replies here</div>
           </div>
-          <button id="chatClose" class="chat-close-btn" aria-label="Close chat">✕</button>
+          <button id="chatClose" class="chat-close-btn" aria-label="Minimize chat">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+          </button>
         </div>
         <div id="chatMessages" class="chat-messages"></div>
         <input id="chatNameInput" class="chat-name-input" type="text" placeholder="Your name (optional)" maxlength="60">
@@ -69,9 +73,21 @@
     isOpen = !isOpen;
     document.getElementById('chatPanel').classList.toggle('open', isOpen);
     if (isOpen) {
-      document.getElementById('chatUnreadDot').classList.remove('show');
+      unreadCount = 0;
+      renderUnreadBadge();
       document.getElementById('chatInput').focus();
       scrollToBottom();
+    }
+  }
+
+  function renderUnreadBadge() {
+    const badge = document.getElementById('chatUnreadBadge');
+    if (!badge) return;
+    if (unreadCount > 0) {
+      badge.textContent = unreadCount > 99 ? '99+' : String(unreadCount);
+      badge.classList.add('show');
+    } else {
+      badge.classList.remove('show');
     }
   }
 
@@ -117,7 +133,8 @@
         renderMessages();
         scrollToBottom();
         if (msg.sender === 'agent' && !isOpen) {
-          document.getElementById('chatUnreadDot').classList.add('show');
+          unreadCount++;
+          renderUnreadBadge();
         }
       })
       .subscribe();
