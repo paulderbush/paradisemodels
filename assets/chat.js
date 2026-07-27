@@ -73,6 +73,12 @@
     return window.matchMedia('(max-width:768px)').matches;
   }
 
+  // Modern browsers size .chat-panel with 100dvh in CSS, which already
+  // tracks the keyboard/browser-chrome-shrunk viewport on its own. Only
+  // browsers without dvh support need the JS fallback below — running
+  // both at once fights the CSS and can leave a stale gap.
+  const supportsDvh = window.CSS && CSS.supports && CSS.supports('height', '100dvh');
+
   function syncMobileViewport() {
     const panel = document.getElementById('chatPanel');
     if (!panel || !window.visualViewport) return;
@@ -90,7 +96,7 @@
       renderUnreadBadge();
       if (isMobileChat()) {
         document.documentElement.classList.add('chat-open-mobile');
-        if (window.visualViewport) {
+        if (!supportsDvh && window.visualViewport) {
           window.visualViewport.addEventListener('resize', syncMobileViewport);
           window.visualViewport.addEventListener('scroll', syncMobileViewport);
           syncMobileViewport();
@@ -99,7 +105,7 @@
       document.getElementById('chatInput').focus();
       scrollToBottom();
     } else {
-      if (window.visualViewport) {
+      if (!supportsDvh && window.visualViewport) {
         window.visualViewport.removeEventListener('resize', syncMobileViewport);
         window.visualViewport.removeEventListener('scroll', syncMobileViewport);
       }
