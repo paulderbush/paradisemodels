@@ -63,6 +63,11 @@
     document.getElementById('chatInput').addEventListener('keydown', e => {
       if (e.key === 'Enter') sendMessage();
     });
+    // The keyboard eats roughly half the panel; keep the newest messages in
+    // view rather than leaving the reader scrolled up in the shrunken area.
+    document.getElementById('chatInput').addEventListener('focus', () => {
+      setTimeout(scrollToBottom, 300);
+    });
     const nameInput = document.getElementById('chatNameInput');
     nameInput.value = visitorName;
     nameInput.style.display = sessionId ? 'none' : 'block';
@@ -73,18 +78,22 @@
     return window.matchMedia('(max-width:768px)').matches;
   }
 
-  // Modern browsers size .chat-panel with 100dvh in CSS, which already
-  // tracks the keyboard/browser-chrome-shrunk viewport on its own. Only
-  // browsers without dvh support need the JS fallback below — running
-  // both at once fights the CSS and can leave a stale gap.
-  const supportsDvh = window.CSS && CSS.supports && CSS.supports('height', '100dvh');
-
+  // dvh units track the browser's collapsing toolbars but NOT the on-screen
+  // keyboard — iOS leaves the layout viewport full-height and just shrinks
+  // the visual viewport, so a dvh-sized panel keeps its input row hidden
+  // behind the keyboard. visualViewport is the only thing that reports the
+  // keyboard, so pin the panel to it whenever it's available (dvh in the
+  // stylesheet stays as the pre-keyboard baseline / no-JS fallback).
   function syncMobileViewport() {
     const panel = document.getElementById('chatPanel');
     if (!panel || !window.visualViewport) return;
     const vv = window.visualViewport;
     panel.style.height = vv.height + 'px';
     panel.style.top = vv.offsetTop + 'px';
+    // Keyboard up = visual viewport meaningfully shorter than the layout one.
+    document.documentElement.classList.toggle(
+      'chat-kb-open', window.innerHeight - vv.height > 120
+    );
   }
 
   function toggleChat() {
@@ -101,7 +110,7 @@
         // browsers as soon as it's applied.
         if (window.lockBodyScroll) window.lockBodyScroll();
         document.documentElement.classList.add('chat-open-mobile');
-        if (!supportsDvh && window.visualViewport) {
+        if (window.visualViewport) {
           window.visualViewport.addEventListener('resize', syncMobileViewport);
           window.visualViewport.addEventListener('scroll', syncMobileViewport);
           syncMobileViewport();
@@ -116,12 +125,13 @@
       }
       scrollToBottom();
     } else {
-      if (!supportsDvh && window.visualViewport) {
+      if (window.visualViewport) {
         window.visualViewport.removeEventListener('resize', syncMobileViewport);
         window.visualViewport.removeEventListener('scroll', syncMobileViewport);
       }
       document.getElementById('chatInput').blur();
       document.documentElement.classList.remove('chat-open-mobile');
+      document.documentElement.classList.remove('chat-kb-open');
       if (window.unlockBodyScroll) window.unlockBodyScroll();
       panel.style.height = '';
       panel.style.top = '';
