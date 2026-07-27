@@ -133,22 +133,26 @@ nav{
   }
 }
 @media(max-width:768px){
-  /* Mobile: drop the desktop bg video + banner image, show the
-     purpose-shot vertical video below the text/buttons instead. It is
-     the last child of .hero, so the hero's own overflow:hidden +
-     border-radius:0 0 100px 100px rounds its bottom corners exactly
-     like the old banner image did. */
+  /* Mobile: swap the desktop bg video for the purpose-shot vertical clip,
+     but keep the same "full-bleed background, text overlaid on top"
+     treatment as desktop — not a separate block below the text. .hero's
+     height now comes from .hero-content (the only flow child left, since
+     the video is position:absolute); the video stretches to match via
+     inset:0, and .hero's overflow:hidden + border-radius:0 0 100px 100px
+     still rounds its bottom corners exactly like the old banner image did. */
   .hero-video{display:none}
   .hero-bg{display:none}
-  /* This overlay was for text-over-background-video readability; on mobile
-     the text no longer overlaps the video at all, but since .hero grows to
-     wrap the video block too, the overlay was still painting a 35% black
-     tint on top of the video itself (z-indexed above the plain <video>). */
-  .hero::after{display:none}
-  .hero-content{margin-top:0!important;padding-bottom:1.25rem!important;background:none!important}
   .hero-video-mobile{
-    display:block;width:100%;aspect-ratio:9/16;max-height:55vh;object-fit:cover;
+    display:block;position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:center top;z-index:0;pointer-events:none;
   }
+  /* Top-to-bottom darkening (lighter near the badge, darker by the
+     buttons) instead of the desktop's flat 35% tint. */
+  .hero::after{
+    display:block;
+    background:linear-gradient(to bottom,rgba(0,0,0,0.22) 0%,rgba(0,0,0,0.45) 45%,rgba(0,0,0,0.78) 100%)!important;
+  }
+  .hero-content{margin-top:0!important;background:none!important}
 }
 @media(min-width:769px){
   .hero-video-mobile{display:none}

@@ -255,6 +255,7 @@ ${fakeModelOverlayHTML()}
   <div class="hero" style="position:relative;z-index:1">
     <div class="hero-bg"></div>
     <video class="hero-video" muted loop playsinline preload="none" poster="/images/hero-poster.jpg?v=${BUILD_TS}" data-src="https://paradiseagency.b-cdn.net/background.mp4"></video>
+    <video class="hero-video-mobile" muted loop playsinline preload="none" poster="/images/hero-poster-mobile.jpg?v=${BUILD_TS}" data-src="/videos/hero-mobile.mp4?v=${BUILD_TS}"></video>
     <div class="hero-content">
       <div class="hero-hours">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -277,7 +278,6 @@ ${fakeModelOverlayHTML()}
         </a>
       </div>
     </div>
-    <video class="hero-video-mobile" muted loop playsinline preload="none" poster="/images/hero-poster-mobile.jpg?v=${BUILD_TS}" data-src="/videos/hero-mobile.mp4?v=${BUILD_TS}"></video>
   </div>
 
   <!-- CITY SECTIONS -->
