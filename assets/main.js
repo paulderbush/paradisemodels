@@ -459,3 +459,11 @@ function exitSite() {
 (function() {
   _setCartBadges(cart.length);
 })();
+
+// Some mobile browsers don't reliably honor the autoplay attribute for a
+// <video> that starts below the fold; nudge it explicitly as a fallback.
+// Muted playback is always allowed, so this should never actually reject.
+(function() {
+  const v = document.querySelector('.hero-video-mobile');
+  if (v) v.play().catch(() => {});
+})();

@@ -279,8 +279,8 @@ ${fakeModelOverlayHTML()}
         </a>
       </div>
     </div>
-    <video class="hero-video-mobile" autoplay muted loop playsinline preload="auto" poster="/images/hero-poster.jpg?v=${BUILD_TS}">
-      <source src="https://paradiseagency.b-cdn.net/vertical.mp4" type="video/mp4">
+    <video class="hero-video-mobile" autoplay muted loop playsinline preload="auto" poster="/images/hero-poster-mobile.jpg?v=${BUILD_TS}">
+      <source src="/videos/hero-mobile.mp4?v=${BUILD_TS}" type="video/mp4">
     </video>
   </div>
 
