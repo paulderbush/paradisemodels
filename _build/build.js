@@ -44,14 +44,14 @@ ${extra}
 </head>`;
 }
 
-function navHTML(paradise = false) {
+function navHTML(paradise = false, heroVideo = false) {
   const logo = paradise
     ? `<a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=${BUILD_TS}" alt="Paradise Models"></a>`
     : `<a class="nav-logo" href="/" style="cursor:pointer;text-decoration:none">VELVET</a>`;
-  return _navHTML(logo);
+  return _navHTML(logo, heroVideo);
 }
 
-function _navHTML(logo) {
+function _navHTML(logo, heroVideo = false) {
   return `<!-- CART OVERLAY -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
@@ -67,7 +67,7 @@ function _navHTML(logo) {
 </div>
 
 <!-- NAV -->
-<nav>
+<nav${heroVideo ? ' class="nav-on-hero"' : ''}>
   ${logo}
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -244,7 +244,7 @@ function buildHome() {
   ) + `
 <body>
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, true)}
 ${ageModalHTML()}
 ${fakeModelOverlayHTML()}
 
