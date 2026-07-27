@@ -1,11 +1,12 @@
 // =================== SUPABASE / TELEGRAM ===================
 const SUPABASE_URL = 'https://rfmixjljtwzhedsjsjni.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_r7LdYArejggySFV2So1rmg_72NU_XK5';
-const TG_BOT_BASE = 'https://api.telegram.org/bot8881061797:AAEDLHP9Uvs4Qw3Gezdzq3_T-_yFIo1fu0A';
+const TG_BOT_BASE = 'https://api.telegram.org/bot8933971238:AAHAHnWbuJaDhC8UllQdL-VFZ_cYp6rHWAs';
 const TG_BOT = TG_BOT_BASE + '/sendMessage';
-const TG_CHAT          = '-5098693486';  // VELVET BOOKINGS
-const TG_CHAT_REVIEWS  = '-5293058113';  // VELVET REVIEWS
-const TG_CHAT_MODELS   = '-5246680182';  // VELVET MODELS
+const TG_CHAT          = '-1004453652593'; // Paradise Live Chat group (topics)
+const TG_THREAD_BOOKINGS = 4;
+const TG_THREAD_MODELS   = 5;
+const TG_THREAD_REVIEWS  = 6;
 
 // =================== CART ===================
 let cart = JSON.parse(localStorage.getItem('velvet_cart') || '[]');
@@ -160,7 +161,7 @@ async function submitBooking() {
   const btn = document.querySelector('.booking-submit-btn');
   if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
   try {
-    const params = new URLSearchParams({chat_id: TG_CHAT, text: msg, parse_mode: 'HTML'});
+    const params = new URLSearchParams({chat_id: TG_CHAT, message_thread_id: TG_THREAD_BOOKINGS, text: msg, parse_mode: 'HTML'});
     const res = await fetch(TG_BOT, {method: 'POST', body: params});
     const json = await res.json();
     if (json.ok) {

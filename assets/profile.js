@@ -160,7 +160,7 @@ async function submitReview(modelId) {
     await saveReviewToSupabase(review);
     // Best-effort: notify Telegram. Must not block or fail the submission.
     fetch(TG_BOT, {
-      method: 'POST', body: new URLSearchParams({chat_id: TG_CHAT_REVIEWS, text: tgMsg, parse_mode: 'HTML'})
+      method: 'POST', body: new URLSearchParams({chat_id: TG_CHAT, message_thread_id: TG_THREAD_REVIEWS, text: tgMsg, parse_mode: 'HTML'})
     }).catch(() => {});
     m.reviews = (m.reviews || []).concat(review);
     const listEl = document.getElementById('reviews-list');
