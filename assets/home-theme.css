@@ -148,9 +148,6 @@ nav{
   .hero-content{margin-top:0!important;padding-bottom:1.25rem!important;background:none!important}
   .hero-video-mobile{
     display:block;width:100%;aspect-ratio:9/16;max-height:55vh;object-fit:cover;
-    /* Dark placeholder so a slow first frame (real network, not our
-       sandbox) reads as an intentional panel instead of an empty gap. */
-    background:linear-gradient(180deg,#12162e,#1a1e42);
   }
 }
 @media(min-width:769px){

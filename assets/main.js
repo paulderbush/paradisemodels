@@ -460,10 +460,19 @@ function exitSite() {
   _setCartBadges(cart.length);
 })();
 
-// Some mobile browsers don't reliably honor the autoplay attribute for a
-// <video> that starts below the fold; nudge it explicitly as a fallback.
-// Muted playback is always allowed, so this should never actually reject.
+// Hero video: only ever load ONE of the desktop/mobile clips. Both used to
+// carry a hardcoded <source>, and browsers generally start fetching a
+// preload="auto" video's data even while its display:none — so a phone was
+// silently downloading the 47MB desktop clip in the background at the same
+// time as the actual mobile one, starving it of bandwidth and leaving it
+// stuck on a single frame. Loading is now driven from JS so the *other*
+// element's data-src is simply never assigned, never fetched.
 (function() {
-  const v = document.querySelector('.hero-video-mobile');
-  if (v) v.play().catch(() => {});
+  const mobile = window.matchMedia('(max-width:768px)').matches;
+  const active = document.querySelector(mobile ? '.hero-video-mobile' : '.hero-video');
+  if (active && active.dataset.src) {
+    active.src = active.dataset.src;
+    active.load();
+    active.play().catch(() => {});
+  }
 })();
