@@ -95,6 +95,10 @@
       unreadCount = 0;
       renderUnreadBadge();
       if (isMobileChat()) {
+        // Capture scroll position / lock the body BEFORE the overflow:hidden
+        // class below, which itself resets window.scrollY to 0 on some
+        // browsers as soon as it's applied.
+        if (window.lockBodyScroll) window.lockBodyScroll();
         document.documentElement.classList.add('chat-open-mobile');
         if (!supportsDvh && window.visualViewport) {
           window.visualViewport.addEventListener('resize', syncMobileViewport);
@@ -111,6 +115,7 @@
       }
       document.getElementById('chatInput').blur();
       document.documentElement.classList.remove('chat-open-mobile');
+      if (window.unlockBodyScroll) window.unlockBodyScroll();
       panel.style.height = '';
       panel.style.top = '';
     }
