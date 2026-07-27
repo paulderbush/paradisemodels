@@ -29,6 +29,11 @@
   --text:#F4F9FC;
   --text-soft:rgba(244,249,252,0.78);
   --text-muted:rgba(244,249,252,0.58);
+
+  /* Full-screen mobile menu sits directly on the bright cyan bg (no dark
+     overlay behind it like the hero has), so its text needs to be dark. */
+  --menu-link-color:#1a1e42;
+  --menu-link-soft:rgba(26,30,66,0.65);
 }
 
 /* Solid bright-cyan page background */
@@ -86,19 +91,19 @@ nav{
   color:#ffffff!important;
 }
 
-/* Hero / footer buttons: dark like the menu, brand-colored labels */
-.hero-btns .btn-wa,.footer-btns .btn-wa,
-.hero-btns .btn-tg,.footer-btns .btn-tg,
-.hero-btns .btn-model-cta,.footer-btns .btn-model-cta{
+/* Hero / footer / mobile-menu buttons: dark like the menu, brand-colored labels */
+.hero-btns .btn-wa,.footer-btns .btn-wa,.mobile-menu-social-row .btn-wa,
+.hero-btns .btn-tg,.footer-btns .btn-tg,.mobile-menu-social-row .btn-tg,
+.hero-btns .btn-model-cta,.footer-btns .btn-model-cta,.mobile-menu-model-btn{
   background:#1a1e42!important;
   border:1px solid rgba(255,255,255,0.12)!important;
 }
-.hero-btns .btn-wa,.footer-btns .btn-wa{color:#25D366!important}
-.hero-btns .btn-tg,.footer-btns .btn-tg{color:#29B6F6!important}
-.hero-btns .btn-model-cta,.footer-btns .btn-model-cta{color:#ffffff!important}
-.hero-btns .btn-wa:hover,.footer-btns .btn-wa:hover,
-.hero-btns .btn-tg:hover,.footer-btns .btn-tg:hover,
-.hero-btns .btn-model-cta:hover,.footer-btns .btn-model-cta:hover{
+.hero-btns .btn-wa,.footer-btns .btn-wa,.mobile-menu-social-row .btn-wa{color:#25D366!important}
+.hero-btns .btn-tg,.footer-btns .btn-tg,.mobile-menu-social-row .btn-tg{color:#29B6F6!important}
+.hero-btns .btn-model-cta,.footer-btns .btn-model-cta,.mobile-menu-model-btn{color:#ffffff!important}
+.hero-btns .btn-wa:hover,.footer-btns .btn-wa:hover,.mobile-menu-social-row .btn-wa:hover,
+.hero-btns .btn-tg:hover,.footer-btns .btn-tg:hover,.mobile-menu-social-row .btn-tg:hover,
+.hero-btns .btn-model-cta:hover,.footer-btns .btn-model-cta:hover,.mobile-menu-model-btn:hover{
   background:#242a54!important;
 }
 
@@ -136,7 +141,12 @@ nav{
   .hero-video{display:none}
   .hero-bg{display:none}
   .hero-content{margin-top:0!important;padding-bottom:1.25rem!important;background:none!important}
-  .hero-video-mobile{display:block;width:100%;aspect-ratio:9/16;max-height:65vh;object-fit:cover}
+  .hero-video-mobile{
+    display:block;width:100%;aspect-ratio:9/16;max-height:55vh;object-fit:cover;
+    /* Dark placeholder so a slow first frame (real network, not our
+       sandbox) reads as an intentional panel instead of an empty gap. */
+    background:linear-gradient(180deg,#12162e,#1a1e42);
+  }
 }
 @media(min-width:769px){
   .hero-video-mobile{display:none}
