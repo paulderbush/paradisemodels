@@ -99,9 +99,9 @@ function refreshPriceDisplay() {
   const pEl = document.getElementById('price-main');
   const sEl = document.getElementById('price-sub');
   const tEl = document.getElementById('price-total-val');
-  if (pEl) pEl.textContent = `£${total}`;
-  if (sEl) sEl.textContent = `${rate.label} · ${_pricing.type === 'incall' ? 'Incall' : 'Outcall'}${extras ? ` + £${extras} extras` : ''}`;
-  if (tEl) tEl.textContent = `£${total}`;
+  if (pEl) pEl.textContent = fmtPrice(total);
+  if (sEl) sEl.textContent = `${rate.label} · ${_pricing.type === 'incall' ? 'Incall' : 'Outcall'}${extras ? ` + ${fmtPrice(extras)} extras` : ''}`;
+  if (tEl) tEl.textContent = fmtPrice(total);
 }
 
 // =================== REVIEWS ===================
@@ -243,12 +243,12 @@ function buildRealModelHTML(m) {
             ${m.incallRates.map((r, i) => `<button class="duration-btn${i === 0 ? ' active' : ''}" onclick="selectDuration(${i})">${r.label}</button>`).join('')}
           </div>
           <div class="price-display-row">
-            <div id="price-main" class="price-main">£${initRate.price}</div>
+            <div id="price-main" class="price-main">${fmtPrice(initRate.price)}</div>
           </div>
           <div id="price-sub" class="price-sub">${initRate.label} · Incall</div>
           <div class="price-total-bar">
             <span class="price-total-label">Total</span>
-            <span class="price-total-val" id="price-total-val">£${initRate.price}</span>
+            <span class="price-total-val" id="price-total-val">${fmtPrice(initRate.price)}</span>
           </div>
         </div>
         <button class="make-booking-btn" onclick="makeBooking()">Make a Booking</button>
@@ -265,7 +265,7 @@ function buildRealModelHTML(m) {
                 <div class="extra-svc-chk">✓</div>
                 <span class="extra-svc-name">${s.name}</span>
               </div>
-              <span class="extra-svc-price">+£${s.price}</span>
+              <span class="extra-svc-price">+${fmtPrice(s.price)}</span>
             </div>`).join('')}
           </div>
         </div>

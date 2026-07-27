@@ -39,6 +39,7 @@ function head(title, desc, canonical, extra = '') {
 <style>${css}</style>
 <script>window.BUILD_TS='${BUILD_TS}';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"><\/script>
+<script src="/assets/currency.js?v=${BUILD_TS}"><\/script>
 ${extra}
 </head>`;
 }
@@ -260,7 +261,8 @@ ${modelsDataScript()}
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+  await window.CUR_READY;
   renderHomeCityRows();
   loadAllReviews();
   renderFAQs([0,1,2], 'faqHome');
@@ -411,7 +413,8 @@ ${modelsDataScript()}
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/catalog.js?v=${BUILD_TS}"><\/script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+  await window.CUR_READY;
   initModelsPage();
   loadAllReviews();
 });
@@ -455,7 +458,8 @@ const STATIONS = ${JSON.stringify(STATIONS)};
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/profile.js?v=${BUILD_TS}"><\/script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+  await window.CUR_READY;
   openRealModel(MODEL_DATA);
 });
 <\/script>
