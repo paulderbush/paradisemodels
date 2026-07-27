@@ -63,8 +63,8 @@ function renderCart() {
           </div>
           <button onclick="_bookingDraft=null;renderCart()" style="margin-left:auto;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.1rem;padding:4px">✕</button>
         </div>
-        ${d.extras.length ? `<div style="margin-bottom:0.65rem;border-top:1px solid var(--glass-border);padding-top:0.65rem">${d.extras.map(e => `<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-soft);padding:2px 0"><span>${e.name}</span><span>+£${e.price}</span></div>`).join('')}</div>` : ''}
-        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1rem;padding-top:0.5rem;border-top:1px solid var(--glass-border)"><span>Total</span><span>£${d.total}</span></div>
+        ${d.extras.length ? `<div style="margin-bottom:0.65rem;border-top:1px solid var(--glass-border);padding-top:0.65rem">${d.extras.map(e => `<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-soft);padding:2px 0"><span>${e.name}</span><span>+${fmtPrice(e.price)}</span></div>`).join('')}</div>` : ''}
+        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1rem;padding-top:0.5rem;border-top:1px solid var(--glass-border)"><span>Total</span><span>${fmtPrice(d.total)}</span></div>
       </div>
       <div class="booking-form">
         <div class="bf-label">Your name</div>
@@ -95,11 +95,11 @@ function renderCart() {
       <div class="cart-item-avatar" style="background:linear-gradient(135deg,${m.color[0]},${m.color[1]})">${m.initials}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${m.name}</div>
-        <div class="cart-item-detail">£${m.rateHour}/hr · ${m.nationality}</div>
+        <div class="cart-item-detail">${fmtPrice(m.rateHour)}/hr · ${m.nationality}</div>
         <div style="display:flex;align-items:center;gap:6px;margin-top:4px">
           <span style="font-size:12px;color:var(--text-muted)">Hours:</span>
           <select style="background:rgba(123,47,190,0.15);border:1px solid var(--glass-border);border-radius:8px;color:var(--text);font-size:12px;padding:2px 6px;font-family:'Zalando Sans',sans-serif" onchange="setDuration(${m.id},this.value)">
-            ${[1, 2, 3, 4, 6, 8].map(h => `<option value="${h}" ${m.duration == h ? 'selected' : ''}>${h}h — £${m.rateHour * h}</option>`).join('')}
+            ${[1, 2, 3, 4, 6, 8].map(h => `<option value="${h}" ${m.duration == h ? 'selected' : ''}>${h}h — ${fmtPrice(m.rateHour * h)}</option>`).join('')}
           </select>
         </div>
       </div>
@@ -107,7 +107,7 @@ function renderCart() {
     </div>
   `).join('') + `
   <div style="margin-top:auto;padding-top:1rem;border-top:1px solid var(--glass-border)">
-    <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:0.5rem"><span>Total</span><span style="font-weight:700">£${sub}</span></div>
+    <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:0.5rem"><span>Total</span><span style="font-weight:700">${fmtPrice(sub)}</span></div>
     <button class="cart-checkout" onclick="alert('Thank you! Our team will contact you within 1 hour to confirm your booking.')">Confirm Booking</button>
   </div>`;
 }
@@ -252,7 +252,7 @@ function modelCardHTML(m, clickable = true) {
       </div>
     </div>
     <div class="model-card-footer">
-      <div class="model-rate">${m.real ? `<span>from </span>£${Math.min(...m.incallRates.map(r => r.price))}` : `£${m.rateHour}<span>/hr</span>`}</div>
+      <div class="model-rate">${m.real ? `<span>from </span>${fmtPrice(Math.min(...m.incallRates.map(r => r.price)))}` : `${fmtPrice(m.rateHour)}<span>/hr</span>`}</div>
       <button class="add-to-cart-btn" onclick="event.stopPropagation();addToCart(${m.id})">+ Book</button>
     </div>
   ${cardEnd}`;
@@ -342,7 +342,7 @@ function handleNavSearch(q) {
       <div class="avatar" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : `background:linear-gradient(135deg,${m.color[0]},${m.color[1]})`}">${m.real ? '' : m.initials}</div>
       <div>
         <div style="font-weight:500;font-size:13px">${m.name}</div>
-        <div style="font-size:11px;color:var(--text-muted)">${m.nationality} · ${m.real ? `from £${Math.min(...m.incallRates.map(r => r.price))}` : `£${m.rateHour}/hr`}${(() => { const r = computeRating(m.reviews); return r ? ` · ★ ${r}` : ''; })()}</div>
+        <div style="font-size:11px;color:var(--text-muted)">${m.nationality} · ${m.real ? `from ${fmtPrice(Math.min(...m.incallRates.map(r => r.price)))}` : `${fmtPrice(m.rateHour)}/hr`}${(() => { const r = computeRating(m.reviews); return r ? ` · ★ ${r}` : ''; })()}</div>
       </div>
     </div>`).join('');
   dd.classList.add('show');
