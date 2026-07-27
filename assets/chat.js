@@ -91,10 +91,11 @@
     isOpen = !isOpen;
     const panel = document.getElementById('chatPanel');
     panel.classList.toggle('open', isOpen);
+    const mobile = isMobileChat();
     if (isOpen) {
       unreadCount = 0;
       renderUnreadBadge();
-      if (isMobileChat()) {
+      if (mobile) {
         // Capture scroll position / lock the body BEFORE the overflow:hidden
         // class below, which itself resets window.scrollY to 0 on some
         // browsers as soon as it's applied.
@@ -105,8 +106,14 @@
           window.visualViewport.addEventListener('scroll', syncMobileViewport);
           syncMobileViewport();
         }
+        // Don't auto-focus on mobile: focusing immediately pops the keyboard
+        // mid-open-animation, which is exactly what was making the panel look
+        // like it opened "crooked". Let it open clean first (same as the
+        // hamburger menu, which never auto-focuses its search field either)
+        // — the keyboard only appears once the visitor deliberately taps in.
+      } else {
+        document.getElementById('chatInput').focus();
       }
-      document.getElementById('chatInput').focus();
       scrollToBottom();
     } else {
       if (!supportsDvh && window.visualViewport) {

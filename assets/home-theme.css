@@ -140,6 +140,11 @@ nav{
      like the old banner image did. */
   .hero-video{display:none}
   .hero-bg{display:none}
+  /* This overlay was for text-over-background-video readability; on mobile
+     the text no longer overlaps the video at all, but since .hero grows to
+     wrap the video block too, the overlay was still painting a 35% black
+     tint on top of the video itself (z-indexed above the plain <video>). */
+  .hero::after{display:none}
   .hero-content{margin-top:0!important;padding-bottom:1.25rem!important;background:none!important}
   .hero-video-mobile{
     display:block;width:100%;aspect-ratio:9/16;max-height:55vh;object-fit:cover;
