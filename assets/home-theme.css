@@ -152,7 +152,10 @@ nav{
     display:block;
     background:linear-gradient(to bottom,rgba(0,0,0,0.22) 0%,rgba(0,0,0,0.45) 45%,rgba(0,0,0,0.78) 100%)!important;
   }
-  .hero-content{margin-top:0!important;background:none!important}
+  .hero-content{margin-top:0!important;background:none!important;padding-top:3rem!important;padding-bottom:4rem!important}
+  /* The nav's usual bottom border reads as a stray line now that the hero
+     video sits directly beneath it with no gap. */
+  nav.nav-on-hero{border-bottom-color:transparent!important}
 }
 @media(min-width:769px){
   .hero-video-mobile{display:none}
