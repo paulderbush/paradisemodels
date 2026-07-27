@@ -1,0 +1,169 @@
+// =================== LIVE CHAT WIDGET ===================
+(function() {
+  const CHAT_FN_URL = SUPABASE_URL + '/functions/v1/chat-send';
+  const SESSION_KEY = 'velvet_chat_session';
+  const NAME_KEY = 'velvet_chat_name';
+
+  let sessionId = localStorage.getItem(SESSION_KEY) || null;
+  let visitorName = localStorage.getItem(NAME_KEY) || '';
+  let messages = [];
+  let isOpen = false;
+  let sending = false;
+  let sbClient = null;
+  let realtimeChannel = null;
+
+  function el(html) {
+    const t = document.createElement('template');
+    t.innerHTML = html.trim();
+    return t.content.firstElementChild;
+  }
+
+  function escapeHTML(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function injectWidget() {
+    const bubble = el(`
+      <button id="chatBubble" class="chat-bubble" aria-label="Chat with us">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span id="chatUnreadDot" class="chat-unread-dot"></span>
+      </button>
+    `);
+    const panel = el(`
+      <div id="chatPanel" class="chat-panel">
+        <div class="chat-panel-head">
+          <div>
+            <div class="chat-panel-title">Chat with us</div>
+            <div class="chat-panel-sub">A real person replies here</div>
+          </div>
+          <button id="chatClose" class="chat-close-btn" aria-label="Close chat">✕</button>
+        </div>
+        <div id="chatMessages" class="chat-messages"></div>
+        <input id="chatNameInput" class="chat-name-input" type="text" placeholder="Your name (optional)" maxlength="60">
+        <div class="chat-input-row">
+          <input id="chatInput" class="chat-input" type="text" placeholder="Type a message…" maxlength="2000">
+          <button id="chatSendBtn" class="chat-send-btn" aria-label="Send">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+    `);
+    document.body.appendChild(bubble);
+    document.body.appendChild(panel);
+
+    bubble.addEventListener('click', toggleChat);
+    document.getElementById('chatClose').addEventListener('click', toggleChat);
+    document.getElementById('chatSendBtn').addEventListener('click', sendMessage);
+    document.getElementById('chatInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') sendMessage();
+    });
+    const nameInput = document.getElementById('chatNameInput');
+    nameInput.value = visitorName;
+    nameInput.style.display = sessionId ? 'none' : 'block';
+    nameInput.addEventListener('input', () => { visitorName = nameInput.value; });
+  }
+
+  function toggleChat() {
+    isOpen = !isOpen;
+    document.getElementById('chatPanel').classList.toggle('open', isOpen);
+    if (isOpen) {
+      document.getElementById('chatUnreadDot').classList.remove('show');
+      document.getElementById('chatInput').focus();
+      scrollToBottom();
+    }
+  }
+
+  async function loadHistory() {
+    try {
+      const r = await fetch(`${SUPABASE_URL}/rest/v1/chat_messages?session_id=eq.${sessionId}&order=created_at.asc`, {
+        headers: {apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}`}
+      });
+      if (!r.ok) return;
+      messages = await r.json();
+      renderMessages();
+      scrollToBottom();
+    } catch (e) {}
+  }
+
+  function renderMessages() {
+    const box = document.getElementById('chatMessages');
+    if (!box) return;
+    if (!messages.length) {
+      box.innerHTML = `<div class="chat-empty">Ask us anything — availability, pricing, bookings. A real person will reply here.</div>`;
+      return;
+    }
+    box.innerHTML = messages.map(m => `
+      <div class="chat-msg ${m.sender === 'visitor' ? 'chat-msg-me' : 'chat-msg-them'}">${escapeHTML(m.text)}</div>
+    `).join('');
+  }
+
+  function scrollToBottom() {
+    const box = document.getElementById('chatMessages');
+    if (box) box.scrollTop = box.scrollHeight;
+  }
+
+  function subscribeRealtime() {
+    if (realtimeChannel || !window.supabase || !sessionId) return;
+    if (!sbClient) sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    realtimeChannel = sbClient.channel('chat-' + sessionId)
+      .on('postgres_changes', {
+        event: 'INSERT', schema: 'public', table: 'chat_messages', filter: `session_id=eq.${sessionId}`
+      }, payload => {
+        const msg = payload.new;
+        if (messages.find(m => m.id === msg.id)) return;
+        messages.push(msg);
+        renderMessages();
+        scrollToBottom();
+        if (msg.sender === 'agent' && !isOpen) {
+          document.getElementById('chatUnreadDot').classList.add('show');
+        }
+      })
+      .subscribe();
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text || sending) return;
+    sending = true;
+    input.value = '';
+    const optimistic = {id: 'tmp-' + Date.now(), sender: 'visitor', text, created_at: new Date().toISOString()};
+    messages.push(optimistic);
+    renderMessages();
+    scrollToBottom();
+    try {
+      const r = await fetch(CHAT_FN_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}`},
+        body: JSON.stringify({session_id: sessionId, name: visitorName, text})
+      });
+      const json = await r.json();
+      if (!r.ok || json.error) throw new Error(json.error || 'send failed');
+      if (!sessionId) {
+        sessionId = json.session_id;
+        localStorage.setItem(SESSION_KEY, sessionId);
+        if (visitorName) localStorage.setItem(NAME_KEY, visitorName);
+        const nameInput = document.getElementById('chatNameInput');
+        if (nameInput) nameInput.style.display = 'none';
+        subscribeRealtime();
+      }
+    } catch (e) {
+      optimistic.text += ' (failed to send — please try again)';
+      renderMessages();
+    } finally {
+      sending = false;
+    }
+  }
+
+  function init() {
+    injectWidget();
+    if (sessionId) {
+      loadHistory().then(subscribeRealtime);
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();

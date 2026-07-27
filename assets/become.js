@@ -123,7 +123,7 @@ ${svcs}
     // 1. Send text to VELVET MODELS
     await fetch(TG_BOT, {
       method: 'POST',
-      body: new URLSearchParams({chat_id: TG_CHAT_MODELS, text: msg, parse_mode: 'HTML'})
+      body: new URLSearchParams({chat_id: TG_CHAT, message_thread_id: TG_THREAD_MODELS, text: msg, parse_mode: 'HTML'})
     });
 
     // 2. Send photos & videos if any
@@ -133,7 +133,8 @@ ${svcs}
       for (let i = 0; i < files.length; i += 10) {
         const batch = files.slice(i, i + 10);
         const fd = new FormData();
-        fd.append('chat_id', TG_CHAT_MODELS);
+        fd.append('chat_id', TG_CHAT);
+        fd.append('message_thread_id', TG_THREAD_MODELS);
         if (batch.length === 1) {
           const f = batch[0];
           const isVideo = f.type.startsWith('video/');

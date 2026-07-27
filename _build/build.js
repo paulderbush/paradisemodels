@@ -38,6 +38,7 @@ function head(title, desc, canonical, extra = '') {
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>${css}</style>
 <script>window.BUILD_TS='${BUILD_TS}';</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"><\/script>
 ${extra}
 </head>`;
 }
@@ -254,6 +255,7 @@ ${CITIES.map((c, i) => `  <div class="section"${i === 0 ? '' : ' style="padding-
 ${footerHTML(true)}
 ${modelsDataScript()}
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   renderHomeCityRows();
@@ -403,6 +405,7 @@ ${fakeModelOverlayHTML()}
 ${footerHTML()}
 ${modelsDataScript()}
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/catalog.js?v=${BUILD_TS}"><\/script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -446,6 +449,7 @@ const NATIONALITIES = ${JSON.stringify(NATIONALITIES)};
 const STATIONS = ${JSON.stringify(STATIONS)};
 <\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/profile.js?v=${BUILD_TS}"><\/script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -488,6 +492,7 @@ const NATIONALITIES = [];
 const STATIONS = [];
 <\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const allIds = Array.from({length: 17}, (_, i) => i);
@@ -646,6 +651,7 @@ const NATIONALITIES = ${JSON.stringify(NATIONALITIES)};
 const STATIONS = ${JSON.stringify(STATIONS)};
 <\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/become.js?v=${BUILD_TS}"><\/script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -689,6 +695,7 @@ const NATIONALITIES = [];
 const STATIONS = [];
 <\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 </body>
 </html>`;
 }
@@ -727,6 +734,7 @@ const STATIONS = [];
 const CITIES = [];
 <\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 </body>
 </html>`;
 }
