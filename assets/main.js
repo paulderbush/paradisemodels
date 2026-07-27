@@ -46,12 +46,19 @@ function setDuration(id, dur) {
   if (m) { m.duration = +dur; _saveCart(); renderCart(); }
 }
 
+function _setCartBadges(text) {
+  const badge = document.getElementById('cartBadge');
+  const mobileBadge = document.getElementById('mobileCartBadge');
+  if (badge) badge.textContent = text;
+  if (mobileBadge) mobileBadge.textContent = text;
+}
+
 function renderCart() {
   const badge = document.getElementById('cartBadge');
   const content = document.getElementById('cartContent');
   if (!badge || !content) return;
   if (_bookingDraft) {
-    badge.textContent = '1';
+    _setCartBadges('1');
     const d = _bookingDraft;
     content.innerHTML = `
       <div class="booking-summary">
@@ -84,7 +91,7 @@ function renderCart() {
       </div>`;
     return;
   }
-  badge.textContent = cart.length;
+  _setCartBadges(cart.length);
   if (cart.length === 0) {
     content.innerHTML = '<div class="cart-empty">No companions selected yet.<br>Browse our models to get started.</div>';
     return;
@@ -332,8 +339,9 @@ function toggleFAQ(id) {
 }
 
 // =================== NAV SEARCH ===================
-function handleNavSearch(q) {
-  const dd = document.getElementById('searchDropdown');
+function renderSearchDropdown(q, ddId) {
+  const dd = document.getElementById(ddId);
+  if (!dd) return;
   if (!q.trim()) { dd.innerHTML = ''; dd.classList.remove('show'); return; }
   const res = MODELS.filter(m => m.name.toLowerCase().includes(q.toLowerCase())).slice(0, 6);
   if (!res.length) { dd.innerHTML = '<div class="search-result-item" style="color:var(--text-muted)">No results found</div>'; dd.classList.add('show'); return; }
@@ -347,6 +355,9 @@ function handleNavSearch(q) {
     </div>`).join('');
   dd.classList.add('show');
 }
+
+function handleNavSearch(q) { renderSearchDropdown(q, 'searchDropdown'); }
+function handleMobileNavSearch(q) { renderSearchDropdown(q, 'mobileSearchDropdown'); }
 
 function showSearchDrop() { if (document.getElementById('navSearchInput').value) document.getElementById('searchDropdown').classList.add('show'); }
 function hideSearchDrop() { document.getElementById('searchDropdown').classList.remove('show'); }
@@ -375,6 +386,26 @@ function toggleMobileFilters() {
   chev.style.transform = open ? 'rotate(180deg)' : '';
 }
 
+// =================== MOBILE MENU ===================
+function openMobileMenu() {
+  const overlay = document.getElementById('mobileMenuOverlay');
+  if (!overlay) return;
+  overlay.classList.add('open');
+  document.documentElement.classList.add('no-scroll');
+}
+function closeMobileMenu() {
+  const overlay = document.getElementById('mobileMenuOverlay');
+  if (!overlay) return;
+  overlay.classList.remove('open');
+  document.documentElement.classList.remove('no-scroll');
+}
+function toggleMobileAccordion(btn) {
+  const wrap = btn.closest('.mobile-menu-accordion');
+  const panel = wrap.querySelector('.mobile-menu-accordion-panel');
+  const open = wrap.classList.toggle('open');
+  panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0';
+}
+
 // =================== AGE VERIFICATION ===================
 function enterSite() {
   localStorage.setItem('ageVerified', '1');
@@ -395,6 +426,5 @@ function exitSite() {
 
 // Init cart badge on load
 (function() {
-  const badge = document.getElementById('cartBadge');
-  if (badge) badge.textContent = cart.length;
+  _setCartBadges(cart.length);
 })();

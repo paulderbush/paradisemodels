@@ -69,14 +69,44 @@
     nameInput.addEventListener('input', () => { visitorName = nameInput.value; });
   }
 
+  function isMobileChat() {
+    return window.matchMedia('(max-width:768px)').matches;
+  }
+
+  function syncMobileViewport() {
+    const panel = document.getElementById('chatPanel');
+    if (!panel || !window.visualViewport) return;
+    const vv = window.visualViewport;
+    panel.style.height = vv.height + 'px';
+    panel.style.top = vv.offsetTop + 'px';
+  }
+
   function toggleChat() {
     isOpen = !isOpen;
-    document.getElementById('chatPanel').classList.toggle('open', isOpen);
+    const panel = document.getElementById('chatPanel');
+    panel.classList.toggle('open', isOpen);
     if (isOpen) {
       unreadCount = 0;
       renderUnreadBadge();
+      if (isMobileChat()) {
+        document.documentElement.classList.add('chat-open-mobile');
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener('resize', syncMobileViewport);
+          window.visualViewport.addEventListener('scroll', syncMobileViewport);
+          syncMobileViewport();
+        }
+      }
       document.getElementById('chatInput').focus();
       scrollToBottom();
+    } else {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', syncMobileViewport);
+        window.visualViewport.removeEventListener('scroll', syncMobileViewport);
+      }
+      document.getElementById('chatInput').blur();
+      document.documentElement.classList.remove('chat-open-mobile');
+      panel.style.height = '';
+      panel.style.top = '';
     }
   }
 

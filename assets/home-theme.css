@@ -128,8 +128,18 @@ nav{
   }
 }
 @media(max-width:768px){
-  /* Save mobile data: hide the video, keep the image background */
+  /* Mobile: drop the desktop bg video + banner image, show the
+     purpose-shot vertical video below the text/buttons instead. It is
+     the last child of .hero, so the hero's own overflow:hidden +
+     border-radius:0 0 100px 100px rounds its bottom corners exactly
+     like the old banner image did. */
   .hero-video{display:none}
+  .hero-bg{display:none}
+  .hero-content{margin-top:0!important;padding-bottom:1.25rem!important;background:none!important}
+  .hero-video-mobile{display:block;width:100%;aspect-ratio:9/16;max-height:65vh;object-fit:cover}
+}
+@media(min-width:769px){
+  .hero-video-mobile{display:none}
 }
 /* No text shadows on hero text */
 .hero-content h1,.hero-sub{text-shadow:none!important}
