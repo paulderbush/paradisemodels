@@ -10,9 +10,9 @@
 <meta property="og:description" content="Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions you will find nowhere else.">
 <meta property="og:url" content="https://velvetescort.co.uk/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260727145918">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260727145918">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260727145918">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260727161322">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260727161322">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260727161322">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -135,6 +135,14 @@ nav{
   display:flex;align-items:center;justify-content:center;
   position:absolute;top:-6px;right:-6px;
 }
+.nav-account-btn{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(var(--brand-rgb),0.12);
+  border:1px solid var(--glass-border);
+  color:var(--text);cursor:pointer;transition:all 0.25s;
+}
+.nav-account-btn:hover{background:rgba(var(--brand-rgb),0.25);border-color:var(--purple3)}
 .nav-btn{
   padding:0.5rem 1.3rem;
   background:linear-gradient(135deg,var(--purple),var(--purple-dark));
@@ -875,7 +883,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .nav-link{padding:0.4rem 0.7rem;font-size:13px}
   nav.search-mode{flex-wrap:nowrap}
   nav.search-mode .nav-search{max-width:none;flex:1}
-  nav.search-mode .nav-cart,nav.search-mode .nav-btn,nav.search-mode .nav-link,nav.search-mode .nav-dropdown{display:none!important}
+  nav.search-mode .nav-cart,nav.search-mode .nav-btn,nav.search-mode .nav-link,nav.search-mode .nav-dropdown,nav.search-mode .nav-account-btn{display:none!important}
   nav.search-mode .nav-search-cancel{display:flex;align-items:center;padding:0.3rem 0.5rem;background:none;border:none;color:var(--purple3);font-family:'Zalando Sans',sans-serif;font-size:13px;cursor:pointer;flex-shrink:0;white-space:nowrap}
   .models-layout{grid-template-columns:1fr}
   .mobile-filter-toggle{display:flex;grid-column:1/-1}
@@ -1022,9 +1030,9 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 }
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 </style>
-<script>window.BUILD_TS='20260727145918';</script>
+<script>window.BUILD_TS='20260727161322';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260727145918">
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260727161322">
 </head>
 <body>
 <div class="orb-container">
@@ -1048,7 +1056,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260727145918" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260727161322" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1081,6 +1089,9 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
     Booking
     <div class="cart-badge" id="cartBadge">0</div>
   </div>
+  <a class="nav-account-btn" href="/account/" aria-label="My Account">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+  </a>
 </nav>
 <!-- AGE VERIFICATION MODAL -->
 <div id="ageModal" class="age-modal-overlay">
@@ -1108,7 +1119,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   <!-- HERO -->
   <div class="hero" style="position:relative;z-index:1">
     <div class="hero-bg"></div>
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/images/hero-poster.jpg?v=20260727145918">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/images/hero-poster.jpg?v=20260727161322">
       <source src="https://paradiseagency.b-cdn.net/background.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
@@ -1255,8 +1266,8 @@ const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British"
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 const CITIES = ["London","Paris","Monaco","Milan","Dubai","New York","Miami","Zurich","Amsterdam"];
 </script>
-<script src="/assets/main.js?v=20260727145918"></script>
-<script src="/assets/chat.js?v=20260727145918"></script>
+<script src="/assets/main.js?v=20260727161322"></script>
+<script src="/assets/chat.js?v=20260727161322"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   renderHomeCityRows();
