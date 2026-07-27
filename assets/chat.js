@@ -158,6 +158,7 @@
       });
       const json = await r.json();
       if (!r.ok || json.error) throw new Error(json.error || 'send failed');
+      if (json.message_id) optimistic.id = json.message_id;
       if (!sessionId) {
         sessionId = json.session_id;
         localStorage.setItem(SESSION_KEY, sessionId);
