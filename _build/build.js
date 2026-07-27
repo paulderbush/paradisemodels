@@ -92,6 +92,9 @@ function _navHTML(logo) {
     Booking
     <div class="cart-badge" id="cartBadge">0</div>
   </div>
+  <a class="nav-account-btn" href="/account/" aria-label="My Account">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+  </a>
 </nav>`;
 }
 
@@ -779,6 +782,16 @@ function buildBlog() {
   });
 }
 
+function buildAccount() {
+  return buildPlaceholder({
+    metaTitle: 'My Account — Paradise Models',
+    metaDesc: 'Sign in to your Paradise Models account.',
+    slug: '/account/',
+    heading: 'My', headingAccent: 'Account',
+    lead: 'Sign in and membership management are coming soon.',
+  });
+}
+
 // =================== SITEMAP ===================
 function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
@@ -790,6 +803,7 @@ function buildSitemap() {
     {url: '/events/', priority: '0.7'},
     {url: '/about/', priority: '0.7'},
     {url: '/blog/', priority: '0.7'},
+    {url: '/account/', priority: '0.4'},
     {url: '/faq/', priority: '0.7'},
     {url: '/become-a-model/', priority: '0.6'},
     ...REAL_MODELS.map(m => ({url: `/models/${m.slug}/`, priority: '0.8'})),
@@ -826,6 +840,7 @@ write(path.join(OUT, 'concierge/index.html'), buildConcierge());
 write(path.join(OUT, 'events/index.html'), buildEvents());
 write(path.join(OUT, 'about/index.html'), buildAbout());
 write(path.join(OUT, 'blog/index.html'), buildBlog());
+write(path.join(OUT, 'account/index.html'), buildAccount());
 write(path.join(OUT, 'sitemap.xml'), buildSitemap());
 
 console.log('\nBuild complete!');
