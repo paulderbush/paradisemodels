@@ -386,10 +386,40 @@ function toggleMobileFilters() {
   chev.style.transform = open ? 'rotate(180deg)' : '';
 }
 
+// =================== SCROLL LOCK ===================
+// overflow:hidden alone doesn't stop iOS Safari from scrolling the page
+// (and dragging our fixed-position panels along with it) when an input
+// inside the panel gets focused and the keyboard opens. Pinning the body
+// itself with position:fixed removes anywhere for Safari to scroll to.
+let _scrollLockY = 0;
+let _scrollLockCount = 0;
+function lockBodyScroll() {
+  if (_scrollLockCount++ > 0) return;
+  _scrollLockY = window.scrollY || document.documentElement.scrollTop;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${_scrollLockY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+}
+function unlockBodyScroll() {
+  if (_scrollLockCount === 0 || --_scrollLockCount > 0) return;
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  window.scrollTo(0, _scrollLockY);
+}
+
 // =================== MOBILE MENU ===================
 function openMobileMenu() {
   const overlay = document.getElementById('mobileMenuOverlay');
   if (!overlay) return;
+  // Lock/capture scroll position BEFORE the no-scroll class below, which
+  // itself resets window.scrollY to 0 on some browsers as soon as it's
+  // applied (overflow:hidden + height:100% triggers an implicit reflow).
+  lockBodyScroll();
   overlay.classList.add('open');
   document.documentElement.classList.add('no-scroll');
 }
@@ -398,6 +428,7 @@ function closeMobileMenu() {
   if (!overlay) return;
   overlay.classList.remove('open');
   document.documentElement.classList.remove('no-scroll');
+  unlockBodyScroll();
 }
 function toggleMobileAccordion(btn) {
   const wrap = btn.closest('.mobile-menu-accordion');
