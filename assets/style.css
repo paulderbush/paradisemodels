@@ -390,6 +390,12 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
     flex-direction:column;
     min-height:auto;
     align-items:stretch;
+    /* The shared 62px margin-top predates the current nav and no longer
+       matches its real height: desktop's nav is ~65px so the hero tucks
+       under it and the seam is hidden, but the mobile nav is only ~60px,
+       leaving a ~2px strip of page background visible between the two.
+       Tuck under here as well rather than trying to sit flush. */
+    margin-top:54px;
   }
   .hero-bg{
     position:relative;
