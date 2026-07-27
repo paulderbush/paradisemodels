@@ -1,8 +1,10 @@
 // =================== CURRENCY LOCALIZATION ===================
 // All prices in data/models.js are entered in GBP. On load we detect the
-// visitor's region and localize displayed prices: UAE -> AED (rounded up to
-// the nearest 10), Europe -> EUR, US -> USD, everything else -> USD.
-// UK visitors keep native GBP (source currency, no conversion needed).
+// visitor's region and localize displayed prices: UAE -> AED, Europe -> EUR,
+// US -> USD, everything else -> USD. Converted amounts are always rounded UP
+// to the nearest 10 so they read as clean round figures (e.g. £500 -> €590,
+// not €586). UK visitors keep native GBP, uncon­verted and unrounded — those
+// are the exact prices as entered.
 window.CUR = {code: 'GBP', symbol: '£', rate: 1};
 
 const CURRENCY_CACHE_KEY = 'velvet_currency_v1';
@@ -18,8 +20,12 @@ function _pickCurrency(geo) {
 }
 
 function fmtPrice(gbp) {
-  const raw = gbp * window.CUR.rate;
-  const amount = window.CUR.code === 'AED' ? Math.ceil(raw / 10) * 10 : Math.ceil(raw);
+  // GBP is the source currency: show it exactly as entered. Everything else
+  // is a converted figure, so round it up to the nearest 10 — an exact
+  // conversion lands on odd amounts (€586, $668) that look like a glitch.
+  const amount = window.CUR.code === 'GBP'
+    ? gbp
+    : Math.ceil((gbp * window.CUR.rate) / 10) * 10;
   return `${window.CUR.symbol}${amount.toLocaleString('en-US')}`;
 }
 

@@ -1106,5 +1106,12 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-panel-head{padding-top:calc(0.9rem + env(safe-area-inset-top))}
   .chat-input-row{padding-bottom:calc(0.9rem + env(safe-area-inset-bottom))}
   .chat-bubble{right:16px;bottom:16px}
+  /* iOS Safari force-zooms the whole page when a focused input's font is
+     under 16px — that zoom was what threw the panel askew on tap. 16px is
+     the threshold, so these must not go below it on mobile. */
+  .chat-input,.chat-name-input{font-size:16px}
+  /* While the keyboard is up, JS pins the panel to visualViewport, so the
+     safe-area padding underneath it would double-count. */
+  html.chat-kb-open .chat-input-row{padding-bottom:0.9rem}
 }
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
