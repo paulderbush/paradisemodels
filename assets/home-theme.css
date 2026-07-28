@@ -92,17 +92,14 @@ nav{
 }
 
 /* Hero / footer / mobile-menu buttons: dark like the menu, brand-colored labels */
-.hero-btns .btn-wa,.footer-btns .btn-wa,.mobile-menu-social-row .btn-wa,
-.hero-btns .btn-tg,.footer-btns .btn-tg,.mobile-menu-social-row .btn-tg,
+.hero-btns .btn-tg,.footer-btns .btn-tg,.mobile-menu-tg-btn,
 .hero-btns .btn-model-cta,.footer-btns .btn-model-cta,.mobile-menu-model-btn{
   background:#1a1e42!important;
   border:1px solid rgba(255,255,255,0.12)!important;
 }
-.hero-btns .btn-wa,.footer-btns .btn-wa,.mobile-menu-social-row .btn-wa{color:#25D366!important}
-.hero-btns .btn-tg,.footer-btns .btn-tg,.mobile-menu-social-row .btn-tg{color:#29B6F6!important}
+.hero-btns .btn-tg,.footer-btns .btn-tg,.mobile-menu-tg-btn{color:#29B6F6!important}
 .hero-btns .btn-model-cta,.footer-btns .btn-model-cta,.mobile-menu-model-btn{color:#ffffff!important}
-.hero-btns .btn-wa:hover,.footer-btns .btn-wa:hover,.mobile-menu-social-row .btn-wa:hover,
-.hero-btns .btn-tg:hover,.footer-btns .btn-tg:hover,.mobile-menu-social-row .btn-tg:hover,
+.hero-btns .btn-tg:hover,.footer-btns .btn-tg:hover,.mobile-menu-tg-btn:hover,
 .hero-btns .btn-model-cta:hover,.footer-btns .btn-model-cta:hover,.mobile-menu-model-btn:hover{
   background:#242a54!important;
 }
@@ -184,7 +181,6 @@ footer{
   background:rgba(26,30,66,0.97)!important;
   border-top:1px solid rgba(255,255,255,0.12)!important;
 }
-.footer-btns .btn-wa,
 .footer-btns .btn-tg,
 .footer-btns .btn-model-cta{
   border:1px solid #70e9ff!important;
@@ -196,3 +192,34 @@ footer{
   color:#ffffff!important;
 }
 .footer-btns .btn-blog:hover{background:#242a54!important}
+
+/* =================== BECOME A MODEL =================== */
+/* The form was built for the dark base theme — its translucent panels and
+   light labels wash out completely on the bright cyan background. Give the
+   panels the same solid dark treatment the model cards get, so the existing
+   light-on-dark form styling reads correctly again. */
+.become-header h1{color:#2a2f66}
+.become-header h1 span{
+  background:linear-gradient(135deg,#1a5f7a,#123a66)!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.become-header p{color:rgba(26,30,66,0.72)}
+.become-page .back-btn{color:#2a2f66;border-color:rgba(26,30,66,0.25)}
+.form-section{
+  background:#1a1e42!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  border:1px solid rgba(255,255,255,0.12)!important;
+}
+.form-section-title{color:#70e9ff!important}
+.form-field label,.rates-toggle-header{color:var(--text)!important}
+.form-input,.form-select,.svc-extra-price{
+  background:rgba(255,255,255,0.06)!important;
+  border:1px solid rgba(255,255,255,0.18)!important;
+}
+.form-select option{background:#1a1e42;color:var(--text)}
+.photo-upload-area{border-color:rgba(255,255,255,0.28)!important}
+.photo-upload-area:hover{border-color:#70e9ff!important}
+.submit-app-btn{
+  background:linear-gradient(135deg,#2a2f66,#3a4081)!important;
+  box-shadow:0 6px 28px rgba(42,47,102,0.45)!important;
+}

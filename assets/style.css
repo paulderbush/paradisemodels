@@ -255,9 +255,7 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
   border-top:1px solid var(--glass-border);
   display:flex;flex-direction:column;gap:0.75rem;
 }
-.mobile-menu-social-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
-.mobile-menu-social-row .btn-wa,.mobile-menu-social-row .btn-tg{width:100%;justify-content:center}
-.mobile-menu-model-btn{width:100%;justify-content:center}
+.mobile-menu-tg-btn,.mobile-menu-model-btn{width:100%;justify-content:center}
 
 /* CART PANEL */
 .cart-panel{
@@ -422,17 +420,8 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
   .hero-badge,.hero-sub,.hero-hours{align-self:center;text-align:center}
   .hero-sub{text-align:center}
   .hero-btns{justify-content:center;gap:0.5rem}
-  .hero-btns .btn-wa,.hero-btns .btn-tg,.hero-btns .btn-model-cta{padding:0.42rem 0.9rem;font-size:13px}
+  .hero-btns .btn-tg,.hero-btns .btn-model-cta{padding:0.42rem 0.9rem;font-size:13px}
 }
-.btn-wa{
-  display:flex;align-items:center;gap:8px;
-  padding:0.7rem 1.4rem;border-radius:var(--r);
-  background:rgba(37,211,102,0.12);
-  border:1px solid rgba(37,211,102,0.3);
-  color:#25D366;font-size:14px;font-weight:500;cursor:pointer;
-  transition:all 0.25s;text-decoration:none;
-}
-.btn-wa:hover{background:rgba(37,211,102,0.22);transform:translateY(-1px)}
 .btn-tg{
   display:flex;align-items:center;gap:8px;
   padding:0.7rem 1.4rem;border-radius:var(--r);
@@ -916,13 +905,16 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .rates-fields.active{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
 .services-chk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
 
-.svc-check{display:flex;align-items:center;gap:5px;padding:0.3rem 0.4rem;border-radius:6px;transition:background 0.2s}
+/* wrap: the price field appears on demand and a fixed-width input on the
+   same line as the label squeezes the label into 3 wrapped lines and pushes
+   itself into the neighbouring column. Let it drop to its own line instead. */
+.svc-check{display:flex;flex-wrap:wrap;align-items:center;gap:5px;padding:0.3rem 0.4rem;border-radius:6px;transition:background 0.2s}
 .svc-check:hover{background:rgba(var(--brand-rgb),0.08)}
 .svc-check label{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-soft);cursor:pointer;flex:1;min-width:0}
 .svc-check label input{accent-color:var(--purple);flex-shrink:0}
 .svc-extra-btn{padding:1px 7px;border-radius:4px;background:rgba(var(--brand-rgb),0.1);border:1px solid rgba(var(--brand-light-rgb),0.2);color:var(--text-muted);font-size:10px;cursor:pointer;font-family:'Zalando Sans',sans-serif;transition:all 0.2s;flex-shrink:0;line-height:1.7}
 .svc-extra-btn.active{background:rgba(255,180,50,0.18);border-color:rgba(255,180,50,0.55);color:#FFB432}
-.svc-extra-price{display:none;width:52px;padding:2px 6px;border-radius:4px;background:rgba(0,0,0,0.3);border:1px solid rgba(var(--brand-light-rgb),0.3);color:var(--text);font-size:12px;font-family:'Zalando Sans',sans-serif}
+.svc-extra-price{display:none;width:100%;padding:3px 8px;border-radius:4px;background:rgba(0,0,0,0.3);border:1px solid rgba(var(--brand-light-rgb),0.3);color:var(--text);font-size:12px;font-family:'Zalando Sans',sans-serif}
 .svc-extra-price.show{display:block}
 .photo-upload-area{border:2px dashed var(--glass-border);border-radius:var(--r-sm);padding:2rem;text-align:center;cursor:pointer;transition:border-color 0.2s}
 .photo-upload-area:hover{border-color:var(--purple3)}
@@ -975,13 +967,17 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .real-detail-layout>.reviews-section{order:4}
   .real-detail-layout .detail-left>.model-bio{order:5;margin-top:0}
   .hero h1{font-size:2rem}
-  .hero-btns{flex-wrap:wrap}
-  .hero-btns .btn-wa,.hero-btns .btn-tg{justify-content:center}
-  .hero-btns .btn-model-cta{justify-content:center}
+  /* Telegram centered on its own row, Become a Model beneath it.
+     align-self is needed too: .hero-content aligns its children to
+     flex-start, so the button column would otherwise sit hard left. */
+  .hero-btns{flex-direction:column;align-items:center;align-self:center;gap:0.6rem}
+  .hero-btns .btn-tg,.hero-btns .btn-model-cta{justify-content:center}
   footer{padding-bottom:5rem}
   .footer-inner{flex-direction:column;align-items:center;text-align:center}
+  /* Telegram + Blog share the top row; Become a Model spans both columns. */
   .footer-btns{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;width:100%}
   .footer-btns a{width:100%;justify-content:center}
+  .footer-btns .footer-model-btn{grid-column:1/-1}
   .form-grid-2,.form-grid-3{grid-template-columns:1fr}
   .services-chk-grid{grid-template-columns:repeat(2,1fr)}
   .rates-fields.active{grid-template-columns:1fr}
