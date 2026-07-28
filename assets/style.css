@@ -604,7 +604,18 @@ footer a{color:var(--purple3);text-decoration:none}
   border:1px solid var(--glass-border);
   padding:1.25rem;
   position:sticky;top:80px;
+  /* The filter list is taller than the viewport. Sticky alone pins it and
+     leaves everything past the fold unreachable — you had to scroll the
+     whole results grid to the bottom before the rest appeared. Give the
+     panel its own scroll so the filters can be browsed on their own. */
+  max-height:calc(100vh - 96px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
 }
+.filters-sidebar::-webkit-scrollbar{width:8px}
+.filters-sidebar::-webkit-scrollbar-track{background:transparent}
+.filters-sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.18);border-radius:4px}
+.filters-sidebar::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.3)}
 .filter-title{font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem}
 .filter-group{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(var(--brand-light-rgb),0.1)}
 .filter-group:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
@@ -955,7 +966,9 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .nav-account-btn{margin-left:auto}
   .models-layout{grid-template-columns:1fr}
   .mobile-filter-toggle{display:flex;grid-column:1/-1}
-  .filters-sidebar{position:static;display:none;grid-column:1/-1}
+  /* Mobile shows the panel inline under the toggle, so it must grow to its
+     natural height rather than keeping the desktop panel's own scrollbox. */
+  .filters-sidebar{position:static;display:none;grid-column:1/-1;max-height:none;overflow:visible}
   .filters-sidebar.open{display:block}
   .models-row{grid-template-columns:repeat(2,1fr)}
   .model-detail-layout{grid-template-columns:1fr}

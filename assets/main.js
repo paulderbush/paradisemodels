@@ -99,7 +99,7 @@ function renderCart() {
   const sub = cart.reduce((s, x) => s + x.rateHour * x.duration, 0);
   content.innerHTML = cart.map(m => `
     <div class="cart-item">
-      <div class="cart-item-avatar" style="background:linear-gradient(135deg,${m.color[0]},${m.color[1]})">${m.initials}</div>
+      <div class="cart-item-avatar" style="background:${PLACEHOLDER_BG}">${m.initials}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${m.name}</div>
         <div class="cart-item-detail">${fmtPrice(m.rateHour)}/hr · ${m.nationality}</div>
@@ -226,6 +226,12 @@ async function saveReviewToSupabase(review) {
 }
 
 // =================== MODEL CARD ===================
+// Stand-in background for companions with no photo yet. Each model carries a
+// purple `color` pair from the pre-rebrand palette, which now clashes with
+// the nav; use the nav's own navy so the placeholders read as part of the
+// site rather than as a leftover.
+const PLACEHOLDER_BG = 'linear-gradient(160deg,#242a54 0%,#1a1e42 100%)';
+
 function modelCardHTML(m, clickable = true) {
   const catBadges = [];
   if (m.cats.includes('new')) catBadges.push('<span class="badge badge-new">New</span>');
@@ -242,7 +248,7 @@ function modelCardHTML(m, clickable = true) {
 
   return `
   ${cardStart}
-    <div class="model-card-img" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : `background:linear-gradient(160deg,${m.color[0]} 0%,${m.color[1]} 100%)`}">
+    <div class="model-card-img" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : `background:${PLACEHOLDER_BG}`}">
       ${!m.real ? `<div class="model-photo-placeholder">
         <svg class="model-silhouette-svg" width="60" height="100" viewBox="0 0 60 100" fill="none">
           <ellipse cx="30" cy="14" rx="13" ry="13" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
@@ -274,7 +280,7 @@ function openFakeModel(id) {
   overlay.innerHTML = `
     <div style="position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;display:flex;align-items:center;justify-content:center" onclick="this.remove()">
       <div style="background:#1a0d2e;border:1px solid rgba(123,47,190,0.4);border-radius:16px;padding:2rem;max-width:380px;text-align:center" onclick="event.stopPropagation()">
-        <div style="font-size:3rem;margin-bottom:1rem;background:linear-gradient(135deg,${m.color[0]},${m.color[1]});border-radius:50%;width:80px;height:80px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:2rem;font-weight:700;color:rgba(255,255,255,0.3)">${m.initials}</div>
+        <div style="font-size:3rem;margin-bottom:1rem;background:${PLACEHOLDER_BG};border-radius:50%;width:80px;height:80px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:2rem;font-weight:700;color:rgba(255,255,255,0.3)">${m.initials}</div>
         <div style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem">${m.name}</div>
         <div style="color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:1.5rem">${m.age} yrs · ${m.nationality}</div>
         <div style="color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:1.5rem">This companion's full profile is available by enquiry. Contact us to learn more.</div>
@@ -347,7 +353,7 @@ function renderSearchDropdown(q, ddId) {
   if (!res.length) { dd.innerHTML = '<div class="search-result-item" style="color:var(--text-muted)">No results found</div>'; dd.classList.add('show'); return; }
   dd.innerHTML = res.map(m => `
     <div class="search-result-item" onclick="${m.real ? `window.location='/models/${m.slug}/'` : `openFakeModel(${m.id})`}">
-      <div class="avatar" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : `background:linear-gradient(135deg,${m.color[0]},${m.color[1]})`}">${m.real ? '' : m.initials}</div>
+      <div class="avatar" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : `background:${PLACEHOLDER_BG}`}">${m.real ? '' : m.initials}</div>
       <div>
         <div style="font-weight:500;font-size:13px">${m.name}</div>
         <div style="font-size:11px;color:var(--text-muted)">${m.nationality} · ${m.real ? `from ${fmtPrice(Math.min(...m.incallRates.map(r => r.price)))}` : `${fmtPrice(m.rateHour)}/hr`}${(() => { const r = computeRating(m.reviews); return r ? ` · ★ ${r}` : ''; })()}</div>
