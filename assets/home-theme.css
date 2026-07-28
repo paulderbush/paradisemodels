@@ -193,6 +193,37 @@ footer{
 }
 .footer-btns .btn-blog:hover{background:#242a54!important}
 
+/* =================== MODELS CATALOG =================== */
+/* Same problem as the become-a-model form: the filter panel and its labels
+   were drawn for the dark base theme and wash out on the bright cyan.
+   Solid dark panel for the sidebar; anything sitting directly on the cyan
+   (headings, counts, back link) flips to dark ink instead. */
+.models-page-header h1{color:#2a2f66}
+.models-page-header h1 span{
+  background:linear-gradient(135deg,#1a5f7a,#123a66)!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.models-page-header p{color:rgba(26,30,66,0.72)}
+.models-page .back-btn{color:#2a2f66;border-color:rgba(26,30,66,0.25)}
+.results-count{color:#2a2f66!important;font-weight:600}
+.filters-sidebar{
+  background:#1a1e42!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  border:1px solid rgba(255,255,255,0.12)!important;
+}
+.filter-title{color:#70e9ff!important}
+.filter-search{
+  background:rgba(255,255,255,0.06)!important;
+  border:1px solid rgba(255,255,255,0.18)!important;
+}
+.sort-select,.mobile-filter-toggle{
+  background:#1a1e42!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  border:1px solid rgba(255,255,255,0.18)!important;
+  color:var(--text)!important;
+}
+.sort-select option{background:#1a1e42;color:var(--text)}
+
 /* =================== BECOME A MODEL =================== */
 /* The form was built for the dark base theme — its translucent panels and
    light labels wash out completely on the bright cyan background. Give the

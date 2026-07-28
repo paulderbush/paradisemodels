@@ -321,13 +321,15 @@ document.addEventListener('DOMContentLoaded', async function() {
 // =================== MODELS CATALOG PAGE ===================
 function buildModels() {
   return head(
-    'Our Companions — Velvet London',
+    'Our Companions — Paradise Models',
     'Browse our exclusive roster of London companions. Filter by location, nationality, services and more.',
-    SITE_URL + '/models/'
+    SITE_URL + '/models/',
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
   ) + `
 <body>
 ${orbsHTML()}
-${navHTML()}
+${navHTML(true)}
 ${ageModalHTML()}
 ${fakeModelOverlayHTML()}
 
@@ -338,8 +340,8 @@ ${fakeModelOverlayHTML()}
       Back
     </a>
     <div class="models-page-header">
-      <h1>Our <span style="background:linear-gradient(135deg,#C49FEE,#8B3FCA);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Companions</span></h1>
-      <p style="color:var(--text-soft)">Browse and filter our exclusive roster of London companions</p>
+      <h1>Our <span>Companions</span></h1>
+      <p>Browse and filter our exclusive roster of London companions</p>
     </div>
     <div class="models-layout">
       <!-- MOBILE FILTER TOGGLE -->
@@ -453,7 +455,7 @@ ${fakeModelOverlayHTML()}
   </div>
 </div>
 
-${footerHTML()}
+${footerHTML(true)}
 ${modelsDataScript()}
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
