@@ -29,6 +29,18 @@ function fmtPrice(gbp) {
   return `${window.CUR.symbol}${amount.toLocaleString('en-US')}`;
 }
 
+// Pages render prices only after CUR_READY settles, so these lookups sit
+// directly in front of the visitor's first paint. Cap each one: a hanging
+// third-party endpoint must degrade to GBP quickly, never hold the page.
+const CURRENCY_FETCH_TIMEOUT_MS = 2500;
+
+function _fetchWithTimeout(url) {
+  if (typeof AbortController === 'undefined') return fetch(url);
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), CURRENCY_FETCH_TIMEOUT_MS);
+  return fetch(url, {signal: ctrl.signal}).finally(() => clearTimeout(timer));
+}
+
 window.CUR_READY = (async function() {
   try {
     const cached = JSON.parse(localStorage.getItem(CURRENCY_CACHE_KEY) || 'null');
@@ -36,13 +48,13 @@ window.CUR_READY = (async function() {
       window.CUR = cached.cur;
       return;
     }
-    const geoRes = await fetch('https://ipwho.is/');
+    const geoRes = await _fetchWithTimeout('https://ipwho.is/');
     const geo = await geoRes.json();
     const picked = _pickCurrency(geo && geo.success !== false ? geo : null);
     if (picked.code === 'GBP') {
       window.CUR = {code: 'GBP', symbol: '£', rate: 1};
     } else {
-      const rateRes = await fetch('https://open.er-api.com/v6/latest/GBP');
+      const rateRes = await _fetchWithTimeout('https://open.er-api.com/v6/latest/GBP');
       const rateData = await rateRes.json();
       const rate = rateData && rateData.rates && rateData.rates[picked.code];
       if (!rate) throw new Error('no rate for ' + picked.code);
