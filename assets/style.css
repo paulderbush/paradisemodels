@@ -947,6 +947,16 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .mobile-filter-toggle{display:none;width:100%;padding:0.75rem 1rem;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--r-sm);color:var(--text);font-family:'Zalando Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;align-items:center;justify-content:space-between;gap:8px;transition:all 0.2s}
 .mobile-filter-toggle.active{background:rgba(var(--brand-rgb),0.2);border-color:rgba(var(--brand-light-rgb),0.4);color:var(--purple3)}
 @media(max-width:768px){
+  /* iOS Safari force-zooms the page whenever a focused field's font is
+     under 16px, which shifts the whole layout mid-tap. 16px is the floor
+     that suppresses it. The element selectors catch any field added later;
+     the class list is needed because a class beats a bare element selector
+     on specificity, so those would otherwise keep their smaller size. */
+  input[type="text"],input[type="email"],input[type="tel"],input[type="search"],
+  input[type="number"],input[type="password"],input[type="url"],
+  input[type="date"],input[type="time"],select,textarea,
+  .bf-input,.form-input,.form-select,.sort-select,.svc-extra-price,
+  .filter-search input,.mobile-menu-search input{font-size:16px}
   nav{padding:0.6rem 1rem;gap:0.5rem}
   .nav-search,.nav-search-cancel,.nav-link,.nav-dropdown,.nav-btn-vip,.nav-badge,.nav-cart{display:none!important}
   .nav-hamburger-btn{display:flex}
