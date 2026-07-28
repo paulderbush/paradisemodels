@@ -254,3 +254,51 @@ footer{
   background:linear-gradient(135deg,#2a2f66,#3a4081)!important;
   box-shadow:0 6px 28px rgba(42,47,102,0.45)!important;
 }
+
+/* =================== MODEL PROFILE =================== */
+/* Same problem again: the translucent info panels (stats, bio, booking
+   calculator, services, map frame, reviews) were drawn for the dark base
+   theme and wash out on the bright cyan. Solid dark panels; anything sitting
+   directly on the cyan flips to dark ink. */
+.model-detail-name,.model-bio p{color:#2a2f66}
+/* The nationality/station line, the Languages:/Orientation: labels and the
+   "Available daily…" footnote all sit directly on the cyan (not inside one
+   of the dark panels below), so their inline var(--text-soft)/
+   var(--text-muted) need overriding — targeted by the exact inline style JS
+   writes them with. Scoped to .model-detail-info specifically: the reviews
+   section reuses the same muted/soft inline styles but on its own dark
+   panels, where the original light color is already correct. */
+.model-detail-info [style*="color:var(--text-soft)"],
+.model-detail-info [style*="color:var(--text-muted)"]{color:rgba(26,30,66,0.72)!important}
+.back-btn{color:#2a2f66;border-color:rgba(26,30,66,0.25)}
+.stat-box,.price-calc,.model-bio,.review-card,.review-form,.model-map-block,
+.model-detail-services{
+  background:#1a1e42!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  border:1px solid rgba(255,255,255,0.12)!important;
+}
+.service-chip{
+  background:rgba(255,255,255,0.08)!important;
+  border:1px solid rgba(255,255,255,0.18)!important;
+  color:var(--text)!important;
+}
+.price-type-btn,.duration-btn,.extra-svc-chk{
+  background:rgba(255,255,255,0.06)!important;
+  border:1px solid rgba(255,255,255,0.18)!important;
+}
+.price-type-btn.active,.duration-btn.active{
+  background:#70e9ff!important;border-color:#70e9ff!important;color:#1a1e42!important;
+}
+.rv-type-btn,.bf-method{
+  background:rgba(255,255,255,0.06)!important;
+  border:1px solid rgba(255,255,255,0.18)!important;
+}
+.rv-type-btn.active,.bf-method.active{
+  background:#70e9ff!important;border-color:#70e9ff!important;color:#1a1e42!important;
+}
+.star-picker button{color:rgba(255,255,255,0.25)!important}
+.star-picker button.active{color:#FFD700!important}
+.make-booking-btn{
+  background:linear-gradient(135deg,#2a2f66,#3a4081)!important;
+  box-shadow:0 6px 28px rgba(42,47,102,0.45)!important;
+}

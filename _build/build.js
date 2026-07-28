@@ -475,17 +475,19 @@ document.addEventListener('DOMContentLoaded', async function() {
 function buildModelProfile(m) {
   const initRate = m.incallRates[0];
   const minPrice = Math.min(...m.incallRates.map(r => r.price));
-  const desc = `${m.name} — ${m.nationality} escort in London. Available for incall from £${minPrice}. Book now at Velvet London.`;
+  const desc = `${m.name} — ${m.nationality} escort in London. Available for incall from £${minPrice}. Book now at Paradise Models.`;
 
   return head(
-    `${m.name} — Elite London Escort | Velvet London`,
+    `${m.name} — Elite London Escort | Paradise Models`,
     desc,
     `${SITE_URL}/models/${m.slug}/`,
-    `<meta property="og:image" content="${SITE_URL}/${m.folder}/1.webp">`
+    `<meta property="og:image" content="${SITE_URL}/${m.folder}/1.webp">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
   ) + `
 <body>
 ${orbsHTML()}
-${navHTML()}
+${navHTML(true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
@@ -494,7 +496,7 @@ ${ageModalHTML()}
   </div>
 </div>
 
-${footerHTML()}
+${footerHTML(true)}
 <script>
 const MODEL_DATA = ${JSON.stringify(Object.assign({}, m, {reviews: []}))};
 const MODELS = [MODEL_DATA];
