@@ -209,9 +209,10 @@ async function loadAllReviews() {
     const byModel = {};
     all.forEach(rv => { (byModel[rv.model_id] = byModel[rv.model_id] || []).push(rv); });
     MODELS.forEach(m => { if (byModel[m.id]) m.reviews = byModel[m.id]; });
-    // refresh grids if present
+    // Refresh grids so the new ratings show. This is a background update the
+    // visitor didn't ask for, so it must not move their scroll position.
     if (typeof renderHomeCityRows === 'function') renderHomeCityRows();
-    if (typeof applyFilters === 'function') applyFilters();
+    if (typeof applyFilters === 'function') applyFilters({scroll: false});
   } catch(e) {}
 }
 
