@@ -21,9 +21,11 @@ function applyCityFromURL() {
 }
 
 // applyFilters() jumps the mobile view down to the results, which is helpful
-// after the visitor changes a filter but wrong on load: init calls it three
-// times (once per range), so the page opened already scrolled past its own
-// heading and filter button. Only scroll once the page is actually ready.
+// after the visitor changes a filter but wrong otherwise: init calls it three
+// times (once per range), and loadAllReviews() calls it again once ratings
+// arrive from the network — both would drag the page down on their own. Only
+// a genuine filter change scrolls: init is gated by the flag, and background
+// refreshes pass {scroll:false}.
 let _filtersInteractive = false;
 
 function initModelsPage() {
@@ -45,7 +47,8 @@ function initModelsPage() {
   _filtersInteractive = true;
 }
 
-function applyFilters() {
+function applyFilters(opts) {
+  const scroll = !opts || opts.scroll !== false;
   let ms = [...MODELS];
   if (activeCat !== 'all') ms = ms.filter(m => m.cats.includes(activeCat));
   if (selectedCities.length) ms = ms.filter(m => selectedCities.includes(m.city));
@@ -56,7 +59,7 @@ function applyFilters() {
   ms = ms.filter(m => m.height >= heightRange[0] && m.height <= heightRange[1]);
   filteredModels = ms;
   renderModelsGrid(ms);
-  if (_filtersInteractive && window.innerWidth <= 768) {
+  if (scroll && _filtersInteractive && window.innerWidth <= 768) {
     const grid = document.getElementById('modelsGrid');
     if (grid) setTimeout(() => grid.scrollIntoView({behavior: 'smooth', block: 'start'}), 100);
   }

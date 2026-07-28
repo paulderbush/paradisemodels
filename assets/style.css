@@ -611,11 +611,12 @@ footer a{color:var(--purple3);text-decoration:none}
   max-height:calc(100vh - 96px);
   overflow-y:auto;
   overscroll-behavior:contain;
+  /* Scrolls, but without a visible bar — the panel is short enough that the
+     cut-off content reads as scrollable on its own. */
+  scrollbar-width:none;
+  -ms-overflow-style:none;
 }
-.filters-sidebar::-webkit-scrollbar{width:8px}
-.filters-sidebar::-webkit-scrollbar-track{background:transparent}
-.filters-sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.18);border-radius:4px}
-.filters-sidebar::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.3)}
+.filters-sidebar::-webkit-scrollbar{width:0;height:0}
 .filter-title{font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem}
 .filter-group{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(var(--brand-light-rgb),0.1)}
 .filter-group:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
