@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1a1e42">
 <title>Concierge — Paradise Models</title>
 <meta name="description" content="The Paradise Models concierge service — bespoke travel, private events and tailored arrangements handled to perfection.">
 <link rel="canonical" href="https://velvetescort.co.uk/concierge/">
@@ -10,9 +11,9 @@
 <meta property="og:description" content="The Paradise Models concierge service — bespoke travel, private events and tailored arrangements handled to perfection.">
 <meta property="og:url" content="https://velvetescort.co.uk/concierge/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260727164033">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260727164033">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260727164033">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260808140004">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260808140004">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260808140004">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -43,6 +44,10 @@
   --panel2-rgb:20,12,32;
   --glow-light:#C49FEE;
   --glow-mid:#8B3FCA;
+  /* Full-screen mobile menu link colors: light-on-dark by default,
+     overridden to dark-on-light by home-theme.css's bright bg. */
+  --menu-link-color:var(--text);
+  --menu-link-soft:var(--text-soft);
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Zalando Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;overflow-x:hidden;min-height:100vh}
@@ -135,14 +140,15 @@ nav{
   display:flex;align-items:center;justify-content:center;
   position:absolute;top:-6px;right:-6px;
 }
-.nav-account-btn{
+.nav-account-btn,.nav-hamburger-btn{
   width:38px;height:38px;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
   background:rgba(var(--brand-rgb),0.12);
   border:1px solid var(--glass-border);
   color:var(--text);cursor:pointer;transition:all 0.25s;
 }
-.nav-account-btn:hover{background:rgba(var(--brand-rgb),0.25);border-color:var(--purple3)}
+.nav-account-btn:hover,.nav-hamburger-btn:hover{background:rgba(var(--brand-rgb),0.25);border-color:var(--purple3)}
+.nav-hamburger-btn{display:none}
 .nav-btn{
   padding:0.5rem 1.3rem;
   background:linear-gradient(135deg,var(--purple),var(--purple-dark));
@@ -195,6 +201,80 @@ nav{
   transition:background 0.15s;
 }
 .nav-dropdown-menu a:hover{background:rgba(var(--brand-rgb),0.28)}
+
+/* MOBILE MENU */
+html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
+.mobile-menu-overlay{
+  position:fixed;inset:0;z-index:900;
+  background:var(--bg);
+  display:flex;flex-direction:column;
+  opacity:0;pointer-events:none;
+  transform:translateX(100%);
+  transition:transform 0.35s cubic-bezier(.4,0,.2,1),opacity 0.3s;
+}
+.mobile-menu-overlay.open{opacity:1;pointer-events:auto;transform:translateX(0)}
+.mobile-menu-head{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  padding:0.9rem 1.1rem;flex-shrink:0;
+  background:rgba(var(--panel-rgb),0.97);
+  border-bottom:1px solid var(--glass-border);
+}
+.mobile-menu-close{
+  position:absolute;right:1.1rem;top:50%;transform:translateY(-50%);
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(var(--brand-rgb),0.12);
+  border:1px solid var(--glass-border);
+  color:var(--text);cursor:pointer;
+}
+.mobile-menu-body{
+  flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding:1.1rem;
+  display:flex;flex-direction:column;gap:0.6rem;
+}
+.mobile-menu-search{
+  position:relative;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(var(--panel-rgb),0.9);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r);
+  padding:0.75rem 1.1rem;
+  margin-bottom:0.4rem;
+}
+.mobile-menu-search svg{width:18px;height:18px;opacity:0.5;flex-shrink:0}
+.mobile-menu-search input{
+  background:none;border:none;outline:none;flex:1;min-width:0;
+  color:var(--text);font-family:'Zalando Sans',sans-serif;font-size:15px;
+}
+.mobile-menu-search input::placeholder{color:var(--text-muted)}
+.mobile-menu-link{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  width:100%;padding:0.85rem 1rem;
+  background:none;border:none;
+  color:var(--menu-link-color);text-decoration:none;text-align:center;
+  font-family:'Zalando Sans',sans-serif;font-size:17px;font-weight:700;
+  cursor:pointer;transition:opacity 0.2s;
+}
+.mobile-menu-link:hover,.mobile-menu-link:active{opacity:0.6}
+.mobile-menu-link .cart-badge{position:static;margin-left:2px}
+.mobile-menu-accordion{display:flex;flex-direction:column}
+.mobile-menu-accordion.open .mobile-menu-accordion-btn .nav-dropdown-caret{transform:rotate(180deg)}
+.mobile-menu-accordion-panel{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.mobile-menu-accordion-inner{display:flex;flex-direction:column;gap:2px;padding:0.2rem 0.3rem 0.6rem}
+.mobile-menu-accordion-inner a{
+  padding:0.5rem 1rem;border-radius:var(--r-xs);
+  color:var(--menu-link-soft);text-decoration:none;text-align:center;
+  font-size:13px;font-weight:400;
+  transition:opacity 0.2s;
+}
+.mobile-menu-accordion-inner a:hover,.mobile-menu-accordion-inner a:active{opacity:0.65}
+.mobile-menu-foot{
+  flex-shrink:0;padding:1.1rem;
+  border-top:1px solid var(--glass-border);
+  display:flex;flex-direction:column;gap:0.75rem;
+}
+.mobile-menu-tg-btn,.mobile-menu-model-btn{width:100%;justify-content:center}
 
 /* CART PANEL */
 .cart-panel{
@@ -327,6 +407,12 @@ nav{
     flex-direction:column;
     min-height:auto;
     align-items:stretch;
+    /* The shared 62px margin-top predates the current nav and no longer
+       matches its real height: desktop's nav is ~65px so the hero tucks
+       under it and the seam is hidden, but the mobile nav is only ~60px,
+       leaving a ~2px strip of page background visible between the two.
+       Tuck under here as well rather than trying to sit flush. */
+    margin-top:54px;
   }
   .hero-bg{
     position:relative;
@@ -353,17 +439,8 @@ nav{
   .hero-badge,.hero-sub,.hero-hours{align-self:center;text-align:center}
   .hero-sub{text-align:center}
   .hero-btns{justify-content:center;gap:0.5rem}
-  .hero-btns .btn-wa,.hero-btns .btn-tg,.hero-btns .btn-model-cta{padding:0.42rem 0.9rem;font-size:13px}
+  .hero-btns .btn-tg,.hero-btns .btn-model-cta{padding:0.42rem 0.9rem;font-size:13px}
 }
-.btn-wa{
-  display:flex;align-items:center;gap:8px;
-  padding:0.7rem 1.4rem;border-radius:var(--r);
-  background:rgba(37,211,102,0.12);
-  border:1px solid rgba(37,211,102,0.3);
-  color:#25D366;font-size:14px;font-weight:500;cursor:pointer;
-  transition:all 0.25s;text-decoration:none;
-}
-.btn-wa:hover{background:rgba(37,211,102,0.22);transform:translateY(-1px)}
 .btn-tg{
   display:flex;align-items:center;gap:8px;
   padding:0.7rem 1.4rem;border-radius:var(--r);
@@ -526,6 +603,9 @@ footer a{color:var(--purple3);text-decoration:none}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;max-width:1280px;margin:0 auto}
 .footer-left p{margin-bottom:0.25rem}
 .footer-btns{display:flex;gap:0.75rem;align-items:center;flex-shrink:0}
+@media(min-width:769px){
+  .footer-left{padding-right:170px}
+}
 
 /* =================== MODELS PAGE =================== */
 .models-page{padding:6rem 2rem 3rem;max-width:1440px;margin:0 auto}
@@ -543,7 +623,19 @@ footer a{color:var(--purple3);text-decoration:none}
   border:1px solid var(--glass-border);
   padding:1.25rem;
   position:sticky;top:80px;
+  /* The filter list is taller than the viewport. Sticky alone pins it and
+     leaves everything past the fold unreachable — you had to scroll the
+     whole results grid to the bottom before the rest appeared. Give the
+     panel its own scroll so the filters can be browsed on their own. */
+  max-height:calc(100vh - 96px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  /* Scrolls, but without a visible bar — the panel is short enough that the
+     cut-off content reads as scrollable on its own. */
+  scrollbar-width:none;
+  -ms-overflow-style:none;
 }
+.filters-sidebar::-webkit-scrollbar{width:0;height:0}
 .filter-title{font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem}
 .filter-group{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(var(--brand-light-rgb),0.1)}
 .filter-group:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
@@ -844,13 +936,16 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .rates-fields.active{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
 .services-chk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
 
-.svc-check{display:flex;align-items:center;gap:5px;padding:0.3rem 0.4rem;border-radius:6px;transition:background 0.2s}
+/* wrap: the price field appears on demand and a fixed-width input on the
+   same line as the label squeezes the label into 3 wrapped lines and pushes
+   itself into the neighbouring column. Let it drop to its own line instead. */
+.svc-check{display:flex;flex-wrap:wrap;align-items:center;gap:5px;padding:0.3rem 0.4rem;border-radius:6px;transition:background 0.2s}
 .svc-check:hover{background:rgba(var(--brand-rgb),0.08)}
 .svc-check label{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-soft);cursor:pointer;flex:1;min-width:0}
 .svc-check label input{accent-color:var(--purple);flex-shrink:0}
 .svc-extra-btn{padding:1px 7px;border-radius:4px;background:rgba(var(--brand-rgb),0.1);border:1px solid rgba(var(--brand-light-rgb),0.2);color:var(--text-muted);font-size:10px;cursor:pointer;font-family:'Zalando Sans',sans-serif;transition:all 0.2s;flex-shrink:0;line-height:1.7}
 .svc-extra-btn.active{background:rgba(255,180,50,0.18);border-color:rgba(255,180,50,0.55);color:#FFB432}
-.svc-extra-price{display:none;width:52px;padding:2px 6px;border-radius:4px;background:rgba(0,0,0,0.3);border:1px solid rgba(var(--brand-light-rgb),0.3);color:var(--text);font-size:12px;font-family:'Zalando Sans',sans-serif}
+.svc-extra-price{display:none;width:100%;padding:3px 8px;border-radius:4px;background:rgba(0,0,0,0.3);border:1px solid rgba(var(--brand-light-rgb),0.3);color:var(--text);font-size:12px;font-family:'Zalando Sans',sans-serif}
 .svc-extra-price.show{display:block}
 .photo-upload-area{border:2px dashed var(--glass-border);border-radius:var(--r-sm);padding:2rem;text-align:center;cursor:pointer;transition:border-color 0.2s}
 .photo-upload-area:hover{border-color:var(--purple3)}
@@ -875,19 +970,15 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .mobile-filter-toggle{display:none;width:100%;padding:0.75rem 1rem;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--r-sm);color:var(--text);font-family:'Zalando Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;align-items:center;justify-content:space-between;gap:8px;transition:all 0.2s}
 .mobile-filter-toggle.active{background:rgba(var(--brand-rgb),0.2);border-color:rgba(var(--brand-light-rgb),0.4);color:var(--purple3)}
 @media(max-width:768px){
-  nav{padding:0.6rem 1rem;flex-wrap:wrap;gap:0.5rem}
-  .nav-search{max-width:160px}
-  .nav-search input{font-size:16px}
-  .nav-badge{display:none}
-  .nav-cart{margin-left:auto}
-  .nav-link{padding:0.4rem 0.7rem;font-size:13px}
-  nav.search-mode{flex-wrap:nowrap}
-  nav.search-mode .nav-search{max-width:none;flex:1}
-  nav.search-mode .nav-cart,nav.search-mode .nav-btn,nav.search-mode .nav-link,nav.search-mode .nav-dropdown,nav.search-mode .nav-account-btn{display:none!important}
-  nav.search-mode .nav-search-cancel{display:flex;align-items:center;padding:0.3rem 0.5rem;background:none;border:none;color:var(--purple3);font-family:'Zalando Sans',sans-serif;font-size:13px;cursor:pointer;flex-shrink:0;white-space:nowrap}
+  nav{padding:0.6rem 1rem;gap:0.5rem}
+  .nav-search,.nav-search-cancel,.nav-link,.nav-dropdown,.nav-btn-vip,.nav-badge,.nav-cart{display:none!important}
+  .nav-hamburger-btn{display:flex}
+  .nav-account-btn{margin-left:auto}
   .models-layout{grid-template-columns:1fr}
   .mobile-filter-toggle{display:flex;grid-column:1/-1}
-  .filters-sidebar{position:static;display:none;grid-column:1/-1}
+  /* Mobile shows the panel inline under the toggle, so it must grow to its
+     natural height rather than keeping the desktop panel's own scrollbox. */
+  .filters-sidebar{position:static;display:none;grid-column:1/-1;max-height:none;overflow:visible}
   .filters-sidebar.open{display:block}
   .models-row{grid-template-columns:repeat(2,1fr)}
   .model-detail-layout{grid-template-columns:1fr}
@@ -899,11 +990,17 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .real-detail-layout>.reviews-section{order:4}
   .real-detail-layout .detail-left>.model-bio{order:5;margin-top:0}
   .hero h1{font-size:2rem}
-  .hero-btns{flex-wrap:wrap}
-  .hero-btns .btn-wa,.hero-btns .btn-tg{justify-content:center}
-  .hero-btns .btn-model-cta{justify-content:center}
+  /* Telegram centered on its own row, Become a Model beneath it.
+     align-self is needed too: .hero-content aligns its children to
+     flex-start, so the button column would otherwise sit hard left. */
+  .hero-btns{flex-direction:column;align-items:center;align-self:center;gap:0.6rem}
+  .hero-btns .btn-tg,.hero-btns .btn-model-cta{justify-content:center}
+  footer{padding-bottom:5rem}
   .footer-inner{flex-direction:column;align-items:center;text-align:center}
-  .footer-btns{flex-wrap:wrap;justify-content:center}
+  /* Telegram + Blog share the top row; Become a Model spans both columns. */
+  .footer-btns{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;width:100%}
+  .footer-btns a{width:100%;justify-content:center}
+  .footer-btns .footer-model-btn{grid-column:1/-1}
   .form-grid-2,.form-grid-3{grid-template-columns:1fr}
   .services-chk-grid{grid-template-columns:repeat(2,1fr)}
   .rates-fields.active{grid-template-columns:1fr}
@@ -1025,15 +1122,55 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 }
 .chat-send-btn:hover{transform:scale(1.08)}
 @media(max-width:768px){
-  .chat-panel{right:16px;bottom:86px;width:calc(100vw - 32px)}
+  html.chat-open-mobile,html.chat-open-mobile body{overflow:hidden;height:100%}
+  /* Same sizing approach as .mobile-menu-overlay: inset:0 alone defines the
+     box, no separately-specified width/height fighting for the last word. */
+  .chat-panel{
+    inset:0;
+    width:auto;height:auto;max-width:none;max-height:none;
+    border-radius:0;
+    transform:translateY(100%);
+  }
+  .chat-panel.open{transform:translateY(0)}
+  .chat-panel-head{padding-top:calc(0.9rem + env(safe-area-inset-top))}
+  .chat-input-row{padding-bottom:calc(0.9rem + env(safe-area-inset-bottom))}
   .chat-bubble{right:16px;bottom:16px}
+  /* iOS Safari force-zooms the whole page when a focused input's font is
+     under 16px — that zoom was what threw the panel askew on tap. 16px is
+     the threshold, so these must not go below it on mobile. */
+  .chat-input,.chat-name-input{font-size:16px}
+  /* While the keyboard is up, JS pins the panel to visualViewport, so the
+     safe-area padding underneath it would double-count. */
+  html.chat-kb-open .chat-input-row{padding-bottom:0.9rem}
 }
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
+
+/* =================== iOS INPUT ZOOM GUARD ===================
+   iOS Safari force-zooms the page whenever a focused field's font is under
+   16px, which shifts the whole layout mid-tap. 16px is the floor that
+   suppresses it.
+
+   This block lives at the very end of the stylesheet on purpose: these are
+   single-class selectors, so a control's own rule (.bf-input, .form-input, …)
+   has identical specificity and would win purely on source order if it were
+   declared later — which is exactly what left the review textarea and
+   duration select at 15px. Keep this last so it always wins, and any control
+   added below would need to be added here too.
+
+   The element selectors cover fields that carry no styling class at all. */
+@media(max-width:768px){
+  input[type="text"],input[type="email"],input[type="tel"],input[type="search"],
+  input[type="number"],input[type="password"],input[type="url"],
+  input[type="date"],input[type="time"],select,textarea,
+  .bf-input,.form-input,.form-select,.sort-select,.svc-extra-price,
+  .filter-search input,.mobile-menu-search input,
+  .chat-input,.chat-name-input{font-size:16px}
+}
 </style>
-<script>window.BUILD_TS='20260727164033';</script>
+<script>window.BUILD_TS='20260808140004';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260727164033"></script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260727164033">
+<script src="/assets/currency.js?v=20260808140004"></script>
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260808140004">
 </head>
 <body>
 <div class="orb-container">
@@ -1057,7 +1194,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260727164033" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808140004" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1093,7 +1230,65 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   <a class="nav-account-btn" href="/account/" aria-label="My Account">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
   </a>
+  <button class="nav-hamburger-btn" id="navHamburgerBtn" onclick="openMobileMenu()" aria-label="Menu">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+  <div class="mobile-menu-head">
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808140004" alt="Paradise Models"></a>
+    <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu-body">
+    <div class="mobile-menu-search" id="mobileMenuSearch">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search models…" id="mobileNavSearchInput" oninput="handleMobileNavSearch(this.value)">
+      <div class="search-dropdown" id="mobileSearchDropdown"></div>
+    </div>
+    <a class="mobile-menu-link" href="/models/">Models</a>
+    <div class="mobile-menu-accordion">
+      <button class="mobile-menu-link mobile-menu-accordion-btn" type="button" onclick="toggleMobileAccordion(this)">
+        Locations
+        <svg class="nav-dropdown-caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-menu-accordion-panel">
+        <div class="mobile-menu-accordion-inner">
+          <a href="/models/?city=london">London</a>
+          <a href="/models/?city=paris">Paris</a>
+          <a href="/models/?city=monaco">Monaco</a>
+          <a href="/models/?city=milan">Milan</a>
+          <a href="/models/?city=dubai">Dubai</a>
+          <a href="/models/?city=new-york">New York</a>
+          <a href="/models/?city=miami">Miami</a>
+          <a href="/models/?city=zurich">Zurich</a>
+          <a href="/models/?city=amsterdam">Amsterdam</a>
+        </div>
+      </div>
+    </div>
+    <a class="mobile-menu-link" href="/concierge/">Concierge</a>
+    <a class="mobile-menu-link" href="/events/">Events</a>
+    <a class="mobile-menu-link" href="/about/">About Us</a>
+    <a class="mobile-menu-link" href="/vip-models/">VIP Models</a>
+    <div class="mobile-menu-link" onclick="closeMobileMenu();openCart()" style="cursor:pointer">
+      Booking
+      <div class="cart-badge" id="mobileCartBadge">0</div>
+    </div>
+  </div>
+  <div class="mobile-menu-foot">
+    <a href="https://t.me/paradisemodelslondon?text=Hello%20Paradise%20Models%20%F0%9F%91%8B%F0%9F%8F%BC" class="btn-tg mobile-menu-tg-btn" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      Telegram
+    </a>
+    <a href="/become-a-model/" class="btn-model-cta mobile-menu-model-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Become a Model
+    </a>
+  </div>
+</div>
 <!-- AGE VERIFICATION MODAL -->
 <div id="ageModal" class="age-modal-overlay">
   <div class="age-modal-box">
@@ -1128,26 +1323,22 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- SHARED FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-left">
-      <p>© 2026 Paradise Models. All rights reserved. For adults 18+ only.</p>
-    </div>
     <div class="footer-btns">
-      <a href="https://wa.me/447450842231?text=Hello%20Velvet%20Agency%20%F0%9F%91%8B%F0%9F%8F%BC" class="btn-wa" target="_blank" style="font-size:13px;padding:0.5rem 1.1rem">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="https://t.me/velvetescortlondon?text=Hello%20Velvet%20Agency%20%F0%9F%91%8B%F0%9F%8F%BC" class="btn-tg" target="_blank" style="font-size:13px;padding:0.5rem 1.1rem">
+      <a href="https://t.me/paradisemodelslondon?text=Hello%20Paradise%20Models%20%F0%9F%91%8B%F0%9F%8F%BC" class="btn-tg" target="_blank" style="font-size:13px;padding:0.5rem 1.1rem">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         Telegram
-      </a>
-      <a href="/become-a-model/" class="btn-model-cta" style="font-size:13px;padding:0.5rem 1.1rem;text-decoration:none">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Become a Model
       </a>
       <a href="/blog/" class="btn-blog" style="font-size:13px;padding:0.5rem 1.1rem;text-decoration:none">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         Blog
       </a>
+      <a href="/become-a-model/" class="btn-model-cta footer-model-btn" style="font-size:13px;padding:0.5rem 1.1rem;text-decoration:none">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Become a Model
+      </a>
+    </div>
+    <div class="footer-left">
+      <p>© 2026 Paradise Models. All rights reserved. For adults 18+ only.</p>
     </div>
   </div>
 </footer>
@@ -1158,7 +1349,7 @@ const NATIONALITIES = [];
 const STATIONS = [];
 const CITIES = [];
 </script>
-<script src="/assets/main.js?v=20260727164033"></script>
-<script src="/assets/chat.js?v=20260727164033"></script>
+<script src="/assets/main.js?v=20260808140004"></script>
+<script src="/assets/chat.js?v=20260808140004"></script>
 </body>
 </html>
