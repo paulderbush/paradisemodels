@@ -72,7 +72,7 @@ function generateModels() {
 
 // =================== REAL MODELS ===================
 const ROSA_DATA = {
-  id: 9998, real: true, folder: 'Rosa', slug: 'rosa',
+  id: 9998, real: true, vip: false, folder: 'Rosa', slug: 'rosa',
   name: 'Rosa', age: 18, height: 168, weight: 55,
   nationality: 'Russian', station: 'Angel', city: 'London',
   rateHour: 600,
@@ -116,7 +116,7 @@ const ROSA_DATA = {
 };
 
 const MANNY_DATA = {
-  id: 9997, real: true, folder: 'Manny', slug: 'manny',
+  id: 9997, real: true, vip: false, folder: 'Manny', slug: 'manny',
   name: 'Manny', age: 23, height: 173, weight: 60,
   nationality: 'British', station: 'Southwark', city: 'London',
   rateHour: 350,

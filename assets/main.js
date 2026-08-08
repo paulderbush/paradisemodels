@@ -242,7 +242,7 @@ function modelCardHTML(m, clickable = true) {
   const catBadges = [];
   if (m.cats.includes('new')) catBadges.push('<span class="badge badge-new">New</span>');
   if (m.cats.includes('toprated')) catBadges.push('<span class="badge badge-top">Top Rated</span>');
-  if (m.cats.includes('recommended')) catBadges.push('<span class="badge badge-vip">⭐ VIP</span>');
+  if (m.vip) catBadges.push('<span class="badge badge-vip">⭐ VIP</span>');
   const topSvcs = m.svcs.slice(0, 3).map(s => `<span class="tag-chip">${s}</span>`).join('');
   const ratingBadge = (() => { const r = computeRating(m.reviews); return r ? `<div class="card-rating-badge">★ ${r}</div>` : ''; })();
 
