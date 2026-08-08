@@ -1,21 +1,37 @@
 // =================== VIP MODELS PAGE ===================
 const VIP_PRICE_GBP = 300;
 
+// The actual paid catalog: only models explicitly marked vip:true in
+// data/models.js — a dedicated flag, not reused from the "recommended"
+// marketing tag, so a model can be recommended and public at the same time
+// without accidentally landing behind the paywall.
 function vipModelsList() {
-  return MODELS.filter(m => m.cats && m.cats.includes('recommended'));
+  return MODELS.filter(m => m.vip === true);
+}
+
+// The blurred backdrop behind the paywall card is just visual enticement —
+// identity is hidden by the blur either way — so it doesn't have to be the
+// real VIP set (which may be empty before any VIP model exists yet). Prefer
+// real photos, fall back to whatever's available so the page never looks
+// broken.
+function vipTeaserPool() {
+  const real = MODELS.filter(m => m.real);
+  return (real.length ? real : MODELS).slice(0, 4);
 }
 
 function renderVipTeaser() {
   const grid = document.getElementById('vipTeaserGrid');
   if (!grid) return;
-  const teaser = vipModelsList().slice(0, 4);
-  grid.innerHTML = teaser.map(m => modelCardHTML(m, false)).join('');
+  grid.innerHTML = vipTeaserPool().map(m => modelCardHTML(m, false)).join('');
 }
 
 function renderVipUnlocked() {
   const grid = document.getElementById('vipUnlocked');
   if (!grid) return;
-  grid.innerHTML = vipModelsList().map(m => modelCardHTML(m)).join('');
+  const list = vipModelsList();
+  grid.innerHTML = list.length
+    ? list.map(m => modelCardHTML(m)).join('')
+    : '<p style="grid-column:1/-1;text-align:center;color:var(--text-soft);padding:2rem 0">New VIP companions are being added — check back soon.</p>';
 }
 
 async function setVipPriceTag() {
