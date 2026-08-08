@@ -886,22 +886,27 @@ ${ageModalHTML()}
 
     <!-- Signed out: sign in / create account -->
     <div id="acctAuthBox" class="form-section" style="display:none">
-      <div class="form-section-title" id="acctModeTitle">Sign In</div>
-      <div class="form-grid-2" style="margin-bottom:1rem">
-        <button type="button" class="bf-method active" id="acctTabSignin" onclick="setAcctMode('signin')">Sign In</button>
-        <button type="button" class="bf-method" id="acctTabSignup" onclick="setAcctMode('signup')">Create Account</button>
+      <div id="acctFormFields">
+        <div class="form-section-title" id="acctModeTitle">Sign In</div>
+        <div class="form-grid-2" style="margin-bottom:1rem">
+          <button type="button" class="bf-method active" id="acctTabSignin" onclick="setAcctMode('signin')">Sign In</button>
+          <button type="button" class="bf-method" id="acctTabSignup" onclick="setAcctMode('signup')">Create Account</button>
+        </div>
+        <div class="form-field" style="margin-bottom:0.9rem">
+          <label>Email</label>
+          <input class="form-input" type="email" id="acctEmail" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <div class="form-field" style="margin-bottom:0.9rem">
+          <label>Password</label>
+          <input class="form-input" type="password" id="acctPassword" placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <div id="acctError" style="display:none;color:#ff8a8a;font-size:13px;margin-bottom:0.9rem"></div>
+        <button type="button" class="submit-app-btn" id="acctSubmitBtn" onclick="submitAcctForm()" style="margin-top:0">Sign In</button>
       </div>
-      <div class="form-field" style="margin-bottom:0.9rem">
-        <label>Email</label>
-        <input class="form-input" type="email" id="acctEmail" placeholder="you@example.com" autocomplete="email">
+      <div id="acctSignupNotice" style="display:none;text-align:center;padding:0.5rem 0">
+        <div style="font-size:1.3rem;font-weight:800;color:#70e9ff;margin-bottom:0.6rem">Check your email</div>
+        <p style="color:var(--text-soft);font-size:14px;margin:0">We've sent a confirmation link to your inbox — click it, then come back here and sign in.</p>
       </div>
-      <div class="form-field" style="margin-bottom:0.9rem">
-        <label>Password</label>
-        <input class="form-input" type="password" id="acctPassword" placeholder="••••••••" autocomplete="current-password">
-      </div>
-      <div id="acctError" style="display:none;color:#ff8a8a;font-size:13px;margin-bottom:0.9rem"></div>
-      <button type="button" class="submit-app-btn" id="acctSubmitBtn" onclick="submitAcctForm()" style="margin-top:0">Sign In</button>
-      <div id="acctSignupNotice" style="display:none;color:var(--text-soft);font-size:13px;margin-top:1rem;text-align:center">Check your email to confirm your account, then sign in.</div>
     </div>
 
     <!-- Signed in -->

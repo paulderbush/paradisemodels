@@ -10,6 +10,7 @@ function setAcctMode(mode) {
   document.getElementById('acctPassword').autocomplete = mode === 'signin' ? 'current-password' : 'new-password';
   document.getElementById('acctError').style.display = 'none';
   document.getElementById('acctSignupNotice').style.display = 'none';
+  document.getElementById('acctFormFields').style.display = 'block';
 }
 
 function showAcctError(message) {
@@ -45,6 +46,7 @@ async function submitAcctForm() {
 
   if (_acctMode === 'signup' && !(data && data.session)) {
     // Email confirmation is on for this project: no session yet.
+    document.getElementById('acctFormFields').style.display = 'none';
     document.getElementById('acctSignupNotice').style.display = 'block';
     return;
   }
