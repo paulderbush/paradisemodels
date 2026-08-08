@@ -725,7 +725,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function buildVipModels() {
   return head(
     'VIP Models — Paradise Models',
-    'An exclusive selection of VIP companions at Paradise Models. Coming soon.',
+    'An exclusive selection of VIP companions at Paradise Models. Unlock with a one-time payment.',
     SITE_URL + '/vip-models/',
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
@@ -736,26 +736,44 @@ ${navHTML(true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
-  <div class="faq-page" style="text-align:center;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
-    <a class="back-btn" href="/" style="position:absolute;top:90px;left:2rem">
+  <div class="models-page">
+    <a class="back-btn" href="/">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
       Back to Home
     </a>
-    <h1 style="font-size:clamp(2.4rem,5vw,4rem);font-weight:700;margin-bottom:1rem">VIP <span style="background:linear-gradient(135deg,#1a5f7a,#123a66);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Models</span></h1>
-    <p style="color:var(--text-soft);font-size:1.1rem;max-width:520px">Our most exclusive selection of companions — available by private introduction only.</p>
-    <p style="color:var(--text-muted);font-size:1rem;margin-top:1.5rem">Coming soon.</p>
+    <div class="models-page-header">
+      <h1>VIP <span>Models</span></h1>
+      <p>Our most exclusive selection of companions — available to members with unlocked VIP access.</p>
+    </div>
+
+    <div id="vipLoading" style="text-align:center;padding:3rem 0;color:var(--text-soft)">Checking your access…</div>
+
+    <div id="vipLocked" style="display:none">
+      <div class="vip-teaser-wrap">
+        <div id="vipTeaserGrid" class="models-row vip-teaser-grid"></div>
+        <div class="vip-paywall-overlay">
+          <div class="vip-paywall-card">
+            <div class="form-section-title">VIP Access Required</div>
+            <p id="vipPaywallCopy" style="margin-bottom:1.1rem">Sign in to unlock the VIP catalog.</p>
+            <div id="vipPriceTag" style="font-size:1.7rem;font-weight:700;margin-bottom:1.1rem"></div>
+            <button type="button" class="submit-app-btn" id="vipUnlockBtn" onclick="handleVipCta()" style="margin-top:0">Sign In</button>
+            <div id="vipError" style="display:none;color:#ff8a8a;font-size:13px;margin-top:0.9rem"></div>
+            <p style="font-size:12px;color:var(--text-muted);margin-top:1rem">One-time payment. No subscription.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="vipUnlocked" class="models-row" style="display:none"></div>
   </div>
 </div>
 
 ${footerHTML(true)}
-<script>
-const MODELS = [];
-const SERVICES = [];
-const NATIONALITIES = [];
-const STATIONS = [];
-<\/script>
+${modelsDataScript()}
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/auth.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/vip.js?v=${BUILD_TS}"><\/script>
 </body>
 </html>`;
 }
@@ -841,13 +859,75 @@ function buildBlog() {
 }
 
 function buildAccount() {
-  return buildPlaceholder({
-    metaTitle: 'My Account — Paradise Models',
-    metaDesc: 'Sign in to your Paradise Models account.',
-    slug: '/account/',
-    heading: 'My', headingAccent: 'Account',
-    lead: 'Sign in and membership management are coming soon.',
-  });
+  return head(
+    'My Account — Paradise Models',
+    'Sign in to your Paradise Models account to manage VIP catalog access.',
+    SITE_URL + '/account/',
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
+  ) + `
+<body>
+${orbsHTML()}
+${navHTML(true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="become-page" style="max-width:460px">
+    <a class="back-btn" href="/">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+    <div class="become-header">
+      <h1>My <span>Account</span></h1>
+      <p id="acctLead">Sign in to manage your VIP catalog access.</p>
+    </div>
+
+    <div id="acctLoading" class="form-section" style="text-align:center;color:var(--text-soft)">Loading…</div>
+
+    <!-- Signed out: sign in / create account -->
+    <div id="acctAuthBox" class="form-section" style="display:none">
+      <div class="form-section-title" id="acctModeTitle">Sign In</div>
+      <div class="form-grid-2" style="margin-bottom:1rem">
+        <button type="button" class="bf-method active" id="acctTabSignin" onclick="setAcctMode('signin')">Sign In</button>
+        <button type="button" class="bf-method" id="acctTabSignup" onclick="setAcctMode('signup')">Create Account</button>
+      </div>
+      <div class="form-field" style="margin-bottom:0.9rem">
+        <label>Email</label>
+        <input class="form-input" type="email" id="acctEmail" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="form-field" style="margin-bottom:0.9rem">
+        <label>Password</label>
+        <input class="form-input" type="password" id="acctPassword" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <div id="acctError" style="display:none;color:#ff8a8a;font-size:13px;margin-bottom:0.9rem"></div>
+      <button type="button" class="submit-app-btn" id="acctSubmitBtn" onclick="submitAcctForm()" style="margin-top:0">Sign In</button>
+      <div id="acctSignupNotice" style="display:none;color:var(--text-soft);font-size:13px;margin-top:1rem;text-align:center">Check your email to confirm your account, then sign in.</div>
+    </div>
+
+    <!-- Signed in -->
+    <div id="acctDashboard" class="form-section" style="display:none">
+      <div class="form-section-title">Signed In</div>
+      <p style="margin-bottom:1.25rem">Signed in as <strong id="acctEmailDisplay"></strong></p>
+      <div id="acctVipStatus" style="padding:1rem;border-radius:var(--r-xs);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);margin-bottom:1.25rem"></div>
+      <button type="button" class="submit-app-btn" onclick="handleSignOut()" style="margin-top:0;background:rgba(255,255,255,0.08)!important;box-shadow:none!important">Sign Out</button>
+    </div>
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = [];
+const NATIONALITIES = [];
+const STATIONS = [];
+const CITIES = [];
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/auth.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/account.js?v=${BUILD_TS}"><\/script>
+</body>
+</html>`;
 }
 
 // =================== SITEMAP ===================

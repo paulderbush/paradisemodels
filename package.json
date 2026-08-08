@@ -1,0 +1,10 @@
+{
+  "name": "paradise-models",
+  "private": true,
+  "scripts": {
+    "build": "node _build/build.js"
+  },
+  "dependencies": {
+    "stripe": "^17.4.0"
+  }
+}
