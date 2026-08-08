@@ -11,9 +11,9 @@
 <meta property="og:description" content="Sign in to your Paradise Models account to manage VIP catalog access.">
 <meta property="og:url" content="https://velvetescort.co.uk/account/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260808123024">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260808123024">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260808123024">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260808141422">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260808141422">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260808141422">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1167,10 +1167,10 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260808123024';</script>
+<script>window.BUILD_TS='20260808141422';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260808123024"></script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260808123024">
+<script src="/assets/currency.js?v=20260808141422"></script>
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260808141422">
 </head>
 <body>
 <div class="orb-container">
@@ -1194,7 +1194,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808123024" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808141422" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1238,7 +1238,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808123024" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808141422" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1323,22 +1323,27 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
     <!-- Signed out: sign in / create account -->
     <div id="acctAuthBox" class="form-section" style="display:none">
-      <div class="form-section-title" id="acctModeTitle">Sign In</div>
-      <div class="form-grid-2" style="margin-bottom:1rem">
-        <button type="button" class="bf-method active" id="acctTabSignin" onclick="setAcctMode('signin')">Sign In</button>
-        <button type="button" class="bf-method" id="acctTabSignup" onclick="setAcctMode('signup')">Create Account</button>
+      <div id="acctFormFields">
+        <div class="form-section-title" id="acctModeTitle">Sign In</div>
+        <div class="form-grid-2" style="margin-bottom:1rem">
+          <button type="button" class="bf-method active" id="acctTabSignin" onclick="setAcctMode('signin')">Sign In</button>
+          <button type="button" class="bf-method" id="acctTabSignup" onclick="setAcctMode('signup')">Create Account</button>
+        </div>
+        <div class="form-field" style="margin-bottom:0.9rem">
+          <label>Email</label>
+          <input class="form-input" type="email" id="acctEmail" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <div class="form-field" style="margin-bottom:0.9rem">
+          <label>Password</label>
+          <input class="form-input" type="password" id="acctPassword" placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <div id="acctError" style="display:none;color:#ff8a8a;font-size:13px;margin-bottom:0.9rem"></div>
+        <button type="button" class="submit-app-btn" id="acctSubmitBtn" onclick="submitAcctForm()" style="margin-top:0">Sign In</button>
       </div>
-      <div class="form-field" style="margin-bottom:0.9rem">
-        <label>Email</label>
-        <input class="form-input" type="email" id="acctEmail" placeholder="you@example.com" autocomplete="email">
+      <div id="acctSignupNotice" style="display:none;text-align:center;padding:0.5rem 0">
+        <div style="font-size:1.3rem;font-weight:800;color:#70e9ff;margin-bottom:0.6rem">Check your email</div>
+        <p style="color:var(--text-soft);font-size:14px;margin:0">We've sent a confirmation link to your inbox — click it, then come back here and sign in.</p>
       </div>
-      <div class="form-field" style="margin-bottom:0.9rem">
-        <label>Password</label>
-        <input class="form-input" type="password" id="acctPassword" placeholder="••••••••" autocomplete="current-password">
-      </div>
-      <div id="acctError" style="display:none;color:#ff8a8a;font-size:13px;margin-bottom:0.9rem"></div>
-      <button type="button" class="submit-app-btn" id="acctSubmitBtn" onclick="submitAcctForm()" style="margin-top:0">Sign In</button>
-      <div id="acctSignupNotice" style="display:none;color:var(--text-soft);font-size:13px;margin-top:1rem;text-align:center">Check your email to confirm your account, then sign in.</div>
     </div>
 
     <!-- Signed in -->
@@ -1380,9 +1385,9 @@ const NATIONALITIES = [];
 const STATIONS = [];
 const CITIES = [];
 </script>
-<script src="/assets/main.js?v=20260808123024"></script>
-<script src="/assets/chat.js?v=20260808123024"></script>
-<script src="/assets/auth.js?v=20260808123024"></script>
-<script src="/assets/account.js?v=20260808123024"></script>
+<script src="/assets/main.js?v=20260808141422"></script>
+<script src="/assets/chat.js?v=20260808141422"></script>
+<script src="/assets/auth.js?v=20260808141422"></script>
+<script src="/assets/account.js?v=20260808141422"></script>
 </body>
 </html>

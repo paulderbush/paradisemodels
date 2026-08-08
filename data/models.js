@@ -1,5 +1,5 @@
 // =================== DATA ===================
-const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob With Condom","Blowjob Without Condom","Body to Body Massage","Couples","Cum In Mouth","Cum On Body","Cum On Face","Deep French Kissing","Deep Throat","Dirty Talk","Domination","Double Penetration","DUO","Erotic Massage","Face Sitting","Fetish","Filming With Mask","Filming Without Mask","Fingering","Fisting Giving","Foot Fetish","French Kissing","Girlfriend Experience","Group For Extra","Handcuffs","Lady's Services","Lap Dancing","Light Domination","Lomilomi Massage","Massage","MMF For Double Price","Nuru Massage","Open Minded","Party Girl","Peeing On Client","Peeing On Model","Photos With Mask","Poppers","Pornstar Experience","Professional Massage","Prostate Massage","Rimming Gives","Rimming Receives","Roleplay","Sensual Massage","Shower Together","Smoking Fetish","Snowballing","Soft Spanking Receiving","Spanking Giving","Strapon","Striptease","Swallow Sperm","Tantric Massage","Tie & Tease","Toys","Uniform","Women Clients"];
+const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob With Condom","Blowjob Without Condom","Body to Body Massage","Couples","Cum In Mouth","Cum On Body","Cum On Face","Deep French Kissing","Deep Throat","Dirty Talk","Domination","Double Penetration","DUO","Erotic Massage","Face Sitting","Fetish","Filming With Mask","Filming Without Mask","Fingering","Fisting Giving","Foot Fetish","French Kissing","Girlfriend Experience","Group For Extra","Handcuffs","Lady's Services","Lap Dancing","Latex Outfit","Light Domination","Lomilomi Massage","Massage","MMF For Double Price","Nuru Massage","Open Minded","Party Girl","Peeing On Client","Peeing On Model","Photos With Mask","Poppers","Pornstar Experience","Professional Massage","Prostate Massage","Rimming Gives","Rimming Receives","Roleplay","Sensual Massage","Shower Together","Smoking Fetish","Snowballing","Soft Spanking Receiving","Spanking Giving","Strapon","Striptease","Swallow Sperm","Tantric Massage","Tie & Tease","Toys","Uniform","Women Clients"];
 
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 
@@ -157,7 +157,45 @@ const MANNY_DATA = {
   reviews: [],
 };
 
-const FAKE_MODELS = generateModels();
-const MODELS = [ROSA_DATA, MANNY_DATA, ...FAKE_MODELS];
+const JULIA_DATA = {
+  id: 9996, real: true, vip: true, folder: 'vip-models/Julia', slug: 'julia',
+  name: 'Julia', age: 23, height: 173, weight: 53,
+  nationality: 'Ukrainian', station: 'Knightsbridge', city: 'London',
+  rateHour: 1250,
+  color: ['rgba(200,160,60,0.4)', 'rgba(130,95,20,0.7)'],
+  initials: 'JU',
+  cats: ['recommended', 'new', 'under25'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Honey', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · Russian · Ukrainian',
+  svcs: ['69', 'Bisexual DUO', 'Body to Body Massage', 'Cum On Face', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Domination', 'Deep Throat', 'Erotic Massage', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Latex Outfit', 'Light Domination', 'Massage', 'Blowjob With Condom', 'Blowjob Without Condom', 'Party Girl', 'Roleplay', 'Soft Spanking Receiving', 'Spanking Giving', 'Striptease', 'Tie & Tease', 'Peeing On Client', 'Peeing On Model'],
+  extraSvcs: [
+    {name: 'CIM (Includes OWO)', price: 400},
+    {name: 'Swallow (Includes OWO & CIM)', price: 500},
+    {name: 'Extra Hour', price: 750},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1700},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Overnight', price: 5750},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1700},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Overnight', price: 5750},
+  ],
+  description: [
+    "I'm a gentle and feminine woman who believes in kindness, warmth, and sincere feelings. I may seem delicate, but I have a caring heart and a soft soul. I appreciate meaningful conversations, cozy moments, and people who value honesty and tenderness.",
+    "There is also a passionate and sensual side to me that reveals itself only to someone special. I enjoy chemistry, flirtation, and the magic of genuine attraction. My hobbies reflect different sides of my personality: I love horse riding and equestrian sports, I'm passionate about interior design, and I enjoy target shooting, which reminds me that elegance and strength can exist together.",
+  ],
+  reviews: [],
+};
 
-module.exports = { MODELS, ROSA_DATA, MANNY_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+const FAKE_MODELS = generateModels();
+const MODELS = [ROSA_DATA, MANNY_DATA, JULIA_DATA, ...FAKE_MODELS];
+
+module.exports = { MODELS, ROSA_DATA, MANNY_DATA, JULIA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
