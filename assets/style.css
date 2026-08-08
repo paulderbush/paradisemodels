@@ -31,7 +31,7 @@
   --menu-link-soft:var(--text-soft);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Zalando Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;overflow-x:hidden;min-height:100vh}
+body{background:var(--bg);color:var(--text);font-family:'Zalando Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
 
 /* ORBS */
 .orb-container{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
@@ -579,6 +579,10 @@ footer{
   padding:1.5rem 2rem;
   color:var(--text-muted);font-size:13px;
   position:relative;z-index:1;
+  /* nav/orbs/age-modal are all position:fixed, so footer is body's only
+     other flex child — margin-top:auto pushes it to the viewport bottom
+     on short pages without needing a flex:1 wrapper around the content. */
+  margin-top:auto;
 }
 footer a{color:var(--purple3);text-decoration:none}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;max-width:1280px;margin:0 auto}

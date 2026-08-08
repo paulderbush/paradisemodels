@@ -11,9 +11,9 @@
 <meta property="og:description" content="Frequently asked questions about our services, companions, and bookings at Velvet London.">
 <meta property="og:url" content="https://velvetescort.co.uk/faq/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260808140004">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260808140004">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260808140004">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260808153236">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260808153236">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260808153236">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
   --menu-link-soft:var(--text-soft);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Zalando Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;overflow-x:hidden;min-height:100vh}
+body{background:var(--bg);color:var(--text);font-family:'Zalando Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
 
 /* ORBS */
 .orb-container{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
@@ -598,6 +598,10 @@ footer{
   padding:1.5rem 2rem;
   color:var(--text-muted);font-size:13px;
   position:relative;z-index:1;
+  /* nav/orbs/age-modal are all position:fixed, so footer is body's only
+     other flex child — margin-top:auto pushes it to the viewport bottom
+     on short pages without needing a flex:1 wrapper around the content. */
+  margin-top:auto;
 }
 footer a{color:var(--purple3);text-decoration:none}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;max-width:1280px;margin:0 auto}
@@ -1167,9 +1171,9 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260808140004';</script>
+<script>window.BUILD_TS='20260808153236';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260808140004"></script>
+<script src="/assets/currency.js?v=20260808153236"></script>
 
 </head>
 <body>
@@ -1348,8 +1352,8 @@ const SERVICES = [];
 const NATIONALITIES = [];
 const STATIONS = [];
 </script>
-<script src="/assets/main.js?v=20260808140004"></script>
-<script src="/assets/chat.js?v=20260808140004"></script>
+<script src="/assets/main.js?v=20260808153236"></script>
+<script src="/assets/chat.js?v=20260808153236"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const allIds = Array.from({length: 17}, (_, i) => i);
