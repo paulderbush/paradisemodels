@@ -302,3 +302,22 @@ footer{
   background:linear-gradient(135deg,#2a2f66,#3a4081)!important;
   box-shadow:0 6px 28px rgba(42,47,102,0.45)!important;
 }
+
+/* =================== VIP PAYWALL =================== */
+.vip-teaser-wrap{position:relative;min-height:360px}
+.vip-teaser-grid{filter:blur(16px);pointer-events:none;user-select:none;opacity:0.85}
+.vip-paywall-overlay{
+  position:absolute;inset:0;z-index:2;
+  display:flex;align-items:center;justify-content:center;padding:1.5rem;
+}
+.vip-paywall-card{
+  background:#1a1e42;border:1px solid rgba(255,255,255,0.14);
+  border-radius:var(--r-sm);padding:2rem;max-width:380px;width:100%;
+  text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
+.vip-paywall-card .form-section-title{color:#70e9ff!important;margin-bottom:0.75rem}
+.vip-paywall-card p{color:var(--text-soft)}
+#vipPriceTag{color:#ffffff}
+
+/* =================== ACCOUNT PAGE =================== */
+#acctLoading{color:rgba(26,30,66,0.72)!important}

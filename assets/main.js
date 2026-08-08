@@ -8,6 +8,11 @@ const TG_THREAD_BOOKINGS = 4;
 const TG_THREAD_MODELS   = 5;
 const TG_THREAD_REVIEWS  = 6;
 
+// One shared client for anything that needs Supabase Auth (account page,
+// VIP gating). Kept separate from chat.js's own client, which only ever
+// uses the realtime channel API and predates this.
+const sb = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+
 // =================== CART ===================
 let cart = JSON.parse(localStorage.getItem('velvet_cart') || '[]');
 let _bookingDraft = null;
