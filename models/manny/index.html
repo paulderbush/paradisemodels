@@ -11,9 +11,9 @@
 <meta property="og:description" content="Manny — British escort in London. Available for incall from £300. Book now at Paradise Models.">
 <meta property="og:url" content="https://velvetescort.co.uk/models/manny/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260808140004">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260808140004">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260808140004">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260808153236">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260808153236">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260808153236">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
   --menu-link-soft:var(--text-soft);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Zalando Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;overflow-x:hidden;min-height:100vh}
+body{background:var(--bg);color:var(--text);font-family:'Zalando Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
 
 /* ORBS */
 .orb-container{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
@@ -598,6 +598,10 @@ footer{
   padding:1.5rem 2rem;
   color:var(--text-muted);font-size:13px;
   position:relative;z-index:1;
+  /* nav/orbs/age-modal are all position:fixed, so footer is body's only
+     other flex child — margin-top:auto pushes it to the viewport bottom
+     on short pages without needing a flex:1 wrapper around the content. */
+  margin-top:auto;
 }
 footer a{color:var(--purple3);text-decoration:none}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;max-width:1280px;margin:0 auto}
@@ -1167,11 +1171,11 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260808140004';</script>
+<script>window.BUILD_TS='20260808153236';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260808140004"></script>
+<script src="/assets/currency.js?v=20260808153236"></script>
 <meta property="og:image" content="https://velvetescort.co.uk/Manny/1.webp">
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260808140004">
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260808153236">
 </head>
 <body>
 <div class="orb-container">
@@ -1195,7 +1199,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808140004" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808153236" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1239,7 +1243,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808140004" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260808153236" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1344,9 +1348,9 @@ const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob W
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 </script>
-<script src="/assets/main.js?v=20260808140004"></script>
-<script src="/assets/chat.js?v=20260808140004"></script>
-<script src="/assets/profile.js?v=20260808140004"></script>
+<script src="/assets/main.js?v=20260808153236"></script>
+<script src="/assets/chat.js?v=20260808153236"></script>
+<script src="/assets/profile.js?v=20260808153236"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async function() {
   await window.CUR_READY;
