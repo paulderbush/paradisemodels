@@ -1271,6 +1271,15 @@ ${pages.map(p => `  <url>
 </urlset>`;
 }
 
+function buildRobots() {
+  return `User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+}
+
 // =================== WRITE OUTPUT ===================
 function write(filePath, content) {
   const dir = path.dirname(filePath);
@@ -1295,5 +1304,6 @@ write(path.join(OUT, 'about/index.html'), buildAbout());
 write(path.join(OUT, 'blog/index.html'), buildBlog());
 write(path.join(OUT, 'account/index.html'), buildAccount());
 write(path.join(OUT, 'sitemap.xml'), buildSitemap());
+write(path.join(OUT, 'robots.txt'), buildRobots());
 
 console.log('\nBuild complete!');
