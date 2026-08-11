@@ -236,6 +236,22 @@ footer{
 }
 .become-header p{color:rgba(26,30,66,0.72)}
 .become-page .back-btn{color:#2a2f66;border-color:rgba(26,30,66,0.25)}
+
+/* =================== FAQ =================== */
+/* Shared with the homepage's embedded FAQ preview (.faq-item is the same
+   class there) — the questions/answers were drawn for the dark base theme
+   and wash out on the bright cyan; the heading sits directly on the cyan
+   itself, so it flips to dark ink like every other page heading here. */
+.faq-page h1{color:#2a2f66}
+.faq-page h1 span{
+  background:linear-gradient(135deg,#1a5f7a,#123a66)!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.faq-page .sub{color:rgba(26,30,66,0.72)}
+.faq-item{
+  background:#1a1e42!important;
+  border:1px solid rgba(255,255,255,0.12)!important;
+}
 .form-section{
   background:#1a1e42!important;
   backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
