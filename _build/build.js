@@ -1063,8 +1063,7 @@ const CITIES = [];
 
 function buildAbout() {
   const featuredNationalities = ['Russian', 'British', 'Brazilian', 'French', 'Italian', 'Spanish', 'Ukrainian', 'Eastern European'];
-  const rosa = MODELS.find(m => m.slug === 'rosa');
-  const manny = MODELS.find(m => m.slug === 'manny');
+  const teaserModels = PUBLIC_MODELS.filter(m => m.real).slice(0, 2);
 
   return head(
     'High Class London Escorts | Paradise Models',
@@ -1115,9 +1114,9 @@ ${ageModalHTML()}
         ${featuredNationalities.map(n => `<span style="display:inline-block;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--text);font-size:12px">${n}</span>`).join('')}
       </div>
       <p style="color:var(--text-soft);font-size:14px;line-height:1.85;margin-bottom:1.25rem">The profiles of our elite London escorts feature high-quality photos, selfies and personal videos. They also list detailed stats, services, rates, and verified reviews to learn more about each high class escort. Want to narrow down your options? Use our filter to sort by rate, or browse by category and city from the models menu.</p>
-      ${[rosa, manny].filter(Boolean).length ? `
-      <div style="display:grid;grid-template-columns:repeat(${[rosa, manny].filter(Boolean).length},1fr);gap:1rem;max-width:360px">
-        ${[rosa, manny].filter(Boolean).map(m => `
+      ${teaserModels.length ? `
+      <div style="display:grid;grid-template-columns:repeat(${teaserModels.length},1fr);gap:1rem;max-width:360px">
+        ${teaserModels.map(m => `
         <a href="/models/${m.slug}/" style="text-decoration:none;display:block;border-radius:var(--r-xs);overflow:hidden;position:relative;aspect-ratio:3/4">
           <img src="/${m.folder}/1.webp?v=${BUILD_TS}" alt="${m.name}" style="width:100%;height:100%;object-fit:cover;display:block">
           <div style="position:absolute;left:0;right:0;bottom:0;padding:0.6rem;background:linear-gradient(0deg,rgba(0,0,0,0.65),transparent);color:#fff;font-size:13px;font-weight:600">${m.name}</div>

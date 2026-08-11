@@ -6,7 +6,7 @@ let _reviewRating = 0;
 // =================== GALLERY ===================
 function probeModelMedia(folder, cb) {
   const found = []; let done = 0;
-  const photoMax = 20, videoMax = 10, total = photoMax + videoMax;
+  const photoMax = 31, videoMax = 10, total = photoMax + videoMax;
   function finish() {
     if (++done === total) {
       const photos = found.filter(x => x.type === 'photo').sort((a, b) => a.idx - b.idx);
