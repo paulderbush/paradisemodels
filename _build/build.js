@@ -883,13 +883,119 @@ function buildConcierge() {
 }
 
 function buildEvents() {
-  return buildPlaceholder({
-    metaTitle: 'Events — Paradise Models',
-    metaDesc: 'Exclusive Paradise Models events — private gatherings and curated experiences for our members.',
-    slug: '/events/',
-    heading: 'Private', headingAccent: 'Events',
-    lead: 'Curated private gatherings and exclusive experiences, arranged for our members and their guests.',
-  });
+  const gallery = [
+    {src: 'sinlist-1.webp', alt: 'The Sin List — masquerade evening'},
+    {src: 'sinlist-2.webp', alt: 'The Sin List — private encounter'},
+    {src: 'sinlist-3.webp', alt: 'The Sin List — costumed guests'},
+    {src: 'sinlist-4.webp', alt: 'The Sin List — ritual detail'},
+  ];
+  const facts = [
+    ['Performers', '20+'],
+    ['Format', 'Masquerade'],
+    ['Structure', '9 Circles'],
+    ['Access', 'By interview'],
+  ];
+  const tiers = [
+    {price: '£10,000', name: 'Main Access', items: ['Main zones', 'Guest approval required']},
+    {price: '£15,000', name: 'Extended Access', items: ['All zones', 'VIP domination zone', 'Two guests permitted']},
+    {price: '£30,000', name: 'Full Access', items: ['Unrestricted entry', 'Private comfort manager', 'Accompanied model', 'Two guests permitted']},
+  ];
+
+  return head(
+    'Private Events — Paradise Models',
+    'Paradise Models private events — our own invite-only evenings, and bespoke events we produce entirely around you.',
+    SITE_URL + '/events/',
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
+  ) + `
+<body>
+${orbsHTML()}
+${navHTML(true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="become-page" style="max-width:960px">
+    <a class="back-btn" href="/">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+    <div class="become-header">
+      <h1>Private <span>Events</span></h1>
+      <p>Two ways to go beyond a booking — join one of our own invite-only evenings, or commission a fully bespoke event built entirely around you.</p>
+    </div>
+
+    <div class="form-grid-2" style="margin-bottom:2.5rem">
+      <div class="form-section">
+        <div class="form-section-title">Our Own Events</div>
+        <p style="color:var(--text-soft);font-size:14px;line-height:1.75">From time to time we produce our own private, invite-only evenings in London — immersive, theatrical, unlike anything else on offer. Places are strictly limited and granted by application.</p>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">Bespoke, For You</div>
+        <p style="color:var(--text-soft);font-size:14px;line-height:1.75">Commission a private event built entirely for you — venue, theme, cast and every detail handled end-to-end, with the same discretion as everything else we do.</p>
+      </div>
+    </div>
+
+    <div class="form-section" style="padding:0;overflow:hidden;margin-bottom:2.5rem">
+      <div style="position:relative;min-height:220px;display:flex;align-items:flex-end;padding:2.5rem 1.75rem 1.75rem;background:linear-gradient(180deg,rgba(10,4,8,0.15),rgba(10,4,8,0.88)),url('/images/events/sinlist-hero.webp') center/cover no-repeat">
+        <div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:#d99aa8;font-weight:700;margin-bottom:0.5rem">An Example of Our Work</div>
+          <div style="font-size:1.6rem;font-weight:700;color:#fff">The Sin List — Opening Night</div>
+          <div style="color:rgba(255,255,255,0.7);font-size:14px;margin-top:0.35rem">A private members' club we produced in London — an immersive, theatrical evening exploring the architecture of desire.</div>
+        </div>
+      </div>
+
+      <div style="padding:1.75rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0.5rem;margin-bottom:1.5rem">
+          ${facts.map(([l, v]) => `<div class="stat-box"><div class="stat-label">${l}</div><div class="stat-val" style="font-size:0.82rem">${v}</div></div>`).join('')}
+        </div>
+
+        <p style="color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:1.25rem">Structured as nine circles — nine progressive spaces, each its own state of experience — guests moved through a sequence of sensation, tension and release, from observation to full participation. More than twenty actors and actresses built a fully theatrical environment around every guest, from a masquerade dress code through to a private, guided evening.</p>
+        <p style="color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:1.5rem">Discretion was the foundation of the evening — no devices inside the space, consent as the basis of every interaction, and comfort maintained throughout by our own team.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:0.5rem">
+          ${gallery.map(g => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${g.src}" alt="${g.alt}" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section" style="margin-bottom:2.5rem">
+      <div class="form-section-title">Access Tiers — This Event</div>
+      <p style="color:var(--text-soft);font-size:13px;margin-bottom:1.25rem">The investment shown reflects this specific evening — every private event we build is scoped and priced around its own venue, cast and ambition.</p>
+      <div class="form-grid-2" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        ${tiers.map(t => `
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.18);border-radius:var(--r-xs);padding:1.1rem">
+          <div style="font-size:1.35rem;font-weight:700;color:#fff">${t.price}</div>
+          <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#70e9ff;font-weight:700;margin:0.35rem 0 0.75rem">${t.name}</div>
+          <ul style="margin:0;padding-left:1.1rem;color:var(--text-soft);font-size:13px;line-height:1.9">
+            ${t.items.map(i => `<li>${i}</li>`).join('')}
+          </ul>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <div class="form-section" style="text-align:center">
+      <div class="form-section-title">Interested in Something Similar?</div>
+      <p style="color:var(--text-soft);font-size:14px;margin-bottom:1.25rem">Whether you'd like to apply for one of our own events, or discuss a private event of your own, get in touch and our concierge team will take it from there.</p>
+      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
+        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem" href="/concierge/">Contact Concierge</a>
+        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem;background:rgba(255,255,255,0.08)!important;box-shadow:none!important" href="${TG_LINK}" target="_blank" rel="noopener">Message on Telegram</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = [];
+const NATIONALITIES = [];
+const STATIONS = [];
+const CITIES = [];
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
+</body>
+</html>`;
 }
 
 function buildAbout() {
