@@ -20,16 +20,15 @@ async function fetchVipModels() {
   }
 }
 
-// The blurred backdrop behind the paywall card is just visual enticement —
-// identity is hidden by the blur either way — so it doesn't have to be the
-// real VIP set (which is never in MODELS here anyway). Prefer real photos,
-// pad out to 4 with fake models so the page never looks sparse just because
-// there are only 1-2 public real models right now.
+// The blurred backdrop is just visual enticement for the paywall, but it
+// must not borrow real people's photos to do it — using Rosa/Manny (public,
+// non-VIP models already visible on /models/) made this look like a blurred
+// repeat of the regular catalog, and blur is a CSS filter a visitor can
+// strip client-side, so it's not a safe way to preview anyone's real photo
+// anyway. Placeholder (real:false) profiles only — silhouette art, no
+// identity, purely a "there's more here" teaser.
 function vipTeaserPool() {
-  const real = MODELS.filter(m => m.real);
-  const pool = real.length ? real.slice() : [];
-  if (pool.length < 4) pool.push(...MODELS.filter(m => !m.real));
-  return pool.slice(0, 4);
+  return MODELS.filter(m => !m.real).slice(0, 4);
 }
 
 function renderVipTeaser() {
