@@ -873,13 +873,73 @@ const CITIES = [];
 }
 
 function buildConcierge() {
-  return buildPlaceholder({
-    metaTitle: 'Concierge — Paradise Models',
-    metaDesc: 'The Paradise Models concierge service — bespoke travel, private events and tailored arrangements handled to perfection.',
-    slug: '/concierge/',
-    heading: 'Paradise', headingAccent: 'Concierge',
-    lead: 'A dedicated concierge for the details that matter — bespoke travel, private events, and tailored arrangements handled with absolute discretion.',
-  });
+  const categories = [
+    ['Travel & Getaways', 'Private jets, secluded resorts and bespoke itineraries — routes built around you, not a brochure.'],
+    ['Events & Celebrations', 'Private dinners, parties and milestone occasions, produced and run from first idea to last detail.'],
+    ['Lifestyle Support', 'Personal shoppers, private chefs, wellness and security — the everyday handled seamlessly.'],
+    ['Access & Reservations', 'Tables, tickets and rooms that are normally closed to the public, opened through our contacts.'],
+    ['Rare Acquisitions', 'Hard-to-get pieces — watches, bags, gifts — sourced through relationships built over years.'],
+    ['Stays & Real Estate', 'Private villas, penthouses and islands, arranged for a weekend or an entire season.'],
+    ['Yachts & Private Aviation', 'Charter or full management, arranged on short notice when timing matters most.'],
+    ['Bespoke Requests', "Anything else. If it can be arranged, we'll arrange it — tell us what you need."],
+  ];
+
+  return head(
+    'Concierge — Paradise Models',
+    'The Paradise Models concierge — bespoke travel, events, access and rare acquisitions, arranged with the same discretion as everything else we do.',
+    SITE_URL + '/concierge/',
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
+  ) + `
+<body>
+${orbsHTML()}
+${navHTML(true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="become-page" style="max-width:960px">
+    <a class="back-btn" href="/">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+    <div class="become-header">
+      <h1>Paradise <span>Concierge</span></h1>
+      <p>A dedicated concierge for the details that matter — bespoke travel, private events, and tailored arrangements handled with absolute discretion.</p>
+    </div>
+
+    <div class="form-section" style="margin-bottom:2.5rem">
+      <div class="form-section-title">How It Works</div>
+      <p style="color:var(--text-soft);font-size:14px;line-height:1.8">No memberships, no subscriptions, no annual fees — you send a request, and we arrange it. Every request is handled personally, by the same team you already trust for discretion, and you pay only for what you ask for.</p>
+    </div>
+
+    <div class="form-grid-2" style="margin-bottom:2.5rem">
+      ${categories.map(([title, desc]) => `
+      <div class="form-section">
+        <div class="form-section-title">${title}</div>
+        <p style="color:var(--text-soft);font-size:14px;line-height:1.75">${desc}</p>
+      </div>`).join('')}
+    </div>
+
+    <div class="form-section" style="text-align:center">
+      <div class="form-section-title">Make a Request</div>
+      <p style="color:var(--text-soft);font-size:14px;margin-bottom:1.25rem">Tell us what you need — however specific or unusual — and our concierge team will come back to you within hours.</p>
+      <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem" href="${TG_LINK}" target="_blank" rel="noopener">Message on Telegram</a>
+    </div>
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = [];
+const NATIONALITIES = [];
+const STATIONS = [];
+const CITIES = [];
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
+</body>
+</html>`;
 }
 
 function buildEvents() {
