@@ -251,9 +251,8 @@ function buildRealModelHTML(m) {
             <span class="price-total-val" id="price-total-val">${fmtPrice(initRate.price)}</span>
           </div>
         </div>
-        <button class="make-booking-btn" onclick="makeBooking()">Make a Booking</button>
         <div class="model-detail-services">
-          <div class="services-title">Services Offered</div>
+          <div class="services-title">Services Included</div>
           <div class="services-chips">${m.svcs.map(s => `<span class="service-chip">${s}</span>`).join('')}</div>
         </div>
         <div class="model-detail-services">
@@ -269,7 +268,8 @@ function buildRealModelHTML(m) {
             </div>`).join('')}
           </div>
         </div>
-        <div style="font-size:12px;color:var(--text-muted);text-align:center">${m.nationality} · ${m.orientation} · Available daily 10:00 AM – 2:00 AM</div>
+        <button class="make-booking-btn" onclick="makeBooking()">Make a Booking</button>
+        <div style="font-size:12px;color:var(--text-muted);text-align:center">Available 24/7</div>
       </div>
       <div class="model-map-block">
         <iframe src="https://maps.google.com/maps?q=${mapQ}&z=15&output=embed" loading="lazy"></iframe>
