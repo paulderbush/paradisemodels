@@ -874,14 +874,14 @@ const CITIES = [];
 
 function buildConcierge() {
   const categories = [
-    ['Travel & Getaways', 'Private jets, secluded resorts and bespoke itineraries — routes built around you, not a brochure.'],
-    ['Events & Celebrations', 'Private dinners, parties and milestone occasions, produced and run from first idea to last detail.'],
-    ['Lifestyle Support', 'Personal shoppers, private chefs, wellness and security — the everyday handled seamlessly.'],
-    ['Access & Reservations', 'Tables, tickets and rooms that are normally closed to the public, opened through our contacts.'],
-    ['Rare Acquisitions', 'Hard-to-get pieces — watches, bags, gifts — sourced through relationships built over years.'],
-    ['Stays & Real Estate', 'Private villas, penthouses and islands, arranged for a weekend or an entire season.'],
-    ['Yachts & Private Aviation', 'Charter or full management, arranged on short notice when timing matters most.'],
-    ['Bespoke Requests', "Anything else. If it can be arranged, we'll arrange it — tell us what you need."],
+    ['Travel & Getaways', 'Private jets, secluded resorts and bespoke itineraries — routes built around you, not a brochure.', 'travel'],
+    ['Events & Celebrations', 'Private dinners, parties and milestone occasions, produced and run from first idea to last detail.', 'events'],
+    ['Lifestyle Support', 'Personal shoppers, private chefs, wellness and security — the everyday handled seamlessly.', 'lifestyle'],
+    ['Access & Reservations', 'Tables, tickets and rooms that are normally closed to the public, opened through our contacts.', 'art'],
+    ['Rare Acquisitions', 'Hard-to-get pieces — watches, bags, gifts — sourced through relationships built over years.', 'rare'],
+    ['Stays & Real Estate', 'Private villas, penthouses and islands, arranged for a weekend or an entire season.', 'estate'],
+    ['Yachts & Private Aviation', 'Charter or full management, arranged on short notice when timing matters most.', 'aviation'],
+    ['Bespoke Requests', "Anything else. If it can be arranged, we'll arrange it — tell us what you need.", 'bespoke'],
   ];
 
   return head(
@@ -913,10 +913,13 @@ ${ageModalHTML()}
     </div>
 
     <div class="form-grid-2" style="margin-bottom:2.5rem">
-      ${categories.map(([title, desc]) => `
-      <div class="form-section">
-        <div class="form-section-title">${title}</div>
-        <p style="color:var(--text-soft);font-size:14px;line-height:1.75">${desc}</p>
+      ${categories.map(([title, desc, img]) => `
+      <div class="form-section" style="padding:0;overflow:hidden">
+        <div style="aspect-ratio:3/2;background:url('/images/concierge/${img}.webp?v=${BUILD_TS}') center/cover no-repeat"></div>
+        <div style="padding:1.25rem">
+          <div class="form-section-title">${title}</div>
+          <p style="color:var(--text-soft);font-size:14px;line-height:1.75">${desc}</p>
+        </div>
       </div>`).join('')}
     </div>
 
