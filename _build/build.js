@@ -572,13 +572,15 @@ document.addEventListener('DOMContentLoaded', function() {
 // =================== FAQ PAGE ===================
 function buildFaq() {
   return head(
-    'FAQ — Velvet London',
-    'Frequently asked questions about our services, companions, and bookings at Velvet London.',
-    SITE_URL + '/faq/'
+    'FAQ — Paradise Models',
+    'Frequently asked questions about our services, companions, and bookings at Paradise Models.',
+    SITE_URL + '/faq/',
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
   ) + `
 <body>
 ${orbsHTML()}
-${navHTML()}
+${navHTML(true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
@@ -587,13 +589,13 @@ ${ageModalHTML()}
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
       Back to Home
     </a>
-    <h1>FAQ — <span style="background:linear-gradient(135deg,#C49FEE,#8B3FCA);-webkit-background-clip:text;-webkit-text-fill-color:transparent">All Questions</span></h1>
+    <h1>FAQ — <span>All Questions</span></h1>
     <p class="sub">Frequently asked questions about our services, companions, and bookings.</p>
     <div id="faqAll"></div>
   </div>
 </div>
 
-${footerHTML()}
+${footerHTML(true)}
 <script>
 const MODELS = [];
 const SERVICES = [];
