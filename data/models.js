@@ -71,94 +71,8 @@ function generateModels() {
 }
 
 // =================== REAL MODELS ===================
-const ROSA_DATA = {
-  id: 9998, real: true, vip: false, folder: 'Rosa', slug: 'rosa',
-  name: 'Rosa', age: 18, height: 168, weight: 55,
-  nationality: 'Russian', station: 'Angel', city: 'London',
-  rateHour: 600,
-  color: ['rgba(190,60,120,0.4)', 'rgba(110,30,70,0.7)'],
-  initials: 'RO',
-  cats: ['recommended', 'new', 'under25'],
-  breastSize: '32B', breastType: 'Natural', clothingSize: 'XS',
-  eyeColor: 'Brown', hairColor: 'Brown', orientation: 'Heterosexual',
-  languages: 'Russian (Fluent) · English (Intermediate)',
-  svcs: ['69', 'Bisexual DUO', 'Blowjob With Condom', 'Dirty Talk', 'Domination', 'Face Sitting', 'Fingering', 'Foot Fetish', 'Handcuffs', "Lady's Services", 'Lap Dancing', 'Lomilomi Massage', 'MMF For Double Price', 'Open Minded', 'Peeing On Client', 'Peeing On Model', 'Prostate Massage', 'Rimming Receives', 'Roleplay', 'Shower Together', 'Smoking Fetish', 'Snowballing', 'Spanking Giving', 'Striptease', 'Tie & Tease'],
-  extraSvcs: [
-    {name: 'Anal Sex', price: 200},
-    {name: 'Blowjob Without Condom', price: 50},
-  ],
-  incallRates: [
-    {label: '30 min', price: 500},
-    {label: '45 min', price: 550},
-    {label: '1 Hour', price: 600},
-    {label: '2 Hours', price: 1000},
-    {label: '3 Hours', price: 1400},
-    {label: '4 Hours', price: 1800},
-    {label: '5 Hours', price: 2200},
-    {label: 'Overnight', price: 3500},
-  ],
-  outcallRates: [
-    {label: '30 min', price: 550},
-    {label: '45 min', price: 600},
-    {label: '1 Hour', price: 650},
-    {label: '2 Hours', price: 1050},
-    {label: '3 Hours', price: 1450},
-    {label: '4 Hours', price: 1850},
-    {label: '5 Hours', price: 2250},
-    {label: 'Overnight', price: 3500},
-  ],
-  description: [
-    'Rosa is a striking young Russian companion based in London, combining youthful energy with a naturally elegant presence. With soft brown hair, warm brown eyes, and a slender, graceful figure, she carries herself with a poise that belies her years and an easy charm that puts you at ease from the very first moment.',
-    'Attentive, open-minded, and genuinely engaging, Rosa is the ideal companion for an intimate evening, a private dinner, or a relaxed social occasion. She takes pride in making every encounter feel personal and unhurried, bringing warmth and a playful spirit to her time with you.',
-    'A native Russian speaker with conversational English, Rosa welcomes gentlemen with discretion and care. All appointments are arranged with complete respect for your privacy. Available daily across London for both incall and outcall bookings.',
-  ],
-  reviews: [],
-};
-
-const MANNY_DATA = {
-  id: 9997, real: true, vip: false, folder: 'Manny', slug: 'manny',
-  name: 'Manny', age: 23, height: 173, weight: 60,
-  nationality: 'British', station: 'Southwark', city: 'London',
-  rateHour: 350,
-  color: ['rgba(70,130,180,0.4)', 'rgba(30,80,130,0.7)'],
-  initials: 'MA',
-  cats: ['recommended', 'under25', 'new'],
-  breastSize: '34C', breastType: 'Silicone', clothingSize: '8',
-  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
-  languages: 'English (Fluent)',
-  svcs: ['69', 'Bisexual DUO', 'Couples', 'Deep French Kissing', 'Erotic Massage', 'Group For Extra', 'Handcuffs', 'Lap Dancing', 'MMF For Double Price', 'Party Girl', 'Peeing On Model', 'Professional Massage', 'Roleplay', 'Sensual Massage', 'Strapon'],
-  extraSvcs: [
-    {name: 'Anal Sex', price: 150},
-    {name: 'Blowjob Without Condom', price: 50},
-  ],
-  incallRates: [
-    {label: '30 min', price: 300},
-    {label: '45 min', price: 330},
-    {label: '1 Hour', price: 350},
-    {label: '2 Hours', price: 600},
-    {label: '3 Hours', price: 850},
-    {label: '4 Hours', price: 1100},
-    {label: 'Overnight', price: 1900},
-  ],
-  outcallRates: [
-    {label: '30 min', price: 350},
-    {label: '45 min', price: 370},
-    {label: '1 Hour', price: 400},
-    {label: '2 Hours', price: 650},
-    {label: '3 Hours', price: 900},
-    {label: '4 Hours', price: 1150},
-    {label: 'Overnight', price: 1900},
-  ],
-  description: [
-    'Manny is a captivating young British companion based in London, combining natural confidence with a warm, open personality that puts you instantly at ease. With striking blonde hair, vivid blue eyes, and a tall, elegant figure, she carries herself with effortless poise and an understated sensuality that is entirely her own.',
-    'Bisexual and genuinely open-minded, Manny welcomes a broad range of encounters — from intimate one-on-one meetings to couples experiences and group bookings. She takes real pleasure in creating a relaxed, unhurried atmosphere where every moment feels personal and entirely for you.',
-    'A native English speaker, Manny is as engaging in conversation as she is in company. Available daily across London from her South Bank location, close to Southwark station, for both incall and outcall bookings — all arranged with complete discretion.',
-  ],
-  reviews: [],
-};
-
 const JULIA_DATA = {
-  id: 9996, real: true, vip: true, folder: 'vip-models/Julia', slug: 'julia',
+  id: 9996, real: true, vip: false, folder: 'Julia', slug: 'julia',
   name: 'Julia', age: 23, height: 173, weight: 53,
   nationality: 'Ukrainian', station: 'Knightsbridge', city: 'London',
   rateHour: 1250,
@@ -195,7 +109,53 @@ const JULIA_DATA = {
   reviews: [],
 };
 
-const FAKE_MODELS = generateModels();
-const MODELS = [ROSA_DATA, MANNY_DATA, JULIA_DATA, ...FAKE_MODELS];
+const LUISA_DATA = {
+  id: 9995, real: true, vip: false, folder: 'Luisa', slug: 'luisa',
+  name: 'Luisa', age: 25, height: 175, weight: 52,
+  nationality: 'Brazilian', station: 'South Kensington', city: 'London',
+  rateHour: 1250,
+  color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
+  initials: 'LU',
+  cats: ['recommended', 'new'],
+  breastSize: '30B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Light Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Bisexual DUO', 'Body to Body Massage', 'Cum On Face', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Erotic Massage', 'Couples', 'Toys', 'Face Sitting', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Lap Dancing', 'Massage', 'Blowjob With Condom', 'Prostate Massage', 'Rimming Receives', 'Roleplay', 'Soft Spanking Receiving', 'Striptease'],
+  extraSvcs: [
+    {name: 'OWO', price: 50},
+    {name: 'CIM (Includes OWO)', price: 50},
+    {name: 'Swallow', price: 80},
+    {name: 'Snowballing', price: 80},
+    {name: 'Deep Throat', price: 80},
+    {name: 'Tantric Massage', price: 100},
+    {name: 'WS Giving', price: 150},
+    {name: 'Rimming Giving', price: 150},
+    {name: 'A-Level', price: 300},
+    {name: 'Extra Hour', price: 800},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1700},
+    {label: '2 Hours', price: 2050},
+    {label: '3 Hours', price: 2850},
+    {label: 'Overnight', price: 5000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1700},
+    {label: '2 Hours', price: 2050},
+    {label: '3 Hours', price: 2850},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    'Luisa is a stunning 25-year-old Brazilian beauty whose elegance and sensuality are impossible to overlook. Tall and graceful at 175cm, with a perfectly balanced figure, she embodies natural allure. Her light brown eyes sparkle with warmth and mystery, while her silky brunette hair frames a face full of irresistible charm.',
+    'More than just captivating looks, Luisa exudes confidence and passion, creating an atmosphere charged with desire — whether through delicate seduction or daring playfulness. What sets her apart is her natural beauty — no tattoos, no piercings, just effortless femininity and impeccable style. She carries herself with poise and refinement, making her the perfect companion for high-class occasions, exclusive dinners, or private moments where discretion is key.',
+    'For gentlemen who value elegance, authenticity, and the charm of a truly refined woman, Luisa is the ideal choice. Book Luisa today and experience high-class companionship at its finest.',
+  ],
+  reviews: [],
+};
 
-module.exports = { MODELS, ROSA_DATA, MANNY_DATA, JULIA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+const FAKE_MODELS = generateModels();
+const MODELS = [JULIA_DATA, LUISA_DATA, ...FAKE_MODELS];
+
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };

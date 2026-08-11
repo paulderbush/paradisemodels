@@ -21,12 +21,12 @@ async function fetchVipModels() {
 }
 
 // The blurred backdrop is just visual enticement for the paywall, but it
-// must not borrow real people's photos to do it — using Rosa/Manny (public,
-// non-VIP models already visible on /models/) made this look like a blurred
-// repeat of the regular catalog, and blur is a CSS filter a visitor can
-// strip client-side, so it's not a safe way to preview anyone's real photo
-// anyway. Placeholder (real:false) profiles only — silhouette art, no
-// identity, purely a "there's more here" teaser.
+// must not borrow real people's photos to do it — using public, non-VIP
+// real models made this look like a blurred repeat of the regular catalog,
+// and blur is a CSS filter a visitor can strip client-side, so it's not a
+// safe way to preview anyone's real photo anyway. Placeholder (real:false)
+// profiles only — silhouette art, no identity, purely a "there's more
+// here" teaser.
 function vipTeaserPool() {
   return MODELS.filter(m => !m.real).slice(0, 4);
 }
