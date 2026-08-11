@@ -1,22 +1,35 @@
 // =================== VIP MODELS PAGE ===================
 const VIP_PRICE_GBP = 300;
 
-// The actual paid catalog: only models explicitly marked vip:true in
-// data/models.js — a dedicated flag, not reused from the "recommended"
-// marketing tag, so a model can be recommended and public at the same time
-// without accidentally landing behind the paywall.
-function vipModelsList() {
-  return MODELS.filter(m => m.vip === true);
+// vip:true models are never embedded in this page's MODELS array (the
+// build excludes them from every public page — see _build/build.js), so
+// the unlocked grid is fetched from /api/vip-catalog instead, which only
+// returns them after verifying payment server-side. Nothing client-side
+// can be trusted to gate the real data, only the UI around it.
+async function fetchVipModels() {
+  try {
+    const {data: sessionData} = await sb.auth.getSession();
+    const token = sessionData && sessionData.session && sessionData.session.access_token;
+    if (!token) return [];
+    const r = await fetch('/api/vip-catalog', {headers: {Authorization: `Bearer ${token}`}});
+    if (!r.ok) return [];
+    const json = await r.json();
+    return json.models || [];
+  } catch (e) {
+    return [];
+  }
 }
 
 // The blurred backdrop behind the paywall card is just visual enticement —
 // identity is hidden by the blur either way — so it doesn't have to be the
-// real VIP set (which may be empty before any VIP model exists yet). Prefer
-// real photos, fall back to whatever's available so the page never looks
-// broken.
+// real VIP set (which is never in MODELS here anyway). Prefer real photos,
+// pad out to 4 with fake models so the page never looks sparse just because
+// there are only 1-2 public real models right now.
 function vipTeaserPool() {
   const real = MODELS.filter(m => m.real);
-  return (real.length ? real : MODELS).slice(0, 4);
+  const pool = real.length ? real.slice() : [];
+  if (pool.length < 4) pool.push(...MODELS.filter(m => !m.real));
+  return pool.slice(0, 4);
 }
 
 function renderVipTeaser() {
@@ -25,10 +38,10 @@ function renderVipTeaser() {
   grid.innerHTML = vipTeaserPool().map(m => modelCardHTML(m, false)).join('');
 }
 
-function renderVipUnlocked() {
+async function renderVipUnlocked() {
   const grid = document.getElementById('vipUnlocked');
   if (!grid) return;
-  const list = vipModelsList();
+  const list = await fetchVipModels();
   grid.innerHTML = list.length
     ? list.map(m => modelCardHTML(m)).join('')
     : '<p style="grid-column:1/-1;text-align:center;color:var(--text-soft);padding:2rem 0">New VIP companions are being added — check back soon.</p>';
@@ -89,7 +102,7 @@ function setVipPaywallCopy(signedIn) {
 async function pollVipAccessAfterCheckout(userId, attemptsLeft) {
   const hasVip = await checkVipAccess(userId);
   if (hasVip) {
-    renderVipUnlocked();
+    await renderVipUnlocked();
     showVipState('unlocked');
     return;
   }
@@ -127,7 +140,7 @@ async function initVipPage() {
   setVipPaywallCopy(true);
   const hasVip = await checkVipAccess(user.id);
   if (hasVip) {
-    renderVipUnlocked();
+    await renderVipUnlocked();
     showVipState('unlocked');
   } else {
     showVipState('locked');

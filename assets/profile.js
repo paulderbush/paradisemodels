@@ -345,3 +345,44 @@ function openRealModel(m) {
     if (items.length <= 1) document.querySelectorAll('.gallery-arrow').forEach(a => a.style.display = 'none');
   });
 }
+
+// =================== VIP MODEL PROFILE ===================
+// VIP model pages (data/models.js vip:true) never get their bio/photos/
+// rates baked into the page's HTML/JS the way public profiles do — the
+// build only ships a slug. This fetches the real data from /api/vip-catalog,
+// which only returns it after verifying the caller has paid, and falls
+// back to a locked notice for everyone else (signed out, signed in but
+// unpaid, or any network/auth failure).
+function vipLockedProfileHTML() {
+  return `
+    <div style="padding:2rem 0">
+      <div class="vip-paywall-card" style="margin:0 auto">
+        <div class="form-section-title">VIP Profile</div>
+        <p>This companion is part of our VIP catalog — available to members with active VIP catalog access.</p>
+        <a class="submit-app-btn" style="display:block;text-decoration:none;text-align:center;margin-top:1rem" href="/vip-models/">View VIP Access</a>
+      </div>
+    </div>`;
+}
+
+async function initVipModelProfile(slug) {
+  const container = document.getElementById('modelDetailContent');
+  const showLocked = () => { if (container) container.innerHTML = vipLockedProfileHTML(); };
+
+  const user = await authGetUser();
+  if (!user) { showLocked(); return; }
+
+  try {
+    const {data: sessionData} = await sb.auth.getSession();
+    const token = sessionData && sessionData.session && sessionData.session.access_token;
+    const r = await fetch('/api/vip-catalog?slug=' + encodeURIComponent(slug), {
+      headers: {Authorization: `Bearer ${token}`}
+    });
+    if (!r.ok) { showLocked(); return; }
+    const json = await r.json();
+    if (!json.model) { showLocked(); return; }
+    if (window.CUR_READY) await window.CUR_READY;
+    openRealModel(json.model);
+  } catch (e) {
+    showLocked();
+  }
+}

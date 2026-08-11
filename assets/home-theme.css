@@ -260,7 +260,12 @@ footer{
    calculator, services, map frame, reviews) were drawn for the dark base
    theme and wash out on the bright cyan. Solid dark panels; anything sitting
    directly on the cyan flips to dark ink. */
-.model-detail-name,.model-bio p{color:#2a2f66}
+.model-detail-name{color:#2a2f66}
+/* .model-bio p is NOT in the rule above: the bio sits inside .model-bio,
+   which gets a solid dark panel further down, so its text needs to stay
+   light (style.css's own color:var(--text-soft) already resolves to this
+   theme's light --text-soft value once nothing here overrides it to the
+   dark ink meant for text sitting directly on the cyan). */
 /* The nationality/station line, the Languages:/Orientation: labels and the
    "Available daily…" footnote all sit directly on the cyan (not inside one
    of the dark panels below), so their inline var(--text-soft)/
@@ -270,6 +275,14 @@ footer{
    panels, where the original light color is already correct. */
 .model-detail-info [style*="color:var(--text-soft)"],
 .model-detail-info [style*="color:var(--text-muted)"]{color:rgba(26,30,66,0.72)!important}
+/* Badges (New/Top Rated/VIP) in the profile header sit directly on the
+   cyan too, same as the name — their own pale accent colors (green/red/
+   gold) read fine on a dark panel but wash out here, so flip to the same
+   dark ink for this context only (cards elsewhere sit on a photo, where
+   the original accent colors already have enough contrast). */
+.model-detail-info .badge-new,
+.model-detail-info .badge-top,
+.model-detail-info .badge-vip{color:#2a2f66!important}
 .back-btn{color:#2a2f66;border-color:rgba(26,30,66,0.25)}
 .stat-box,.price-calc,.model-bio,.review-card,.review-form,.model-map-block,
 .model-detail-services{
@@ -280,8 +293,13 @@ footer{
 .service-chip{
   background:rgba(255,255,255,0.08)!important;
   border:1px solid rgba(255,255,255,0.18)!important;
-  color:var(--text)!important;
+  /* Languages/Orientation chips sit directly on the cyan, not on a dark
+     panel — dark ink, same as the name/badges above. The "Services
+     Offered" list reuses this same class but inside .model-detail-services
+     (a dark panel), so it needs the opposite — flipped back below. */
+  color:#2a2f66!important;
 }
+.model-detail-services .service-chip{color:var(--text)!important}
 .price-type-btn,.duration-btn,.extra-svc-chk{
   background:rgba(255,255,255,0.06)!important;
   border:1px solid rgba(255,255,255,0.18)!important;

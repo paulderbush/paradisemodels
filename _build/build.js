@@ -10,6 +10,10 @@ const { MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES } = require('../data/m
 // URL-safe slug for a city name, used for element ids and query params.
 const citySlug = (c) => c.toLowerCase().replace(/\s+/g, '-');
 const REAL_MODELS = MODELS.filter(m => m.real);
+// Everything served to the general public (home, catalog, search) excludes
+// vip:true models entirely — their data only ever leaves the server via
+// /api/vip-catalog, which checks payment first. See buildVipModelProfile.
+const PUBLIC_MODELS = MODELS.filter(m => !m.vip);
 const SITE_URL = 'https://velvetescort.co.uk';
 // Single source of truth for the Telegram contact — it lives in the hero,
 // the footer and the mobile menu, so define it once.
@@ -212,9 +216,12 @@ function orbsHTML() {
 </div>`;
 }
 
-function modelsDataScript() {
-  // Serialize MODELS for browser use (with reviews reset to empty)
-  const data = MODELS.map(m => {
+function modelsDataScript(models = PUBLIC_MODELS) {
+  // Serialize the given model list for browser use (with reviews reset to
+  // empty). Every current caller uses the PUBLIC_MODELS default — vip:true
+  // models are never embedded client-side anywhere; see /api/vip-catalog
+  // and buildVipModelProfile below.
+  const data = models.map(m => {
     const copy = Object.assign({}, m);
     copy.reviews = [];
     return copy;
@@ -511,6 +518,51 @@ const STATIONS = ${JSON.stringify(STATIONS)};
 document.addEventListener('DOMContentLoaded', async function() {
   await window.CUR_READY;
   openRealModel(MODEL_DATA);
+});
+<\/script>
+</body>
+</html>`;
+}
+
+// vip:true models get a different page shell at the same /models/{slug}/
+// URL: no bio/photos/rates/og:image baked into the HTML (nothing to leak
+// via view-source or a crawler), just a slug. The real data is fetched
+// client-side from /api/vip-catalog, which only returns it once it has
+// verified the caller has paid — see assets/profile.js's
+// initVipModelProfile. Everyone else sees a locked notice.
+function buildVipModelProfile(m) {
+  return head(
+    'VIP Companion — Paradise Models',
+    'An exclusive VIP companion, available to members with active VIP catalog access.',
+    `${SITE_URL}/models/${m.slug}/`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
+  ) + `
+<body>
+${orbsHTML()}
+${navHTML(true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="model-detail-page" id="modelDetailContent">
+    <div style="text-align:center;padding:4rem;color:var(--text-muted)">Loading…</div>
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = ${JSON.stringify(SERVICES)};
+const NATIONALITIES = ${JSON.stringify(NATIONALITIES)};
+const STATIONS = ${JSON.stringify(STATIONS)};
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/profile.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/auth.js?v=${BUILD_TS}"><\/script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  initVipModelProfile(${JSON.stringify(m.slug)});
 });
 <\/script>
 </body>
@@ -949,7 +1001,9 @@ function buildSitemap() {
     {url: '/account/', priority: '0.4'},
     {url: '/faq/', priority: '0.7'},
     {url: '/become-a-model/', priority: '0.6'},
-    ...REAL_MODELS.map(m => ({url: `/models/${m.slug}/`, priority: '0.8'})),
+    // vip:true models don't get a sitemap entry — nothing should advertise
+    // that their URL exists to crawlers ahead of a visitor unlocking it.
+    ...PUBLIC_MODELS.filter(m => m.real).map(m => ({url: `/models/${m.slug}/`, priority: '0.8'})),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -974,7 +1028,7 @@ const OUT = path.join(__dirname, '..');
 write(path.join(OUT, 'index.html'), buildHome());
 write(path.join(OUT, 'models/index.html'), buildModels());
 REAL_MODELS.forEach(m => {
-  write(path.join(OUT, `models/${m.slug}/index.html`), buildModelProfile(m));
+  write(path.join(OUT, `models/${m.slug}/index.html`), m.vip ? buildVipModelProfile(m) : buildModelProfile(m));
 });
 write(path.join(OUT, 'faq/index.html'), buildFaq());
 write(path.join(OUT, 'become-a-model/index.html'), buildBecome());
