@@ -266,10 +266,50 @@ const SKYLAH_DATA = {
   reviews: [],
 };
 
+const ELDORA_DATA = {
+  id: 9991, real: true, vip: false, folder: 'models/Eldora', slug: 'eldora',
+  name: 'Eldora', age: 25, height: 174, weight: 50,
+  nationality: 'Brazilian', station: 'Green Park', city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(120,100,80,0.4)', 'rgba(70,55,40,0.7)'],
+  initials: 'EL',
+  cats: ['recommended', 'new'],
+  breastSize: '32C', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Spanish · Portuguese',
+  svcs: ['69', 'Body to Body Massage', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Erotic Massage', 'Face Sitting', 'Fingering', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', "Lady's Services", 'Lap Dancing', 'Light Domination', 'Massage', 'Blowjob Without Condom', 'Pornstar Experience', 'Rimming Receives', 'Soft Spanking Receiving', 'Spanking Giving', 'Striptease', 'Tie & Tease'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'Bi Duo', price: 50},
+    {name: 'Prostate Massage', price: 50},
+    {name: 'Fisting Giving', price: 50},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Overnight', price: 4600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "Eldora is a stunning 25-year-old Brazilian brunette whose tall, elegant figure and striking green eyes create an unforgettable first impression. Standing at 174cm with a naturally feminine silhouette, she embodies effortless sophistication and modern allure. Her rich brunette hair and captivating gaze give her a refined beauty that feels both powerful and irresistibly magnetic.",
+    "With her natural curves and subtle tattoos, Eldora blends timeless elegance with a touch of bold individuality. She carries herself with confidence and grace, creating an atmosphere that feels luxurious, relaxed, and full of quiet sensuality. Every detail about her appearance reflects authenticity, style, and a naturally captivating charm that draws people in effortlessly.",
+    "Fluent in Portuguese, English, and Spanish, Eldora connects with ease in any setting, bringing warmth, intelligence, and vibrant Brazilian energy into every encounter. Open-minded and engaging, she offers more than beauty alone — she creates moments that feel personal, exciting, and truly memorable. Tall, graceful, and impossible to overlook, Eldora leaves a lasting impression wherever she goes.",
+  ],
+  reviews: [],
+};
+
 // London is where the real roster lives now, so the placeholder/generated
 // profiles don't need to (and shouldn't) also claim a London presence —
 // keep them for the other cities, which still have no real models yet.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
