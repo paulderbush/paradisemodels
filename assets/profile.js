@@ -250,6 +250,7 @@ function buildRealModelHTML(m) {
             <span class="price-total-label">Total</span>
             <span class="price-total-val" id="price-total-val">${fmtPrice(initRate.price)}</span>
           </div>
+          ${m.extraHourPrice ? `<div class="price-extra-note">Extending your meeting? Every extra hour: <strong>${fmtPrice(m.extraHourPrice)}</strong></div>` : ''}
         </div>
         <div class="model-detail-services">
           <div class="services-title">Services Included</div>
