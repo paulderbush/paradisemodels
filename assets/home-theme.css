@@ -52,7 +52,7 @@ nav{
 .nav-logo-img img{height:40px;width:auto;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.35))}
 
 /* Buttons / primary gradients: indigo → cyan for contrast on cyan bg */
-.nav-btn,.cart-checkout,.make-booking-btn,.submit-app-btn,.review-submit-btn{
+.nav-btn,.cart-checkout,.make-booking-btn,.submit-app-btn{
   background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
   box-shadow:0 4px 20px rgba(var(--brand-dark-rgb),0.45)!important;
 }
@@ -273,8 +273,8 @@ footer{
 
 /* =================== MODEL PROFILE =================== */
 /* Same problem again: the translucent info panels (stats, bio, booking
-   calculator, services, map frame, reviews) were drawn for the dark base
-   theme and wash out on the bright cyan. Solid dark panels; anything sitting
+   calculator, services, map frame) were drawn for the dark base theme and
+   wash out on the bright cyan. Solid dark panels; anything sitting
    directly on the cyan flips to dark ink. */
 .model-detail-name{color:#2a2f66}
 /* .model-bio p is NOT in the rule above: the bio sits inside .model-bio,
@@ -286,9 +286,7 @@ footer{
    "Available daily…" footnote all sit directly on the cyan (not inside one
    of the dark panels below), so their inline var(--text-soft)/
    var(--text-muted) need overriding — targeted by the exact inline style JS
-   writes them with. Scoped to .model-detail-info specifically: the reviews
-   section reuses the same muted/soft inline styles but on its own dark
-   panels, where the original light color is already correct. */
+   writes them with. Scoped to .model-detail-info specifically. */
 .model-detail-info [style*="color:var(--text-soft)"],
 .model-detail-info [style*="color:var(--text-muted)"]{color:rgba(26,30,66,0.72)!important}
 /* Badges (New/Top Rated/VIP) in the profile header sit directly on the
@@ -305,7 +303,7 @@ footer{
   color:#2a2f66!important;
 }
 .back-btn{color:#2a2f66;border-color:rgba(26,30,66,0.25)}
-.stat-box,.price-calc,.model-bio,.review-card,.review-form,.model-map-block,
+.stat-box,.price-calc,.model-bio,.model-map-block,
 .model-detail-services{
   background:#1a1e42!important;
   backdrop-filter:none!important;-webkit-backdrop-filter:none!important;

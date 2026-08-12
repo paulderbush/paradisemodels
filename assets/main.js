@@ -6,7 +6,6 @@ const TG_BOT = TG_BOT_BASE + '/sendMessage';
 const TG_CHAT          = '-1004453652593'; // Paradise Live Chat group (topics)
 const TG_THREAD_BOOKINGS = 4;
 const TG_THREAD_MODELS   = 5;
-const TG_THREAD_REVIEWS  = 6;
 
 // One shared client for anything that needs Supabase Auth (account page,
 // VIP gating). Kept separate from chat.js's own client, which only ever
@@ -131,7 +130,9 @@ function makeBooking() {
   const extrasArr = [];
   _pricing.extras.forEach(i => extrasArr.push(m.extraSvcs[i]));
   const extrasTotal = extrasArr.reduce((s, e) => s + e.price, 0);
-  _bookingDraft = {modelId: m.id, modelName: m.name, modelFolder: m.folder, type: _pricing.type, durationLabel: rate.label, basePrice: rate.price, extras: extrasArr, extrasTotal, total: rate.price + extrasTotal};
+  const requestedServices = [];
+  if (_pricing.includedChoices) _pricing.includedChoices.forEach(i => requestedServices.push(m.svcs[i]));
+  _bookingDraft = {modelId: m.id, modelName: m.name, modelFolder: m.folder, type: _pricing.type, durationLabel: rate.label, basePrice: rate.price, extras: extrasArr, extrasTotal, requestedServices, total: rate.price + extrasTotal};
   _contactMethod = 'email';
   renderCart();
   openCart();
@@ -169,7 +170,8 @@ async function submitBooking() {
   const d = _bookingDraft;
   const contactLabel = _contactMethod === 'email' ? 'Email' : _contactMethod === 'whatsapp' ? 'WhatsApp' : 'Telegram';
   const extrasText = d.extras.length ? d.extras.map(e => `  • ${e.name} +£${e.price}`).join('\n') : '  None';
-  const msg = `🔖 <b>New Booking Request</b>\n\n<b>Model:</b> ${d.modelName}\n<b>Client:</b> ${name}\n<b>${contactLabel}:</b> ${contact}\n\n<b>Session:</b> ${d.durationLabel} · ${d.type === 'incall' ? 'Incall' : 'Outcall'}\n<b>Base:</b> £${d.basePrice}\n\n<b>Extras:</b>\n${extrasText}\n\n<b>Total: £${d.total}</b>\n\n<b>Date:</b> ${date}\n<b>Time:</b> ${time}`;
+  const requestedText = d.requestedServices && d.requestedServices.length ? d.requestedServices.map(s => `  • ${s}`).join('\n') : '  Not specified';
+  const msg = `🔖 <b>New Booking Request</b>\n\n<b>Model:</b> ${d.modelName}\n<b>Client:</b> ${name}\n<b>${contactLabel}:</b> ${contact}\n\n<b>Session:</b> ${d.durationLabel} · ${d.type === 'incall' ? 'Incall' : 'Outcall'}\n<b>Base:</b> £${d.basePrice}\n\n<b>Requested Services:</b>\n${requestedText}\n\n<b>Extras:</b>\n${extrasText}\n\n<b>Total: £${d.total}</b>\n\n<b>Date:</b> ${date}\n<b>Time:</b> ${time}`;
   const btn = document.querySelector('.booking-submit-btn');
   if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
   try {
@@ -188,48 +190,6 @@ async function submitBooking() {
   }
 }
 
-// =================== REVIEWS ===================
-function computeRating(reviews) {
-  if (!reviews || !reviews.length) return null;
-  return (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1);
-}
-
-async function loadReviewsFromSupabase(modelId) {
-  try {
-    const r = await fetch(`${SUPABASE_URL}/rest/v1/reviews?model_id=eq.${modelId}&approved=eq.true&order=created_at.desc`, {
-      headers: {'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`}
-    });
-    if (!r.ok) return [];
-    return await r.json();
-  } catch(e) { return []; }
-}
-
-async function loadAllReviews() {
-  try {
-    const r = await fetch(`${SUPABASE_URL}/rest/v1/reviews?approved=eq.true&order=created_at.desc`, {
-      headers: {'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`}
-    });
-    if (!r.ok) return;
-    const all = await r.json();
-    const byModel = {};
-    all.forEach(rv => { (byModel[rv.model_id] = byModel[rv.model_id] || []).push(rv); });
-    MODELS.forEach(m => { if (byModel[m.id]) m.reviews = byModel[m.id]; });
-    // Refresh grids so the new ratings show. This is a background update the
-    // visitor didn't ask for, so it must not move their scroll position.
-    if (typeof renderHomeCityRows === 'function') renderHomeCityRows();
-    if (typeof applyFilters === 'function') applyFilters({scroll: false});
-  } catch(e) {}
-}
-
-async function saveReviewToSupabase(review) {
-  try {
-    await fetch(`${SUPABASE_URL}/rest/v1/reviews`, {
-      method: 'POST',
-      headers: {'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Content-Type': 'application/json', 'Prefer': 'return=minimal'},
-      body: JSON.stringify(review)
-    });
-  } catch(e) {}
-}
 
 // =================== MODEL CARD ===================
 // Stand-in background for companions with no photo yet. Each model carries a
@@ -244,7 +204,6 @@ function modelCardHTML(m, clickable = true) {
   if (m.cats.includes('toprated')) catBadges.push('<span class="badge badge-top">Top Rated</span>');
   if (m.vip) catBadges.push('<span class="badge badge-vip">⭐ VIP</span>');
   const topSvcs = m.svcs.slice(0, 3).map(s => `<span class="tag-chip">${s}</span>`).join('');
-  const ratingBadge = (() => { const r = computeRating(m.reviews); return r ? `<div class="card-rating-badge">★ ${r}</div>` : ''; })();
 
   // For real models wrap in link, for fake use onclick
   const cardStart = m.real
@@ -263,7 +222,6 @@ function modelCardHTML(m, clickable = true) {
         <div style="font-size:2rem;font-weight:700;color:rgba(255,255,255,0.15)">${m.initials}</div>
       </div>` : ''}
       <div class="model-card-badges">${catBadges.join('')}</div>
-      ${ratingBadge}
       <div class="model-card-overlay">
         <div class="model-card-name">${m.name}</div>
         <div class="model-card-meta">${m.age} yrs · ${m.height}cm · ${m.nationality}</div>
@@ -272,7 +230,7 @@ function modelCardHTML(m, clickable = true) {
     </div>
     <div class="model-card-footer">
       <div class="model-rate">${m.real ? `<span>from </span>${fmtPrice(Math.min(...m.incallRates.map(r => r.price)))}` : `${fmtPrice(m.rateHour)}<span>/hr</span>`}</div>
-      <button class="add-to-cart-btn" onclick="event.stopPropagation();addToCart(${m.id})">+ Book</button>
+      <button class="add-to-cart-btn" onclick="event.stopPropagation();addToCart(${m.id})">Info</button>
     </div>
   ${cardEnd}`;
 }
@@ -362,7 +320,7 @@ function renderSearchDropdown(q, ddId) {
       <div class="avatar" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : `background:${PLACEHOLDER_BG}`}">${m.real ? '' : m.initials}</div>
       <div>
         <div style="font-weight:500;font-size:13px">${m.name}</div>
-        <div style="font-size:11px;color:var(--text-muted)">${m.nationality} · ${m.real ? `from ${fmtPrice(Math.min(...m.incallRates.map(r => r.price)))}` : `${fmtPrice(m.rateHour)}/hr`}${(() => { const r = computeRating(m.reviews); return r ? ` · ★ ${r}` : ''; })()}</div>
+        <div style="font-size:11px;color:var(--text-muted)">${m.nationality} · ${m.real ? `from ${fmtPrice(Math.min(...m.incallRates.map(r => r.price)))}` : `${fmtPrice(m.rateHour)}/hr`}</div>
       </div>
     </div>`).join('');
   dd.classList.add('show');

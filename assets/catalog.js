@@ -22,10 +22,8 @@ function applyCityFromURL() {
 
 // applyFilters() jumps the mobile view down to the results, which is helpful
 // after the visitor changes a filter but wrong otherwise: init calls it three
-// times (once per range), and loadAllReviews() calls it again once ratings
-// arrive from the network — both would drag the page down on their own. Only
-// a genuine filter change scrolls: init is gated by the flag, and background
-// refreshes pass {scroll:false}.
+// times (once per range), which would drag the page down on its own. Only a
+// genuine filter change scrolls — init is gated by this flag.
 let _filtersInteractive = false;
 
 function initModelsPage() {

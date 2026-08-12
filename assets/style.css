@@ -502,7 +502,6 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
 }
 .badge-new{background:rgba(160,224,128,0.2);border:1px solid rgba(160,224,128,0.4);color:#A0E080}
 .badge-vip{background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.35);color:#FFD700}
-.card-rating-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);border:1px solid rgba(255,215,0,0.4);border-radius:20px;padding:3px 9px;font-size:12px;font-weight:600;color:#FFD700;letter-spacing:0.03em;pointer-events:none}
 .badge-top{background:rgba(255,100,100,0.15);border:1px solid rgba(255,100,100,0.3);color:#FF7070}
 .model-card-overlay{
   position:absolute;bottom:0;left:0;right:0;
@@ -745,7 +744,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .real-detail-layout>.detail-left{grid-column:1;grid-row:1}
 .real-detail-layout>.model-detail-info{grid-column:2;grid-row:1}
 .real-detail-layout>.model-map-block{grid-column:1/-1;grid-row:2}
-.real-detail-layout>.reviews-section{grid-column:1/-1;grid-row:3}
 .real-detail-layout .detail-left>.model-bio{margin-top:1rem}
 .model-detail-img{
   border-radius:var(--r-sm);overflow:hidden;
@@ -777,6 +775,12 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   background:rgba(var(--brand-rgb),0.15);border:1px solid rgba(var(--brand-light-rgb),0.2);
   color:var(--purple3);font-size:11px;
 }
+.svc-choice{
+  display:inline-flex;align-items:center;gap:5px;cursor:pointer;user-select:none;
+  transition:all 0.18s;
+}
+.svc-choice .extra-svc-chk{width:13px;height:13px;font-size:9px}
+.svc-choice.on{background:rgba(var(--brand-rgb),0.35);border-color:var(--purple)}
 /* ===== REAL MODEL GALLERY ===== */
 .detail-gallery{position:relative;border-radius:var(--r-sm);overflow:hidden;width:100%;aspect-ratio:5/7;background:#0d0818;user-select:none}
 .gallery-track{position:absolute;inset:0;display:flex;transition:transform 0.4s cubic-bezier(.4,0,.2,1)}
@@ -978,8 +982,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .real-detail-layout .detail-left>.detail-gallery{order:1}
   .real-detail-layout>.model-detail-info{order:2}
   .real-detail-layout>.model-map-block{order:3}
-  .real-detail-layout>.reviews-section{order:4}
-  .real-detail-layout .detail-left>.model-bio{order:5;margin-top:0}
+  .real-detail-layout .detail-left>.model-bio{order:4;margin-top:0}
   .hero h1{font-size:2rem}
   /* Telegram centered on its own row, Become a Model beneath it.
      align-self is needed too: .hero-content aligns its children to
@@ -1020,22 +1023,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 /* MAP */
 .model-map-block{position:relative;border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--glass-border)}
 .model-map-block iframe{display:block;width:100%;height:420px;border:none;filter:invert(0.9) hue-rotate(180deg)}
-/* REVIEWS */
-.reviews-section{display:flex;flex-direction:column;gap:1rem}
-.review-card{border-radius:var(--r-sm);background:var(--glass);border:1px solid var(--glass-border);padding:1rem}
-.review-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;flex-wrap:wrap;gap:6px}
-.review-name{font-weight:600;font-size:14px}
-.review-meta{font-size:11px;color:var(--text-muted)}
-.review-stars{color:#FFD700;font-size:15px;letter-spacing:1px}
-.review-text{font-size:13px;line-height:1.7;color:var(--text-soft)}
-.review-form{border-radius:var(--r-sm);background:var(--glass);border:1px solid var(--glass-border);padding:1.1rem}
-.review-form-title{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:1rem}
-.star-picker{display:flex;gap:6px;margin:0.25rem 0}
-.star-picker button{background:none;border:none;font-size:1.6rem;cursor:pointer;color:rgba(255,255,255,0.2);transition:color 0.15s;padding:0;line-height:1}
-.star-picker button.active{color:#FFD700}
-.review-submit-btn{margin-top:0.75rem;width:100%;padding:0.75rem;background:linear-gradient(135deg,var(--purple),var(--purple-dark));border:none;border-radius:var(--r);color:#fff;font-family:'Zalando Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.25s}
-.review-submit-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(var(--brand-rgb),0.5)}
-.review-submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 
 /* LIVE CHAT WIDGET */
 .chat-bubble{

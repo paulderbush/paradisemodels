@@ -96,7 +96,6 @@ function _navHTML(logo, heroVideo = false) {
   <a class="nav-link" href="/events/">Events</a>
   <a class="nav-link" href="/about/">About Us</a>
   <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
-  <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
   <div class="nav-cart glass" onclick="openCart()" style="cursor:pointer;padding:0.45rem 0.9rem;border-radius:var(--r);display:flex;align-items:center;gap:6px;font-size:13px;transition:all 0.25s;white-space:nowrap;color:var(--text);">
     Booking
     <div class="cart-badge" id="cartBadge">0</div>
@@ -260,7 +259,7 @@ ${fakeModelOverlayHTML()}
     <video class="hero-video-mobile" muted loop playsinline preload="none" poster="/images/hero-poster-mobile.jpg?v=${BUILD_TS}" data-src="/videos/hero-mobile.mp4?v=${BUILD_TS}"></video>
     <div class="hero-content">
       <div class="hero-hours">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="dot"></span>
         Available 24/7
       </div>
       <h1>Where discretion meets the <span>extraordinary</span></h1>
@@ -317,7 +316,6 @@ ${modelsDataScript()}
 document.addEventListener('DOMContentLoaded', async function() {
   await window.CUR_READY;
   renderHomeCityRows();
-  loadAllReviews();
   renderFAQs([0,1,2], 'faqHome');
 });
 <\/script>
@@ -471,7 +469,6 @@ ${modelsDataScript()}
 document.addEventListener('DOMContentLoaded', async function() {
   await window.CUR_READY;
   initModelsPage();
-  loadAllReviews();
 });
 <\/script>
 </body>

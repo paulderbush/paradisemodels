@@ -11,9 +11,9 @@
 <meta property="og:description" content="Luisa — Brazilian escort in London. Available for incall from £1250. Book now at Paradise Models.">
 <meta property="og:url" content="https://velvetescort.co.uk/models/luisa/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260812012640">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260812012640">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260812012640">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260812165709">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260812165709">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260812165709">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -521,7 +521,6 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
 }
 .badge-new{background:rgba(160,224,128,0.2);border:1px solid rgba(160,224,128,0.4);color:#A0E080}
 .badge-vip{background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.35);color:#FFD700}
-.card-rating-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);border:1px solid rgba(255,215,0,0.4);border-radius:20px;padding:3px 9px;font-size:12px;font-weight:600;color:#FFD700;letter-spacing:0.03em;pointer-events:none}
 .badge-top{background:rgba(255,100,100,0.15);border:1px solid rgba(255,100,100,0.3);color:#FF7070}
 .model-card-overlay{
   position:absolute;bottom:0;left:0;right:0;
@@ -764,7 +763,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .real-detail-layout>.detail-left{grid-column:1;grid-row:1}
 .real-detail-layout>.model-detail-info{grid-column:2;grid-row:1}
 .real-detail-layout>.model-map-block{grid-column:1/-1;grid-row:2}
-.real-detail-layout>.reviews-section{grid-column:1/-1;grid-row:3}
 .real-detail-layout .detail-left>.model-bio{margin-top:1rem}
 .model-detail-img{
   border-radius:var(--r-sm);overflow:hidden;
@@ -796,6 +794,12 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   background:rgba(var(--brand-rgb),0.15);border:1px solid rgba(var(--brand-light-rgb),0.2);
   color:var(--purple3);font-size:11px;
 }
+.svc-choice{
+  display:inline-flex;align-items:center;gap:5px;cursor:pointer;user-select:none;
+  transition:all 0.18s;
+}
+.svc-choice .extra-svc-chk{width:13px;height:13px;font-size:9px}
+.svc-choice.on{background:rgba(var(--brand-rgb),0.35);border-color:var(--purple)}
 /* ===== REAL MODEL GALLERY ===== */
 .detail-gallery{position:relative;border-radius:var(--r-sm);overflow:hidden;width:100%;aspect-ratio:5/7;background:#0d0818;user-select:none}
 .gallery-track{position:absolute;inset:0;display:flex;transition:transform 0.4s cubic-bezier(.4,0,.2,1)}
@@ -997,8 +1001,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .real-detail-layout .detail-left>.detail-gallery{order:1}
   .real-detail-layout>.model-detail-info{order:2}
   .real-detail-layout>.model-map-block{order:3}
-  .real-detail-layout>.reviews-section{order:4}
-  .real-detail-layout .detail-left>.model-bio{order:5;margin-top:0}
+  .real-detail-layout .detail-left>.model-bio{order:4;margin-top:0}
   .hero h1{font-size:2rem}
   /* Telegram centered on its own row, Become a Model beneath it.
      align-self is needed too: .hero-content aligns its children to
@@ -1039,22 +1042,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 /* MAP */
 .model-map-block{position:relative;border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--glass-border)}
 .model-map-block iframe{display:block;width:100%;height:420px;border:none;filter:invert(0.9) hue-rotate(180deg)}
-/* REVIEWS */
-.reviews-section{display:flex;flex-direction:column;gap:1rem}
-.review-card{border-radius:var(--r-sm);background:var(--glass);border:1px solid var(--glass-border);padding:1rem}
-.review-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;flex-wrap:wrap;gap:6px}
-.review-name{font-weight:600;font-size:14px}
-.review-meta{font-size:11px;color:var(--text-muted)}
-.review-stars{color:#FFD700;font-size:15px;letter-spacing:1px}
-.review-text{font-size:13px;line-height:1.7;color:var(--text-soft)}
-.review-form{border-radius:var(--r-sm);background:var(--glass);border:1px solid var(--glass-border);padding:1.1rem}
-.review-form-title{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:1rem}
-.star-picker{display:flex;gap:6px;margin:0.25rem 0}
-.star-picker button{background:none;border:none;font-size:1.6rem;cursor:pointer;color:rgba(255,255,255,0.2);transition:color 0.15s;padding:0;line-height:1}
-.star-picker button.active{color:#FFD700}
-.review-submit-btn{margin-top:0.75rem;width:100%;padding:0.75rem;background:linear-gradient(135deg,var(--purple),var(--purple-dark));border:none;border-radius:var(--r);color:#fff;font-family:'Zalando Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.25s}
-.review-submit-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(var(--brand-rgb),0.5)}
-.review-submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 
 /* LIVE CHAT WIDGET */
 .chat-bubble{
@@ -1177,11 +1164,11 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260812012640';</script>
+<script>window.BUILD_TS='20260812165709';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260812012640"></script>
+<script src="/assets/currency.js?v=20260812165709"></script>
 <meta property="og:image" content="https://velvetescort.co.uk/models/Luisa/1.webp">
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260812012640">
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260812165709">
 </head>
 <body>
 <div class="orb-container">
@@ -1205,7 +1192,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812012640" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812165709" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1233,7 +1220,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   <a class="nav-link" href="/events/">Events</a>
   <a class="nav-link" href="/about/">About Us</a>
   <a class="nav-btn nav-btn-vip" href="/vip-models/" style="text-decoration:none">VIP Models</a>
-  <div class="nav-badge"><span class="dot"></span>High Class International Escort Agency</div>
   <div class="nav-cart glass" onclick="openCart()" style="cursor:pointer;padding:0.45rem 0.9rem;border-radius:var(--r);display:flex;align-items:center;gap:6px;font-size:13px;transition:all 0.25s;white-space:nowrap;color:var(--text);">
     Booking
     <div class="cart-badge" id="cartBadge">0</div>
@@ -1249,7 +1235,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812012640" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812165709" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1354,9 +1340,9 @@ const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob W
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 </script>
-<script src="/assets/main.js?v=20260812012640"></script>
-<script src="/assets/chat.js?v=20260812012640"></script>
-<script src="/assets/profile.js?v=20260812012640"></script>
+<script src="/assets/main.js?v=20260812165709"></script>
+<script src="/assets/chat.js?v=20260812165709"></script>
+<script src="/assets/profile.js?v=20260812165709"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async function() {
   await window.CUR_READY;
