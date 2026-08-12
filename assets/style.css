@@ -104,6 +104,12 @@ nav{
   overflow:hidden;background-size:cover!important;
 }
 .nav-cart{
+  /* Everything before this in the bar is fixed/hugs-content width, so on
+     wide viewports it all bunched up on the left with dead space before
+     the right edge. Pushing this — the first of the two right-side
+     items — flush right takes the rest of the row (account/hamburger)
+     with it. */
+  margin-left:auto;
   position:relative;cursor:pointer;
   padding:0.45rem 0.9rem;
   background:rgba(var(--brand-rgb),0.12);
@@ -855,20 +861,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .faq-page h1{font-size:2rem;font-weight:700;margin-bottom:0.5rem}
 .faq-page .sub{color:var(--text-soft);margin-bottom:2rem}
 
-/* NAV BADGE */
-.nav-badge{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:0.4rem 0.7rem;
-  background:rgba(var(--brand-rgb),0.2);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(var(--brand-light-rgb),0.35);
-  border-radius:var(--r);
-  font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
-  color:var(--purple3);white-space:nowrap;
-  margin-left:auto;
-}
-
 /* AGE MODAL */
 .age-modal-overlay{
   position:fixed;inset:0;z-index:10000;
@@ -966,7 +958,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .mobile-filter-toggle.active{background:rgba(var(--brand-rgb),0.2);border-color:rgba(var(--brand-light-rgb),0.4);color:var(--purple3)}
 @media(max-width:768px){
   nav{padding:0.6rem 1rem;gap:0.5rem}
-  .nav-search,.nav-search-cancel,.nav-link,.nav-dropdown,.nav-btn-vip,.nav-badge,.nav-cart{display:none!important}
+  .nav-search,.nav-search-cancel,.nav-link,.nav-dropdown,.nav-btn-vip,.nav-cart{display:none!important}
   .nav-hamburger-btn{display:flex}
   .nav-account-btn{margin-left:auto}
   .models-layout{grid-template-columns:1fr}
@@ -1000,7 +992,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .rates-fields.active{grid-template-columns:1fr}
   .partners-section{text-align:center}
   .partners-row{justify-content:center}
-  .stat-grid-ext{grid-template-columns:repeat(3,1fr)}
+  .stat-grid-ext{grid-template-columns:repeat(2,1fr)}
   .detail-gallery{aspect-ratio:5/7;height:auto}
   .cart-panel{width:100%;right:-100%}
   .cart-panel.open{right:0}

@@ -11,9 +11,9 @@
 <meta property="og:description" content="Paradise Models — a high-class international escort agency in London, Paris, Monaco, Milan, Dubai, New York, Miami, Zurich and Amsterdam. Verified photos, discreet service, available 24/7 from £300/h.">
 <meta property="og:url" content="https://velvetescort.co.uk/about/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260812165709">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260812165709">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260812165709">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260812174021">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260812174021">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260812174021">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -123,6 +123,12 @@ nav{
   overflow:hidden;background-size:cover!important;
 }
 .nav-cart{
+  /* Everything before this in the bar is fixed/hugs-content width, so on
+     wide viewports it all bunched up on the left with dead space before
+     the right edge. Pushing this — the first of the two right-side
+     items — flush right takes the rest of the row (account/hamburger)
+     with it. */
+  margin-left:auto;
   position:relative;cursor:pointer;
   padding:0.45rem 0.9rem;
   background:rgba(var(--brand-rgb),0.12);
@@ -874,20 +880,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .faq-page h1{font-size:2rem;font-weight:700;margin-bottom:0.5rem}
 .faq-page .sub{color:var(--text-soft);margin-bottom:2rem}
 
-/* NAV BADGE */
-.nav-badge{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:0.4rem 0.7rem;
-  background:rgba(var(--brand-rgb),0.2);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(var(--brand-light-rgb),0.35);
-  border-radius:var(--r);
-  font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
-  color:var(--purple3);white-space:nowrap;
-  margin-left:auto;
-}
-
 /* AGE MODAL */
 .age-modal-overlay{
   position:fixed;inset:0;z-index:10000;
@@ -985,7 +977,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .mobile-filter-toggle.active{background:rgba(var(--brand-rgb),0.2);border-color:rgba(var(--brand-light-rgb),0.4);color:var(--purple3)}
 @media(max-width:768px){
   nav{padding:0.6rem 1rem;gap:0.5rem}
-  .nav-search,.nav-search-cancel,.nav-link,.nav-dropdown,.nav-btn-vip,.nav-badge,.nav-cart{display:none!important}
+  .nav-search,.nav-search-cancel,.nav-link,.nav-dropdown,.nav-btn-vip,.nav-cart{display:none!important}
   .nav-hamburger-btn{display:flex}
   .nav-account-btn{margin-left:auto}
   .models-layout{grid-template-columns:1fr}
@@ -1019,7 +1011,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .rates-fields.active{grid-template-columns:1fr}
   .partners-section{text-align:center}
   .partners-row{justify-content:center}
-  .stat-grid-ext{grid-template-columns:repeat(3,1fr)}
+  .stat-grid-ext{grid-template-columns:repeat(2,1fr)}
   .detail-gallery{aspect-ratio:5/7;height:auto}
   .cart-panel{width:100%;right:-100%}
   .cart-panel.open{right:0}
@@ -1164,10 +1156,10 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260812165709';</script>
+<script>window.BUILD_TS='20260812174021';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260812165709"></script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260812165709">
+<script src="/assets/currency.js?v=20260812174021"></script>
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260812174021">
 </head>
 <body>
 <div class="orb-container">
@@ -1191,7 +1183,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812165709" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812174021" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1234,7 +1226,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812165709" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812174021" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1345,11 +1337,11 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:360px">
         
         <a href="/models/julia/" style="text-decoration:none;display:block;border-radius:var(--r-xs);overflow:hidden;position:relative;aspect-ratio:3/4">
-          <img src="/models/Julia/1.webp?v=20260812165709" alt="Julia" style="width:100%;height:100%;object-fit:cover;display:block">
+          <img src="/models/Julia/1.webp?v=20260812174021" alt="Julia" style="width:100%;height:100%;object-fit:cover;display:block">
           <div style="position:absolute;left:0;right:0;bottom:0;padding:0.6rem;background:linear-gradient(0deg,rgba(0,0,0,0.65),transparent);color:#fff;font-size:13px;font-weight:600">Julia</div>
         </a>
         <a href="/models/luisa/" style="text-decoration:none;display:block;border-radius:var(--r-xs);overflow:hidden;position:relative;aspect-ratio:3/4">
-          <img src="/models/Luisa/1.webp?v=20260812165709" alt="Luisa" style="width:100%;height:100%;object-fit:cover;display:block">
+          <img src="/models/Luisa/1.webp?v=20260812174021" alt="Luisa" style="width:100%;height:100%;object-fit:cover;display:block">
           <div style="position:absolute;left:0;right:0;bottom:0;padding:0.6rem;background:linear-gradient(0deg,rgba(0,0,0,0.65),transparent);color:#fff;font-size:13px;font-weight:600">Luisa</div>
         </a>
       </div>
@@ -1403,7 +1395,7 @@ const NATIONALITIES = [];
 const STATIONS = [];
 const CITIES = [];
 </script>
-<script src="/assets/main.js?v=20260812165709"></script>
-<script src="/assets/chat.js?v=20260812165709"></script>
+<script src="/assets/main.js?v=20260812174021"></script>
+<script src="/assets/chat.js?v=20260812174021"></script>
 </body>
 </html>
