@@ -75,7 +75,7 @@ const JULIA_DATA = {
   id: 9996, real: true, vip: false, folder: 'models/Julia', slug: 'julia',
   name: 'Julia', age: 23, height: 173, weight: 53,
   nationality: 'Ukrainian', station: 'Knightsbridge', city: 'London',
-  rateHour: 1250,
+  rateHour: 1250, extraHourPrice: 750,
   color: ['rgba(200,160,60,0.4)', 'rgba(130,95,20,0.7)'],
   initials: 'JU',
   cats: ['recommended', 'new', 'under25'],
@@ -92,7 +92,6 @@ const JULIA_DATA = {
     {label: '90 Min', price: 1700},
     {label: '2 Hours', price: 2000},
     {label: '3 Hours', price: 2750},
-    {label: 'Extra Hour', price: 750},
     {label: 'Overnight', price: 5750},
   ],
   outcallRates: [
@@ -100,7 +99,6 @@ const JULIA_DATA = {
     {label: '90 Min', price: 1700},
     {label: '2 Hours', price: 2000},
     {label: '3 Hours', price: 2750},
-    {label: 'Extra Hour', price: 750},
     {label: 'Overnight', price: 5750},
   ],
   description: [
@@ -114,7 +112,7 @@ const LUISA_DATA = {
   id: 9995, real: true, vip: false, folder: 'models/Luisa', slug: 'luisa',
   name: 'Luisa', age: 25, height: 175, weight: 52,
   nationality: 'Brazilian', station: 'South Kensington', city: 'London',
-  rateHour: 1250,
+  rateHour: 1250, extraHourPrice: 800,
   color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
   initials: 'LU',
   cats: ['recommended', 'new'],
@@ -138,7 +136,6 @@ const LUISA_DATA = {
     {label: '90 Min', price: 1700},
     {label: '2 Hours', price: 2050},
     {label: '3 Hours', price: 2850},
-    {label: 'Extra Hour', price: 800},
     {label: 'Overnight', price: 5000},
   ],
   outcallRates: [
@@ -146,7 +143,6 @@ const LUISA_DATA = {
     {label: '90 Min', price: 1700},
     {label: '2 Hours', price: 2050},
     {label: '3 Hours', price: 2850},
-    {label: 'Extra Hour', price: 800},
     {label: 'Overnight', price: 5000},
   ],
   description: [
@@ -161,7 +157,7 @@ const AIRA_DATA = {
   id: 9994, real: true, vip: false, folder: 'models/Aira', slug: 'aira',
   name: 'Aira', age: 26, height: 170, weight: 49,
   nationality: 'Russian', station: 'South Kensington', city: 'London',
-  rateHour: 1250,
+  rateHour: 1250, extraHourPrice: 750,
   color: ['rgba(160,180,70,0.4)', 'rgba(100,120,30,0.7)'],
   initials: 'AI',
   cats: ['recommended', 'new'],
@@ -175,7 +171,6 @@ const AIRA_DATA = {
     {label: '90 Min', price: 1600},
     {label: '2 Hours', price: 2000},
     {label: '3 Hours', price: 2750},
-    {label: 'Extra Hour', price: 750},
     {label: 'Overnight', price: 5750},
   ],
   outcallRates: [
@@ -183,7 +178,6 @@ const AIRA_DATA = {
     {label: '90 Min', price: 1600},
     {label: '2 Hours', price: 2000},
     {label: '3 Hours', price: 2750},
-    {label: 'Extra Hour', price: 750},
     {label: 'Overnight', price: 5750},
   ],
   description: [
@@ -197,7 +191,7 @@ const ANASTASIIA_DATA = {
   id: 9993, real: true, vip: false, folder: 'models/Anastasiia', slug: 'anastasiia',
   name: 'Anastasiia', age: 25, height: 168, weight: 55,
   nationality: 'French', station: "Earl's Court", city: 'London',
-  rateHour: 1000,
+  rateHour: 1000, extraHourPrice: 600,
   color: ['rgba(180,90,120,0.4)', 'rgba(110,40,70,0.7)'],
   initials: 'AN',
   cats: ['recommended', 'new'],
@@ -215,7 +209,6 @@ const ANASTASIIA_DATA = {
     {label: '90 Min', price: 1300},
     {label: '2 Hours', price: 1600},
     {label: '3 Hours', price: 2200},
-    {label: 'Extra Hour', price: 600},
     {label: 'Overnight', price: 4600},
   ],
   outcallRates: [
@@ -223,7 +216,6 @@ const ANASTASIIA_DATA = {
     {label: '90 Min', price: 1300},
     {label: '2 Hours', price: 1600},
     {label: '3 Hours', price: 2200},
-    {label: 'Extra Hour', price: 600},
     {label: 'Overnight', price: 4600},
   ],
   description: [
@@ -238,7 +230,7 @@ const SKYLAH_DATA = {
   id: 9992, real: true, vip: false, folder: 'models/Skylah', slug: 'skylah',
   name: 'Skylah', age: 24, height: 169, weight: 52,
   nationality: 'Swedish/Lithuanian', station: 'Knightsbridge', city: 'London',
-  rateHour: 1000,
+  rateHour: 1000, extraHourPrice: 600,
   color: ['rgba(90,140,190,0.4)', 'rgba(40,80,130,0.7)'],
   initials: 'SK',
   cats: ['recommended', 'new', 'under25'],
@@ -257,7 +249,6 @@ const SKYLAH_DATA = {
     {label: '90 Min', price: 1300},
     {label: '2 Hours', price: 1600},
     {label: '3 Hours', price: 2200},
-    {label: 'Extra Hour', price: 600},
     {label: 'Overnight', price: 4800},
   ],
   outcallRates: [
@@ -265,7 +256,6 @@ const SKYLAH_DATA = {
     {label: '90 Min', price: 1300},
     {label: '2 Hours', price: 1600},
     {label: '3 Hours', price: 2200},
-    {label: 'Extra Hour', price: 600},
     {label: 'Overnight', price: 4800},
   ],
   description: [
