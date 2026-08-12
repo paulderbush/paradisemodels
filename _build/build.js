@@ -1085,7 +1085,7 @@ ${ageModalHTML()}
     </a>
 
     <div class="form-section" style="padding:0;overflow:hidden;margin-bottom:2.5rem">
-      <div style="position:relative;min-height:280px;display:flex;align-items:center;padding:2.5rem 1.75rem;background:linear-gradient(90deg,#70e9ff 0%,#70e9ff 38%,rgba(112,233,255,0.35) 68%,rgba(112,233,255,0) 100%),url('/images/PC.jpg') right center/cover no-repeat">
+      <div class="about-hero" style="position:relative;min-height:280px;display:flex;align-items:center;padding:2.5rem 1.75rem">
         <div style="max-width:520px">
           <h1 style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;color:#1a1e42;line-height:1.15;margin-bottom:0.9rem">High Class <span style="background:linear-gradient(135deg,#1a5f7a,#123a66);-webkit-background-clip:text;-webkit-text-fill-color:transparent">London Escorts</span></h1>
           <p style="color:rgba(26,30,66,0.8);font-size:14.5px;line-height:1.8">Introducing our exclusive gallery of high class international escorts. At Paradise Models, we have a range of busty blondes, Russian brunettes and leggy redheads eager to please the discerning gentlemen of ${CITIES.slice(0, -1).join(', ')} and ${CITIES[CITIES.length - 1]}. Whether you opt for an incall or an outcall, we have the perfect elite escort for you offering a range of services from romantic dinner dates to thrilling duo experiences. Our girls are available 24/7 from £300/h. Browse through their verified photos, selfies and videos and call us to book now!</p>
@@ -1127,7 +1127,9 @@ ${ageModalHTML()}
     <div class="form-section" style="margin-bottom:2.5rem">
       <div class="form-section-title" style="font-size:1.15rem">Where Can I Meet My Elite Escort?</div>
       <p style="color:var(--text-soft);font-size:14px;line-height:1.85;margin-bottom:1.5rem">Our high class escorts are available throughout ${CITIES.slice(0, -1).join(', ')} and ${CITIES[CITIES.length - 1]}. Find an escort close to you using our models menu to see girls in your city. We have girls who offer both incalls and outcalls for your convenience. Our VIP escorts have exclusive apartments that are easy to find if you're looking for an incall — or we can deliver the most stunning elite escort straight to your home or hotel. Looking for a plus-one to an event? Our elite escorts are happy to attend business events or exclusive parties with you in an outcall.</p>
-      <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem" href="/models/">Browse Models</a>
+      <div style="text-align:center">
+        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem" href="/models/">Browse Models</a>
+      </div>
     </div>
 
     <div class="form-section" style="text-align:center">

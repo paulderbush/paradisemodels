@@ -366,5 +366,20 @@ footer{
 .vip-paywall-card p{color:var(--text-soft)}
 #vipPriceTag{color:#ffffff}
 
+/* =================== ABOUT PAGE =================== */
+/* Desktop: text sits on the left, photo bleeds in from the right, so the
+   fade runs left (solid) -> right (transparent) to match. On mobile the
+   text column goes full-width above/over the photo instead, so a
+   left-right fade no longer lines up with anything — switched to bottom
+   (solid, where the denser paragraph text sits) -> top (transparent). */
+.about-hero{
+  background:linear-gradient(90deg,#70e9ff 0%,#70e9ff 38%,rgba(112,233,255,0.35) 68%,rgba(112,233,255,0) 100%),url('/images/PC.jpg') right center/cover no-repeat;
+}
+@media(max-width:768px){
+  .about-hero{
+    background:linear-gradient(180deg,#70e9ff 0%,#70e9ff 38%,rgba(112,233,255,0.35) 68%,rgba(112,233,255,0) 100%),url('/images/PC.jpg') right center/cover no-repeat;
+  }
+}
+
 /* =================== ACCOUNT PAGE =================== */
 #acctLoading{color:rgba(26,30,66,0.72)!important}
