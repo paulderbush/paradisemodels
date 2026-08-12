@@ -381,3 +381,40 @@ footer{
 
 /* =================== ACCOUNT PAGE =================== */
 #acctLoading{color:rgba(26,30,66,0.72)!important}
+
+/* =================== SHARP CORNERS EXPERIMENT (homepage only) =================== */
+/* Client wants to trial a squared-off look before rolling it out site-wide.
+   Scoped to .page-home (set only on the home page's <body>) so every other
+   page keeps the current rounded style untouched. */
+.page-home .hero,
+.page-home .hero-bg,
+.page-home .model-card,
+.page-home .add-to-cart-btn,
+.page-home .see-all,
+.page-home .hero-btns .btn-tg,
+.page-home .hero-btns .btn-model-cta,
+.page-home .footer-btns .btn-tg,
+.page-home .footer-btns .btn-model-cta,
+.page-home .footer-btns .btn-blog{
+  border-radius:0!important;
+}
+
+/* Nav buttons: drop the pill shape entirely — plain text with an underline
+   on hover instead. Scoped via nav.nav-on-hero, which only the homepage's
+   nav carries. */
+nav.nav-on-hero .nav-link,
+nav.nav-on-hero .nav-btn-vip,
+nav.nav-on-hero .nav-cart{
+  background:none!important;
+  border:none!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  border-bottom:2px solid transparent!important;
+}
+nav.nav-on-hero .nav-btn-vip{color:#70e9ff!important}
+nav.nav-on-hero .nav-link:hover,
+nav.nav-on-hero .nav-btn-vip:hover,
+nav.nav-on-hero .nav-cart:hover{
+  background:none!important;
+  border-bottom-color:currentColor!important;
+}

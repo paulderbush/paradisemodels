@@ -243,7 +243,7 @@ function buildHome() {
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-home">
 ${orbsHTML()}
 ${navHTML(true, true)}
 ${ageModalHTML()}
