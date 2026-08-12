@@ -255,6 +255,7 @@ function buildRealModelHTML(m) {
           <div class="services-title">Services Included</div>
           <div class="services-chips">${m.svcs.map(s => `<span class="service-chip">${s}</span>`).join('')}</div>
         </div>
+        ${m.extraSvcs && m.extraSvcs.length ? `
         <div class="model-detail-services">
           <div class="services-title">Extra Services</div>
           <div class="extra-svc-list">
@@ -267,7 +268,7 @@ function buildRealModelHTML(m) {
               <span class="extra-svc-price">+${fmtPrice(s.price)}</span>
             </div>`).join('')}
           </div>
-        </div>
+        </div>` : ''}
         <button class="make-booking-btn" onclick="makeBooking()">Make a Booking</button>
         <div style="font-size:12px;color:var(--text-muted);text-align:center">Available 24/7</div>
       </div>

@@ -1,5 +1,5 @@
 // =================== DATA ===================
-const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob With Condom","Blowjob Without Condom","Body to Body Massage","Couples","Cum In Mouth","Cum On Body","Cum On Face","Deep French Kissing","Deep Throat","Dirty Talk","Domination","Double Penetration","DUO","Erotic Massage","Face Sitting","Fetish","Filming With Mask","Filming Without Mask","Fingering","Fisting Giving","Foot Fetish","French Kissing","Girlfriend Experience","Group For Extra","Handcuffs","Lady's Services","Lap Dancing","Latex Outfit","Light Domination","Lomilomi Massage","Massage","MMF For Double Price","Nuru Massage","Open Minded","Party Girl","Peeing On Client","Peeing On Model","Photos With Mask","Poppers","Pornstar Experience","Professional Massage","Prostate Massage","Rimming Gives","Rimming Receives","Roleplay","Sensual Massage","Shower Together","Smoking Fetish","Snowballing","Soft Spanking Receiving","Spanking Giving","Strapon","Striptease","Swallow Sperm","Tantric Massage","Tie & Tease","Toys","Uniform","Women Clients"];
+const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob With Condom","Blowjob Without Condom","Body to Body Massage","Couples","Cum In Mouth","Cum On Body","Cum On Face","Deep French Kissing","Deep Throat","Dirty Talk","Domination","Double Penetration","DUO","Erotic Massage","Face Sitting","Fetish","Filming With Mask","Filming Without Mask","Fingering","Fisting Giving","Foot Fetish","French Kissing","Girlfriend Experience","Group For Extra","Handcuffs","Lady's Services","Lap Dancing","Latex Outfit","Leather Outfit","Light Domination","Lomilomi Massage","Massage","MMF For Double Price","Nuru Massage","Open Minded","Party Girl","Peeing On Client","Peeing On Model","Photos With Mask","Poppers","Pornstar Experience","Professional Massage","Prostate Massage","Rimming Gives","Rimming Receives","Roleplay","Sensual Massage","Shower Together","Smoking Fetish","Snowballing","Soft Spanking Receiving","Spanking Giving","Squirting","Strapon","Striptease","Swallow Sperm","Tantric Massage","Tie & Tease","Toys","Uniform","Women Clients"];
 
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 
@@ -191,7 +191,47 @@ const AIRA_DATA = {
   reviews: [],
 };
 
-const FAKE_MODELS = generateModels();
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ...FAKE_MODELS];
+const ANASTASIIA_DATA = {
+  id: 9993, real: true, vip: false, folder: 'models/Anastasiia', slug: 'anastasiia',
+  name: 'Anastasiia', age: 25, height: 168, weight: 55,
+  nationality: 'French', station: "Earl's Court", city: 'London',
+  rateHour: 1000,
+  color: ['rgba(180,90,120,0.4)', 'rgba(110,40,70,0.7)'],
+  initials: 'AN',
+  cats: ['recommended', 'new'],
+  breastSize: '34G', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Blue', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Russian · French',
+  svcs: ['69', 'Bisexual DUO', 'Body to Body Massage', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Domination', 'Deep Throat', 'Erotic Massage', 'Couples', 'Toys', 'Face Sitting', 'Fingering', 'Fisting Giving', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Handcuffs', 'Lap Dancing', 'Latex Outfit', 'Leather Outfit', 'Light Domination', 'Massage', 'MMF For Double Price', 'Blowjob With Condom', 'Blowjob Without Condom', 'Party Girl', 'Poppers', 'Prostate Massage', 'Pornstar Experience', 'Rimming Gives', 'Rimming Receives', 'Roleplay', 'Soft Spanking Receiving', 'Spanking Giving', 'Squirting', 'Strapon', 'Striptease', 'Tie & Tease', 'Uniform', 'Peeing On Client'],
+  extraSvcs: [
+    {name: 'CIF', price: 300},
+    {name: 'A-Level', price: 500},
+    {name: 'Filming Without Mask', price: 2000},
+    {name: 'Extra Hour', price: 600},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Overnight', price: 4600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "Anastasiia is a breathtaking brunette with true Playboy magnetism and the raw power of a real, active porn actress. Her curves are unreal, her presence is fierce, and her breasts — the biggest and most irresistible — are pure temptation. She doesn't just look the part; she lives it, with a sensual confidence that commands attention and ignites every fantasy.",
+    "This is a woman who does it all — open-minded, deeply experienced, and unafraid to explore your wildest desires. From A-Level to WS and beyond, Anastasiia is the ultimate provider of intense, uninhibited pleasure. She brings the same fire and skill from her films into every real-life experience, turning every session into a scene you'll never forget.",
+    "A true party lover and fully available 24/7, Anastasiia is the dream you don't have to wait for. For those who crave more than the ordinary, she's the ultimate choice — always ready to deliver the most intense, unforgettable experiences.",
+  ],
+  reviews: [],
+};
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+const FAKE_MODELS = generateModels();
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, ...FAKE_MODELS];
+
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
