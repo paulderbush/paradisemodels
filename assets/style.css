@@ -167,7 +167,11 @@ nav{
   background:rgba(var(--panel2-rgb),0.98);
   backdrop-filter:blur(24px) saturate(1.5);
   -webkit-backdrop-filter:blur(24px) saturate(1.5);
-  border:1px solid var(--glass-border);border-radius:var(--r-sm);
+  /* r-sm (24px) left the item hover highlights (8px radius, below) looking
+     stepped/mismatched against the panel's much rounder corners with only
+     0.4rem of padding between them — r-xs (14px) minus that padding lands
+     close enough to 8px for the two curves to read as concentric. */
+  border:1px solid var(--glass-border);border-radius:var(--r-xs);
   padding:0.4rem;z-index:999;
   display:none;flex-direction:column;gap:2px;
   box-shadow:0 16px 44px rgba(0,0,0,0.35);
