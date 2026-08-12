@@ -72,7 +72,7 @@ function generateModels() {
 
 // =================== REAL MODELS ===================
 const JULIA_DATA = {
-  id: 9996, real: true, vip: false, folder: 'Julia', slug: 'julia',
+  id: 9996, real: true, vip: false, folder: 'models/Julia', slug: 'julia',
   name: 'Julia', age: 23, height: 173, weight: 53,
   nationality: 'Ukrainian', station: 'Knightsbridge', city: 'London',
   rateHour: 1250,
@@ -110,7 +110,7 @@ const JULIA_DATA = {
 };
 
 const LUISA_DATA = {
-  id: 9995, real: true, vip: false, folder: 'Luisa', slug: 'luisa',
+  id: 9995, real: true, vip: false, folder: 'models/Luisa', slug: 'luisa',
   name: 'Luisa', age: 25, height: 175, weight: 52,
   nationality: 'Brazilian', station: 'South Kensington', city: 'London',
   rateHour: 1250,
@@ -155,7 +155,43 @@ const LUISA_DATA = {
   reviews: [],
 };
 
-const FAKE_MODELS = generateModels();
-const MODELS = [JULIA_DATA, LUISA_DATA, ...FAKE_MODELS];
+const AIRA_DATA = {
+  id: 9994, real: true, vip: false, folder: 'models/Aira', slug: 'aira',
+  name: 'Aira', age: 26, height: 170, weight: 49,
+  nationality: 'Russian', station: 'South Kensington', city: 'London',
+  rateHour: 1250,
+  color: ['rgba(160,180,70,0.4)', 'rgba(100,120,30,0.7)'],
+  initials: 'AI',
+  cats: ['recommended', 'new'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'Bisexual DUO', 'Cum On Face', 'Cum In Mouth', 'Cum On Body', 'Deep French Kissing', 'Erotic Massage', 'Toys', 'Face Sitting', 'Filming With Mask', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Massage', 'Blowjob With Condom', 'Blowjob Without Condom', 'Party Girl', 'Pornstar Experience', 'Soft Spanking Receiving', 'Spanking Giving'],
+  extraSvcs: [
+    {name: 'Extra Hour', price: 750},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1600},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Overnight', price: 5750},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1600},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Overnight', price: 5750},
+  ],
+  description: [
+    'A perfect Russian petite escort will provide you an unforgettable night. She is your VIP companion for high class time. Aira is a babe who is gorgeous and open-minded. This lady is the ideal partner for any fantasy you may have.',
+    'Aira is inviting you to awaken the sensuality and eroticism that lies within you as well as to experience new heights of passion and pleasure.',
+  ],
+  reviews: [],
+};
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+const FAKE_MODELS = generateModels();
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ...FAKE_MODELS];
+
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
