@@ -369,15 +369,15 @@ footer{
 /* =================== ABOUT PAGE =================== */
 /* Desktop: text sits on the left, photo bleeds in from the right, so the
    fade runs left (solid) -> right (transparent) to match. On mobile the
-   text column goes full-width above/over the photo instead, so a
-   left-right fade no longer lines up with anything — switched to bottom
-   (solid, where the denser paragraph text sits) -> top (transparent). */
+   text column goes full-width above/over the photo instead — flipped to
+   bottom (solid) -> top (transparent) per how it actually reads on a
+   real device. */
 .about-hero{
   background:linear-gradient(90deg,#70e9ff 0%,#70e9ff 38%,rgba(112,233,255,0.35) 68%,rgba(112,233,255,0) 100%),url('/images/PC.jpg') right center/cover no-repeat;
 }
 @media(max-width:768px){
   .about-hero{
-    background:linear-gradient(180deg,#70e9ff 0%,#70e9ff 38%,rgba(112,233,255,0.35) 68%,rgba(112,233,255,0) 100%),url('/images/PC.jpg') right center/cover no-repeat;
+    background:linear-gradient(0deg,#70e9ff 0%,#70e9ff 38%,rgba(112,233,255,0.35) 68%,rgba(112,233,255,0) 100%),url('/images/PC.jpg') right center/cover no-repeat;
   }
 }
 
