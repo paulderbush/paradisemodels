@@ -306,10 +306,47 @@ const ELDORA_DATA = {
   reviews: [],
 };
 
+const LUNA_DATA = {
+  id: 9990, real: true, vip: false, folder: 'models/Luna', slug: 'luna',
+  name: 'Luna', age: 23, height: 170, weight: 48,
+  nationality: 'Russian', station: 'South Kensington', city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(200,180,150,0.4)', 'rgba(130,110,80,0.7)'],
+  initials: 'LN',
+  cats: ['recommended', 'new', 'under25'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Russian',
+  // No services list was provided for Luna — the "Services Included"
+  // panel is hidden automatically on her profile when svcs is empty.
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1400},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Overnight', price: 5000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1400},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    "Her name is Luna, and she's every inch the vision of elegance — a tall, radiant blonde with cool Russian beauty and effortless class. Her long legs and graceful posture give her an almost cinematic presence, while her refined style and impeccable grooming make her impossible to forget. Whether she's in lingerie or high heels, Luna captivates with poise, charm, and raw sensuality.",
+    "More than just her appearance, Luna knows exactly how to fulfill your deepest cravings. She's attentive, imaginative, and utterly uninhibited — the kind of woman who listens, understands, and delivers. From the most delicate seduction to your boldest fantasies, she invites you into a space where pleasure has no limits and every dream is taken seriously.",
+    "If you're ready for an experience that blends luxury with unfiltered passion, Luna is waiting. She doesn't just entertain — she transforms desire into unforgettable reality. A true party lover, available 24/7 to turn every moment into pure excitement.",
+  ],
+  reviews: [],
+};
+
 // London is where the real roster lives now, so the placeholder/generated
 // profiles don't need to (and shouldn't) also claim a London presence —
 // keep them for the other cities, which still have no real models yet.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };

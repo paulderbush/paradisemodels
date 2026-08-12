@@ -252,10 +252,11 @@ function buildRealModelHTML(m) {
           </div>
           ${m.extraHourPrice ? `<div class="price-extra-note">Extending your meeting? Every extra hour: <strong>${fmtPrice(m.extraHourPrice)}</strong></div>` : ''}
         </div>
+        ${m.svcs && m.svcs.length ? `
         <div class="model-detail-services">
           <div class="services-title">Services Included</div>
           <div class="services-chips">${m.svcs.map(s => `<span class="service-chip">${s}</span>`).join('')}</div>
-        </div>
+        </div>` : ''}
         ${m.extraSvcs && m.extraSvcs.length ? `
         <div class="model-detail-services">
           <div class="services-title">Extra Services</div>
