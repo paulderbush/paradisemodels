@@ -74,6 +74,7 @@ function renderCart() {
           </div>
           <button onclick="_bookingDraft=null;renderCart()" style="margin-left:auto;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.1rem;padding:4px">✕</button>
         </div>
+        ${d.requestedServices && d.requestedServices.length ? `<div style="margin-bottom:0.65rem;border-top:1px solid var(--glass-border);padding-top:0.65rem">${d.requestedServices.map(s => `<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-soft);padding:2px 0"><span>${s}</span><span style="color:var(--text-muted)">Included</span></div>`).join('')}</div>` : ''}
         ${d.extras.length ? `<div style="margin-bottom:0.65rem;border-top:1px solid var(--glass-border);padding-top:0.65rem">${d.extras.map(e => `<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-soft);padding:2px 0"><span>${e.name}</span><span>+${fmtPrice(e.price)}</span></div>`).join('')}</div>` : ''}
         <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1rem;padding-top:0.5rem;border-top:1px solid var(--glass-border)"><span>Total</span><span>${fmtPrice(d.total)}</span></div>
       </div>
@@ -90,7 +91,7 @@ function renderCart() {
         <div class="bf-label">Date</div>
         <input class="bf-input" type="date" id="bf-date">
         <div class="bf-label">Time (24h format, e.g. 14:30)</div>
-        <input class="bf-input" type="text" id="bf-time" placeholder="14:30" inputmode="numeric" maxlength="5" oninput="formatTimeInput(this)">
+        <input class="bf-input" type="text" id="bf-time" value="__:__" inputmode="numeric" oninput="formatTimeInput(this)" onfocus="this.setSelectionRange(0,0)">
         <button class="booking-submit-btn" onclick="submitBooking()">Make a Booking</button>
       </div>`;
     return;
@@ -148,10 +149,26 @@ function setContactMethod(method) {
   inp.value = '';
 }
 
+// Keeps the "__:__" mask visible at every step instead of only inserting
+// the colon once 3+ digits exist, so it's clear from the first keystroke
+// that this is HH:MM, not a plain number field.
 function formatTimeInput(el) {
-  let v = el.value.replace(/\D/g, '').slice(0, 4);
-  if (v.length >= 3) v = v.slice(0, 2) + ':' + v.slice(2);
-  el.value = v;
+  const prevDigits = el.dataset.prevDigits || '';
+  const prevLength = el.dataset.prevLength ? +el.dataset.prevLength : 0;
+  let digits = el.value.replace(/\D/g, '').slice(0, 4);
+  // Backspacing onto the ':' removes a separator, not a digit, so the
+  // digit count wouldn't otherwise change — drop the last digit too so
+  // backspace never gets stuck bouncing off the separator.
+  if (digits === prevDigits && digits.length > 0 && el.value.length < prevLength) {
+    digits = digits.slice(0, -1);
+  }
+  const hh = digits.slice(0, 2).padEnd(2, '_');
+  const mm = digits.slice(2, 4).padEnd(2, '_');
+  el.value = `${hh}:${mm}`;
+  el.dataset.prevDigits = digits;
+  el.dataset.prevLength = el.value.length;
+  const pos = digits.length + (digits.length >= 2 ? 1 : 0);
+  el.setSelectionRange(pos, pos);
 }
 
 async function submitBooking() {

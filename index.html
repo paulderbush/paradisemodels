@@ -11,9 +11,9 @@
 <meta property="og:description" content="Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions you will find nowhere else.">
 <meta property="og:url" content="https://velvetescort.co.uk/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260812165709">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260812165709">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260812165709">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260812174021">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260812174021">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260812174021">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -123,6 +123,12 @@ nav{
   overflow:hidden;background-size:cover!important;
 }
 .nav-cart{
+  /* Everything before this in the bar is fixed/hugs-content width, so on
+     wide viewports it all bunched up on the left with dead space before
+     the right edge. Pushing this — the first of the two right-side
+     items — flush right takes the rest of the row (account/hamburger)
+     with it. */
+  margin-left:auto;
   position:relative;cursor:pointer;
   padding:0.45rem 0.9rem;
   background:rgba(var(--brand-rgb),0.12);
@@ -874,20 +880,6 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .faq-page h1{font-size:2rem;font-weight:700;margin-bottom:0.5rem}
 .faq-page .sub{color:var(--text-soft);margin-bottom:2rem}
 
-/* NAV BADGE */
-.nav-badge{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:0.4rem 0.7rem;
-  background:rgba(var(--brand-rgb),0.2);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(var(--brand-light-rgb),0.35);
-  border-radius:var(--r);
-  font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
-  color:var(--purple3);white-space:nowrap;
-  margin-left:auto;
-}
-
 /* AGE MODAL */
 .age-modal-overlay{
   position:fixed;inset:0;z-index:10000;
@@ -985,7 +977,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .mobile-filter-toggle.active{background:rgba(var(--brand-rgb),0.2);border-color:rgba(var(--brand-light-rgb),0.4);color:var(--purple3)}
 @media(max-width:768px){
   nav{padding:0.6rem 1rem;gap:0.5rem}
-  .nav-search,.nav-search-cancel,.nav-link,.nav-dropdown,.nav-btn-vip,.nav-badge,.nav-cart{display:none!important}
+  .nav-search,.nav-search-cancel,.nav-link,.nav-dropdown,.nav-btn-vip,.nav-cart{display:none!important}
   .nav-hamburger-btn{display:flex}
   .nav-account-btn{margin-left:auto}
   .models-layout{grid-template-columns:1fr}
@@ -1019,7 +1011,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .rates-fields.active{grid-template-columns:1fr}
   .partners-section{text-align:center}
   .partners-row{justify-content:center}
-  .stat-grid-ext{grid-template-columns:repeat(3,1fr)}
+  .stat-grid-ext{grid-template-columns:repeat(2,1fr)}
   .detail-gallery{aspect-ratio:5/7;height:auto}
   .cart-panel{width:100%;right:-100%}
   .cart-panel.open{right:0}
@@ -1164,10 +1156,10 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260812165709';</script>
+<script>window.BUILD_TS='20260812174021';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260812165709"></script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260812165709">
+<script src="/assets/currency.js?v=20260812174021"></script>
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260812174021">
 </head>
 <body>
 <div class="orb-container">
@@ -1191,7 +1183,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav class="nav-on-hero">
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812165709" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812174021" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1234,7 +1226,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812165709" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260812174021" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1311,8 +1303,8 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   <!-- HERO -->
   <div class="hero" style="position:relative;z-index:1">
     <div class="hero-bg"></div>
-    <video class="hero-video" muted loop playsinline preload="none" poster="/images/hero-poster.jpg?v=20260812165709" data-src="https://paradiseagency.b-cdn.net/background.mp4"></video>
-    <video class="hero-video-mobile" muted loop playsinline preload="none" poster="/images/hero-poster-mobile.jpg?v=20260812165709" data-src="/videos/hero-mobile.mp4?v=20260812165709"></video>
+    <video class="hero-video" muted loop playsinline preload="none" poster="/images/hero-poster.jpg?v=20260812174021" data-src="https://paradiseagency.b-cdn.net/background.mp4"></video>
+    <video class="hero-video-mobile" muted loop playsinline preload="none" poster="/images/hero-poster-mobile.jpg?v=20260812174021" data-src="/videos/hero-mobile.mp4?v=20260812174021"></video>
     <div class="hero-content">
       <div class="hero-hours">
         <span class="dot"></span>
@@ -1449,8 +1441,8 @@ const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British"
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 const CITIES = ["London","Paris","Monaco","Milan","Dubai","New York","Miami","Zurich","Amsterdam"];
 </script>
-<script src="/assets/main.js?v=20260812165709"></script>
-<script src="/assets/chat.js?v=20260812165709"></script>
+<script src="/assets/main.js?v=20260812174021"></script>
+<script src="/assets/chat.js?v=20260812174021"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async function() {
   await window.CUR_READY;
