@@ -86,13 +86,13 @@ const JULIA_DATA = {
   extraSvcs: [
     {name: 'CIM (Includes OWO)', price: 400},
     {name: 'Swallow (Includes OWO & CIM)', price: 500},
-    {name: 'Extra Hour', price: 750},
   ],
   incallRates: [
     {label: '1 Hour', price: 1250},
     {label: '90 Min', price: 1700},
     {label: '2 Hours', price: 2000},
     {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
     {label: 'Overnight', price: 5750},
   ],
   outcallRates: [
@@ -100,6 +100,7 @@ const JULIA_DATA = {
     {label: '90 Min', price: 1700},
     {label: '2 Hours', price: 2000},
     {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
     {label: 'Overnight', price: 5750},
   ],
   description: [
@@ -131,13 +132,13 @@ const LUISA_DATA = {
     {name: 'WS Giving', price: 150},
     {name: 'Rimming Giving', price: 150},
     {name: 'A-Level', price: 300},
-    {name: 'Extra Hour', price: 800},
   ],
   incallRates: [
     {label: '1 Hour', price: 1250},
     {label: '90 Min', price: 1700},
     {label: '2 Hours', price: 2050},
     {label: '3 Hours', price: 2850},
+    {label: 'Extra Hour', price: 800},
     {label: 'Overnight', price: 5000},
   ],
   outcallRates: [
@@ -145,6 +146,7 @@ const LUISA_DATA = {
     {label: '90 Min', price: 1700},
     {label: '2 Hours', price: 2050},
     {label: '3 Hours', price: 2850},
+    {label: 'Extra Hour', price: 800},
     {label: 'Overnight', price: 5000},
   ],
   description: [
@@ -167,14 +169,13 @@ const AIRA_DATA = {
   eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Heterosexual',
   languages: 'English · Russian',
   svcs: ['69', 'Bisexual DUO', 'Cum On Face', 'Cum In Mouth', 'Cum On Body', 'Deep French Kissing', 'Erotic Massage', 'Toys', 'Face Sitting', 'Filming With Mask', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Massage', 'Blowjob With Condom', 'Blowjob Without Condom', 'Party Girl', 'Pornstar Experience', 'Soft Spanking Receiving', 'Spanking Giving'],
-  extraSvcs: [
-    {name: 'Extra Hour', price: 750},
-  ],
+  extraSvcs: [],
   incallRates: [
     {label: '1 Hour', price: 1250},
     {label: '90 Min', price: 1600},
     {label: '2 Hours', price: 2000},
     {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
     {label: 'Overnight', price: 5750},
   ],
   outcallRates: [
@@ -182,6 +183,7 @@ const AIRA_DATA = {
     {label: '90 Min', price: 1600},
     {label: '2 Hours', price: 2000},
     {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
     {label: 'Overnight', price: 5750},
   ],
   description: [
@@ -207,13 +209,13 @@ const ANASTASIIA_DATA = {
     {name: 'CIF', price: 300},
     {name: 'A-Level', price: 500},
     {name: 'Filming Without Mask', price: 2000},
-    {name: 'Extra Hour', price: 600},
   ],
   incallRates: [
     {label: '1 Hour', price: 1000},
     {label: '90 Min', price: 1300},
     {label: '2 Hours', price: 1600},
     {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
     {label: 'Overnight', price: 4600},
   ],
   outcallRates: [
@@ -221,6 +223,7 @@ const ANASTASIIA_DATA = {
     {label: '90 Min', price: 1300},
     {label: '2 Hours', price: 1600},
     {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
     {label: 'Overnight', price: 4600},
   ],
   description: [
@@ -231,7 +234,52 @@ const ANASTASIIA_DATA = {
   reviews: [],
 };
 
-const FAKE_MODELS = generateModels();
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, ...FAKE_MODELS];
+const SKYLAH_DATA = {
+  id: 9992, real: true, vip: false, folder: 'models/Skylah', slug: 'skylah',
+  name: 'Skylah', age: 24, height: 169, weight: 52,
+  nationality: 'Swedish/Lithuanian', station: 'Knightsbridge', city: 'London',
+  rateHour: 1000,
+  color: ['rgba(90,140,190,0.4)', 'rgba(40,80,130,0.7)'],
+  initials: 'SK',
+  cats: ['recommended', 'new', 'under25'],
+  breastSize: '34E', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English',
+  svcs: ['69', 'Body to Body Massage', 'Cum On Face', 'Cum In Mouth', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Deep Throat', 'Toys', 'Face Sitting', 'Fingering', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Light Domination', 'Massage', 'Party Girl', 'Poppers', 'Pornstar Experience', 'Rimming Receives', 'Roleplay', 'Swallow Sperm', 'Tie & Tease', 'Uniform'],
+  extraSvcs: [
+    {name: 'Service For Ladies', price: 150},
+    {name: 'Couples', price: 200},
+    {name: 'Group (Must Be At Least 1 More Girl)', price: 300},
+    {name: 'Filming With Mask', price: 500},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4800},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4800},
+  ],
+  description: [
+    "Meet Skylah, our vibrant and highly professional star at the agency. She's 24, a beautiful blue-eyed blonde of Swedish and Lithuanian nationality, with a warm, friendly personality that makes every session relaxed and fun. She really enjoys working with couples and is excellent at creating dynamic, engaging DUO experiences with a partner.",
+    "Skylah provides all basic services, and if you book more than an hour, she's happy to offer a swallow for free. She's also known for delivering high-class, discreet service with a natural charm that ensures you'll feel comfortable and satisfied. Despite her youthful look, she's confident and talented, with a genuine energy and ability to connect.",
+    "A magnetic presence, Skylah will leave you wanting more — she's sure to make your visit unforgettable.",
+  ],
+  reviews: [],
+};
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+// London is where the real roster lives now, so the placeholder/generated
+// profiles don't need to (and shouldn't) also claim a London presence —
+// keep them for the other cities, which still have no real models yet.
+const FAKE_MODELS = generateModels().filter(m => m.city !== 'London');
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ...FAKE_MODELS];
+
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
