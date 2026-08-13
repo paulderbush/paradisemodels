@@ -215,12 +215,12 @@ async function submitBooking() {
 // site rather than as a leftover.
 const PLACEHOLDER_BG = 'linear-gradient(160deg,#242a54 0%,#1a1e42 100%)';
 
-function modelCardHTML(m, clickable = true) {
+function modelCardHTML(m, clickable = true, showTags = true) {
   const catBadges = [];
   if (m.cats.includes('new')) catBadges.push('<span class="badge badge-new">New</span>');
   if (m.cats.includes('toprated')) catBadges.push('<span class="badge badge-top">Top Rated</span>');
   if (m.vip) catBadges.push('<span class="badge badge-vip">⭐ VIP</span>');
-  const topSvcs = m.svcs.slice(0, 3).map(s => `<span class="tag-chip">${s}</span>`).join('');
+  const topSvcs = showTags ? m.svcs.slice(0, 3).map(s => `<span class="tag-chip">${s}</span>`).join('') : '';
 
   // For real models wrap in link, for fake use onclick
   const cardStart = m.real
@@ -242,7 +242,7 @@ function modelCardHTML(m, clickable = true) {
       <div class="model-card-overlay">
         <div class="model-card-name">${m.name}</div>
         <div class="model-card-meta">${m.age} yrs · ${m.height}cm · ${m.nationality}</div>
-        <div class="model-card-tags">${topSvcs}</div>
+        ${showTags ? `<div class="model-card-tags">${topSvcs}</div>` : ''}
       </div>
     </div>
     <div class="model-card-footer">
@@ -278,7 +278,7 @@ function renderHomeCityRows() {
     const el = document.getElementById('cityRow-' + slug);
     if (!el) return;
     const ms = MODELS.filter(m => m.city === c).slice(0, 4);
-    el.innerHTML = ms.map(m => modelCardHTML(m)).join('');
+    el.innerHTML = ms.map(m => modelCardHTML(m, true, false)).join('');
   });
 }
 
