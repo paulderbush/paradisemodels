@@ -159,6 +159,9 @@ nav{
 }
 /* No text shadows on hero text */
 .hero-content h1,.hero-sub{text-shadow:none!important}
+/* The intro paragraph's default muted/soft text color reads too low-contrast
+   over the busy video banner — white instead. */
+.hero-sub{color:#fff!important}
 .hero-content h1 span{
   background:linear-gradient(135deg,#1a5f7a,#123a66)!important;
   -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
