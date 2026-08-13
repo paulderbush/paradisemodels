@@ -390,502 +390,27 @@ footer{
 /* =================== ACCOUNT PAGE =================== */
 #acctLoading{color:rgba(26,30,66,0.72)!important}
 
-/* =================== SHARP CORNERS EXPERIMENT (homepage only) =================== */
-/* Client wants to trial a squared-off look before rolling it out site-wide.
-   Scoped to .page-home (set only on the home page's <body>) so every other
-   page keeps the current rounded style untouched. */
-.page-home .hero,
-.page-home .hero-bg,
-.page-home .model-card,
-.page-home .add-to-cart-btn,
-.page-home .see-all,
-.page-home .faq-item,
-.page-home .hero-btns .btn-tg,
-.page-home .hero-btns .btn-model-cta,
-.page-home .footer-btns .btn-tg,
-.page-home .footer-btns .btn-model-cta,
-.page-home .footer-btns .btn-blog,
-.page-model .footer-btns .btn-tg,
-.page-model .footer-btns .btn-model-cta,
-.page-model .footer-btns .btn-blog,
-.page-model .back-btn,
-.page-model .detail-gallery,
-.page-model .stat-box,
-.page-model .price-calc,
-.page-model .model-bio,
-.page-model .model-map-block,
-.page-model .model-detail-services,
-.page-model .make-booking-btn,
-.page-model .price-type-btn,
-.page-model .duration-btn,
-.page-model .rv-type-btn,
-.page-model .bf-method,
-.page-faq .footer-btns .btn-tg,
-.page-faq .footer-btns .btn-model-cta,
-.page-faq .footer-btns .btn-blog,
-.page-faq .back-btn,
-.page-faq .faq-item,
-.page-about .footer-btns .btn-tg,
-.page-about .footer-btns .btn-model-cta,
-.page-about .footer-btns .btn-blog,
-.page-about .back-btn,
-.page-about .form-section,
-.page-about .submit-app-btn,
-.page-about .about-teaser-grid a{
-  border-radius:0!important;
-}
+/* =================== DEEP AZURE THEME + SQUARE DESIGN — SITE-WIDE ROLLOUT =================== */
+/* Started as a homepage-only trial, then Julia's profile, then FAQ/About —
+   now rolled out to every page below via a body class set in build.js
+   (buildHome/buildModelProfile/buildFaq/buildAbout/buildModels/
+   buildVipModels/buildConcierge/buildEvents/buildAccount all set one of
+   .page-home/.page-model/.page-faq/.page-about/.page-models/
+   .page-vip-models/.page-concierge/.page-events/.page-account). Pages not
+   yet converted (become-a-model, the blog placeholder) keep the original
+   bright-cyan theme untouched, since they carry no .page-* class.
 
-/* Nav links (Models/Locations/Concierge/Events/About Us/VIP Models): drop
-   the pill shape entirely — plain text with an underline on hover instead.
-   Scoped via nav.nav-on-hero (homepage) and .page-model nav (her
-   profile page, which has no hero so can't use the nav-on-hero marker).
-   nav-cart (Booking) is deliberately NOT in this group — see below, it
-   went back to its normal rounded-pill look. */
-nav.nav-on-hero .nav-link,
-nav.nav-on-hero .nav-btn-vip,
-.page-model nav .nav-link,
-.page-model nav .nav-btn-vip,
-.page-faq nav .nav-link,
-.page-faq nav .nav-btn-vip,
-.page-about nav .nav-link,
-.page-about nav .nav-btn-vip{
-  background:none!important;
-  border:none!important;
-  border-radius:0!important;
-  box-shadow:none!important;
-  position:relative;
-}
-nav.nav-on-hero .nav-btn-vip,
-.page-model nav .nav-btn-vip,
-.page-faq nav .nav-btn-vip,
-.page-about nav .nav-btn-vip{color:var(--purple3)!important}
-/* Underline grows from the center outward on hover, rather than just
-   fading in at full width — a scaleX(0)->scaleX(1) transform on a
-   full-width ::after does this for free, since the default transform
-   origin is the center. */
-nav.nav-on-hero .nav-link::after,
-nav.nav-on-hero .nav-btn-vip::after,
-.page-model nav .nav-link::after,
-.page-model nav .nav-btn-vip::after,
-.page-faq nav .nav-link::after,
-.page-faq nav .nav-btn-vip::after,
-.page-about nav .nav-link::after,
-.page-about nav .nav-btn-vip::after{
-  content:'';
-  position:absolute;left:0;right:0;bottom:2px;
-  height:1px;
-  background:currentColor;
-  transform:scaleX(0);
-  transition:transform 0.3s ease;
-}
-nav.nav-on-hero .nav-link:hover::after,
-nav.nav-on-hero .nav-btn-vip:hover::after,
-.page-model nav .nav-link:hover::after,
-.page-model nav .nav-btn-vip:hover::after,
-.page-faq nav .nav-link:hover::after,
-.page-faq nav .nav-btn-vip:hover::after,
-.page-about nav .nav-link:hover::after,
-.page-about nav .nav-btn-vip:hover::after{
-  transform:scaleX(1);
-}
+   Everything in this section is written against body[class^="page-"] —
+   every page-scoped body's class is exactly one of the names above with
+   nothing else mixed in, so a starts-with match is equivalent to listing
+   all nine explicitly, without the repetition. Rules for a component that
+   doesn't exist on a given page (e.g. .model-card on the FAQ page) simply
+   match nothing there — harmless. Genuinely page-specific content (hero,
+   stat boxes, filters sidebar, etc.) still lives in each page's own block
+   further down. */
 
-/* Booking: client wants the pill shape back (like the Live Chat bubble),
-   matching the account button's fill + hover-outline instead of the flat
-   underline treatment above. No override needed here, actually — .nav-cart
-   isn't in the flattening rule anymore, so it simply falls back to its
-   normal base style.css look (rounded pill, same
-   rgba(brand-rgb,.12)-fill/hover-outline pattern as .nav-account-btn),
-   which already reads correctly against the new palette since --brand-rgb
-   etc. are redefined above. */
-
-/* All the squared-off buttons above get an accent outline on hover too,
-   matching .see-all's existing border-color change (its border is always
-   present, just a low-contrast glass tint at rest — hover swaps it to the
-   accent). add-to-cart-btn (Info) has no border at rest, so give it an
-   invisible one to transition from. */
-.page-home .hero-btns .btn-tg:hover,.page-home .footer-btns .btn-tg:hover,
-.page-home .hero-btns .btn-model-cta:hover,.page-home .footer-btns .btn-model-cta:hover,
-.page-home .footer-btns .btn-blog:hover,
-.page-home .faq-item:hover,
-.page-model .footer-btns .btn-tg:hover,
-.page-model .footer-btns .btn-model-cta:hover,
-.page-model .footer-btns .btn-blog:hover,
-.page-model .back-btn:hover,
-.page-model .make-booking-btn:hover,
-.page-model .price-type-btn:hover,
-.page-model .duration-btn:hover,
-.page-model .rv-type-btn:hover,
-.page-model .bf-method:hover,
-.page-faq .footer-btns .btn-tg:hover,
-.page-faq .footer-btns .btn-model-cta:hover,
-.page-faq .footer-btns .btn-blog:hover,
-.page-faq .back-btn:hover,
-.page-faq .faq-item:hover,
-.page-about .footer-btns .btn-tg:hover,
-.page-about .footer-btns .btn-model-cta:hover,
-.page-about .footer-btns .btn-blog:hover,
-.page-about .back-btn:hover,
-.page-about .submit-app-btn:hover{
-  border-color:var(--purple3)!important;
-}
-.page-home .add-to-cart-btn{border:1px solid transparent!important}
-.page-home .add-to-cart-btn:hover{border-color:var(--purple3)!important}
-.page-home .faq-see-all .see-all:hover{border-color:var(--purple3)!important}
-.page-about .submit-app-btn{border:1px solid transparent!important}
-/* make-booking-btn has no border at rest (solid gradient fill) — same
-   invisible-border-to-transition-from trick as add-to-cart-btn above. */
-.page-model .make-booking-btn{border:1px solid transparent!important}
-
-/* Placeholder (no-photo) cards still carried the old purple/indigo
-   rebrand gradient, which clashes with the new palette — flat accent tint
-   matching the account button's own background instead. */
-.page-home .model-card-img[style*="linear-gradient(160deg,#242a54"]{
-  background:rgba(var(--brand-rgb),0.12)!important;
-}
-
-/* =================== DEEP AZURE THEME EXPERIMENT (homepage only) =================== */
-/* Client-supplied "Scheme C" design tokens — a calmer deep navy/teal palette
-   (base #08222B) offered as an alternative to the current bright-cyan look,
-   which the client felt was too loud. Trialled on the homepage only via
-   .page-home, same scoping pattern as the sharp-corners experiment above.
-   Redefining the brand variables here lets every existing var()-driven rule
-   (buttons, cards, glass panels, cart, age modal, mobile menu…) pick up the
-   new palette automatically — only the hardcoded-hex rules elsewhere in
-   this file need an explicit override below. */
-.page-home{
-  --purple:#85D1EB;          /* accent — primary buttons/elements */
-  --purple2:#A3DDF0;         /* light accent */
-  --purple3:#85D1EB;         /* accent — links, prices, highlights */
-  --purple-dark:#1D505F;     /* L3 — dark gradient stop */
-  --bg:#08222B;              /* L0 — page background */
-  --bg2:#0F3441;             /* L1 */
-
-  --brand-rgb:133,209,235;         /* accent */
-  --brand2-rgb:163,221,240;        /* light accent */
-  --brand-light-rgb:133,209,235;   /* accent (glass-border tint) */
-  --brand-dark-rgb:29,80,95;       /* L3 */
-  --panel-rgb:15,52,65;            /* L1 — nav/cart/dropdowns */
-  --panel2-rgb:22,66,79;           /* L2 */
-
-  --glow-light:#A3DDF0;
-  --glow-mid:#85D1EB;
-
-  --text:#E1F4FA;
-  --text-soft:#8FA8B2;
-  --text-muted:#6E8B96;
-
-  /* --glass/--glass-border/etc. are declared in style.css's :root as
-     rgba(var(--brand-rgb),X) — custom properties nested this way do NOT
-     re-resolve through a var() redefined further down the tree (a real,
-     easy-to-miss CSS quirk: substituting a derived var() uses the
-     variable's value as cascaded AT ITS OWN declaring rule, not at the
-     element finally consuming it). Redeclaring the derived variables
-     here too, computed with literal numbers, is what actually makes
-     every var(--glass)/var(--glass-border) border and panel background
-     site-wide pick up the new palette — without this, they'd silently
-     stay on the old violet-theme tint. */
-  --glass:rgba(133,209,235,0.08);
-  --glass-border:rgba(133,209,235,0.18);
-  --glass-hover:rgba(133,209,235,0.15);
-  --purple-glow:rgba(133,209,235,0.35);
-
-  /* Dark bg again (unlike the bright-cyan theme), so the full-screen mobile
-     menu goes back to its default light-on-dark text. */
-  --menu-link-color:var(--text);
-  --menu-link-soft:var(--text-soft);
-}
-.page-home{background:#08222B!important}
-
-.page-home nav{
-  background:rgba(15,52,65,0.94)!important;
-  border-bottom:1px solid rgba(133,209,235,0.18)!important;
-}
-
-.page-home .model-card{
-  background:#0F3441!important;
-  border:1px solid #0F3441!important;
-  box-shadow:0 8px 30px rgba(2,12,16,0.5)!important;
-}
-/* Accent outline on hover (matching .see-all's border-color change), on
-   top of the existing lift animation (transform:translateY, unscoped in
-   style.css — untouched). */
-.page-home .model-card:hover{border-color:var(--purple3)!important}
-.page-home .model-card-footer{
-  background:#0F3441!important;
-  border-top:1px solid rgba(133,209,235,0.12)!important;
-}
-
-.page-home .hero{box-shadow:0 24px 60px rgba(2,12,16,0.5)!important}
-.page-home .hero-content h1 span{
-  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
-  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
-}
-
-.page-home .section-title,
-.page-home .section-title span{
-  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
-  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
-}
-.page-home .section-header .see-all{color:var(--purple3)!important}
-.page-home .faq-section .section-title,
-.page-home .faq-section .section-title span{
-  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
-  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
-}
-.page-home .faq-item{
-  background:#0F3441!important;
-  border:1px solid rgba(133,209,235,0.14)!important;
-}
-
-.page-home .hero-btns .btn-tg,.page-home .footer-btns .btn-tg,.page-home .mobile-menu-tg-btn,
-.page-home .hero-btns .btn-model-cta,.page-home .footer-btns .btn-model-cta,.page-home .mobile-menu-model-btn{
-  background:#0F3441!important;
-  border:1px solid rgba(133,209,235,0.14)!important;
-}
-.page-home .hero-btns .btn-tg:hover,.page-home .footer-btns .btn-tg:hover,.page-home .mobile-menu-tg-btn:hover,
-.page-home .hero-btns .btn-model-cta:hover,.page-home .footer-btns .btn-model-cta:hover,.page-home .mobile-menu-model-btn:hover{
-  background:#16424F!important;
-}
-
-.page-home .faq-see-all .see-all{
-  background:#0F3441!important;
-  border:1px solid rgba(133,209,235,0.14)!important;
-}
-.page-home .faq-see-all .see-all:hover{background:#16424F!important}
-
-.page-home footer{
-  background:rgba(15,52,65,0.94)!important;
-  border-top:1px solid rgba(133,209,235,0.18)!important;
-}
-.page-home .footer-btns .btn-tg,
-.page-home .footer-btns .btn-model-cta{
-  border:1px solid #85D1EB!important;
-}
-.page-home .footer-btns .btn-blog{
-  background:#0F3441!important;
-  border:1px solid #85D1EB!important;
-  color:#fff!important;
-}
-.page-home .footer-btns .btn-blog:hover{background:#16424F!important}
-
-.page-home .age-modal-text,.page-home .age-modal-list{color:rgba(225,244,250,0.82)!important}
-
-/* =================== DEEP AZURE THEME — MODEL PROFILE TEMPLATE =================== */
-/* Same "Scheme C" deep-azure tokens as the homepage. Started as a trial on
-   Julia's profile only; now the standard template for every real model's
-   profile page (.page-model, set unconditionally in buildModelProfile).
-   Redefining the brand variables here lets most of the page's existing
-   var()-driven rules (stat boxes, price panel, service chips, cart, age
-   modal, mobile menu…) pick up the palette automatically; the rest of
-   this block undoes the old bright-cyan theme's hardcoded-hex overrides
-   that assumed a light page background (dark-ink text/panels meant to
-   sit on bright cyan — wrong on a dark bg). */
-.page-model{
-  --purple:#85D1EB;
-  --purple2:#A3DDF0;
-  --purple3:#85D1EB;
-  --purple-dark:#1D505F;
-  --bg:#08222B;
-  --bg2:#0F3441;
-
-  --brand-rgb:133,209,235;
-  --brand2-rgb:163,221,240;
-  --brand-light-rgb:133,209,235;
-  --brand-dark-rgb:29,80,95;
-  --panel-rgb:15,52,65;
-  --panel2-rgb:22,66,79;
-
-  --glow-light:#A3DDF0;
-  --glow-mid:#85D1EB;
-
-  --text:#E1F4FA;
-  --text-soft:#8FA8B2;
-  --text-muted:#6E8B96;
-
-  /* Same fix as the homepage block above: --glass/--glass-border must be
-     redeclared with literal numbers here too, or every border/panel using
-     them silently keeps the old violet-theme tint (nested var()
-     substitution doesn't re-resolve through a redefinition further down
-     the tree). */
-  --glass:rgba(133,209,235,0.08);
-  --glass-border:rgba(133,209,235,0.18);
-  --glass-hover:rgba(133,209,235,0.15);
-  --purple-glow:rgba(133,209,235,0.35);
-
-  --menu-link-color:var(--text);
-  --menu-link-soft:var(--text-soft);
-}
-.page-model{background:#08222B!important}
-
-.page-model nav{
-  background:rgba(15,52,65,0.94)!important;
-  border-bottom:1px solid rgba(133,209,235,0.18)!important;
-}
-
-.page-model footer{
-  background:rgba(15,52,65,0.94)!important;
-  border-top:1px solid rgba(133,209,235,0.18)!important;
-}
-.page-model .footer-btns .btn-tg,
-.page-model .footer-btns .btn-model-cta{
-  background:#0F3441!important;
-  border:1px solid #85D1EB!important;
-}
-.page-model .footer-btns .btn-blog{
-  background:#0F3441!important;
-  border:1px solid #85D1EB!important;
-  color:#fff!important;
-}
-.page-model .footer-btns .btn-tg:hover,
-.page-model .footer-btns .btn-model-cta:hover,
-.page-model .footer-btns .btn-blog:hover{
-  background:#16424F!important;
-}
-
-.page-model .model-detail-name{color:var(--text)!important}
-.page-model .back-btn{color:var(--text-soft)!important;border-color:var(--glass-border)!important}
-
-/* Nationality/station line, Languages:/Orientation: labels, the "Available
-   24/7" footnote — all sit directly on the page bg, not inside one of the
-   panels below, so the cyan-theme's dark-ink override (targeted by the
-   exact inline style JS writes them with) needs undoing back to the
-   (now light) CSS variables. */
-.page-model .model-detail-info [style*="color:var(--text-soft)"]{color:var(--text-soft)!important}
-.page-model .model-detail-info [style*="color:var(--text-muted)"]{color:var(--text-muted)!important}
-
-/* Badges and the Languages/Orientation chips also sit directly on the page
-   bg — restore their natural (semantic / accent) colors instead of the
-   dark-ink-on-light-tint pill the cyan theme needed for contrast there. */
-.page-model .model-detail-info .badge-new{background:rgba(160,224,128,0.2)!important;border:1px solid rgba(160,224,128,0.4)!important;color:#A0E080!important}
-.page-model .model-detail-info .badge-top{background:rgba(255,100,100,0.15)!important;border:1px solid rgba(255,100,100,0.3)!important;color:#FF7070!important}
-.page-model .model-detail-info .badge-vip{background:rgba(255,215,0,0.15)!important;border:1px solid rgba(255,215,0,0.35)!important;color:#FFD700!important}
-.page-model .service-chip{
-  background:rgba(var(--brand-rgb),0.15)!important;
-  border:1px solid rgba(var(--brand-light-rgb),0.2)!important;
-  color:var(--purple3)!important;
-  border-radius:0!important;
-}
-
-/* Stat boxes / booking panel / bio / map / services panels: the cyan theme
-   forced a solid dark panel here since the default translucent glass
-   would've washed out on a bright bg — on our already-dark page the
-   default glass treatment (var(--glass)) looks right instead. */
-.page-model .stat-box,
-.page-model .price-calc,
-.page-model .model-bio,
-.page-model .model-map-block,
-.page-model .model-detail-services{
-  background:var(--glass)!important;
-  backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
-  border:1px solid var(--glass-border)!important;
-}
-
-.page-model .price-type-btn.active,
-.page-model .duration-btn.active,
-.page-model .rv-type-btn.active,
-.page-model .bf-method.active{
-  background:var(--purple3)!important;border-color:var(--purple3)!important;color:#08222B!important;
-}
-
-.page-model .make-booking-btn{
-  background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
-  box-shadow:0 6px 28px rgba(var(--brand-dark-rgb),0.45)!important;
-}
-
-.page-model .age-modal-text,.page-model .age-modal-list{color:rgba(225,244,250,0.82)!important}
-
-/* =================== DEEP AZURE THEME + SQUARE DESIGN — FAQ PAGE =================== */
-/* Rolling the design out to a second page (after the homepage and Julia's
-   profile): same deep-azure tokens, same --glass/--glass-border literal
-   redeclare fix, same squared-off + accent-hover-outline treatment.
-   Scoped via .page-faq (set only in buildFaq's <body>), so every other
-   page is untouched. nav/footer flattening + square-corner + hover-outline
-   selectors for .page-faq live in the shared SHARP CORNERS block above —
-   this section only has what's specific to this page. */
-.page-faq{
-  --purple:#85D1EB;
-  --purple2:#A3DDF0;
-  --purple3:#85D1EB;
-  --purple-dark:#1D505F;
-  --bg:#08222B;
-  --bg2:#0F3441;
-
-  --brand-rgb:133,209,235;
-  --brand2-rgb:163,221,240;
-  --brand-light-rgb:133,209,235;
-  --brand-dark-rgb:29,80,95;
-  --panel-rgb:15,52,65;
-  --panel2-rgb:22,66,79;
-
-  --glow-light:#A3DDF0;
-  --glow-mid:#85D1EB;
-
-  --text:#E1F4FA;
-  --text-soft:#8FA8B2;
-  --text-muted:#6E8B96;
-
-  /* Same fix as the homepage/Julia blocks: --glass/--glass-border must be
-     redeclared with literal numbers here too, or every border/panel using
-     them silently keeps the old violet-theme tint (nested var()
-     substitution doesn't re-resolve through a redefinition further down
-     the tree). */
-  --glass:rgba(133,209,235,0.08);
-  --glass-border:rgba(133,209,235,0.18);
-  --glass-hover:rgba(133,209,235,0.15);
-  --purple-glow:rgba(133,209,235,0.35);
-
-  --menu-link-color:var(--text);
-  --menu-link-soft:var(--text-soft);
-}
-.page-faq{background:#08222B!important}
-
-.page-faq nav{
-  background:rgba(15,52,65,0.94)!important;
-  border-bottom:1px solid rgba(133,209,235,0.18)!important;
-}
-.page-faq footer{
-  background:rgba(15,52,65,0.94)!important;
-  border-top:1px solid rgba(133,209,235,0.18)!important;
-}
-.page-faq .footer-btns .btn-tg,
-.page-faq .footer-btns .btn-model-cta{
-  background:#0F3441!important;
-  border:1px solid #85D1EB!important;
-}
-.page-faq .footer-btns .btn-blog{
-  background:#0F3441!important;
-  border:1px solid #85D1EB!important;
-  color:#fff!important;
-}
-.page-faq .footer-btns .btn-tg:hover,
-.page-faq .footer-btns .btn-model-cta:hover,
-.page-faq .footer-btns .btn-blog:hover{
-  background:#16424F!important;
-}
-
-/* Heading/back-link/faq-item were drawn dark-ink-on-light for the bright
-   cyan theme — undo that back to light-on-dark for our page. */
-.page-faq h1{color:var(--text)!important}
-.page-faq h1 span{
-  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
-  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
-}
-.page-faq .sub{color:var(--text-soft)!important}
-.page-faq .back-btn{color:var(--text-soft)!important;border-color:var(--glass-border)!important}
-.page-faq .faq-item{
-  background:#0F3441!important;
-  border:1px solid rgba(133,209,235,0.14)!important;
-}
-
-/* =================== DEEP AZURE THEME + SQUARE DESIGN — ABOUT PAGE =================== */
-/* Third page in the rollout (after the homepage and Julia's profile/FAQ):
-   same deep-azure tokens, same --glass/--glass-border literal redeclare
-   fix, same squared-off + accent-hover-outline treatment. Scoped via
-   .page-about (set in buildAbout's <body>), so every other page is
-   untouched. Shared nav/square-corner/hover-outline selectors for
-   .page-about live in the SHARP CORNERS block above; this section only
-   has what's specific to this page. */
-.page-about{
+/* Brand variables — identical for every page. */
+body[class^="page-"]{
   --purple:#85D1EB;
   --purple2:#A3DDF0;
   --purple3:#85D1EB;
@@ -908,53 +433,370 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
   --text-soft:#8FA8B2;
   --text-muted:#6E8B96;
 
+  /* --glass/--glass-border/etc. are declared in style.css's :root as
+     rgba(var(--brand-rgb),X) — custom properties nested this way do NOT
+     re-resolve through a var() redefined further down the tree (a real,
+     easy-to-miss CSS quirk: substituting a derived var() uses the
+     variable's value as cascaded AT ITS OWN declaring rule, not at the
+     element finally consuming it). Redeclaring the derived variables
+     here too, computed with literal numbers, is what actually makes every
+     var(--glass)/var(--glass-border) border and panel background pick up
+     the new palette — without this, they'd silently stay on the old
+     violet-theme tint. */
   --glass:rgba(133,209,235,0.08);
   --glass-border:rgba(133,209,235,0.18);
   --glass-hover:rgba(133,209,235,0.15);
   --purple-glow:rgba(133,209,235,0.35);
 
+  /* Dark bg (unlike the old bright-cyan theme), so the full-screen mobile
+     menu goes back to its default light-on-dark text. */
   --menu-link-color:var(--text);
   --menu-link-soft:var(--text-soft);
-}
-.page-about{background:#08222B!important}
 
-.page-about nav{
+  background:#08222B!important;
+}
+
+/* Nav links (Models/Locations/Concierge/Events/About Us/VIP Models): drop
+   the pill shape entirely — plain text with an underline on hover instead.
+   nav-cart (Booking) is deliberately excluded — it keeps its normal
+   rounded-pill look (same fill/hover-outline pattern as the account
+   button, which already reads correctly since --brand-rgb etc. are
+   redefined above). */
+body[class^="page-"] nav .nav-link,
+body[class^="page-"] nav .nav-btn-vip{
+  background:none!important;
+  border:none!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  position:relative;
+}
+body[class^="page-"] nav .nav-btn-vip{color:var(--purple3)!important}
+/* Underline grows from the center outward on hover, rather than just
+   fading in at full width — a scaleX(0)->scaleX(1) transform on a
+   full-width ::after does this for free, since the default transform
+   origin is the center. */
+body[class^="page-"] nav .nav-link::after,
+body[class^="page-"] nav .nav-btn-vip::after{
+  content:'';
+  position:absolute;left:0;right:0;bottom:2px;
+  height:1px;
+  background:currentColor;
+  transform:scaleX(0);
+  transition:transform 0.3s ease;
+}
+body[class^="page-"] nav .nav-link:hover::after,
+body[class^="page-"] nav .nav-btn-vip:hover::after{
+  transform:scaleX(1);
+}
+body[class^="page-"] nav{
   background:rgba(15,52,65,0.94)!important;
   border-bottom:1px solid rgba(133,209,235,0.18)!important;
 }
-.page-about footer{
+
+/* Footer + its buttons, and the same Telegram/Become-a-Model buttons as
+   they appear in the hero (homepage only) and the mobile full-screen menu
+   (every page) — all three share the same background/border treatment.
+   Footer's own .btn-tg/.btn-model-cta get a brighter border afterward,
+   since the footer sits directly on the page bg and needs more contrast
+   than the hero/mobile-menu variants do. */
+body[class^="page-"] footer{
   background:rgba(15,52,65,0.94)!important;
   border-top:1px solid rgba(133,209,235,0.18)!important;
 }
-.page-about .footer-btns .btn-tg,
-.page-about .footer-btns .btn-model-cta{
+body[class^="page-"] .hero-btns .btn-tg,body[class^="page-"] .footer-btns .btn-tg,body[class^="page-"] .mobile-menu-tg-btn,
+body[class^="page-"] .hero-btns .btn-model-cta,body[class^="page-"] .footer-btns .btn-model-cta,body[class^="page-"] .mobile-menu-model-btn{
   background:#0F3441!important;
-  border:1px solid #85D1EB!important;
+  border:1px solid rgba(133,209,235,0.14)!important;
+  border-radius:0!important;
 }
-.page-about .footer-btns .btn-blog{
-  background:#0F3441!important;
-  border:1px solid #85D1EB!important;
-  color:#fff!important;
-}
-.page-about .footer-btns .btn-tg:hover,
-.page-about .footer-btns .btn-model-cta:hover,
-.page-about .footer-btns .btn-blog:hover{
+body[class^="page-"] .hero-btns .btn-tg:hover,body[class^="page-"] .footer-btns .btn-tg:hover,body[class^="page-"] .mobile-menu-tg-btn:hover,
+body[class^="page-"] .hero-btns .btn-model-cta:hover,body[class^="page-"] .footer-btns .btn-model-cta:hover,body[class^="page-"] .mobile-menu-model-btn:hover{
   background:#16424F!important;
 }
+body[class^="page-"] .footer-btns .btn-tg,
+body[class^="page-"] .footer-btns .btn-model-cta{
+  border-color:#85D1EB!important;
+}
+body[class^="page-"] .footer-btns .btn-blog{
+  background:#0F3441!important;
+  border:1px solid #85D1EB!important;
+  border-radius:0!important;
+  color:#fff!important;
+}
+body[class^="page-"] .footer-btns .btn-blog:hover{background:#16424F!important}
+body[class^="page-"] .hero-btns .btn-tg:hover,body[class^="page-"] .footer-btns .btn-tg:hover,
+body[class^="page-"] .hero-btns .btn-model-cta:hover,body[class^="page-"] .footer-btns .btn-model-cta:hover,
+body[class^="page-"] .footer-btns .btn-blog:hover{
+  border-color:var(--purple3)!important;
+}
 
-.page-about .back-btn{color:var(--text-soft)!important;border-color:var(--glass-border)!important}
-/* form-section panels were solid-dark for the cyan theme's contrast needs
-   — our page is already dark, so the default translucent glass (matching
-   Julia's/FAQ's panels) reads right instead. */
-.page-about .form-section{
+/* Back link — appears on every page except the homepage. */
+body[class^="page-"] .back-btn{
+  color:var(--text-soft)!important;border-color:var(--glass-border)!important;
+  border-radius:0!important;
+}
+body[class^="page-"] .back-btn:hover{border-color:var(--purple3)!important}
+
+/* "See all"-style CTA (About, Concierge, Events, Account, VIP paywall). No
+   border at rest (solid gradient fill) — an invisible one to transition
+   from is what makes the hover-outline trick work here too. */
+body[class^="page-"] .submit-app-btn{
+  background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
+  box-shadow:0 6px 28px rgba(var(--brand-dark-rgb),0.45)!important;
+  border:1px solid transparent!important;
+  border-radius:0!important;
+}
+body[class^="page-"] .submit-app-btn:hover{border-color:var(--purple3)!important}
+
+/* Content panels (About, Concierge, Events, Account) — solid dark for the
+   old bright-cyan theme's contrast needs; our page is already dark, so
+   the default translucent glass reads right instead. */
+body[class^="page-"] .form-section{
+  background:var(--glass)!important;
+  backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+  border:1px solid var(--glass-border)!important;
+  border-radius:0!important;
+}
+body[class^="page-"] .form-section-title{color:var(--purple3)!important}
+
+/* FAQ accordion items (homepage preview + the standalone FAQ page). */
+body[class^="page-"] .faq-item{
+  background:#0F3441!important;
+  border:1px solid rgba(133,209,235,0.14)!important;
+  border-radius:0!important;
+}
+body[class^="page-"] .faq-item:hover{border-color:var(--purple3)!important}
+body[class^="page-"] .faq-see-all .see-all{
+  background:#0F3441!important;
+  border:1px solid rgba(133,209,235,0.14)!important;
+  border-radius:0!important;
+}
+body[class^="page-"] .faq-see-all .see-all:hover{
+  background:#16424F!important;border-color:var(--purple3)!important;
+}
+
+/* Model cards (homepage city rows, /models/ catalog, VIP teaser/unlocked
+   grids) + the Info button on them. */
+body[class^="page-"] .model-card{
+  background:#0F3441!important;
+  border:1px solid #0F3441!important;
+  box-shadow:0 8px 30px rgba(2,12,16,0.5)!important;
+  border-radius:0!important;
+}
+body[class^="page-"] .model-card:hover{border-color:var(--purple3)!important}
+body[class^="page-"] .model-card-footer{
+  background:#0F3441!important;
+  border-top:1px solid rgba(133,209,235,0.12)!important;
+}
+body[class^="page-"] .add-to-cart-btn{border:1px solid transparent!important;border-radius:0!important}
+body[class^="page-"] .add-to-cart-btn:hover{border-color:var(--purple3)!important}
+body[class^="page-"] .see-all{border-radius:0!important}
+body[class^="page-"] .see-all:hover{border-color:var(--purple3)!important}
+/* Placeholder (no-photo) cards still carried the old purple/indigo
+   rebrand gradient, which clashes with the new palette — flat accent tint
+   matching the account button's own background instead. */
+body[class^="page-"] .model-card-img[style*="linear-gradient(160deg,#242a54"]{
+  background:rgba(var(--brand-rgb),0.12)!important;
+}
+
+/* Booking-panel toggle buttons (model profile pages, and the Account
+   page's Sign In/Create Account tabs, which reuse .bf-method). */
+body[class^="page-"] .price-type-btn.active,
+body[class^="page-"] .duration-btn.active,
+body[class^="page-"] .rv-type-btn.active,
+body[class^="page-"] .bf-method.active{
+  background:var(--purple3)!important;border-color:var(--purple3)!important;color:#08222B!important;
+}
+body[class^="page-"] .make-booking-btn{
+  background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
+  box-shadow:0 6px 28px rgba(var(--brand-dark-rgb),0.45)!important;
+  border:1px solid transparent!important;
+  border-radius:0!important;
+}
+body[class^="page-"] .make-booking-btn:hover{border-color:var(--purple3)!important}
+
+body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:rgba(225,244,250,0.82)!important}
+
+/* =================== HOMEPAGE — content unique to this page =================== */
+/* Palette/nav/footer/model-card/faq-item/back-btn etc. are all handled by
+   the universal body[class^="page-"] rules above. Only the homepage's own
+   hero and section-title gradients are specific to .page-home. */
+.page-home .hero,.page-home .hero-bg{border-radius:0!important}
+.page-home .hero{box-shadow:0 24px 60px rgba(2,12,16,0.5)!important}
+.page-home .hero-content h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-home .section-title,
+.page-home .section-title span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-home .section-header .see-all{color:var(--purple3)!important}
+.page-home .faq-section .section-title,
+.page-home .faq-section .section-title span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+
+/* =================== MODEL PROFILE TEMPLATE — content unique to this page =================== */
+/* Palette/nav/footer/back-btn/model-card etc. are all handled by the
+   universal rules above. This page's own content — stats, bio, booking
+   calculator, services — still needs its old bright-cyan-theme overrides
+   undone: dark-ink text/badges meant to sit on bright cyan (wrong on a
+   dark bg), and solid dark panels reverted to translucent glass (which
+   only washed out against the OLD bright bg, not this one). */
+.page-model .model-detail-name{color:var(--text)!important}
+
+/* Nationality/station line, Languages:/Orientation: labels, the "Available
+   24/7" footnote all sit directly on the page bg, not inside one of the
+   panels below, so the cyan-theme's dark-ink override (targeted by the
+   exact inline style JS writes them with) needs undoing back to the
+   (now light) CSS variables. */
+.page-model .model-detail-info [style*="color:var(--text-soft)"]{color:var(--text-soft)!important}
+.page-model .model-detail-info [style*="color:var(--text-muted)"]{color:var(--text-muted)!important}
+
+/* Badges and the Languages/Orientation chips also sit directly on the page
+   bg — restore their natural (semantic / accent) colors instead of the
+   dark-ink-on-light-tint pill the cyan theme needed for contrast there. */
+.page-model .model-detail-info .badge-new{background:rgba(160,224,128,0.2)!important;border:1px solid rgba(160,224,128,0.4)!important;color:#A0E080!important}
+.page-model .model-detail-info .badge-top{background:rgba(255,100,100,0.15)!important;border:1px solid rgba(255,100,100,0.3)!important;color:#FF7070!important}
+.page-model .model-detail-info .badge-vip{background:rgba(255,215,0,0.15)!important;border:1px solid rgba(255,215,0,0.35)!important;color:#FFD700!important}
+.page-model .service-chip{
+  background:rgba(var(--brand-rgb),0.15)!important;
+  border:1px solid rgba(var(--brand-light-rgb),0.2)!important;
+  color:var(--purple3)!important;
+  border-radius:0!important;
+}
+
+.page-model .detail-gallery,
+.page-model .stat-box,
+.page-model .price-calc,
+.page-model .model-bio,
+.page-model .model-map-block,
+.page-model .model-detail-services,
+.page-model .price-type-btn,
+.page-model .duration-btn,
+.page-model .rv-type-btn,
+.page-model .bf-method{
+  border-radius:0!important;
+}
+.page-model .price-type-btn:hover,
+.page-model .duration-btn:hover,
+.page-model .rv-type-btn:hover,
+.page-model .bf-method:hover{
+  border-color:var(--purple3)!important;
+}
+.page-model .stat-box,
+.page-model .price-calc,
+.page-model .model-bio,
+.page-model .model-map-block,
+.page-model .model-detail-services{
   background:var(--glass)!important;
   backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
   border:1px solid var(--glass-border)!important;
 }
-.page-about .form-section-title{color:var(--purple3)!important}
-.page-about .submit-app-btn{
-  background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
-  box-shadow:0 6px 28px rgba(var(--brand-dark-rgb),0.45)!important;
+
+/* =================== FAQ PAGE — content unique to this page =================== */
+/* Palette/nav/footer/back-btn/faq-item etc. are all handled by the
+   universal rules above. Only the heading/sub sit directly on the page
+   bg (not inside a panel), so they're all that's left here. */
+.page-faq h1{color:var(--text)!important}
+.page-faq h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
 }
-.page-about .about-teaser-grid a{border:1px solid transparent}
+.page-faq .sub{color:var(--text-soft)!important}
+
+/* =================== ABOUT PAGE — content unique to this page =================== */
+/* Palette/nav/footer/back-btn/form-section/submit-app-btn etc. are all
+   handled by the universal rules above. Only the model teaser grid's
+   hover-outline (its own component, not shared with anything else) is
+   specific to this page. */
+.page-about .about-teaser-grid a{border:1px solid transparent;border-radius:0!important}
 .page-about .about-teaser-grid a:hover{border-color:var(--purple3)}
+
+/* =================== MODELS CATALOG PAGE — content unique to this page =================== */
+/* Palette/nav/footer/back-btn/model-card/see-all etc. are all handled by
+   the universal rules above. The heading, results count, and filters
+   sidebar (with its own child components) are unique to this page. */
+.page-models .models-page-header h1{color:var(--text)!important}
+.page-models .models-page-header h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-models .models-page-header p{color:var(--text-soft)!important}
+.page-models .results-count{color:var(--text-soft)!important}
+.page-models .filters-sidebar{
+  background:var(--glass)!important;
+  backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;
+  border:1px solid var(--glass-border)!important;
+  border-radius:0!important;
+}
+.page-models .filter-title{color:var(--purple3)!important}
+.page-models .filter-chip,.page-models .filter-list,
+.page-models .sort-select,.page-models .mobile-filter-toggle,.page-models .clear-filters{
+  border-radius:0!important;
+}
+.page-models .sort-select,.page-models .mobile-filter-toggle{
+  background:#0F3441!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  border:1px solid var(--glass-border)!important;
+  color:var(--text)!important;
+}
+.page-models .sort-select option{background:#0F3441;color:var(--text)}
+
+/* =================== VIP MODELS PAGE — content unique to this page =================== */
+/* Palette/nav/footer/back-btn/model-card/submit-app-btn etc. are all
+   handled by the universal rules above. The heading and the paywall card
+   over the blurred teaser grid are unique to this page. */
+.page-vip-models .models-page-header h1{color:var(--text)!important}
+.page-vip-models .models-page-header h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-vip-models .models-page-header p{color:var(--text-soft)!important}
+.page-vip-models .vip-paywall-card{
+  background:var(--glass)!important;
+  backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+  border:1px solid var(--glass-border)!important;
+  border-radius:0!important;
+}
+.page-vip-models .vip-paywall-card .form-section-title{color:var(--purple3)!important}
+
+/* =================== CONCIERGE PAGE — content unique to this page =================== */
+/* Palette/nav/footer/back-btn/form-section/submit-app-btn etc. are all
+   handled by the universal rules above. Only the heading (which sits
+   directly on the page bg, not inside a panel) is specific to this page. */
+.page-concierge .become-header h1{color:var(--text)!important}
+.page-concierge .become-header h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-concierge .become-header p{color:var(--text-soft)!important}
+
+/* =================== EVENTS PAGE — content unique to this page =================== */
+.page-events .become-header h1{color:var(--text)!important}
+.page-events .become-header h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-events .become-header p{color:var(--text-soft)!important}
+.page-events .stat-box{
+  border-radius:0!important;
+  background:var(--glass)!important;
+  backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+  border:1px solid var(--glass-border)!important;
+}
+
+/* =================== ACCOUNT PAGE — content unique to this page =================== */
+.page-account .become-header h1{color:var(--text)!important}
+.page-account .become-header h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-account .become-header p{color:var(--text-soft)!important}
+.page-account #acctLoading{color:var(--text-soft)!important}
+.page-account .form-input{border-radius:0!important}
+.page-account .bf-method{border-radius:0!important}
+.page-account .bf-method:hover{border-color:var(--purple3)!important}

@@ -348,9 +348,9 @@ function buildModels() {
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-models">
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
 ${fakeModelOverlayHTML()}
 
@@ -798,9 +798,9 @@ function buildVipModels() {
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-vip-models">
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
@@ -905,9 +905,9 @@ function buildConcierge() {
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-concierge">
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
@@ -985,9 +985,9 @@ function buildEvents() {
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-events">
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
@@ -1042,7 +1042,7 @@ ${ageModalHTML()}
         ${tiers.map(t => `
         <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.18);border-radius:var(--r-xs);padding:1.1rem">
           <div style="font-size:1.35rem;font-weight:700;color:#fff">${t.price}</div>
-          <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#70e9ff;font-weight:700;margin:0.35rem 0 0.75rem">${t.name}</div>
+          <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--purple3);font-weight:700;margin:0.35rem 0 0.75rem">${t.name}</div>
           <ul style="margin:0;padding-left:1.1rem;color:var(--text-soft);font-size:13px;line-height:1.9">
             ${t.items.map(i => `<li>${i}</li>`).join('')}
           </ul>
@@ -1189,9 +1189,9 @@ function buildAccount() {
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-account">
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
@@ -1227,7 +1227,7 @@ ${ageModalHTML()}
         <button type="button" class="submit-app-btn" id="acctSubmitBtn" onclick="submitAcctForm()" style="margin-top:0">Sign In</button>
       </div>
       <div id="acctSignupNotice" style="display:none;text-align:center;padding:0.5rem 0">
-        <div style="font-size:1.3rem;font-weight:800;color:#70e9ff;margin-bottom:0.6rem">Check your email</div>
+        <div style="font-size:1.3rem;font-weight:800;color:var(--purple3);margin-bottom:0.6rem">Check your email</div>
         <p style="color:var(--text-soft);font-size:14px;margin:0">We've sent a confirmation link to your inbox — click it, then come back here and sign in.</p>
       </div>
     </div>

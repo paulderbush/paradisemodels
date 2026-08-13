@@ -661,7 +661,13 @@ footer a{color:var(--purple3);text-decoration:none}
 }
 .filter-search input::placeholder{color:var(--text-muted)}
 .filter-search svg{width:14px;height:14px;opacity:0.4;flex-shrink:0}
-.filter-list{max-height:180px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(var(--brand-rgb),0.3) transparent}
+/* Recessed/inset look distinct from the sidebar panel itself, so it reads
+   as its own scrollable region (city/nationality lists) rather than
+   blending into the sidebar's own scroll (between filter sections). */
+.filter-list{
+  max-height:180px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(var(--brand-rgb),0.3) transparent;
+  background:rgba(0,0,0,0.15);border-radius:var(--r-xs);padding:0.5rem 0.65rem;
+}
 .filter-list::-webkit-scrollbar{width:3px}
 .filter-list::-webkit-scrollbar-thumb{background:rgba(var(--brand-rgb),0.3);border-radius:3px}
 .filter-check{
