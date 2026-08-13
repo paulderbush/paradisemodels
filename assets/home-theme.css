@@ -405,21 +405,21 @@ footer{
 .page-home .footer-btns .btn-tg,
 .page-home .footer-btns .btn-model-cta,
 .page-home .footer-btns .btn-blog,
-.page-model-julia .footer-btns .btn-tg,
-.page-model-julia .footer-btns .btn-model-cta,
-.page-model-julia .footer-btns .btn-blog,
-.page-model-julia .back-btn,
-.page-model-julia .detail-gallery,
-.page-model-julia .stat-box,
-.page-model-julia .price-calc,
-.page-model-julia .model-bio,
-.page-model-julia .model-map-block,
-.page-model-julia .model-detail-services,
-.page-model-julia .make-booking-btn,
-.page-model-julia .price-type-btn,
-.page-model-julia .duration-btn,
-.page-model-julia .rv-type-btn,
-.page-model-julia .bf-method,
+.page-model .footer-btns .btn-tg,
+.page-model .footer-btns .btn-model-cta,
+.page-model .footer-btns .btn-blog,
+.page-model .back-btn,
+.page-model .detail-gallery,
+.page-model .stat-box,
+.page-model .price-calc,
+.page-model .model-bio,
+.page-model .model-map-block,
+.page-model .model-detail-services,
+.page-model .make-booking-btn,
+.page-model .price-type-btn,
+.page-model .duration-btn,
+.page-model .rv-type-btn,
+.page-model .bf-method,
 .page-faq .footer-btns .btn-tg,
 .page-faq .footer-btns .btn-model-cta,
 .page-faq .footer-btns .btn-blog,
@@ -437,14 +437,14 @@ footer{
 
 /* Nav links (Models/Locations/Concierge/Events/About Us/VIP Models): drop
    the pill shape entirely — plain text with an underline on hover instead.
-   Scoped via nav.nav-on-hero (homepage) and .page-model-julia nav (her
+   Scoped via nav.nav-on-hero (homepage) and .page-model nav (her
    profile page, which has no hero so can't use the nav-on-hero marker).
    nav-cart (Booking) is deliberately NOT in this group — see below, it
    went back to its normal rounded-pill look. */
 nav.nav-on-hero .nav-link,
 nav.nav-on-hero .nav-btn-vip,
-.page-model-julia nav .nav-link,
-.page-model-julia nav .nav-btn-vip,
+.page-model nav .nav-link,
+.page-model nav .nav-btn-vip,
 .page-faq nav .nav-link,
 .page-faq nav .nav-btn-vip,
 .page-about nav .nav-link,
@@ -456,7 +456,7 @@ nav.nav-on-hero .nav-btn-vip,
   position:relative;
 }
 nav.nav-on-hero .nav-btn-vip,
-.page-model-julia nav .nav-btn-vip,
+.page-model nav .nav-btn-vip,
 .page-faq nav .nav-btn-vip,
 .page-about nav .nav-btn-vip{color:var(--purple3)!important}
 /* Underline grows from the center outward on hover, rather than just
@@ -465,8 +465,8 @@ nav.nav-on-hero .nav-btn-vip,
    origin is the center. */
 nav.nav-on-hero .nav-link::after,
 nav.nav-on-hero .nav-btn-vip::after,
-.page-model-julia nav .nav-link::after,
-.page-model-julia nav .nav-btn-vip::after,
+.page-model nav .nav-link::after,
+.page-model nav .nav-btn-vip::after,
 .page-faq nav .nav-link::after,
 .page-faq nav .nav-btn-vip::after,
 .page-about nav .nav-link::after,
@@ -480,8 +480,8 @@ nav.nav-on-hero .nav-btn-vip::after,
 }
 nav.nav-on-hero .nav-link:hover::after,
 nav.nav-on-hero .nav-btn-vip:hover::after,
-.page-model-julia nav .nav-link:hover::after,
-.page-model-julia nav .nav-btn-vip:hover::after,
+.page-model nav .nav-link:hover::after,
+.page-model nav .nav-btn-vip:hover::after,
 .page-faq nav .nav-link:hover::after,
 .page-faq nav .nav-btn-vip:hover::after,
 .page-about nav .nav-link:hover::after,
@@ -507,15 +507,15 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
 .page-home .hero-btns .btn-model-cta:hover,.page-home .footer-btns .btn-model-cta:hover,
 .page-home .footer-btns .btn-blog:hover,
 .page-home .faq-item:hover,
-.page-model-julia .footer-btns .btn-tg:hover,
-.page-model-julia .footer-btns .btn-model-cta:hover,
-.page-model-julia .footer-btns .btn-blog:hover,
-.page-model-julia .back-btn:hover,
-.page-model-julia .make-booking-btn:hover,
-.page-model-julia .price-type-btn:hover,
-.page-model-julia .duration-btn:hover,
-.page-model-julia .rv-type-btn:hover,
-.page-model-julia .bf-method:hover,
+.page-model .footer-btns .btn-tg:hover,
+.page-model .footer-btns .btn-model-cta:hover,
+.page-model .footer-btns .btn-blog:hover,
+.page-model .back-btn:hover,
+.page-model .make-booking-btn:hover,
+.page-model .price-type-btn:hover,
+.page-model .duration-btn:hover,
+.page-model .rv-type-btn:hover,
+.page-model .bf-method:hover,
 .page-faq .footer-btns .btn-tg:hover,
 .page-faq .footer-btns .btn-model-cta:hover,
 .page-faq .footer-btns .btn-blog:hover,
@@ -534,7 +534,7 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
 .page-about .submit-app-btn{border:1px solid transparent!important}
 /* make-booking-btn has no border at rest (solid gradient fill) — same
    invisible-border-to-transition-from trick as add-to-cart-btn above. */
-.page-model-julia .make-booking-btn{border:1px solid transparent!important}
+.page-model .make-booking-btn{border:1px solid transparent!important}
 
 /* Placeholder (no-photo) cards still carried the old purple/indigo
    rebrand gradient, which clashes with the new palette — flat accent tint
@@ -670,17 +670,17 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
 
 .page-home .age-modal-text,.page-home .age-modal-list{color:rgba(225,244,250,0.82)!important}
 
-/* =================== DEEP AZURE THEME — JULIA'S PROFILE (trial) =================== */
-/* Same "Scheme C" deep-azure tokens as the homepage experiment above,
-   trialled on Julia's profile page only (.page-model-julia, set only for
-   her slug in buildModelProfile) to see how it reads on a model page
-   before considering it site-wide. Redefining the brand variables here
-   again lets most of the page's existing var()-driven rules (stat boxes,
-   price panel, service chips, cart, age modal, mobile menu…) pick up the
-   palette automatically; the rest of this block undoes the bright-cyan
-   theme's hardcoded-hex overrides that assumed a light page background
-   (dark-ink text/panels meant to sit on bright cyan — wrong on a dark bg). */
-.page-model-julia{
+/* =================== DEEP AZURE THEME — MODEL PROFILE TEMPLATE =================== */
+/* Same "Scheme C" deep-azure tokens as the homepage. Started as a trial on
+   Julia's profile only; now the standard template for every real model's
+   profile page (.page-model, set unconditionally in buildModelProfile).
+   Redefining the brand variables here lets most of the page's existing
+   var()-driven rules (stat boxes, price panel, service chips, cart, age
+   modal, mobile menu…) pick up the palette automatically; the rest of
+   this block undoes the old bright-cyan theme's hardcoded-hex overrides
+   that assumed a light page background (dark-ink text/panels meant to
+   sit on bright cyan — wrong on a dark bg). */
+.page-model{
   --purple:#85D1EB;
   --purple2:#A3DDF0;
   --purple3:#85D1EB;
@@ -715,51 +715,51 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
   --menu-link-color:var(--text);
   --menu-link-soft:var(--text-soft);
 }
-.page-model-julia{background:#08222B!important}
+.page-model{background:#08222B!important}
 
-.page-model-julia nav{
+.page-model nav{
   background:rgba(15,52,65,0.94)!important;
   border-bottom:1px solid rgba(133,209,235,0.18)!important;
 }
 
-.page-model-julia footer{
+.page-model footer{
   background:rgba(15,52,65,0.94)!important;
   border-top:1px solid rgba(133,209,235,0.18)!important;
 }
-.page-model-julia .footer-btns .btn-tg,
-.page-model-julia .footer-btns .btn-model-cta{
+.page-model .footer-btns .btn-tg,
+.page-model .footer-btns .btn-model-cta{
   background:#0F3441!important;
   border:1px solid #85D1EB!important;
 }
-.page-model-julia .footer-btns .btn-blog{
+.page-model .footer-btns .btn-blog{
   background:#0F3441!important;
   border:1px solid #85D1EB!important;
   color:#fff!important;
 }
-.page-model-julia .footer-btns .btn-tg:hover,
-.page-model-julia .footer-btns .btn-model-cta:hover,
-.page-model-julia .footer-btns .btn-blog:hover{
+.page-model .footer-btns .btn-tg:hover,
+.page-model .footer-btns .btn-model-cta:hover,
+.page-model .footer-btns .btn-blog:hover{
   background:#16424F!important;
 }
 
-.page-model-julia .model-detail-name{color:var(--text)!important}
-.page-model-julia .back-btn{color:var(--text-soft)!important;border-color:var(--glass-border)!important}
+.page-model .model-detail-name{color:var(--text)!important}
+.page-model .back-btn{color:var(--text-soft)!important;border-color:var(--glass-border)!important}
 
 /* Nationality/station line, Languages:/Orientation: labels, the "Available
    24/7" footnote — all sit directly on the page bg, not inside one of the
    panels below, so the cyan-theme's dark-ink override (targeted by the
    exact inline style JS writes them with) needs undoing back to the
    (now light) CSS variables. */
-.page-model-julia .model-detail-info [style*="color:var(--text-soft)"]{color:var(--text-soft)!important}
-.page-model-julia .model-detail-info [style*="color:var(--text-muted)"]{color:var(--text-muted)!important}
+.page-model .model-detail-info [style*="color:var(--text-soft)"]{color:var(--text-soft)!important}
+.page-model .model-detail-info [style*="color:var(--text-muted)"]{color:var(--text-muted)!important}
 
 /* Badges and the Languages/Orientation chips also sit directly on the page
    bg — restore their natural (semantic / accent) colors instead of the
    dark-ink-on-light-tint pill the cyan theme needed for contrast there. */
-.page-model-julia .model-detail-info .badge-new{background:rgba(160,224,128,0.2)!important;border:1px solid rgba(160,224,128,0.4)!important;color:#A0E080!important}
-.page-model-julia .model-detail-info .badge-top{background:rgba(255,100,100,0.15)!important;border:1px solid rgba(255,100,100,0.3)!important;color:#FF7070!important}
-.page-model-julia .model-detail-info .badge-vip{background:rgba(255,215,0,0.15)!important;border:1px solid rgba(255,215,0,0.35)!important;color:#FFD700!important}
-.page-model-julia .service-chip{
+.page-model .model-detail-info .badge-new{background:rgba(160,224,128,0.2)!important;border:1px solid rgba(160,224,128,0.4)!important;color:#A0E080!important}
+.page-model .model-detail-info .badge-top{background:rgba(255,100,100,0.15)!important;border:1px solid rgba(255,100,100,0.3)!important;color:#FF7070!important}
+.page-model .model-detail-info .badge-vip{background:rgba(255,215,0,0.15)!important;border:1px solid rgba(255,215,0,0.35)!important;color:#FFD700!important}
+.page-model .service-chip{
   background:rgba(var(--brand-rgb),0.15)!important;
   border:1px solid rgba(var(--brand-light-rgb),0.2)!important;
   color:var(--purple3)!important;
@@ -770,29 +770,29 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
    forced a solid dark panel here since the default translucent glass
    would've washed out on a bright bg — on our already-dark page the
    default glass treatment (var(--glass)) looks right instead. */
-.page-model-julia .stat-box,
-.page-model-julia .price-calc,
-.page-model-julia .model-bio,
-.page-model-julia .model-map-block,
-.page-model-julia .model-detail-services{
+.page-model .stat-box,
+.page-model .price-calc,
+.page-model .model-bio,
+.page-model .model-map-block,
+.page-model .model-detail-services{
   background:var(--glass)!important;
   backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
   border:1px solid var(--glass-border)!important;
 }
 
-.page-model-julia .price-type-btn.active,
-.page-model-julia .duration-btn.active,
-.page-model-julia .rv-type-btn.active,
-.page-model-julia .bf-method.active{
+.page-model .price-type-btn.active,
+.page-model .duration-btn.active,
+.page-model .rv-type-btn.active,
+.page-model .bf-method.active{
   background:var(--purple3)!important;border-color:var(--purple3)!important;color:#08222B!important;
 }
 
-.page-model-julia .make-booking-btn{
+.page-model .make-booking-btn{
   background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
   box-shadow:0 6px 28px rgba(var(--brand-dark-rgb),0.45)!important;
 }
 
-.page-model-julia .age-modal-text,.page-model-julia .age-modal-list{color:rgba(225,244,250,0.82)!important}
+.page-model .age-modal-text,.page-model .age-modal-list{color:rgba(225,244,250,0.82)!important}
 
 /* =================== DEEP AZURE THEME + SQUARE DESIGN — FAQ PAGE =================== */
 /* Rolling the design out to a second page (after the homepage and Julia's
