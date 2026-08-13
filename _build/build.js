@@ -272,7 +272,11 @@ ${fakeModelOverlayHTML()}
   <div class="hero" style="position:relative;z-index:1">
     <div class="hero-bg"></div>
     <video class="hero-video" muted loop playsinline preload="none" poster="/images/hero-poster.jpg?v=${BUILD_TS}" data-src="/videos/hero-desktop.mp4?v=${BUILD_TS}"></video>
-    <video class="hero-video-mobile" muted loop playsinline preload="none" poster="/images/hero-poster-mobile.jpg?v=${BUILD_TS}" data-src="/videos/hero-mobile.mp4?v=${BUILD_TS}"></video>
+    <!-- Trying the client's new mobile clip (hero-mobile-new.mp4) for
+         preview — hero-mobile.mp4 (the current one) is intentionally kept
+         in the repo unused, so this is a one-line revert if they don't
+         like it. -->
+    <video class="hero-video-mobile" muted loop playsinline preload="none" poster="/images/hero-poster-mobile.jpg?v=${BUILD_TS}" data-src="/videos/hero-mobile-new.mp4?v=${BUILD_TS}"></video>
     <div class="hero-content">
       <div class="hero-hours">
         <span class="dot"></span>
