@@ -52,11 +52,12 @@ ${extra}
 </head>`;
 }
 
-function navHTML(paradise = false, heroVideo = false) {
-  // heroVideo is only ever true for the homepage's nav — reuse it here to
-  // swap in the client's new logo (PARADISE wordmark only, no MODELS
-  // subtitle) there, while every other page keeps the original logo-nav.png.
-  const logoFile = heroVideo ? 'logo-new.png' : 'logo-nav.png';
+function navHTML(paradise = false, heroVideo = false, newLogo = false) {
+  // The client's new logo (PARADISE wordmark only, no MODELS subtitle) is
+  // opt-in per page — homepage always wants it (heroVideo is only ever
+  // true there), and callers can also pass newLogo explicitly for other
+  // pages carrying the new design (e.g. Julia's profile trial).
+  const logoFile = (heroVideo || newLogo) ? 'logo-new.png' : 'logo-nav.png';
   const logo = paradise
     ? `<a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/${logoFile}?v=${BUILD_TS}" alt="Paradise Models"></a>`
     : `<a class="nav-logo" href="/" style="cursor:pointer;text-decoration:none">VELVET</a>`;
@@ -506,7 +507,7 @@ function buildModelProfile(m) {
   ) + `
 <body${m.slug === 'julia' ? ' class="page-model-julia"' : ''}>
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, m.slug === 'julia')}
 ${ageModalHTML()}
 ${lightboxHTML()}
 

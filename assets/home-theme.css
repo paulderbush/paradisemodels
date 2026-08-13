@@ -677,11 +677,6 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
   background:rgba(15,52,65,0.94)!important;
   border-bottom:1px solid rgba(133,209,235,0.18)!important;
 }
-.page-model-julia .nav-btn-vip{
-  background:#85D1EB!important;color:#08222B!important;
-  box-shadow:0 4px 20px rgba(133,209,235,0.4)!important;
-}
-.page-model-julia .nav-btn-vip:hover{box-shadow:0 6px 28px rgba(133,209,235,0.6)!important}
 
 .page-model-julia footer{
   background:rgba(15,52,65,0.94)!important;
@@ -724,6 +719,7 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
   background:rgba(var(--brand-rgb),0.15)!important;
   border:1px solid rgba(var(--brand-light-rgb),0.2)!important;
   color:var(--purple3)!important;
+  border-radius:0!important;
 }
 
 /* Stat boxes / booking panel / bio / map / services panels: the cyan theme
