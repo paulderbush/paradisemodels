@@ -1,5 +1,9 @@
 // =================== DATA ===================
-const SERVICES = ["69","Anal Sex","BDSM","Belly-dance","Bisexual DUO","Blowjob With Condom","Blowjob Without Condom","Body to Body Massage","Couples","Cum In Mouth","Cum On Body","Cum On Face","Deep French Kissing","Deep Throat","Dirty Talk","Domination","Double Penetration","DUO","Erotic Massage","Face Sitting","Fetish","Filming With Mask","Filming Without Mask","Fingering","Fisting Giving","Foot Fetish","French Kissing","Girlfriend Experience","Group For Extra","Handcuffs","Lady's Services","Lap Dancing","Latex Outfit","Leather Outfit","Light Domination","Lomilomi Massage","Massage","MMF For Double Price","Nuru Massage","Open Minded","Party Girl","Peeing On Client","Peeing On Model","Photos With Mask","Poppers","Pornstar Experience","Professional Massage","Prostate Massage","Rimming Gives","Rimming Receives","Roleplay","Sensual Massage","Shower Together","Smoking Fetish","Snowballing","Soft Spanking Receiving","Spanking Giving","Squirting","Strapon","Striptease","Swallow Sperm","Tantric Massage","Tie & Tease","Toys","Uniform","Women Clients"];
+// Canonical service list — client-supplied, keep this as the single source
+// of truth (do not add ad-hoc service names elsewhere). Items with a
+// well-known abbreviation are stored abbreviated; write out full names only
+// when there isn't a set abbreviation for them.
+const SERVICES = ["69","FK","DFK","GFE","OWO","OWC","COB","CIF","CIM","Swallow","Snowballing","DT","Fingering","A-Level","DP","PSE","Party girl","Face sitting","Dirty talk","Lady's services","WS giving","WS receiving","Rimming giving","Rimming receiving","Smoking fetish","Roleplay","Filming with mask","Filming without mask","Foot fetish","Squirting","Open minded","Light domination","Spanking giving","Soft spanking receiving","DUO","Bi DUO","Couples","MMF for double price","Group for extra price","Massage","Prostate massage","Professional massage","Body to body massage","Erotic massage","Lomilomi massage","Nuru massage","Sensual massage","Tantric massage","Striptease","Lapdancing","Belly-dance","Uniforms","Toys","Strap-on","Poppers","Handcuffs","Domination","Fisting giving","Fisting receiving","Tie and Tease"];
 
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 
@@ -82,7 +86,7 @@ const JULIA_DATA = {
   breastSize: '34B', breastType: 'Natural', clothingSize: '8',
   eyeColor: 'Honey', hairColor: 'Blonde', orientation: 'Heterosexual',
   languages: 'English · Russian · Ukrainian',
-  svcs: ['69', 'Bisexual DUO', 'Body to Body Massage', 'Cum On Face', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Domination', 'Deep Throat', 'Erotic Massage', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Latex Outfit', 'Light Domination', 'Massage', 'Blowjob With Condom', 'Blowjob Without Condom', 'Party Girl', 'Roleplay', 'Soft Spanking Receiving', 'Spanking Giving', 'Striptease', 'Tie & Tease', 'Peeing On Client', 'Peeing On Model'],
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIF', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease', 'WS giving', 'WS receiving'],
   extraSvcs: [
     {name: 'CIM (Includes OWO)', price: 400},
     {name: 'Swallow (Includes OWO & CIM)', price: 500},
@@ -119,16 +123,16 @@ const LUISA_DATA = {
   breastSize: '30B', breastType: 'Natural', clothingSize: '8',
   eyeColor: 'Light Brown', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English · Portuguese',
-  svcs: ['69', 'Bisexual DUO', 'Body to Body Massage', 'Cum On Face', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Erotic Massage', 'Couples', 'Toys', 'Face Sitting', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Lap Dancing', 'Massage', 'Blowjob With Condom', 'Prostate Massage', 'Rimming Receives', 'Roleplay', 'Soft Spanking Receiving', 'Striptease'],
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIF', 'COB', 'DFK', 'Dirty talk', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Massage', 'OWC', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Striptease'],
   extraSvcs: [
     {name: 'OWO', price: 50},
     {name: 'CIM (Includes OWO)', price: 50},
     {name: 'Swallow', price: 80},
     {name: 'Snowballing', price: 80},
-    {name: 'Deep Throat', price: 80},
-    {name: 'Tantric Massage', price: 100},
-    {name: 'WS Giving', price: 150},
-    {name: 'Rimming Giving', price: 150},
+    {name: 'DT', price: 80},
+    {name: 'Tantric massage', price: 100},
+    {name: 'WS giving', price: 150},
+    {name: 'Rimming giving', price: 150},
     {name: 'A-Level', price: 300},
   ],
   incallRates: [
@@ -164,7 +168,7 @@ const AIRA_DATA = {
   breastSize: '34D', breastType: 'Enhanced', clothingSize: '6',
   eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Heterosexual',
   languages: 'English · Russian',
-  svcs: ['69', 'Bisexual DUO', 'Cum On Face', 'Cum In Mouth', 'Cum On Body', 'Deep French Kissing', 'Erotic Massage', 'Toys', 'Face Sitting', 'Filming With Mask', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Massage', 'Blowjob With Condom', 'Blowjob Without Condom', 'Party Girl', 'Pornstar Experience', 'Soft Spanking Receiving', 'Spanking Giving'],
+  svcs: ['69', 'Bi DUO', 'CIF', 'CIM', 'COB', 'DFK', 'Erotic massage', 'Toys', 'Face sitting', 'Filming with mask', 'FK', 'Foot fetish', 'GFE', 'Massage', 'OWC', 'OWO', 'Party girl', 'PSE', 'Soft spanking receiving', 'Spanking giving'],
   extraSvcs: [],
   incallRates: [
     {label: '1 Hour', price: 1250},
@@ -198,11 +202,11 @@ const ANASTASIIA_DATA = {
   breastSize: '34G', breastType: 'Enhanced', clothingSize: '8',
   eyeColor: 'Blue', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English · Russian · French',
-  svcs: ['69', 'Bisexual DUO', 'Body to Body Massage', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Domination', 'Deep Throat', 'Erotic Massage', 'Couples', 'Toys', 'Face Sitting', 'Fingering', 'Fisting Giving', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Handcuffs', 'Lap Dancing', 'Latex Outfit', 'Leather Outfit', 'Light Domination', 'Massage', 'MMF For Double Price', 'Blowjob With Condom', 'Blowjob Without Condom', 'Party Girl', 'Poppers', 'Prostate Massage', 'Pornstar Experience', 'Rimming Gives', 'Rimming Receives', 'Roleplay', 'Soft Spanking Receiving', 'Spanking Giving', 'Squirting', 'Strapon', 'Striptease', 'Tie & Tease', 'Uniform', 'Peeing On Client'],
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'Fingering', 'Fisting giving', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Poppers', 'Prostate massage', 'PSE', 'Rimming giving', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Strap-on', 'Striptease', 'Tie and Tease', 'Uniforms', 'WS giving'],
   extraSvcs: [
     {name: 'CIF', price: 300},
     {name: 'A-Level', price: 500},
-    {name: 'Filming Without Mask', price: 2000},
+    {name: 'Filming without mask', price: 2000},
   ],
   incallRates: [
     {label: '1 Hour', price: 1000},
@@ -237,12 +241,12 @@ const SKYLAH_DATA = {
   breastSize: '34E', breastType: 'Enhanced', clothingSize: '6',
   eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
   languages: 'English',
-  svcs: ['69', 'Body to Body Massage', 'Cum On Face', 'Cum In Mouth', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Deep Throat', 'Toys', 'Face Sitting', 'Fingering', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', 'Light Domination', 'Massage', 'Party Girl', 'Poppers', 'Pornstar Experience', 'Rimming Receives', 'Roleplay', 'Swallow Sperm', 'Tie & Tease', 'Uniform'],
+  svcs: ['69', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'DT', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'Party girl', 'Poppers', 'PSE', 'Rimming receiving', 'Roleplay', 'Swallow', 'Tie and Tease', 'Uniforms'],
   extraSvcs: [
-    {name: 'Service For Ladies', price: 150},
+    {name: "Lady's services", price: 150},
     {name: 'Couples', price: 200},
-    {name: 'Group (Must Be At Least 1 More Girl)', price: 300},
-    {name: 'Filming With Mask', price: 500},
+    {name: 'Group for extra price (must be at least 1 more girl)', price: 300},
+    {name: 'Filming with mask', price: 500},
   ],
   incallRates: [
     {label: '1 Hour', price: 1000},
@@ -277,12 +281,12 @@ const ELDORA_DATA = {
   breastSize: '32C', breastType: 'Natural', clothingSize: '6',
   eyeColor: 'Green', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English · Spanish · Portuguese',
-  svcs: ['69', 'Body to Body Massage', 'Cum On Body', 'Deep French Kissing', 'Dirty Talk', 'Erotic Massage', 'Face Sitting', 'Fingering', 'French Kissing', 'Foot Fetish', 'Girlfriend Experience', "Lady's Services", 'Lap Dancing', 'Light Domination', 'Massage', 'Blowjob Without Condom', 'Pornstar Experience', 'Rimming Receives', 'Soft Spanking Receiving', 'Spanking Giving', 'Striptease', 'Tie & Tease'],
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', "Lady's services", 'Lapdancing', 'Light domination', 'Massage', 'OWO', 'PSE', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
   extraSvcs: [
     {name: 'CIF', price: 50},
-    {name: 'Bi Duo', price: 50},
-    {name: 'Prostate Massage', price: 50},
-    {name: 'Fisting Giving', price: 50},
+    {name: 'Bi DUO', price: 50},
+    {name: 'Prostate massage', price: 50},
+    {name: 'Fisting giving', price: 50},
   ],
   incallRates: [
     {label: '1 Hour', price: 1000},
