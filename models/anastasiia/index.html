@@ -11,9 +11,9 @@
 <meta property="og:description" content="Anastasiia — French escort in London. Available for incall from £1000. Book now at Paradise Models.">
 <meta property="og:url" content="https://velvetescort.co.uk/models/anastasiia/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260813222252">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260813222252">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260813222252">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260813224105">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260813224105">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260813224105">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -982,6 +982,18 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .become-header{margin-bottom:2.5rem}
 .become-header h1{font-size:2rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.4rem}
 .become-header p{color:var(--text-soft)}
+
+/* ABOUT PAGE — model teaser grid */
+.about-teaser-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.about-teaser-grid a{text-decoration:none;display:block;border-radius:var(--r-xs);overflow:hidden;position:relative;aspect-ratio:3/4;transition:border-color 0.25s}
+.about-teaser-grid a img{width:100%;height:100%;object-fit:cover;display:block}
+.about-teaser-grid a .about-teaser-name{position:absolute;left:0;right:0;bottom:0;padding:0.6rem;background:linear-gradient(0deg,rgba(0,0,0,0.65),transparent);color:#fff;font-size:13px;font-weight:600}
+@media(max-width:768px){
+  /* Client wants exactly 2 on mobile, unchanged from before — 2-column
+     grid capped at the old width so the cards keep their original size. */
+  .about-teaser-grid{grid-template-columns:repeat(2,1fr);max-width:360px}
+  .about-teaser-grid a:nth-child(n+3){display:none}
+}
 .form-section{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--r-sm);padding:1.5rem;margin-bottom:1.25rem}
 .form-section-title{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple3);margin-bottom:1.2rem}
 .form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -1215,11 +1227,11 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260813222252';</script>
+<script>window.BUILD_TS='20260813224105';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260813222252"></script>
+<script src="/assets/currency.js?v=20260813224105"></script>
 <meta property="og:image" content="https://velvetescort.co.uk/models/Anastasiia/1.webp">
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260813222252">
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260813224105">
 </head>
 <body>
 <div class="orb-container">
@@ -1243,7 +1255,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260813222252" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260813224105" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1286,7 +1298,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260813222252" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260813224105" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1399,9 +1411,9 @@ const SERVICES = ["69","FK","DFK","GFE","OWO","OWC","COB","CIF","CIM","Swallow",
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 </script>
-<script src="/assets/main.js?v=20260813222252"></script>
-<script src="/assets/chat.js?v=20260813222252"></script>
-<script src="/assets/profile.js?v=20260813222252"></script>
+<script src="/assets/main.js?v=20260813224105"></script>
+<script src="/assets/chat.js?v=20260813224105"></script>
+<script src="/assets/profile.js?v=20260813224105"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async function() {
   await window.CUR_READY;

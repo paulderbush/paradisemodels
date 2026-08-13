@@ -12,6 +12,7 @@
   --purple-dark:#2a2f66;     /* deep indigo */
   --bg:#70e9ff;
   --bg2:#5fd8f0;
+  --bg-rgb:112,233,255;      /* #70e9ff, for gradients that fade the bg to transparent */
 
   /* RGB components used across the stylesheet */
   --brand-rgb:58,64,129;         /* #3a4081 indigo */
@@ -373,12 +374,16 @@ footer{
    text column goes full-width above/over the photo instead — flipped to
    bottom (solid) -> top (transparent) per how it actually reads on a
    real device. */
+/* var(--bg)-based rather than the old hardcoded #70e9ff, so this reads
+   correctly under any theme scoped onto the page (e.g. .page-about's
+   deep-azure override below) without needing a separate copy of the rule
+   per theme — .about-hero only ever appears on this one page. */
 .about-hero{
-  background:linear-gradient(90deg,#70e9ff 0%,#70e9ff 38%,rgba(112,233,255,0.35) 68%,rgba(112,233,255,0) 100%),url('/images/PC.jpg') right center/cover no-repeat;
+  background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 38%,rgba(var(--bg-rgb),0.35) 68%,rgba(var(--bg-rgb),0) 100%),url('/images/PC.jpg') right center/cover no-repeat;
 }
 @media(max-width:768px){
   .about-hero{
-    background:linear-gradient(0deg,#70e9ff 0%,#70e9ff 38%,rgba(112,233,255,0.35) 68%,rgba(112,233,255,0) 100%),url('/images/PC.jpg') right center/cover no-repeat;
+    background:linear-gradient(0deg,var(--bg) 0%,var(--bg) 38%,rgba(var(--bg-rgb),0.35) 68%,rgba(var(--bg-rgb),0) 100%),url('/images/PC.jpg') right center/cover no-repeat;
   }
 }
 
@@ -394,6 +399,7 @@ footer{
 .page-home .model-card,
 .page-home .add-to-cart-btn,
 .page-home .see-all,
+.page-home .faq-item,
 .page-home .hero-btns .btn-tg,
 .page-home .hero-btns .btn-model-cta,
 .page-home .footer-btns .btn-tg,
@@ -418,7 +424,14 @@ footer{
 .page-faq .footer-btns .btn-model-cta,
 .page-faq .footer-btns .btn-blog,
 .page-faq .back-btn,
-.page-faq .faq-item{
+.page-faq .faq-item,
+.page-about .footer-btns .btn-tg,
+.page-about .footer-btns .btn-model-cta,
+.page-about .footer-btns .btn-blog,
+.page-about .back-btn,
+.page-about .form-section,
+.page-about .submit-app-btn,
+.page-about .about-teaser-grid a{
   border-radius:0!important;
 }
 
@@ -433,7 +446,9 @@ nav.nav-on-hero .nav-btn-vip,
 .page-model-julia nav .nav-link,
 .page-model-julia nav .nav-btn-vip,
 .page-faq nav .nav-link,
-.page-faq nav .nav-btn-vip{
+.page-faq nav .nav-btn-vip,
+.page-about nav .nav-link,
+.page-about nav .nav-btn-vip{
   background:none!important;
   border:none!important;
   border-radius:0!important;
@@ -442,7 +457,8 @@ nav.nav-on-hero .nav-btn-vip,
 }
 nav.nav-on-hero .nav-btn-vip,
 .page-model-julia nav .nav-btn-vip,
-.page-faq nav .nav-btn-vip{color:var(--purple3)!important}
+.page-faq nav .nav-btn-vip,
+.page-about nav .nav-btn-vip{color:var(--purple3)!important}
 /* Underline grows from the center outward on hover, rather than just
    fading in at full width — a scaleX(0)->scaleX(1) transform on a
    full-width ::after does this for free, since the default transform
@@ -452,7 +468,9 @@ nav.nav-on-hero .nav-btn-vip::after,
 .page-model-julia nav .nav-link::after,
 .page-model-julia nav .nav-btn-vip::after,
 .page-faq nav .nav-link::after,
-.page-faq nav .nav-btn-vip::after{
+.page-faq nav .nav-btn-vip::after,
+.page-about nav .nav-link::after,
+.page-about nav .nav-btn-vip::after{
   content:'';
   position:absolute;left:0;right:0;bottom:2px;
   height:1px;
@@ -465,7 +483,9 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
 .page-model-julia nav .nav-link:hover::after,
 .page-model-julia nav .nav-btn-vip:hover::after,
 .page-faq nav .nav-link:hover::after,
-.page-faq nav .nav-btn-vip:hover::after{
+.page-faq nav .nav-btn-vip:hover::after,
+.page-about nav .nav-link:hover::after,
+.page-about nav .nav-btn-vip:hover::after{
   transform:scaleX(1);
 }
 
@@ -486,6 +506,7 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
 .page-home .hero-btns .btn-tg:hover,.page-home .footer-btns .btn-tg:hover,
 .page-home .hero-btns .btn-model-cta:hover,.page-home .footer-btns .btn-model-cta:hover,
 .page-home .footer-btns .btn-blog:hover,
+.page-home .faq-item:hover,
 .page-model-julia .footer-btns .btn-tg:hover,
 .page-model-julia .footer-btns .btn-model-cta:hover,
 .page-model-julia .footer-btns .btn-blog:hover,
@@ -499,12 +520,18 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
 .page-faq .footer-btns .btn-model-cta:hover,
 .page-faq .footer-btns .btn-blog:hover,
 .page-faq .back-btn:hover,
-.page-faq .faq-item:hover{
+.page-faq .faq-item:hover,
+.page-about .footer-btns .btn-tg:hover,
+.page-about .footer-btns .btn-model-cta:hover,
+.page-about .footer-btns .btn-blog:hover,
+.page-about .back-btn:hover,
+.page-about .submit-app-btn:hover{
   border-color:var(--purple3)!important;
 }
 .page-home .add-to-cart-btn{border:1px solid transparent!important}
 .page-home .add-to-cart-btn:hover{border-color:var(--purple3)!important}
 .page-home .faq-see-all .see-all:hover{border-color:var(--purple3)!important}
+.page-about .submit-app-btn{border:1px solid transparent!important}
 /* make-booking-btn has no border at rest (solid gradient fill) — same
    invisible-border-to-transition-from trick as add-to-cart-btn above. */
 .page-model-julia .make-booking-btn{border:1px solid transparent!important}
@@ -849,3 +876,85 @@ nav.nav-on-hero .nav-btn-vip:hover::after,
   background:#0F3441!important;
   border:1px solid rgba(133,209,235,0.14)!important;
 }
+
+/* =================== DEEP AZURE THEME + SQUARE DESIGN — ABOUT PAGE =================== */
+/* Third page in the rollout (after the homepage and Julia's profile/FAQ):
+   same deep-azure tokens, same --glass/--glass-border literal redeclare
+   fix, same squared-off + accent-hover-outline treatment. Scoped via
+   .page-about (set in buildAbout's <body>), so every other page is
+   untouched. Shared nav/square-corner/hover-outline selectors for
+   .page-about live in the SHARP CORNERS block above; this section only
+   has what's specific to this page. */
+.page-about{
+  --purple:#85D1EB;
+  --purple2:#A3DDF0;
+  --purple3:#85D1EB;
+  --purple-dark:#1D505F;
+  --bg:#08222B;
+  --bg2:#0F3441;
+  --bg-rgb:8,34,43;
+
+  --brand-rgb:133,209,235;
+  --brand2-rgb:163,221,240;
+  --brand-light-rgb:133,209,235;
+  --brand-dark-rgb:29,80,95;
+  --panel-rgb:15,52,65;
+  --panel2-rgb:22,66,79;
+
+  --glow-light:#A3DDF0;
+  --glow-mid:#85D1EB;
+
+  --text:#E1F4FA;
+  --text-soft:#8FA8B2;
+  --text-muted:#6E8B96;
+
+  --glass:rgba(133,209,235,0.08);
+  --glass-border:rgba(133,209,235,0.18);
+  --glass-hover:rgba(133,209,235,0.15);
+  --purple-glow:rgba(133,209,235,0.35);
+
+  --menu-link-color:var(--text);
+  --menu-link-soft:var(--text-soft);
+}
+.page-about{background:#08222B!important}
+
+.page-about nav{
+  background:rgba(15,52,65,0.94)!important;
+  border-bottom:1px solid rgba(133,209,235,0.18)!important;
+}
+.page-about footer{
+  background:rgba(15,52,65,0.94)!important;
+  border-top:1px solid rgba(133,209,235,0.18)!important;
+}
+.page-about .footer-btns .btn-tg,
+.page-about .footer-btns .btn-model-cta{
+  background:#0F3441!important;
+  border:1px solid #85D1EB!important;
+}
+.page-about .footer-btns .btn-blog{
+  background:#0F3441!important;
+  border:1px solid #85D1EB!important;
+  color:#fff!important;
+}
+.page-about .footer-btns .btn-tg:hover,
+.page-about .footer-btns .btn-model-cta:hover,
+.page-about .footer-btns .btn-blog:hover{
+  background:#16424F!important;
+}
+
+.page-about .back-btn{color:var(--text-soft)!important;border-color:var(--glass-border)!important}
+/* form-section panels were solid-dark for the cyan theme's contrast needs
+   — our page is already dark, so the default translucent glass (matching
+   Julia's/FAQ's panels) reads right instead. */
+.page-about .form-section{
+  background:var(--glass)!important;
+  backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+  border:1px solid var(--glass-border)!important;
+}
+.page-about .form-section-title{color:var(--purple3)!important}
+.page-about .submit-app-btn{
+  background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
+  box-shadow:0 6px 28px rgba(var(--brand-dark-rgb),0.45)!important;
+}
+.page-about .about-teaser-grid a{border:1px solid transparent}
+.page-about .about-teaser-grid a:hover{border-color:var(--purple3)}
