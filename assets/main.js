@@ -456,10 +456,17 @@ function exitSite() {
 // element's data-src is simply never assigned, never fetched.
 (function() {
   const mobile = window.matchMedia('(max-width:768px)').matches;
-  const active = document.querySelector(mobile ? '.hero-video-mobile' : '.hero-video');
-  if (active && active.dataset.src) {
-    active.src = active.dataset.src;
-    active.load();
-    active.play().catch(() => {});
+  if (mobile) {
+    const active = document.querySelector('.hero-video-mobile');
+    if (active && active.dataset.src) {
+      active.src = active.dataset.src;
+      active.load();
+      active.play().catch(() => {});
+    }
+  } else {
+    // Desktop hero is a YouTube iframe embed, not a <video> — no
+    // load()/play() to call, just defer assigning src the same way.
+    const yt = document.querySelector('.hero-yt-iframe');
+    if (yt && yt.dataset.src) yt.src = yt.dataset.src;
   }
 })();
