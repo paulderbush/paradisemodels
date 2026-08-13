@@ -259,15 +259,7 @@ ${fakeModelOverlayHTML()}
   <!-- HERO -->
   <div class="hero" style="position:relative;z-index:1">
     <div class="hero-bg"></div>
-    <!-- Desktop only: client-supplied YouTube clip in place of the old
-         self-hosted mp4. Embedded via the official YouTube iframe player
-         (the only ToS-compliant way to show YouTube content) rather than
-         downloading/rehosting the file. The iframe is oversized and
-         centered to fill the hero the way object-fit:cover would for a
-         real <video> — YouTube's embed has no such CSS hook of its own. -->
-    <div class="hero-video hero-yt-wrap">
-      <iframe class="hero-yt-iframe" data-src="https://www.youtube.com/embed/PPF-fox0Mc4?autoplay=1&mute=1&loop=1&playlist=PPF-fox0Mc4&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&fs=0" title="Paradise Models" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <video class="hero-video" muted loop playsinline preload="none" poster="/images/hero-poster.jpg?v=${BUILD_TS}" data-src="/videos/hero-desktop.mp4?v=${BUILD_TS}"></video>
     <video class="hero-video-mobile" muted loop playsinline preload="none" poster="/images/hero-poster-mobile.jpg?v=${BUILD_TS}" data-src="/videos/hero-mobile.mp4?v=${BUILD_TS}"></video>
     <div class="hero-content">
       <div class="hero-hours">
