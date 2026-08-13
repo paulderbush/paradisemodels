@@ -411,10 +411,119 @@ nav.nav-on-hero .nav-cart{
   box-shadow:none!important;
   border-bottom:2px solid transparent!important;
 }
-nav.nav-on-hero .nav-btn-vip{color:#70e9ff!important}
+nav.nav-on-hero .nav-btn-vip{color:var(--purple3)!important}
 nav.nav-on-hero .nav-link:hover,
 nav.nav-on-hero .nav-btn-vip:hover,
 nav.nav-on-hero .nav-cart:hover{
   background:none!important;
   border-bottom-color:currentColor!important;
 }
+
+/* =================== DEEP AZURE THEME EXPERIMENT (homepage only) =================== */
+/* Client-supplied "Scheme C" design tokens — a calmer deep navy/teal palette
+   (base #08222B) offered as an alternative to the current bright-cyan look,
+   which the client felt was too loud. Trialled on the homepage only via
+   .page-home, same scoping pattern as the sharp-corners experiment above.
+   Redefining the brand variables here lets every existing var()-driven rule
+   (buttons, cards, glass panels, cart, age modal, mobile menu…) pick up the
+   new palette automatically — only the hardcoded-hex rules elsewhere in
+   this file need an explicit override below. */
+.page-home{
+  --purple:#85D1EB;          /* accent — primary buttons/elements */
+  --purple2:#A3DDF0;         /* light accent */
+  --purple3:#85D1EB;         /* accent — links, prices, highlights */
+  --purple-dark:#1D505F;     /* L3 — dark gradient stop */
+  --bg:#08222B;              /* L0 — page background */
+  --bg2:#0F3441;             /* L1 */
+
+  --brand-rgb:133,209,235;         /* accent */
+  --brand2-rgb:163,221,240;        /* light accent */
+  --brand-light-rgb:133,209,235;   /* accent (glass-border tint) */
+  --brand-dark-rgb:29,80,95;       /* L3 */
+  --panel-rgb:15,52,65;            /* L1 — nav/cart/dropdowns */
+  --panel2-rgb:22,66,79;           /* L2 */
+
+  --glow-light:#A3DDF0;
+  --glow-mid:#85D1EB;
+
+  --text:#E1F4FA;
+  --text-soft:#8FA8B2;
+  --text-muted:#6E8B96;
+
+  /* Dark bg again (unlike the bright-cyan theme), so the full-screen mobile
+     menu goes back to its default light-on-dark text. */
+  --menu-link-color:var(--text);
+  --menu-link-soft:var(--text-soft);
+}
+.page-home{background:#08222B!important}
+
+.page-home nav{
+  background:rgba(15,52,65,0.94)!important;
+  border-bottom:1px solid rgba(133,209,235,0.18)!important;
+}
+
+.page-home .model-card{
+  background:#0F3441!important;
+  border:1px solid #0F3441!important;
+  box-shadow:0 8px 30px rgba(2,12,16,0.5)!important;
+}
+.page-home .model-card:hover{border-color:#16424F!important}
+.page-home .model-card-footer{
+  background:#0F3441!important;
+  border-top:1px solid rgba(133,209,235,0.12)!important;
+}
+
+.page-home .hero{box-shadow:0 24px 60px rgba(2,12,16,0.5)!important}
+.page-home .hero-content h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+
+.page-home .section-title,
+.page-home .section-title span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-home .section-header .see-all{color:var(--purple3)!important}
+.page-home .faq-section .section-title,
+.page-home .faq-section .section-title span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-home .faq-item{
+  background:#0F3441!important;
+  border:1px solid rgba(133,209,235,0.14)!important;
+}
+
+.page-home .hero-btns .btn-tg,.page-home .footer-btns .btn-tg,.page-home .mobile-menu-tg-btn,
+.page-home .hero-btns .btn-model-cta,.page-home .footer-btns .btn-model-cta,.page-home .mobile-menu-model-btn{
+  background:#0F3441!important;
+  border:1px solid rgba(133,209,235,0.14)!important;
+}
+.page-home .hero-btns .btn-tg:hover,.page-home .footer-btns .btn-tg:hover,.page-home .mobile-menu-tg-btn:hover,
+.page-home .hero-btns .btn-model-cta:hover,.page-home .footer-btns .btn-model-cta:hover,.page-home .mobile-menu-model-btn:hover{
+  background:#16424F!important;
+}
+
+.page-home .faq-see-all .see-all{
+  background:#0F3441!important;
+  border:1px solid rgba(133,209,235,0.14)!important;
+}
+.page-home .faq-see-all .see-all:hover{background:#16424F!important}
+
+.page-home footer{
+  background:rgba(15,52,65,0.94)!important;
+  border-top:1px solid rgba(133,209,235,0.18)!important;
+}
+.page-home .footer-btns .btn-tg,
+.page-home .footer-btns .btn-model-cta{
+  border:1px solid #85D1EB!important;
+}
+.page-home .footer-btns .btn-blog{
+  background:#0F3441!important;
+  border:1px solid #85D1EB!important;
+  color:#fff!important;
+}
+.page-home .footer-btns .btn-blog:hover{background:#16424F!important}
+
+.page-home .age-modal-text,.page-home .age-modal-list{color:rgba(225,244,250,0.82)!important}
