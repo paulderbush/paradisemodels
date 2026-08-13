@@ -53,8 +53,12 @@ ${extra}
 }
 
 function navHTML(paradise = false, heroVideo = false) {
+  // heroVideo is only ever true for the homepage's nav — reuse it here to
+  // swap in the client's new logo (PARADISE wordmark only, no MODELS
+  // subtitle) there, while every other page keeps the original logo-nav.png.
+  const logoFile = heroVideo ? 'logo-new.png' : 'logo-nav.png';
   const logo = paradise
-    ? `<a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=${BUILD_TS}" alt="Paradise Models"></a>`
+    ? `<a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/${logoFile}?v=${BUILD_TS}" alt="Paradise Models"></a>`
     : `<a class="nav-logo" href="/" style="cursor:pointer;text-decoration:none">VELVET</a>`;
   return _navHTML(logo, heroVideo);
 }

@@ -67,7 +67,7 @@ function renderModelsGrid(ms) {
   const grid = document.getElementById('modelsGrid');
   const cnt = document.getElementById('resultsCount');
   if (!grid) return;
-  grid.innerHTML = ms.map(m => modelCardHTML(m)).join('');
+  grid.innerHTML = ms.map(m => modelCardHTML(m, true, false)).join('');
   if (cnt) cnt.textContent = `Showing ${ms.length} companion${ms.length === 1 ? '' : 's'}`;
 }
 
