@@ -402,24 +402,66 @@ footer{
   border-radius:0!important;
 }
 
-/* Nav buttons: drop the pill shape entirely — plain text with an underline
-   on hover instead. Scoped via nav.nav-on-hero, which only the homepage's
-   nav carries. */
+/* Nav links (Models/Locations/Concierge/Events/About Us/VIP Models): drop
+   the pill shape entirely — plain text with an underline on hover instead.
+   Scoped via nav.nav-on-hero, which only the homepage's nav carries.
+   nav-cart (Booking) is deliberately NOT in this group — see below, it
+   went back to its normal rounded-pill look. */
 nav.nav-on-hero .nav-link,
-nav.nav-on-hero .nav-btn-vip,
-nav.nav-on-hero .nav-cart{
+nav.nav-on-hero .nav-btn-vip{
   background:none!important;
   border:none!important;
   border-radius:0!important;
   box-shadow:none!important;
-  border-bottom:2px solid transparent!important;
+  position:relative;
 }
 nav.nav-on-hero .nav-btn-vip{color:var(--purple3)!important}
-nav.nav-on-hero .nav-link:hover,
-nav.nav-on-hero .nav-btn-vip:hover,
-nav.nav-on-hero .nav-cart:hover{
-  background:none!important;
-  border-bottom-color:currentColor!important;
+/* Underline grows from the center outward on hover, rather than just
+   fading in at full width — a scaleX(0)->scaleX(1) transform on a
+   full-width ::after does this for free, since the default transform
+   origin is the center. */
+nav.nav-on-hero .nav-link::after,
+nav.nav-on-hero .nav-btn-vip::after{
+  content:'';
+  position:absolute;left:0;right:0;bottom:2px;
+  height:1px;
+  background:currentColor;
+  transform:scaleX(0);
+  transition:transform 0.3s ease;
+}
+nav.nav-on-hero .nav-link:hover::after,
+nav.nav-on-hero .nav-btn-vip:hover::after{
+  transform:scaleX(1);
+}
+
+/* Booking: client wants the pill shape back (like the Live Chat bubble),
+   matching the account button's fill + hover-outline instead of the flat
+   underline treatment above. No override needed here, actually — .nav-cart
+   isn't in the flattening rule anymore, so it simply falls back to its
+   normal base style.css look (rounded pill, same
+   rgba(brand-rgb,.12)-fill/hover-outline pattern as .nav-account-btn),
+   which already reads correctly against the new palette since --brand-rgb
+   etc. are redefined above. */
+
+/* All the squared-off buttons above get an accent outline on hover too,
+   matching .see-all's existing border-color change (its border is always
+   present, just a low-contrast glass tint at rest — hover swaps it to the
+   accent). add-to-cart-btn (Info) has no border at rest, so give it an
+   invisible one to transition from. */
+.page-home .hero-btns .btn-tg:hover,.page-home .footer-btns .btn-tg:hover,
+.page-home .hero-btns .btn-model-cta:hover,.page-home .footer-btns .btn-model-cta:hover,
+.page-home .footer-btns .btn-blog:hover{
+  border-color:var(--purple3)!important;
+}
+.page-home .add-to-cart-btn{border:1px solid transparent!important}
+.page-home .add-to-cart-btn:hover{border-color:var(--purple3)!important}
+.page-home .faq-see-all .see-all:hover{border-color:var(--purple3)!important}
+
+/* Placeholder (no-photo) cards still carried the old purple/indigo
+   rebrand gradient, which clashes with the new palette — flat accent tint
+   matching the account button's own background instead. */
+.page-home .model-card-img[style*="linear-gradient(160deg,#242a54"]{
+  background:rgba(var(--brand-rgb),0.12)!important;
 }
 
 /* =================== DEEP AZURE THEME EXPERIMENT (homepage only) =================== */
@@ -453,6 +495,21 @@ nav.nav-on-hero .nav-cart:hover{
   --text-soft:#8FA8B2;
   --text-muted:#6E8B96;
 
+  /* --glass/--glass-border/etc. are declared in style.css's :root as
+     rgba(var(--brand-rgb),X) — custom properties nested this way do NOT
+     re-resolve through a var() redefined further down the tree (a real,
+     easy-to-miss CSS quirk: substituting a derived var() uses the
+     variable's value as cascaded AT ITS OWN declaring rule, not at the
+     element finally consuming it). Redeclaring the derived variables
+     here too, computed with literal numbers, is what actually makes
+     every var(--glass)/var(--glass-border) border and panel background
+     site-wide pick up the new palette — without this, they'd silently
+     stay on the old violet-theme tint. */
+  --glass:rgba(133,209,235,0.08);
+  --glass-border:rgba(133,209,235,0.18);
+  --glass-hover:rgba(133,209,235,0.15);
+  --purple-glow:rgba(133,209,235,0.35);
+
   /* Dark bg again (unlike the bright-cyan theme), so the full-screen mobile
      menu goes back to its default light-on-dark text. */
   --menu-link-color:var(--text);
@@ -470,7 +527,10 @@ nav.nav-on-hero .nav-cart:hover{
   border:1px solid #0F3441!important;
   box-shadow:0 8px 30px rgba(2,12,16,0.5)!important;
 }
-.page-home .model-card:hover{border-color:#16424F!important}
+/* Accent outline on hover (matching .see-all's border-color change), on
+   top of the existing lift animation (transform:translateY, unscoped in
+   style.css — untouched). */
+.page-home .model-card:hover{border-color:var(--purple3)!important}
 .page-home .model-card-footer{
   background:#0F3441!important;
   border-top:1px solid rgba(133,209,235,0.12)!important;
@@ -562,6 +622,16 @@ nav.nav-on-hero .nav-cart:hover{
   --text:#E1F4FA;
   --text-soft:#8FA8B2;
   --text-muted:#6E8B96;
+
+  /* Same fix as the homepage block above: --glass/--glass-border must be
+     redeclared with literal numbers here too, or every border/panel using
+     them silently keeps the old violet-theme tint (nested var()
+     substitution doesn't re-resolve through a redefinition further down
+     the tree). */
+  --glass:rgba(133,209,235,0.08);
+  --glass-border:rgba(133,209,235,0.18);
+  --glass-hover:rgba(133,209,235,0.15);
+  --purple-glow:rgba(133,209,235,0.35);
 
   --menu-link-color:var(--text);
   --menu-link-soft:var(--text-soft);
