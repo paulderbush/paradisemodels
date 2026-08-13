@@ -505,9 +505,9 @@ function buildModelProfile(m) {
 <link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body${m.slug === 'julia' ? ' class="page-model-julia"' : ''}>
+<body class="page-model">
 ${orbsHTML()}
-${navHTML(true, false, m.slug === 'julia')}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
 ${lightboxHTML()}
 
