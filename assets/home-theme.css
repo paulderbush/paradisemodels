@@ -114,20 +114,6 @@ nav{
   object-fit:cover;object-position:top center;
   z-index:0;pointer-events:none;
 }
-/* YouTube embed has no object-fit hook of its own (it's an iframe, not a
-   replaced <video> element) — oversize it to a 16:9 box sized off both
-   viewport dimensions and center it, so whichever axis is the constraint
-   it still fully covers the hero with no letterboxing. overflow:hidden on
-   the wrapper (inheriting .hero-video's inset:0 sizing above) clips the
-   overhang. */
-.hero-yt-wrap{overflow:hidden}
-.hero-yt-iframe{
-  position:absolute;top:50%;left:50%;
-  width:100vw;height:56.25vw;          /* 16:9 from width */
-  min-width:177.78vh;min-height:100vh; /* 16:9 from height — covers when the hero is wider than it is tall */
-  transform:translate(-50%,-50%);
-  border:0;
-}
 /* 20% darkening over the banner — better readability & perceived quality.
    Sits above the video (z0) and below the text (z2); clipped by the hero's
    rounded corners since .hero has overflow:hidden. */
