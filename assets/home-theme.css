@@ -530,3 +530,106 @@ nav.nav-on-hero .nav-cart:hover{
 .page-home .footer-btns .btn-blog:hover{background:#16424F!important}
 
 .page-home .age-modal-text,.page-home .age-modal-list{color:rgba(225,244,250,0.82)!important}
+
+/* =================== DEEP AZURE THEME — JULIA'S PROFILE (trial) =================== */
+/* Same "Scheme C" deep-azure tokens as the homepage experiment above,
+   trialled on Julia's profile page only (.page-model-julia, set only for
+   her slug in buildModelProfile) to see how it reads on a model page
+   before considering it site-wide. Redefining the brand variables here
+   again lets most of the page's existing var()-driven rules (stat boxes,
+   price panel, service chips, cart, age modal, mobile menu…) pick up the
+   palette automatically; the rest of this block undoes the bright-cyan
+   theme's hardcoded-hex overrides that assumed a light page background
+   (dark-ink text/panels meant to sit on bright cyan — wrong on a dark bg). */
+.page-model-julia{
+  --purple:#85D1EB;
+  --purple2:#A3DDF0;
+  --purple3:#85D1EB;
+  --purple-dark:#1D505F;
+  --bg:#08222B;
+  --bg2:#0F3441;
+
+  --brand-rgb:133,209,235;
+  --brand2-rgb:163,221,240;
+  --brand-light-rgb:133,209,235;
+  --brand-dark-rgb:29,80,95;
+  --panel-rgb:15,52,65;
+  --panel2-rgb:22,66,79;
+
+  --glow-light:#A3DDF0;
+  --glow-mid:#85D1EB;
+
+  --text:#E1F4FA;
+  --text-soft:#8FA8B2;
+  --text-muted:#6E8B96;
+
+  --menu-link-color:var(--text);
+  --menu-link-soft:var(--text-soft);
+}
+.page-model-julia{background:#08222B!important}
+
+.page-model-julia nav{
+  background:rgba(15,52,65,0.94)!important;
+  border-bottom:1px solid rgba(133,209,235,0.18)!important;
+}
+.page-model-julia .nav-btn-vip{
+  background:#85D1EB!important;color:#08222B!important;
+  box-shadow:0 4px 20px rgba(133,209,235,0.4)!important;
+}
+.page-model-julia .nav-btn-vip:hover{box-shadow:0 6px 28px rgba(133,209,235,0.6)!important}
+
+.page-model-julia footer{
+  background:rgba(15,52,65,0.94)!important;
+  border-top:1px solid rgba(133,209,235,0.18)!important;
+}
+
+.page-model-julia .model-detail-name{color:var(--text)!important}
+.page-model-julia .back-btn{color:var(--text-soft)!important;border-color:var(--glass-border)!important}
+
+/* Nationality/station line, Languages:/Orientation: labels, the "Available
+   24/7" footnote — all sit directly on the page bg, not inside one of the
+   panels below, so the cyan-theme's dark-ink override (targeted by the
+   exact inline style JS writes them with) needs undoing back to the
+   (now light) CSS variables. */
+.page-model-julia .model-detail-info [style*="color:var(--text-soft)"]{color:var(--text-soft)!important}
+.page-model-julia .model-detail-info [style*="color:var(--text-muted)"]{color:var(--text-muted)!important}
+
+/* Badges and the Languages/Orientation chips also sit directly on the page
+   bg — restore their natural (semantic / accent) colors instead of the
+   dark-ink-on-light-tint pill the cyan theme needed for contrast there. */
+.page-model-julia .model-detail-info .badge-new{background:rgba(160,224,128,0.2)!important;border:1px solid rgba(160,224,128,0.4)!important;color:#A0E080!important}
+.page-model-julia .model-detail-info .badge-top{background:rgba(255,100,100,0.15)!important;border:1px solid rgba(255,100,100,0.3)!important;color:#FF7070!important}
+.page-model-julia .model-detail-info .badge-vip{background:rgba(255,215,0,0.15)!important;border:1px solid rgba(255,215,0,0.35)!important;color:#FFD700!important}
+.page-model-julia .service-chip{
+  background:rgba(var(--brand-rgb),0.15)!important;
+  border:1px solid rgba(var(--brand-light-rgb),0.2)!important;
+  color:var(--purple3)!important;
+}
+
+/* Stat boxes / booking panel / bio / map / services panels: the cyan theme
+   forced a solid dark panel here since the default translucent glass
+   would've washed out on a bright bg — on our already-dark page the
+   default glass treatment (var(--glass)) looks right instead. */
+.page-model-julia .stat-box,
+.page-model-julia .price-calc,
+.page-model-julia .model-bio,
+.page-model-julia .model-map-block,
+.page-model-julia .model-detail-services{
+  background:var(--glass)!important;
+  backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+  border:1px solid var(--glass-border)!important;
+}
+
+.page-model-julia .price-type-btn.active,
+.page-model-julia .duration-btn.active,
+.page-model-julia .rv-type-btn.active,
+.page-model-julia .bf-method.active{
+  background:var(--purple3)!important;border-color:var(--purple3)!important;color:#08222B!important;
+}
+
+.page-model-julia .make-booking-btn{
+  background:linear-gradient(135deg,var(--purple-dark),var(--purple))!important;
+  box-shadow:0 6px 28px rgba(var(--brand-dark-rgb),0.45)!important;
+}
+
+.page-model-julia .age-modal-text,.page-model-julia .age-modal-list{color:rgba(225,244,250,0.82)!important}
