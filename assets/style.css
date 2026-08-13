@@ -963,6 +963,18 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .become-header{margin-bottom:2.5rem}
 .become-header h1{font-size:2rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.4rem}
 .become-header p{color:var(--text-soft)}
+
+/* ABOUT PAGE — model teaser grid */
+.about-teaser-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.about-teaser-grid a{text-decoration:none;display:block;border-radius:var(--r-xs);overflow:hidden;position:relative;aspect-ratio:3/4;transition:border-color 0.25s}
+.about-teaser-grid a img{width:100%;height:100%;object-fit:cover;display:block}
+.about-teaser-grid a .about-teaser-name{position:absolute;left:0;right:0;bottom:0;padding:0.6rem;background:linear-gradient(0deg,rgba(0,0,0,0.65),transparent);color:#fff;font-size:13px;font-weight:600}
+@media(max-width:768px){
+  /* Client wants exactly 2 on mobile, unchanged from before — 2-column
+     grid capped at the old width so the cards keep their original size. */
+  .about-teaser-grid{grid-template-columns:repeat(2,1fr);max-width:360px}
+  .about-teaser-grid a:nth-child(n+3){display:none}
+}
 .form-section{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--r-sm);padding:1.5rem;margin-bottom:1.25rem}
 .form-section-title{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple3);margin-bottom:1.2rem}
 .form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}

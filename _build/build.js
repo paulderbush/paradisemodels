@@ -1077,7 +1077,7 @@ const CITIES = [];
 
 function buildAbout() {
   const featuredNationalities = ['Russian', 'British', 'Brazilian', 'French', 'Italian', 'Spanish', 'Ukrainian', 'Eastern European'];
-  const teaserModels = PUBLIC_MODELS.filter(m => m.real).slice(0, 2);
+  const teaserModels = PUBLIC_MODELS.filter(m => m.real).slice(0, 4);
 
   return head(
     'High Class London Escorts | Paradise Models',
@@ -1086,9 +1086,9 @@ function buildAbout() {
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-about">
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
@@ -1101,8 +1101,8 @@ ${ageModalHTML()}
     <div class="form-section" style="padding:0;overflow:hidden;margin-bottom:2.5rem">
       <div class="about-hero" style="position:relative;min-height:280px;display:flex;align-items:center;padding:2.5rem 1.75rem">
         <div style="max-width:520px">
-          <h1 style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;color:#1a1e42;line-height:1.15;margin-bottom:0.9rem">High Class <span style="background:linear-gradient(135deg,#1a5f7a,#123a66);-webkit-background-clip:text;-webkit-text-fill-color:transparent">London Escorts</span></h1>
-          <p style="color:rgba(26,30,66,0.8);font-size:14.5px;line-height:1.8">Introducing our exclusive gallery of high class international escorts. At Paradise Models, we have a range of busty blondes, Russian brunettes and leggy redheads eager to please the discerning gentlemen of ${CITIES.slice(0, -1).join(', ')} and ${CITIES[CITIES.length - 1]}. Whether you opt for an incall or an outcall, we have the perfect elite escort for you offering a range of services from romantic dinner dates to thrilling duo experiences. Our girls are available 24/7 from £300/h. Browse through their verified photos, selfies and videos and call us to book now!</p>
+          <h1 style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;color:var(--text);line-height:1.15;margin-bottom:0.9rem">High Class <span style="background:linear-gradient(135deg,var(--glow-light),var(--glow-mid));-webkit-background-clip:text;-webkit-text-fill-color:transparent">London Escorts</span></h1>
+          <p style="color:var(--text-soft);font-size:14.5px;line-height:1.8">Introducing our exclusive gallery of high class international escorts. At Paradise Models, we have a range of busty blondes, Russian brunettes and leggy redheads eager to please the discerning gentlemen of ${CITIES.slice(0, -1).join(', ')} and ${CITIES[CITIES.length - 1]}. Whether you opt for an incall or an outcall, we have the perfect elite escort for you offering a range of services from romantic dinner dates to thrilling duo experiences. Our girls are available 24/7 from £300/h. Browse through their verified photos, selfies and videos and call us to book now!</p>
         </div>
       </div>
       <div style="padding:1.1rem 1.75rem;display:flex;flex-wrap:wrap;gap:6px">
@@ -1114,7 +1114,7 @@ ${ageModalHTML()}
       <div class="form-section-title" style="font-size:1.15rem">Why Choose Paradise Models?</div>
       <p style="color:var(--text-soft);font-size:14px;line-height:1.85;margin-bottom:1rem">As a respected high class international escort agency, we carefully select every model in our gallery. Each elite London escort has been chosen for her beauty, intelligence and class. We offer a wide range of models catering to every taste who each meet our high standards of sophistication. Client's privacy and confidentiality is our top priority. Our ${CITIES.slice(0, -1).join(', ')} and ${CITIES[CITIES.length - 1]} elite escorts always provide a discreet service to give you peace of mind.</p>
       <p style="color:var(--text-soft);font-size:14px;line-height:1.85;margin-bottom:1.5rem">At Paradise Models, we focus on providing a professional, reliable and discreet service across every area of London. In keeping with this, we offer our direct support for anyone who needs help or has further questions in regards to our services, escorts or agency in general. To get in contact, feel free to contact us online or message us directly to speak to a friendly member of staff.</p>
-      <div style="border-left:3px solid #70e9ff;padding:0.25rem 0 0.25rem 1.1rem;margin-bottom:1.5rem">
+      <div style="border-left:3px solid var(--purple3);padding:0.25rem 0 0.25rem 1.1rem;margin-bottom:1.5rem">
         <p style="color:var(--text);font-size:1.05rem;font-style:italic;line-height:1.6">"We pride ourselves on being a boutique agency and not a mass market platform."</p>
       </div>
       <p style="color:var(--text-soft);font-size:14px;line-height:1.85">Every model you see with us has been carefully cast and selected to meet the highest standards of beauty, charm, and professionalism. This dedication to quality ensures you receive not only exceptional companionship but also the finest escort service London has to offer. With Paradise Models, you're not just booking a date — you're experiencing a curated, top-tier encounter designed for those who value exclusivity and excellence.</p>
@@ -1129,11 +1129,11 @@ ${ageModalHTML()}
       </div>
       <p style="color:var(--text-soft);font-size:14px;line-height:1.85;margin-bottom:1.25rem">The profiles of our elite London escorts feature high-quality photos, selfies and personal videos. They also list detailed stats, services, rates, and verified reviews to learn more about each high class escort. Want to narrow down your options? Use our filter to sort by rate, or browse by category and city from the models menu.</p>
       ${teaserModels.length ? `
-      <div style="display:grid;grid-template-columns:repeat(${teaserModels.length},1fr);gap:1rem;max-width:360px">
+      <div class="about-teaser-grid">
         ${teaserModels.map(m => `
-        <a href="/models/${m.slug}/" style="text-decoration:none;display:block;border-radius:var(--r-xs);overflow:hidden;position:relative;aspect-ratio:3/4">
-          <img src="/${m.folder}/1.webp?v=${BUILD_TS}" alt="${m.name}" style="width:100%;height:100%;object-fit:cover;display:block">
-          <div style="position:absolute;left:0;right:0;bottom:0;padding:0.6rem;background:linear-gradient(0deg,rgba(0,0,0,0.65),transparent);color:#fff;font-size:13px;font-weight:600">${m.name}</div>
+        <a href="/models/${m.slug}/">
+          <img src="/${m.folder}/1.webp?v=${BUILD_TS}" alt="${m.name}">
+          <div class="about-teaser-name">${m.name}</div>
         </a>`).join('')}
       </div>` : ''}
     </div>
@@ -1148,7 +1148,7 @@ ${ageModalHTML()}
 
     <div class="form-section" style="text-align:center">
       <div class="form-section-title" style="font-size:1.15rem">How To Book A VIP Escort</div>
-      <p style="color:var(--text-soft);font-size:14px;line-height:1.85;margin-bottom:1.25rem;text-align:left">Prefer something more exclusive? Our <a href="/vip-models/" style="color:#70e9ff">VIP Models</a> section is a separate, closed catalog — hidden from public browsing and visible only to members who've unlocked it. Create a free account, complete a single one-time payment (no subscription, no recurring charge), and you'll have ongoing access to our VIP companions the moment it clears. Everyone else can still browse the full public gallery as usual — VIP is simply a further step in, for those who want it.</p>
+      <p style="color:var(--text-soft);font-size:14px;line-height:1.85;margin-bottom:1.25rem;text-align:left">Prefer something more exclusive? Our <a href="/vip-models/" style="color:var(--purple3)">VIP Models</a> section is a separate, closed catalog — hidden from public browsing and visible only to members who've unlocked it. Create a free account, complete a single one-time payment (no subscription, no recurring charge), and you'll have ongoing access to our VIP companions the moment it clears. Everyone else can still browse the full public gallery as usual — VIP is simply a further step in, for those who want it.</p>
       <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
         <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem" href="/vip-models/">View VIP Models</a>
         <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem;background:rgba(255,255,255,0.08)!important;box-shadow:none!important" href="${TG_LINK}" target="_blank" rel="noopener">Message on Telegram</a>
