@@ -64,6 +64,62 @@ function initGalleryTouch() {
   }, {passive: true});
 }
 
+// =================== PHOTO LIGHTBOX ===================
+// Reuses the same _gallery.items/current state as the inline gallery
+// (galleryGo() below keeps both in sync), so opening/closing the lightbox
+// never leaves the inline strip pointing at a different photo.
+function _renderLightbox() {
+  const content = document.getElementById('lightboxContent');
+  const counter = document.getElementById('lightboxCounter');
+  if (!content) return;
+  const item = _gallery.items[_gallery.current];
+  if (!item) return;
+  content.innerHTML = item.type === 'video'
+    ? `<video src="${item.src}" controls autoplay playsinline></video>`
+    : `<img src="${item.src}" alt="">`;
+  if (counter) counter.textContent = `${_gallery.current + 1} / ${_gallery.items.length}`;
+}
+function openLightbox(idx) {
+  if (typeof idx === 'number') _gallery.current = idx;
+  const overlay = document.getElementById('lightboxOverlay');
+  // Gallery items load async (probeModelMedia) — before that resolves,
+  // _gallery.items may not exist yet even though the fallback <img> is
+  // already clickable.
+  if (!overlay || !_gallery.items || !_gallery.items.length) return;
+  _renderLightbox();
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  const overlay = document.getElementById('lightboxOverlay');
+  if (!overlay) return;
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+  const content = document.getElementById('lightboxContent');
+  if (content) { content.querySelectorAll('video').forEach(v => v.pause()); content.innerHTML = ''; }
+}
+function lightboxGo(dir) {
+  galleryGo(dir);
+  _renderLightbox();
+}
+function initLightboxTouch() {
+  const el = document.getElementById('lightboxOverlay');
+  if (!el) return;
+  let sx = 0, sy = 0;
+  el.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive: true});
+  el.addEventListener('touchend', e => {
+    const dx = sx - e.changedTouches[0].clientX;
+    const dy = sy - e.changedTouches[0].clientY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 45) lightboxGo(dx > 0 ? 1 : -1);
+  }, {passive: true});
+  document.addEventListener('keydown', e => {
+    if (!el.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft') lightboxGo(-1);
+    else if (e.key === 'ArrowRight') lightboxGo(1);
+  });
+}
+
 // =================== PRICING ===================
 function selectPriceType(type) {
   _pricing.type = type; _pricing.durationIdx = 0; _pricing.extras = new Set();
@@ -131,7 +187,7 @@ function buildRealModelHTML(m) {
       <div class="detail-left">
         <div class="detail-gallery">
           <div class="gallery-track" id="gallery-track">
-            <img class="gallery-slide" src="/${m.folder}/1.webp" alt="${m.name}">
+            <img class="gallery-slide" src="/${m.folder}/1.webp" alt="${m.name}" onclick="openLightbox(0)">
           </div>
           <button class="gallery-arrow prev" onclick="galleryGo(-1)">&#8249;</button>
           <button class="gallery-arrow next" onclick="galleryGo(1)">&#8250;</button>
@@ -212,15 +268,18 @@ function buildRealModelHTML(m) {
 
 function openRealModel(m) {
   _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), includedChoices: new Set(), model: m};
-  _gallery = {photos: [], current: 0};
+  // Seeded with the fallback single photo so the lightbox works even
+  // before probeModelMedia's async scan resolves and replaces it below.
+  _gallery = {items: [{type: 'photo', idx: 1, src: `/${m.folder}/1.webp`}], current: 0};
   const container = document.getElementById('modelDetailContent');
   if (container) container.innerHTML = buildRealModelHTML(m);
   initGalleryTouch();
+  initLightboxTouch();
   probeModelMedia(m.folder, items => {
     _gallery.items = items;
     const track = document.getElementById('gallery-track');
     if (!track) return;
-    track.innerHTML = items.map(item => {
+    track.innerHTML = items.map((item, i) => {
       if (item.type === 'video') {
         return `<div class="gallery-slide video-slide">
           <video src="${item.src}" preload="none" playsinline controls style="width:100%;height:100%;object-fit:contain;background:#000"></video>
@@ -232,7 +291,7 @@ function openRealModel(m) {
           </div>
         </div>`;
       }
-      return `<img class="gallery-slide" src="${item.src}" alt="${m.name}">`;
+      return `<img class="gallery-slide" src="${item.src}" alt="${m.name}" onclick="openLightbox(${i})">`;
     }).join('');
     const dotsEl = document.getElementById('gallery-dots');
     if (dotsEl) dotsEl.innerHTML = items.map((item, i) => {
