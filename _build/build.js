@@ -211,6 +211,17 @@ function fakeModelOverlayHTML() {
   return '<div id="fakeModelOverlay"></div>';
 }
 
+function lightboxHTML() {
+  return `<!-- PHOTO LIGHTBOX -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
+  <button class="lightbox-arrow prev" onclick="lightboxGo(-1)" aria-label="Previous">&#8249;</button>
+  <div class="lightbox-content" id="lightboxContent"></div>
+  <button class="lightbox-arrow next" onclick="lightboxGo(1)" aria-label="Next">&#8250;</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>`;
+}
+
 function orbsHTML() {
   return `<div class="orb-container">
   <div class="orb orb1"></div>
@@ -497,6 +508,7 @@ function buildModelProfile(m) {
 ${orbsHTML()}
 ${navHTML(true)}
 ${ageModalHTML()}
+${lightboxHTML()}
 
 <div style="position:relative;z-index:1">
   <div class="model-detail-page" id="modelDetailContent">

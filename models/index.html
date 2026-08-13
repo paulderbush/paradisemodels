@@ -11,9 +11,9 @@
 <meta property="og:description" content="Browse our exclusive roster of London companions. Filter by location, nationality, services and more.">
 <meta property="og:url" content="https://velvetescort.co.uk/models/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260813143640">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260813143640">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260813143640">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260813163647">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260813163647">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260813163647">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -822,6 +822,65 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .gallery-counter{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.45);backdrop-filter:blur(8px);border-radius:20px;padding:3px 10px;font-size:11px;color:rgba(255,255,255,0.75);z-index:3}
 .video-slide{position:relative;background:#000;display:flex;align-items:center;justify-content:center}
 .video-slide video{width:100%;height:100%;object-fit:contain}
+
+/* ===== PHOTO LIGHTBOX ===== */
+.lightbox-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:#030308;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.25s;
+}
+.lightbox-overlay.open{opacity:1;pointer-events:auto}
+.lightbox-content{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  padding:4vh 4vw;
+  user-select:none;
+}
+.lightbox-content img,.lightbox-content video{
+  max-width:100%;max-height:100%;
+  width:auto;height:auto;
+  object-fit:contain;
+}
+.lightbox-close{
+  position:fixed;
+  top:calc(env(safe-area-inset-top,0px) + 16px);
+  right:calc(env(safe-area-inset-right,0px) + 16px);
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;font-size:18px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:2002;
+  transition:background 0.2s;
+}
+.lightbox-close:hover{background:rgba(255,255,255,0.2)}
+.lightbox-arrow{
+  position:fixed;top:50%;transform:translateY(-50%);
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;font-size:26px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:2001;
+  transition:background 0.2s;
+}
+.lightbox-arrow:hover{background:rgba(255,255,255,0.2)}
+.lightbox-arrow.prev{left:20px}
+.lightbox-arrow.next{right:20px}
+.lightbox-counter{
+  position:fixed;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);left:50%;transform:translateX(-50%);
+  background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);
+  padding:4px 14px;border-radius:20px;font-size:12px;
+  z-index:2001;
+}
+/* Arrows off on mobile — swipe is the primary gesture there, and this is
+   also what keeps the close button clear of any other control per the
+   client's ask ("крестик не должен ничем пересекаться"). */
+@media(max-width:768px){
+  .lightbox-arrow{display:none}
+}
 .video-play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:68px;cursor:pointer;z-index:4;pointer-events:all;transition:transform 0.15s}
 .video-play-icon:hover{transform:translate(-50%,-50%) scale(1.08)}
 .video-play-icon svg{width:100%;height:100%;filter:drop-shadow(0 2px 14px rgba(0,0,0,0.8))}
@@ -1156,10 +1215,10 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260813143640';</script>
+<script>window.BUILD_TS='20260813163647';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260813143640"></script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260813143640">
+<script src="/assets/currency.js?v=20260813163647"></script>
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260813163647">
 </head>
 <body>
 <div class="orb-container">
@@ -1183,7 +1242,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260813143640" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260813163647" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1226,7 +1285,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260813143640" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-nav.png?v=20260813163647" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1448,9 +1507,9 @@ const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British"
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 const CITIES = ["London","Paris","Monaco","Milan","Dubai","New York","Miami","Zurich","Amsterdam"];
 </script>
-<script src="/assets/main.js?v=20260813143640"></script>
-<script src="/assets/chat.js?v=20260813143640"></script>
-<script src="/assets/catalog.js?v=20260813143640"></script>
+<script src="/assets/main.js?v=20260813163647"></script>
+<script src="/assets/chat.js?v=20260813163647"></script>
+<script src="/assets/catalog.js?v=20260813163647"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async function() {
   await window.CUR_READY;
