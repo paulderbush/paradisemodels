@@ -269,7 +269,9 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
 
 /* CART PANEL */
 .cart-panel{
-  position:fixed;top:0;right:-400px;width:360px;height:100vh;z-index:500;
+  /* Above .chat-bubble (600) so the booking panel covers it while open,
+     rather than the bubble floating over the panel's own buttons. */
+  position:fixed;top:0;right:-400px;width:360px;height:100vh;z-index:700;
   background:rgba(var(--panel-rgb),0.97);
   backdrop-filter:blur(30px);
   border-left:1px solid var(--glass-border);
