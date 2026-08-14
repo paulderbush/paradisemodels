@@ -172,10 +172,11 @@ function refreshPriceDisplay() {
 
 // =================== MODEL DETAIL BUILDER ===================
 function buildRealModelHTML(m) {
-  // Most models take both, but a few are outcall-only — fall back to
-  // outcall as the default tab (and hide Incall entirely) when there's
-  // nothing to show there.
+  // Most models take both, but some only do one or the other — both
+  // buttons always show, the one with no rates is just disabled, and
+  // whichever type the model actually offers is active by default.
   const hasIncall = m.incallRates && m.incallRates.length > 0;
+  const hasOutcall = m.outcallRates && m.outcallRates.length > 0;
   const initType = hasIncall ? 'incall' : 'outcall';
   const initRates = hasIncall ? m.incallRates : m.outcallRates;
   const initRate = initRates[0];
@@ -228,8 +229,8 @@ function buildRealModelHTML(m) {
         <div class="price-calc">
           <div class="price-calc-title">Book a Session</div>
           <div class="price-type-row">
-            ${hasIncall ? `<button class="price-type-btn${initType === 'incall' ? ' active' : ''}" data-type="incall" onclick="selectPriceType('incall')">Incall</button>` : ''}
-            <button class="price-type-btn${initType === 'outcall' ? ' active' : ''}" data-type="outcall" onclick="selectPriceType('outcall')">Outcall <span style="font-size:10px;opacity:0.6">min 1hr</span></button>
+            <button class="price-type-btn${initType === 'incall' ? ' active' : ''}${hasIncall ? '' : ' disabled'}" data-type="incall" ${hasIncall ? `onclick="selectPriceType('incall')"` : 'disabled'}>Incall</button>
+            <button class="price-type-btn${initType === 'outcall' ? ' active' : ''}${hasOutcall ? '' : ' disabled'}" data-type="outcall" ${hasOutcall ? `onclick="selectPriceType('outcall')"` : 'disabled'}>Outcall <span style="font-size:10px;opacity:0.6">min 1hr</span></button>
           </div>
           <div class="duration-row" id="duration-btns">
             ${initRates.map((r, i) => `<button class="duration-btn${i === 0 ? ' active' : ''}" onclick="selectDuration(${i})">${r.label}</button>`).join('')}

@@ -879,6 +879,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .price-type-row{display:flex;gap:6px;margin-bottom:1rem}
 .price-type-btn{flex:1;padding:0.55rem;border-radius:var(--r-xs);background:rgba(var(--brand-rgb),0.08);border:1px solid var(--glass-border);color:var(--text-soft);font-family:'Zalando Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center}
 .price-type-btn.active{background:rgba(var(--brand-rgb),0.3);border-color:var(--purple3);color:#fff}
+.price-type-btn:disabled{opacity:0.35;cursor:not-allowed}
 .duration-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}
 .duration-btn{flex:1;padding:0.3rem 0.75rem;border-radius:var(--r-xs);background:rgba(var(--brand-rgb),0.08);border:1px solid var(--glass-border);color:var(--text-soft);font-family:'Zalando Sans',sans-serif;font-size:12px;cursor:pointer;transition:all 0.2s;white-space:nowrap;text-align:center}
 .duration-btn.active{background:rgba(var(--brand-rgb),0.28);border-color:var(--purple3);color:#fff}

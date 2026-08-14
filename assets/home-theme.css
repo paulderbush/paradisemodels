@@ -683,7 +683,7 @@ body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:
 .page-model .bf-method{
   border-radius:0!important;
 }
-.page-model .price-type-btn:hover,
+.page-model .price-type-btn:not(:disabled):hover,
 .page-model .duration-btn:hover,
 .page-model .rv-type-btn:hover,
 .page-model .bf-method:hover{
@@ -762,13 +762,17 @@ body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:
   -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
 }
 .page-vip-models .models-page-header p{color:var(--text-soft)!important}
-.page-vip-models .vip-paywall-card{
+/* Also applies on .page-model — a VIP model's own profile shows this
+   same locked-notice card when the visitor isn't paid. */
+.page-vip-models .vip-paywall-card,
+.page-model .vip-paywall-card{
   background:var(--glass)!important;
   backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
   border:1px solid var(--glass-border)!important;
   border-radius:0!important;
 }
-.page-vip-models .vip-paywall-card .form-section-title{color:var(--purple3)!important}
+.page-vip-models .vip-paywall-card .form-section-title,
+.page-model .vip-paywall-card .form-section-title{color:var(--purple3)!important}
 
 /* =================== CONCIERGE PAGE — content unique to this page =================== */
 /* Palette/nav/footer/back-btn/form-section/submit-app-btn etc. are all
