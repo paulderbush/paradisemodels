@@ -230,8 +230,8 @@ function modelCardHTML(m, clickable = true, showTags = true) {
 
   return `
   ${cardStart}
-    <div class="model-card-img" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : `background:${PLACEHOLDER_BG}`}">
-      ${!m.real ? `<div class="model-photo-placeholder">
+    <div class="model-card-img" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : m.teaserImg ? `background:url('${m.teaserImg}${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') center/cover no-repeat` : `background:${PLACEHOLDER_BG}`}">
+      ${!m.real && !m.teaserImg ? `<div class="model-photo-placeholder">
         <svg class="model-silhouette-svg" width="60" height="100" viewBox="0 0 60 100" fill="none">
           <ellipse cx="30" cy="14" rx="13" ry="13" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
           <path d="M8 100 Q8 58 30 52 Q52 58 52 100" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"/>

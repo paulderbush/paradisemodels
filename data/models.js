@@ -498,18 +498,25 @@ const ABBEY_DATA = {
 };
 
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
-// intentionally never shows a real VIP model's actual photo — blur is a
-// CSS filter a visitor can strip client-side, so a blurred real photo is
-// not meaningfully protected. These mirror each VIP model's public stats
-// (name/age/nationality/etc.) so the teaser matches our real roster, but
-// stay real:false so the card renders as silhouette placeholder art with
-// no photo to leak.
+// deliberately never sends a real VIP model's actual cover photo to the
+// browser — a CSS blur filter is trivially stripped client-side (dev
+// tools), so a "blurred" real photo isn't meaningfully protected. Instead
+// teaserImg points at a derivative baked at build time: downsampled to a
+// few dozen pixels, then Gaussian-blurred and scaled back up (see the
+// generation note in vip-models/README — regenerate with the same recipe
+// for any future VIP model). All identifying detail is destroyed before
+// the file ever reaches the client, so there's nothing to un-blur even if
+// every CSS filter on the page is disabled — only a rough color/shape
+// impression survives. These otherwise mirror each VIP model's public
+// stats (name/age/nationality/etc.) so the teaser matches our real
+// roster, and stay real:false so they render as non-clickable cards.
 const VIP_TEASER_MODELS = [
   {
     id: 9985, real: false, vip: false, slug: 'aaliyah-teaser',
     name: 'Aaliyah', age: 25, height: 166, weight: 46,
     nationality: 'Persian/British', station: 'Battersea', city: 'London',
     rateHour: 1600, color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'], initials: 'AA',
+    teaserImg: '/vip-models/Aaliyah/teaser-blur.webp',
     cats: [], svcs: ['69', 'Bi DUO', 'Body to body massage'], rating: '4.9', reviews: [],
   },
   {
@@ -517,6 +524,7 @@ const VIP_TEASER_MODELS = [
     name: 'Kendal', age: 22, height: 170, weight: 50,
     nationality: 'Brazilian', station: 'Paddington', city: 'London',
     rateHour: 1600, color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'], initials: 'KE',
+    teaserImg: '/vip-models/Kendal/teaser-blur.webp',
     cats: [], svcs: [], rating: '4.9', reviews: [],
   },
   {
@@ -524,6 +532,7 @@ const VIP_TEASER_MODELS = [
     name: 'Alicia', age: 24, height: 178, weight: 50,
     nationality: 'Italian/Brazilian', station: 'Kensington', city: 'London',
     rateHour: 1600, color: ['rgba(140,60,200,0.4)', 'rgba(90,30,140,0.7)'], initials: 'AL',
+    teaserImg: '/vip-models/Alicia/teaser-blur.webp',
     cats: [], svcs: ['69', 'FK', 'GFE'], rating: '4.9', reviews: [],
   },
   {
@@ -531,6 +540,7 @@ const VIP_TEASER_MODELS = [
     name: 'Abbey', age: 25, height: 170, weight: 55,
     nationality: 'British', station: 'Soho', city: 'London',
     rateHour: 1600, color: ['rgba(200,180,150,0.4)', 'rgba(130,110,80,0.7)'], initials: 'AB',
+    teaserImg: '/vip-models/Abbey/teaser-blur.webp',
     cats: [], svcs: ['Body to body massage', 'CIF', 'COB'], rating: '4.9', reviews: [],
   },
 ];
