@@ -497,10 +497,48 @@ const ABBEY_DATA = {
   reviews: [],
 };
 
+// The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
+// intentionally never shows a real VIP model's actual photo — blur is a
+// CSS filter a visitor can strip client-side, so a blurred real photo is
+// not meaningfully protected. These mirror each VIP model's public stats
+// (name/age/nationality/etc.) so the teaser matches our real roster, but
+// stay real:false so the card renders as silhouette placeholder art with
+// no photo to leak.
+const VIP_TEASER_MODELS = [
+  {
+    id: 9985, real: false, vip: false, slug: 'aaliyah-teaser',
+    name: 'Aaliyah', age: 25, height: 166, weight: 46,
+    nationality: 'Persian/British', station: 'Battersea', city: 'London',
+    rateHour: 1600, color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'], initials: 'AA',
+    cats: [], svcs: ['69', 'Bi DUO', 'Body to body massage'], rating: '4.9', reviews: [],
+  },
+  {
+    id: 9984, real: false, vip: false, slug: 'kendal-teaser',
+    name: 'Kendal', age: 22, height: 170, weight: 50,
+    nationality: 'Brazilian', station: 'Paddington', city: 'London',
+    rateHour: 1600, color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'], initials: 'KE',
+    cats: [], svcs: [], rating: '4.9', reviews: [],
+  },
+  {
+    id: 9983, real: false, vip: false, slug: 'alicia-teaser',
+    name: 'Alicia', age: 24, height: 178, weight: 50,
+    nationality: 'Italian/Brazilian', station: 'Kensington', city: 'London',
+    rateHour: 1600, color: ['rgba(140,60,200,0.4)', 'rgba(90,30,140,0.7)'], initials: 'AL',
+    cats: [], svcs: ['69', 'FK', 'GFE'], rating: '4.9', reviews: [],
+  },
+  {
+    id: 9982, real: false, vip: false, slug: 'abbey-teaser',
+    name: 'Abbey', age: 25, height: 170, weight: 55,
+    nationality: 'British', station: 'Soho', city: 'London',
+    rateHour: 1600, color: ['rgba(200,180,150,0.4)', 'rgba(130,110,80,0.7)'], initials: 'AB',
+    cats: [], svcs: ['Body to body massage', 'CIF', 'COB'], rating: '4.9', reviews: [],
+  },
+];
+
 // London is where the real roster lives now, so the placeholder/generated
 // profiles don't need to (and shouldn't) also claim a London presence —
 // keep them for the other cities, which still have no real models yet.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, ...VIP_TEASER_MODELS, ...FAKE_MODELS];
 
 module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };

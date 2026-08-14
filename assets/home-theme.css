@@ -356,9 +356,7 @@ footer{
 .vip-teaser-grid{filter:blur(16px);pointer-events:none;user-select:none;opacity:0.85}
 .vip-paywall-overlay{
   position:absolute;inset:0;z-index:2;
-  /* Near the top rather than vertically centered — centering it left a lot
-     of visually-empty blurred space above and below the card. */
-  display:flex;align-items:flex-start;justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   padding:1.75rem 1.5rem;
 }
 .vip-paywall-card{
