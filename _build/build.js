@@ -6,7 +6,7 @@ const path = require('path');
 const css = fs.readFileSync(path.join(__dirname, '../assets/style.css'), 'utf8');
 
 // Load models
-const { MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES } = require('../data/models.js');
+const { MODELS, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES } = require('../data/models.js');
 // URL-safe slug for a city name, used for element ids and query params.
 const citySlug = (c) => c.toLowerCase().replace(/\s+/g, '-');
 const REAL_MODELS = MODELS.filter(m => m.real);
@@ -475,6 +475,7 @@ ${fakeModelOverlayHTML()}
           </select>
         </div>
         <div class="models-grid-main" id="modelsGrid"></div>
+        <a class="vip-catalog-cta" href="/vip-models/">Looking for VIP models? →</a>
       </div>
     </div>
   </div>
@@ -843,6 +844,13 @@ ${ageModalHTML()}
 
 ${footerHTML(true)}
 ${modelsDataScript()}
+<script>
+// Kept separate from MODELS above on purpose — these are display-only
+// stand-ins for the locked teaser grid (see vipTeaserPool in
+// assets/vip.js) and must never surface in the general catalog or nav
+// search, which both read from MODELS.
+const VIP_TEASER_MODELS = ${JSON.stringify(VIP_TEASER_MODELS)};
+<\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/auth.js?v=${BUILD_TS}"><\/script>

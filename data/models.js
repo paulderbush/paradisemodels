@@ -548,7 +548,11 @@ const VIP_TEASER_MODELS = [
 // London is where the real roster lives now, so the placeholder/generated
 // profiles don't need to (and shouldn't) also claim a London presence —
 // keep them for the other cities, which still have no real models yet.
+// NOTE: VIP_TEASER_MODELS is intentionally NOT included here — it must
+// never reach the general catalog/search MODELS list (see its own comment
+// above). _build/build.js embeds it as its own separate script variable,
+// only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, ...VIP_TEASER_MODELS, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };

@@ -749,6 +749,15 @@ body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:
   color:var(--text)!important;
 }
 .page-models .sort-select option{background:#0F3441;color:var(--text)}
+.page-models .vip-catalog-cta{
+  display:block;text-align:center;margin-top:1.75rem;padding:1.5rem;
+  background:rgba(var(--brand-rgb),0.08);
+  border:1px solid var(--glass-border);
+  border-radius:0;
+  color:var(--purple3);font-weight:600;font-size:15px;
+  text-decoration:none;transition:all 0.25s;
+}
+.page-models .vip-catalog-cta:hover{background:rgba(var(--brand-rgb),0.18);border-color:var(--purple3)}
 
 /* =================== VIP MODELS PAGE — content unique to this page =================== */
 /* Palette/nav/footer/back-btn/model-card/submit-app-btn etc. are all
@@ -761,10 +770,13 @@ body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:
 }
 .page-vip-models .models-page-header p{color:var(--text-soft)!important}
 /* Also applies on .page-model — a VIP model's own profile shows this
-   same locked-notice card when the visitor isn't paid. */
+   same locked-notice card when the visitor isn't paid. Solid (not
+   --glass) on purpose: this sits over the busy blurred teaser photos
+   behind it, and --glass's 8% tint left it washed-out and hard to read
+   there. */
 .page-vip-models .vip-paywall-card,
 .page-model .vip-paywall-card{
-  background:var(--glass)!important;
+  background:rgba(var(--panel-rgb),0.97)!important;
   backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
   border:1px solid var(--glass-border)!important;
   border-radius:0!important;
