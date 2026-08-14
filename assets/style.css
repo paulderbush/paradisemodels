@@ -1048,6 +1048,9 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .filters-sidebar{position:static;display:none;grid-column:1/-1;max-height:none;overflow:visible}
   .filters-sidebar.open{display:block}
   .models-row{grid-template-columns:repeat(2,1fr)}
+  /* auto-fill's 200px minimum only fits one column at mobile widths —
+     match .models-row's fixed 2-up layout instead. */
+  .models-grid-main{grid-template-columns:repeat(2,1fr)}
   .model-detail-layout{grid-template-columns:1fr}
   .real-detail-layout{display:flex;flex-direction:column;gap:1rem;align-items:stretch}
   .real-detail-layout>.detail-left{display:contents}
