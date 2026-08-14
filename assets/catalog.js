@@ -20,12 +20,6 @@ function applyCityFromURL() {
   if (cb) cb.checked = true;
 }
 
-// applyFilters() jumps the mobile view down to the results, which is helpful
-// after the visitor changes a filter but wrong otherwise: init calls it three
-// times (once per range), which would drag the page down on its own. Only a
-// genuine filter change scrolls — init is gated by this flag.
-let _filtersInteractive = false;
-
 function initModelsPage() {
   renderModelsGrid(MODELS);
   buildCityList();
@@ -42,11 +36,9 @@ function initModelsPage() {
       if (fill) { fill.style.left = '0%'; fill.style.width = '100%'; }
     });
   }, 100);
-  _filtersInteractive = true;
 }
 
-function applyFilters(opts) {
-  const scroll = !opts || opts.scroll !== false;
+function applyFilters() {
   let ms = [...MODELS];
   if (activeCat !== 'all') ms = ms.filter(m => m.cats.includes(activeCat));
   if (selectedCities.length) ms = ms.filter(m => selectedCities.includes(m.city));
@@ -57,10 +49,6 @@ function applyFilters(opts) {
   ms = ms.filter(m => m.height >= heightRange[0] && m.height <= heightRange[1]);
   filteredModels = ms;
   renderModelsGrid(ms);
-  if (scroll && _filtersInteractive && window.innerWidth <= 768) {
-    const grid = document.getElementById('modelsGrid');
-    if (grid) setTimeout(() => grid.scrollIntoView({behavior: 'smooth', block: 'start'}), 100);
-  }
 }
 
 function renderModelsGrid(ms) {

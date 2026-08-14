@@ -371,6 +371,13 @@ function toggleMobileFilters() {
   const open = sidebar.classList.toggle('open');
   btn.classList.toggle('active', open);
   chev.style.transform = open ? 'rotate(180deg)' : '';
+  // Jump to the results once the visitor closes the panel, rather than
+  // after every single filter they pick — scrolling mid-selection made it
+  // impossible to check several boxes in a row without scrolling back up.
+  if (!open) {
+    const grid = document.getElementById('modelsGrid');
+    if (grid) setTimeout(() => grid.scrollIntoView({behavior: 'smooth', block: 'start'}), 100);
+  }
 }
 
 // =================== SCROLL LOCK ===================
