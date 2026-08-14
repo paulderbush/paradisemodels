@@ -11,9 +11,9 @@
 <meta property="og:description" content="Paradise Models — a high-class international escort agency in London, Paris, Monaco, Milan, Dubai, New York, Miami, Zurich and Amsterdam. Verified photos, discreet service, available 24/7 from £300/h.">
 <meta property="og:url" content="https://velvetescort.co.uk/about/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260814004929">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260814004929">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260814004929">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260814012601">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260814012601">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260814012601">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -288,7 +288,9 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
 
 /* CART PANEL */
 .cart-panel{
-  position:fixed;top:0;right:-400px;width:360px;height:100vh;z-index:500;
+  /* Above .chat-bubble (600) so the booking panel covers it while open,
+     rather than the bubble floating over the panel's own buttons. */
+  position:fixed;top:0;right:-400px;width:360px;height:100vh;z-index:700;
   background:rgba(var(--panel-rgb),0.97);
   backdrop-filter:blur(30px);
   border-left:1px solid var(--glass-border);
@@ -1234,10 +1236,10 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260814004929';</script>
+<script>window.BUILD_TS='20260814012601';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260814004929"></script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260814004929">
+<script src="/assets/currency.js?v=20260814012601"></script>
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260814012601">
 </head>
 <body class="page-about">
 <div class="orb-container">
@@ -1261,7 +1263,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260814004929" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260814012601" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1304,7 +1306,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260814004929" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260814012601" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1415,19 +1417,19 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
       <div class="about-teaser-grid">
         
         <a href="/models/julia/">
-          <img src="/models/Julia/1.webp?v=20260814004929" alt="Julia">
+          <img src="/models/Julia/1.webp?v=20260814012601" alt="Julia">
           <div class="about-teaser-name">Julia</div>
         </a>
         <a href="/models/luisa/">
-          <img src="/models/Luisa/1.webp?v=20260814004929" alt="Luisa">
+          <img src="/models/Luisa/1.webp?v=20260814012601" alt="Luisa">
           <div class="about-teaser-name">Luisa</div>
         </a>
         <a href="/models/aira/">
-          <img src="/models/Aira/1.webp?v=20260814004929" alt="Aira">
+          <img src="/models/Aira/1.webp?v=20260814012601" alt="Aira">
           <div class="about-teaser-name">Aira</div>
         </a>
         <a href="/models/anastasiia/">
-          <img src="/models/Anastasiia/1.webp?v=20260814004929" alt="Anastasiia">
+          <img src="/models/Anastasiia/1.webp?v=20260814012601" alt="Anastasiia">
           <div class="about-teaser-name">Anastasiia</div>
         </a>
       </div>
@@ -1481,7 +1483,7 @@ const NATIONALITIES = [];
 const STATIONS = [];
 const CITIES = [];
 </script>
-<script src="/assets/main.js?v=20260814004929"></script>
-<script src="/assets/chat.js?v=20260814004929"></script>
+<script src="/assets/main.js?v=20260814012601"></script>
+<script src="/assets/chat.js?v=20260814012601"></script>
 </body>
 </html>
