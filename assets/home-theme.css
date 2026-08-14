@@ -142,7 +142,9 @@ nav{
   .hero-bg{display:none}
   .hero-video-mobile{
     display:block;position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;object-position:center top;z-index:0;pointer-events:none;
+    /* Anchored to the bottom — crop the top rather than the bottom when
+       the clip's aspect ratio doesn't match the viewport. */
+    object-fit:cover;object-position:center bottom;z-index:0;pointer-events:none;
   }
   /* Top-to-bottom darkening (lighter near the badge, darker by the
      buttons) instead of the desktop's flat 35% tint. */
