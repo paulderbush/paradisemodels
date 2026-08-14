@@ -20,15 +20,12 @@ async function fetchVipModels() {
   }
 }
 
-// The blurred backdrop is just visual enticement for the paywall, but it
-// must not borrow real people's photos to do it — using public, non-VIP
-// real models made this look like a blurred repeat of the regular catalog,
-// and blur is a CSS filter a visitor can strip client-side, so it's not a
-// safe way to preview anyone's real photo anyway. Placeholder (real:false)
-// profiles only — silhouette art, no identity, purely a "there's more
-// here" teaser.
+// VIP_TEASER_MODELS is a separate global from MODELS on purpose (see the
+// build.js comment where it's embedded) — these placeholder stand-ins for
+// the real roster must never leak into the general catalog grid or nav
+// search, only this locked teaser.
 function vipTeaserPool() {
-  return MODELS.filter(m => !m.real).slice(0, 4);
+  return typeof VIP_TEASER_MODELS !== 'undefined' ? VIP_TEASER_MODELS.slice(0, 4) : [];
 }
 
 function renderVipTeaser() {
