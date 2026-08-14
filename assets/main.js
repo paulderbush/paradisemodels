@@ -246,7 +246,7 @@ function modelCardHTML(m, clickable = true, showTags = true) {
       </div>
     </div>
     <div class="model-card-footer">
-      <div class="model-rate">${m.real ? `<span>from </span>${fmtPrice(Math.min(...m.incallRates.map(r => r.price)))}` : `${fmtPrice(m.rateHour)}<span>/hr</span>`}</div>
+      <div class="model-rate">${m.real ? `<span>from </span>${fmtPrice(Math.min(...(m.incallRates.length ? m.incallRates : m.outcallRates).map(r => r.price)))}` : `${fmtPrice(m.rateHour)}<span>/hr</span>`}</div>
       <button class="add-to-cart-btn" onclick="event.stopPropagation();addToCart(${m.id})">Info</button>
     </div>
   ${cardEnd}`;

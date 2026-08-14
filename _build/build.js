@@ -556,10 +556,11 @@ function buildVipModelProfile(m) {
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-model">
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
+${lightboxHTML()}
 
 <div style="position:relative;z-index:1">
   <div class="model-detail-page" id="modelDetailContent">

@@ -172,7 +172,14 @@ function refreshPriceDisplay() {
 
 // =================== MODEL DETAIL BUILDER ===================
 function buildRealModelHTML(m) {
-  const initRate = m.incallRates[0];
+  // Most models take both, but some only do one or the other — both
+  // buttons always show, the one with no rates is just disabled, and
+  // whichever type the model actually offers is active by default.
+  const hasIncall = m.incallRates && m.incallRates.length > 0;
+  const hasOutcall = m.outcallRates && m.outcallRates.length > 0;
+  const initType = hasIncall ? 'incall' : 'outcall';
+  const initRates = hasIncall ? m.incallRates : m.outcallRates;
+  const initRate = initRates[0];
   const stats = [
     ['Age', m.age], ['Height', `${m.height}cm`], ['Weight', `${m.weight}kg`], ['Clothing', m.clothingSize],
     ['Breast', m.breastSize], ['Type', m.breastType], ['Eyes', m.eyeColor], ['Hair', m.hairColor],
@@ -222,16 +229,16 @@ function buildRealModelHTML(m) {
         <div class="price-calc">
           <div class="price-calc-title">Book a Session</div>
           <div class="price-type-row">
-            <button class="price-type-btn active" data-type="incall" onclick="selectPriceType('incall')">Incall</button>
-            <button class="price-type-btn" data-type="outcall" onclick="selectPriceType('outcall')">Outcall <span style="font-size:10px;opacity:0.6">min 1hr</span></button>
+            <button class="price-type-btn${initType === 'incall' ? ' active' : ''}${hasIncall ? '' : ' disabled'}" data-type="incall" ${hasIncall ? `onclick="selectPriceType('incall')"` : 'disabled'}>Incall</button>
+            <button class="price-type-btn${initType === 'outcall' ? ' active' : ''}${hasOutcall ? '' : ' disabled'}" data-type="outcall" ${hasOutcall ? `onclick="selectPriceType('outcall')"` : 'disabled'}>Outcall <span style="font-size:10px;opacity:0.6">min 1hr</span></button>
           </div>
           <div class="duration-row" id="duration-btns">
-            ${m.incallRates.map((r, i) => `<button class="duration-btn${i === 0 ? ' active' : ''}" onclick="selectDuration(${i})">${r.label}</button>`).join('')}
+            ${initRates.map((r, i) => `<button class="duration-btn${i === 0 ? ' active' : ''}" onclick="selectDuration(${i})">${r.label}</button>`).join('')}
           </div>
           <div class="price-display-row">
             <div id="price-main" class="price-main">${fmtPrice(initRate.price)}</div>
           </div>
-          <div id="price-sub" class="price-sub">${initRate.label} · Incall</div>
+          <div id="price-sub" class="price-sub">${initRate.label} · ${initType === 'incall' ? 'Incall' : 'Outcall'}</div>
           <div class="price-total-bar">
             <span class="price-total-label">Total</span>
             <span class="price-total-val" id="price-total-val">${fmtPrice(initRate.price)}</span>
@@ -267,7 +274,8 @@ function buildRealModelHTML(m) {
 }
 
 function openRealModel(m) {
-  _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), includedChoices: new Set(), model: m};
+  const defaultType = m.incallRates && m.incallRates.length ? 'incall' : 'outcall';
+  _pricing = {type: defaultType, durationIdx: 0, extras: new Set(), includedChoices: new Set(), model: m};
   // Seeded with the fallback single photo so the lightbox works even
   // before probeModelMedia's async scan resolves and replaces it below.
   _gallery = {items: [{type: 'photo', idx: 1, src: `/${m.folder}/1.webp`}], current: 0};
