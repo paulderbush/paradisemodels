@@ -1154,7 +1154,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   border-bottom-left-radius:4px;
 }
 .chat-name-input{
-  flex-shrink:0;margin:0 0.9rem;padding:0.5rem 0.7rem;
+  flex-shrink:0;margin:0 0.9rem 0.9rem;padding:0.5rem 0.7rem;
   background:rgba(255,255,255,0.04);border:1px solid var(--glass-border);border-radius:var(--r-xs);
   color:var(--text);font-family:'Zalando Sans',sans-serif;font-size:12px;outline:none;
 }
