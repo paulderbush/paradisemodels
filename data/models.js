@@ -347,10 +347,160 @@ const LUNA_DATA = {
   reviews: [],
 };
 
+// =================== VIP MODELS ===================
+// vip:true — excluded from every public page/listing at build time (see
+// PUBLIC_MODELS in _build/build.js) and only ever served to the client via
+// /api/vip-catalog, after payment has been verified server-side.
+const AALIYAH_DATA = {
+  id: 9989, real: true, vip: true, folder: 'vip-models/Aaliyah', slug: 'aaliyah',
+  name: 'Aaliyah', age: 25, height: 166, weight: 46,
+  nationality: 'Persian/British', station: 'Battersea', city: 'London',
+  rateHour: 1600, extraHourPrice: 1000,
+  color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'],
+  initials: 'AA',
+  cats: [],
+  breastSize: '32E', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Black', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Swallow', 'Uniforms', 'WS giving'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '90 Min', price: 2200},
+    {label: '2 Hours', price: 2600},
+    {label: '3 Hours', price: 3600},
+    {label: 'Overnight', price: 9000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '90 Min', price: 2200},
+    {label: '2 Hours', price: 2600},
+    {label: '3 Hours', price: 3600},
+    {label: 'Overnight', price: 9000},
+  ],
+  description: [
+    "Aaliyah is our top model at the agency, a true superstar with an enchanting presence. At 25 years old, she is half Persian and half British, blending the best of both worlds. She is a curvy, charming brunette with radiant skin, captivating eyes, and a graceful demeanor that make her stand out effortlessly in any setting.",
+    "Beyond her stunning looks, Aaliyah is incredibly easy-going and approachable. She approaches her work with a relaxed yet professional attitude, making everyone feel comfortable around her. Her natural charm and friendly personality help her connect effortlessly with clients and colleagues alike.",
+    "With her warm and laid-back vibe, Aaliyah easily leaves a lasting impression. She embraces her femininity and exudes confidence while maintaining a calm, down-to-earth attitude. She is truly the one you will never forget—her presence is both captivating and soothing, making her an all-around favorite in the industry.",
+  ],
+  reviews: [],
+};
+
+const KENDAL_DATA = {
+  id: 9988, real: true, vip: true, folder: 'vip-models/Kendal', slug: 'kendal',
+  name: 'Kendal', age: 22, height: 170, weight: 50,
+  nationality: 'Brazilian', station: 'Paddington', city: 'London',
+  rateHour: 1600, extraHourPrice: 600,
+  color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
+  initials: 'KE',
+  cats: ['recommended'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Black', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English',
+  // No services list was provided for Kendal — the "Services Included"
+  // panel is hidden automatically on her profile when svcs is empty.
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '90 Min', price: 1600},
+    {label: '2 Hours', price: 2200},
+    {label: '3 Hours', price: 2800},
+    {label: 'Overnight', price: 5000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '90 Min', price: 1600},
+    {label: '2 Hours', price: 2200},
+    {label: '3 Hours', price: 2800},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    "Meet Kendal, a stunning Brazilian model who exudes natural beauty and elegance. Her slim, captivating figure and radiant presence make her the perfect choice for an unforgettable experience. As a very high-class girl, Kendal offers classy and perfect services, ensuring every moment with her is sophisticated and memorable.",
+    "At just 22, Kendal combines youthful charm with a polished demeanor, making her ideal for those seeking a refined and pleasurable encounter. Her services are delivered with grace and perfection, tailored to meet your desires with professionalism and passion. Whether you're looking for a charming companion for a night out, intimate moments, or an elegant roleplay, Kendal's versatile personality guarantees an experience that exceeds expectations.",
+    "Dedicated to providing a luxurious and discreet experience, Kendal is approachable, friendly, and eager to make your time together truly special. Book now to enjoy the beauty, slim figure, and class of Kendal for an unforgettable encounter.",
+  ],
+  reviews: [],
+};
+
+const ALICIA_DATA = {
+  id: 9987, real: true, vip: true, folder: 'vip-models/Alicia', slug: 'alicia',
+  name: 'Alicia', age: 24, height: 178, weight: 50,
+  nationality: 'Italian/Brazilian', station: 'Kensington', city: 'London',
+  rateHour: 1600, extraHourPrice: 900,
+  color: ['rgba(140,60,200,0.4)', 'rgba(90,30,140,0.7)'],
+  initials: 'AL',
+  cats: [],
+  breastSize: '32C', breastType: '', clothingSize: '4',
+  eyeColor: 'Light Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Italian · Spanish · Portuguese',
+  svcs: ['69', 'FK', 'GFE', 'OWC', 'OWO', 'Party girl'],
+  extraSvcs: [
+    {name: 'A-Level', price: 0},
+    {name: 'CIF', price: 0},
+    {name: 'COB', price: 0},
+    {name: 'CIM (Includes OWO)', price: 0},
+    {name: 'Rimming receiving', price: 0},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '90 Min', price: 2000},
+    {label: '2 Hours', price: 2500},
+    {label: '3 Hours', price: 3400},
+    {label: 'Overnight', price: 9000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '90 Min', price: 2000},
+    {label: '2 Hours', price: 2500},
+    {label: '3 Hours', price: 3400},
+    {label: 'Overnight', price: 9000},
+  ],
+  description: [
+    "Alicia carries the effortless allure of a woman born for the spotlight. With her striking height and graceful silhouette, she moves with the fluid confidence of a signed international model. Her light brown eyes hold a quiet warmth, framed by soft medium-brown waves that fall naturally around her sculpted face. A blend of Brazilian passion and Italian refinement lives in her presence, giving her beauty an unmistakable depth and charisma.",
+    "Behind her captivating appearance lies a creative spirit shaped by fashion and movement. As a dedicated fashion-design student, Alicia sees the world through textures, silhouettes, and colours, weaving her own sense of artistry into everything she touches. Her love for tennis, yoga, and Pilates keeps her form toned yet elegant, giving her a balance of strength and femininity that photographers adore.",
+    "Graceful, ambitious, and naturally magnetic, Alicia brings a rare blend of discipline and softness to every space she enters. Whether she is stepping onto a runway, sketching her next design, or perfecting her athletic routines, she embodies refined beauty with a touch of dreamlike charm. She is not just a model to watch—she is a presence impossible to forget.",
+  ],
+  reviews: [],
+};
+
+const ABBEY_DATA = {
+  id: 9986, real: true, vip: true, folder: 'vip-models/Abbey', slug: 'abbey',
+  name: 'Abbey', age: 25, height: 170, weight: 55,
+  nationality: 'British', station: 'Soho', city: 'London',
+  rateHour: 1600, extraHourPrice: 1600,
+  color: ['rgba(200,180,150,0.4)', 'rgba(130,110,80,0.7)'],
+  initials: 'AB',
+  cats: [],
+  breastSize: '32B', breastType: 'Natural', clothingSize: '6-8',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English',
+  svcs: ['Body to body massage', 'CIF', 'COB', 'DFK', 'DT', 'Fingering', 'FK', 'Massage', 'OWC', 'Party girl', 'Prostate massage', 'Soft spanking receiving'],
+  extraSvcs: [
+    {name: 'GFE', price: 0},
+    {name: '69', price: 300},
+    {name: 'OWO', price: 300},
+  ],
+  // Outcall only — see hasIncall handling in assets/profile.js, which
+  // hides the Incall tab and defaults to Outcall when this is empty.
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '90 Min', price: 1850},
+    {label: 'Overnight', price: 7700},
+  ],
+  description: [
+    "Abbey is a refined British model with a naturally elegant presence and a calm, confident aura. Her look is pure and authentic — completely natural, without tattoos or piercings — highlighting a timeless kind of beauty that feels effortless and exclusive. Blonde hair, clear blue eyes, and graceful proportions give her a classic British charm that never goes out of style.",
+    "She carries herself with quiet sophistication, combining softness with poise. Abbey's appearance is fresh, feminine, and impeccably maintained, reflecting her dedication to a healthy lifestyle and natural aesthetics. As a VIP model, she values discretion, quality, and refined standards, making her presence feel both special and rare.",
+    "Beyond her beauty, Abbey's personality is warm, polite, and genuinely engaging. She is well-mannered, attentive, and naturally elegant in conversation, creating a relaxed yet luxurious atmosphere. With her all-natural look, British refinement, and VIP status, Abbey embodies understated luxury and classic femininity.",
+  ],
+  reviews: [],
+};
+
 // London is where the real roster lives now, so the placeholder/generated
 // profiles don't need to (and shouldn't) also claim a London presence —
 // keep them for the other cities, which still have no real models yet.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
