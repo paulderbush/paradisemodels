@@ -92,6 +92,8 @@ function renderCart() {
         <input class="bf-input" type="date" id="bf-date">
         <div class="bf-label">Time (24h format, e.g. 14:30)</div>
         <input class="bf-input" type="text" id="bf-time" value="__:__" inputmode="numeric" oninput="formatTimeInput(this)" onfocus="this.setSelectionRange(0,0)">
+        <div class="bf-label">Your Comments (Optional)</div>
+        <textarea class="bf-input" id="bf-comments" rows="3" placeholder="Anything you'd like us to know…" style="resize:vertical;font-family:inherit"></textarea>
         <button class="booking-submit-btn" onclick="submitBooking()">Make a Booking</button>
       </div>`;
     return;
@@ -176,10 +178,12 @@ async function submitBooking() {
   const contactEl = document.getElementById('bf-contact');
   const dateEl = document.getElementById('bf-date');
   const timeEl = document.getElementById('bf-time');
+  const commentsEl = document.getElementById('bf-comments');
   const name = nameEl ? nameEl.value.trim() : '';
   const contact = contactEl ? contactEl.value.trim() : '';
   const date = dateEl ? dateEl.value : '';
   const time = timeEl ? timeEl.value : '';
+  const comments = commentsEl ? commentsEl.value.trim() : '';
   if (!name) { alert('Please enter your name.'); return; }
   if (!contact) { alert('Please enter your contact details.'); return; }
   if (!date) { alert('Please select a date.'); return; }
@@ -188,7 +192,7 @@ async function submitBooking() {
   const contactLabel = _contactMethod === 'email' ? 'Email' : _contactMethod === 'whatsapp' ? 'WhatsApp' : 'Telegram';
   const extrasText = d.extras.length ? d.extras.map(e => `  • ${e.name} +£${e.price}`).join('\n') : '  None';
   const requestedText = d.requestedServices && d.requestedServices.length ? d.requestedServices.map(s => `  • ${s}`).join('\n') : '  Not specified';
-  const msg = `🔖 <b>New Booking Request</b>\n\n<b>Model:</b> ${d.modelName}\n<b>Client:</b> ${name}\n<b>${contactLabel}:</b> ${contact}\n\n<b>Session:</b> ${d.durationLabel} · ${d.type === 'incall' ? 'Incall' : 'Outcall'}\n<b>Base:</b> £${d.basePrice}\n\n<b>Requested Services:</b>\n${requestedText}\n\n<b>Extras:</b>\n${extrasText}\n\n<b>Total: £${d.total}</b>\n\n<b>Date:</b> ${date}\n<b>Time:</b> ${time}`;
+  const msg = `🔖 <b>New Booking Request</b>\n\n<b>Model:</b> ${d.modelName}\n<b>Client:</b> ${name}\n<b>${contactLabel}:</b> ${contact}\n\n<b>Session:</b> ${d.durationLabel} · ${d.type === 'incall' ? 'Incall' : 'Outcall'}\n<b>Base:</b> £${d.basePrice}\n\n<b>Requested Services:</b>\n${requestedText}\n\n<b>Extras:</b>\n${extrasText}\n\n<b>Total: £${d.total}</b>\n\n<b>Date:</b> ${date}\n<b>Time:</b> ${time}${comments ? `\n\n<b>Comments:</b>\n${comments}` : ''}`;
   const btn = document.querySelector('.booking-submit-btn');
   if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
   try {
@@ -202,7 +206,7 @@ async function submitBooking() {
     } else { throw new Error(json.description || 'Telegram API error'); }
   } catch(e) {
     if (btn) { btn.textContent = 'Make a Booking'; btn.disabled = false; }
-    const waText = encodeURIComponent(`Booking: ${d.modelName} · ${d.durationLabel} · ${d.type === 'incall' ? 'Incall' : 'Outcall'} · £${d.total}\nName: ${name}\nDate: ${date} ${time}`);
+    const waText = encodeURIComponent(`Booking: ${d.modelName} · ${d.durationLabel} · ${d.type === 'incall' ? 'Incall' : 'Outcall'} · £${d.total}\nName: ${name}\nDate: ${date} ${time}${comments ? `\nComments: ${comments}` : ''}`);
     document.getElementById('cartContent').innerHTML += `<div style="margin-top:1rem;padding:1rem;background:rgba(255,80,80,0.08);border:1px solid rgba(255,80,80,0.2);border-radius:var(--r-xs);font-size:13px;color:var(--text-soft)">Couldn't send automatically${e.message && e.message !== 'Failed to fetch' ? ' (' + e.message + ')' : ''}. <a href="https://wa.me/447450842231?text=${waText}" target="_blank" style="color:var(--purple3);text-decoration:none;font-weight:600">Send via WhatsApp →</a></div>`;
   }
 }
