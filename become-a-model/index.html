@@ -11,9 +11,9 @@
 <meta property="og:description" content="Apply to join Paradise Models as an escort companion. Submit your application and our team will review within 24–48 hours.">
 <meta property="og:url" content="https://velvetescort.co.uk/become-a-model/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260818220919">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260818220919">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260818220919">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260818234528">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260818234528">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260818234528">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -596,12 +596,16 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
 .partners-title{font-size:1.1rem;font-weight:600;margin-bottom:1.2rem;color:var(--text-soft);letter-spacing:0.06em;text-transform:uppercase;font-size:12px}
 .partners-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
 .partner-banner{
-  border-radius:var(--r-sm);overflow:hidden;
+  border-radius:12px;overflow:hidden;
   border:1px solid var(--glass-border);
   transition:all 0.25s;cursor:pointer;
+  max-width:100%;
 }
 .partner-banner:hover{border-color:rgba(var(--brand-light-rgb),0.4);transform:translateY(-2px)}
-.partner-banner img{display:block;height:60px;width:auto}
+/* max-width keeps a wide banner (e.g. the 468x60 UK Adult Zone one) from
+   overflowing a narrow phone screen — it still renders at a full 60px tall
+   everywhere it fits. */
+.partner-banner img{display:block;height:60px;width:auto;max-width:100%}
 
 /* FOOTER */
 footer{
@@ -1239,11 +1243,11 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260818220919';</script>
+<script>window.BUILD_TS='20260818234528';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260818220919"></script>
+<script src="/assets/currency.js?v=20260818234528"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260818220919">
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260818234528">
 </head>
 <body class="page-become">
 <div class="orb-container">
@@ -1267,7 +1271,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818220919" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818234528" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1310,7 +1314,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818220919" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818234528" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1536,9 +1540,9 @@ const SERVICES = ["69","FK","DFK","GFE","OWO","OWC","COB","CIF","CIM","Swallow",
 const NATIONALITIES = ["Albanian","Argentine","Belarusian","Brazilian","British","Bulgarian","Chilean","Chinese","Colombian","Costa Rican","Eastern European","Egyptian","Estonian","French","German","Hungarian","Italian","Kazakh","Latvian","Lithuanian","Mexican","Moldovan","Paraguayan","Polish","Portuguese","Romanian","Russian","Spanish","Thai","Ukrainian","Vietnamese"];
 const STATIONS = ["Aldgate","Aldgate East","Angel","Baker Street","Bank","Barbican","Barons Court","Battersea Power Station","Bayswater","Bermondsey","Bethnal Green","Blackfriars","Bond Street","Borough","Bow Road","Brixton","Camden Town","Canada Water","Canary Wharf","Cannon Street","Chalk Farm","Chancery Lane","Charing Cross","Chelsea","Clapham Common","Clapham North","Clapham South","Covent Garden","Earl's Court","Edgware Road","Elephant & Castle","Embankment","Euston","Farringdon","Finchley Road","Finsbury Park","Fulham Broadway","Gloucester Road","Green Park","Hammersmith","High Street Kensington","Highbury & Islington","Holborn","Holland Park","Hyde Park Corner","Islington","Kennington","Kensington","King's Cross St. Pancras","Knightsbridge","Lambeth North","Lancaster Gate","Leicester Square","Liverpool Street","London Bridge","Maida Vale","Mansion House","Marble Arch","Marylebone","Mile End","Monument","Moorgate","Nine Elms","Notting Hill Gate","Old Street","Oval","Oxford Circus","Paddington","Parsons Green","Piccadilly Circus","Pimlico","Putney Bridge","Queensway","Regent's Park","Shepherd's Bush","Sloane Square","Soho","South Kensington","Southwark","St. James's Park","St. Paul's","Stepney Green","Stockwell","Stratford","Swiss Cottage","Temple","Tottenham Court Road","Tower Hill","Vauxhall","Victoria","Warren Street","Waterloo","West Brompton","Westminster","Whitechapel"];
 </script>
-<script src="/assets/main.js?v=20260818220919"></script>
-<script src="/assets/chat.js?v=20260818220919"></script>
-<script src="/assets/become.js?v=20260818220919"></script>
+<script src="/assets/main.js?v=20260818234528"></script>
+<script src="/assets/chat.js?v=20260818234528"></script>
+<script src="/assets/become.js?v=20260818234528"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   initBecomePage();

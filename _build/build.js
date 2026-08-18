@@ -327,6 +327,21 @@ ${CITIES.map((c, i) => `  <div class="section"${i === 0 ? '' : ' style="padding-
       <a class="partner-banner" href="https://www.eurogirlsescort.com" target="_blank" rel="noopener noreferrer">
         <img src="/images/EuroEscortGirls.png" alt="EuroGirlsEscort.com">
       </a>
+      <a class="partner-banner" href="https://devozki.com" target="_blank" rel="noopener noreferrer">
+        <img src="/images/Devozki.webp" alt="Devozki">
+      </a>
+      <a class="partner-banner" href="https://www.ukadultzone.com" target="_blank" rel="noopener noreferrer">
+        <img src="/images/UKAdultZone.webp" alt="UK Adult Zone">
+      </a>
+      <a class="partner-banner" href="https://www.happyescorts.com" target="_blank" rel="noopener noreferrer">
+        <img src="/images/HappyEscorts.webp" alt="HappyEscorts">
+      </a>
+      <a class="partner-banner" href="https://escortnews.com" target="_blank" rel="noopener noreferrer">
+        <img src="/images/EscortNews.webp" alt="EscortNews">
+      </a>
+      <a class="partner-banner" href="https://www.erotic-guide.com" target="_blank" rel="noopener noreferrer">
+        <img src="/images/EroticGuide.webp" alt="EroticGuide">
+      </a>
     </div>
   </div>
 
