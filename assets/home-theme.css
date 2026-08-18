@@ -394,12 +394,11 @@ footer{
 /* Started as a homepage-only trial, then Julia's profile, then FAQ/About —
    now rolled out to every page below via a body class set in build.js
    (buildHome/buildModelProfile/buildFaq/buildAbout/buildModels/
-   buildVipModels/buildConcierge/buildEvents/buildSinlist/buildAccount all
-   set one of .page-home/.page-model/.page-faq/.page-about/.page-models/
-   .page-vip-models/.page-concierge/.page-events/.page-sinlist/
-   .page-account). Pages not yet converted (become-a-model, the blog
-   placeholder) keep the original bright-cyan theme untouched, since they
-   carry no .page-* class.
+   buildVipModels/buildConcierge/buildEvents/buildSinlist/buildBecome/
+   buildAccount all set one of .page-home/.page-model/.page-faq/
+   .page-about/.page-models/.page-vip-models/.page-concierge/.page-events/
+   .page-sinlist/.page-become/.page-account). Only the blog placeholder is
+   not yet converted, since it carries no .page-* class.
 
    Everything in this section is written against body[class^="page-"] —
    every page-scoped body's class is exactly one of the names above with
@@ -618,16 +617,20 @@ body[class^="page-"] .make-booking-btn:hover{border-color:var(--purple3)!importa
 
 body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:rgba(225,244,250,0.82)!important}
 
+/* =================== LEXEND FONT ROLLOUT =================== */
+/* Approved after a homepage-only trial (an earlier Quicksand trial did not
+   land) — now being rolled onto pages one at a time. Each converted page
+   needs both its own Lexend <link> in its build.js head() call AND its
+   class added to this selector list. A blunt wildcard + !important because
+   most components hardcode font-family:'Zalando Sans' directly rather than
+   inheriting from body, so a body-level-only override wouldn't reach them. */
+.page-home,.page-home *,
+.page-become,.page-become *{font-family:'Lexend',sans-serif!important}
+
 /* =================== HOMEPAGE — content unique to this page =================== */
 /* Palette/nav/footer/model-card/faq-item/back-btn etc. are all handled by
    the universal body[class^="page-"] rules above. Only the homepage's own
    hero and section-title gradients are specific to .page-home. */
-/* Font test — Lexend, homepage only (previously tried Quicksand). A blunt
-   wildcard + !important because most components hardcode
-   font-family:'Zalando Sans' directly rather than inheriting from body, so
-   a single body-level override wouldn't reach them. Roll back by deleting
-   this rule (and the Lexend <link> in buildHome()) if it doesn't stick. */
-.page-home,.page-home *{font-family:'Lexend',sans-serif!important}
 .page-home .hero,.page-home .hero-bg{border-radius:0!important}
 .page-home .hero{box-shadow:0 24px 60px rgba(2,12,16,0.5)!important}
 .page-home .hero-content h1 span{
@@ -830,3 +833,25 @@ body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:
 .page-account .form-input{border-radius:0!important}
 .page-account .bf-method{border-radius:0!important}
 .page-account .bf-method:hover{border-color:var(--purple3)!important}
+
+/* =================== BECOME A MODEL PAGE — content unique to this page =================== */
+/* .become-header/.form-section/.form-input etc. are all shared components
+   already themed correctly by the universal rules above and by the base
+   (var()-driven) rules in style.css — only the heading colors and corner
+   radii need a page-specific push here. */
+.page-become .become-header h1{color:var(--text)!important}
+.page-become .become-header h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.page-become .become-header p{color:var(--text-soft)!important}
+.page-become .form-input,
+.page-become .form-select,
+.page-become .svc-extra-price,
+.page-become .btn-option,
+.page-become .photo-upload-area{border-radius:0!important}
+.page-become .form-select option{background:var(--bg2)!important;color:var(--text)!important}
+/* Old-theme fallback (line ~275) hardcodes #70e9ff on hover with
+   !important, unscoped — beat it here so this page gets the deep-azure
+   accent like every other hover-outline element on the site. */
+.page-become .photo-upload-area:hover{border-color:var(--purple3)!important}
