@@ -11,9 +11,9 @@
 <meta property="og:description" content="Paradise Erotic Events — black tie masquerades, intimate dinners, and immersive theatrical evenings, or a fully bespoke private event built entirely around you.">
 <meta property="og:url" content="https://velvetescort.co.uk/events/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260818195033">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260818195033">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260818195033">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260818210036">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260818210036">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260818210036">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1239,10 +1239,10 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260818195033';</script>
+<script>window.BUILD_TS='20260818210036';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260818195033"></script>
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260818195033">
+<script src="/assets/currency.js?v=20260818210036"></script>
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260818210036">
 </head>
 <body class="page-events">
 <div class="orb-container">
@@ -1266,7 +1266,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818195033" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818210036" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1309,7 +1309,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818195033" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818210036" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1391,8 +1391,10 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
     </div>
 
     <div class="form-section" style="padding:0;overflow:hidden;margin-bottom:2.5rem">
-      <div style="position:relative;min-height:280px;display:flex;align-items:center;padding:2.5rem 1.75rem;background:linear-gradient(90deg,rgba(10,4,8,0.92),rgba(10,4,8,0.55)),url('/images/events.webp?v=20260818195033') center/cover no-repeat">
-        <p style="max-width:600px;color:rgba(255,255,255,0.88);font-size:15.5px;line-height:1.85">Paradise Erotic Events are known for black tie masquerades, intimate dinners, and immersive theatrical events created for a discerning membership. Each gathering is designed as a living work of art. Beauty, ritual, and performance come together within a framework of elegance and consent.</p>
+      <!-- aspect-ratio matches events.webp's own (1920x1095) so cover crops
+           nothing — the box IS the image's shape at any width. -->
+      <div style="position:relative;aspect-ratio:1920/1095;display:flex;align-items:center;justify-content:center;padding:2.5rem 1.75rem;background:linear-gradient(rgba(10,4,8,0.4),rgba(10,4,8,0.4)),url('/images/events.webp?v=20260818210036') center/cover no-repeat">
+        <p style="max-width:640px;text-align:center;color:#fff;font-size:15.5px;line-height:1.85">Paradise Erotic Events are known for black tie masquerades, intimate dinners, and immersive theatrical events created for a discerning membership. Each gathering is designed as a living work of art. Beauty, ritual, and performance come together within a framework of elegance and consent.</p>
       </div>
     </div>
 
@@ -1403,18 +1405,24 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
     </div>
 
     <div class="form-grid-2" style="margin-bottom:2.5rem">
-      <div class="form-section">
+      <div class="form-section" style="display:flex;flex-direction:column">
+        <div style="width:44px;height:44px;border-radius:50%;background:rgba(217,154,168,0.14);border:1px solid rgba(217,154,168,0.35);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d99aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
         <div class="form-section-title">Join Our Event</div>
         <p style="color:var(--text-soft);font-size:14px;line-height:1.75;margin-bottom:1rem">We host closed, invite-only erotic events in London, and every one has its own theme — never the same evening twice. Among them:</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem">
           <span style="display:inline-block;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--text);font-size:12px">Nine Sins</span><span style="display:inline-block;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--text);font-size:12px">Mystical Night</span><span style="display:inline-block;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--text);font-size:12px">The Masquerade</span><span style="display:inline-block;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--text);font-size:12px">Velvet Confessional</span><span style="display:inline-block;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--text);font-size:12px">Garden of Temptation</span><span style="display:inline-block;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--text);font-size:12px">Private Jet Affair — In-Flight, With Stewardesses</span>
         </div>
-        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem" href="https://t.me/thesinlist" target="_blank" rel="noopener">Discover Our Upcoming Event</a>
+        <a class="submit-app-btn" style="margin-top:auto;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem;align-self:flex-start" href="https://t.me/thesinlist" target="_blank" rel="noopener">Discover Our Upcoming Event</a>
       </div>
-      <div class="form-section">
+      <div class="form-section" style="display:flex;flex-direction:column">
+        <div style="width:44px;height:44px;border-radius:50%;background:rgba(217,154,168,0.14);border:1px solid rgba(217,154,168,0.35);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d99aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
         <div class="form-section-title">Order Your Private Event <span style="font-weight:400;color:var(--text-muted);font-size:12px">(up to 10 people)</span></div>
-        <p style="color:var(--text-soft);font-size:14px;line-height:1.75;margin-bottom:1.25rem">Share your fantasy with us. Tell us what you desire, and we will bring it to life for your company of up to 10 people — venue, cast, theme and every detail, produced with the same artistry and discretion as our own events.</p>
-        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem" href="https://t.me/thesinlist" target="_blank" rel="noopener">Discuss Your Event</a>
+        <p style="color:var(--text-soft);font-size:14px;line-height:1.75;margin-bottom:1.25rem">Share your fantasy with us. Tell us what you desire — a theme, a scenario, a role you've always wanted to play — and we will bring it to life for your company of up to 10 people. Venue, cast, wardrobe, choreography and every last detail are produced entirely around you, with the same artistry, theatrical craft and discretion as our own events.</p>
+        <a class="submit-app-btn" style="margin-top:auto;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem;align-self:flex-start" href="https://t.me/thesinlist" target="_blank" rel="noopener">Discuss Your Event</a>
       </div>
     </div>
 
@@ -1429,6 +1437,9 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
     </div>
 
     <div class="form-section" style="text-align:center">
+      <div style="width:44px;height:44px;border-radius:50%;background:rgba(217,154,168,0.14);border:1px solid rgba(217,154,168,0.35);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d99aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </div>
       <div class="form-section-title">Your Most Unforgettable Night</div>
       <p style="color:var(--text-soft);font-size:14px;margin-bottom:1.25rem">Contact us to reserve your place at an upcoming Paradise Erotic Event, or begin planning a private evening entirely your own. One conversation is all it takes.</p>
       <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
@@ -1468,7 +1479,7 @@ const NATIONALITIES = [];
 const STATIONS = [];
 const CITIES = [];
 </script>
-<script src="/assets/main.js?v=20260818195033"></script>
-<script src="/assets/chat.js?v=20260818195033"></script>
+<script src="/assets/main.js?v=20260818210036"></script>
+<script src="/assets/chat.js?v=20260818210036"></script>
 </body>
 </html>
