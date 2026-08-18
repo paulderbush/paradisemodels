@@ -394,11 +394,12 @@ footer{
 /* Started as a homepage-only trial, then Julia's profile, then FAQ/About —
    now rolled out to every page below via a body class set in build.js
    (buildHome/buildModelProfile/buildFaq/buildAbout/buildModels/
-   buildVipModels/buildConcierge/buildEvents/buildAccount all set one of
-   .page-home/.page-model/.page-faq/.page-about/.page-models/
-   .page-vip-models/.page-concierge/.page-events/.page-account). Pages not
-   yet converted (become-a-model, the blog placeholder) keep the original
-   bright-cyan theme untouched, since they carry no .page-* class.
+   buildVipModels/buildConcierge/buildEvents/buildSinlist/buildAccount all
+   set one of .page-home/.page-model/.page-faq/.page-about/.page-models/
+   .page-vip-models/.page-concierge/.page-events/.page-sinlist/
+   .page-account). Pages not yet converted (become-a-model, the blog
+   placeholder) keep the original bright-cyan theme untouched, since they
+   carry no .page-* class.
 
    Everything in this section is written against body[class^="page-"] —
    every page-scoped body's class is exactly one of the names above with
@@ -808,7 +809,10 @@ body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:
   -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
 }
 .page-events .become-header p{color:var(--text-soft)!important}
-.page-events .stat-box{
+/* Also covers .page-sinlist — the past-event page reuses the same
+   fact-grid component. */
+.page-events .stat-box,
+.page-sinlist .stat-box{
   border-radius:0!important;
   background:var(--glass)!important;
   backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
