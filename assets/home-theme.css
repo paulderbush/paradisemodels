@@ -618,14 +618,18 @@ body[class^="page-"] .make-booking-btn:hover{border-color:var(--purple3)!importa
 body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:rgba(225,244,250,0.82)!important}
 
 /* =================== LEXEND FONT ROLLOUT =================== */
-/* Approved after a homepage-only trial (an earlier Quicksand trial did not
-   land) — now being rolled onto pages one at a time. Each converted page
-   needs both its own Lexend <link> in its build.js head() call AND its
-   class added to this selector list. A blunt wildcard + !important because
-   most components hardcode font-family:'Zalando Sans' directly rather than
-   inheriting from body, so a body-level-only override wouldn't reach them. */
+/* Approved site-wide, being rolled onto pages one at a time. Each
+   converted page needs both its own Lexend <link> in its build.js head()
+   call AND its class added to this selector list. A blunt wildcard +
+   !important because most components hardcode font-family:'Zalando Sans'
+   directly rather than inheriting from body, so a body-level-only
+   override wouldn't reach them. */
 .page-home,.page-home *,
-.page-become,.page-become *{font-family:'Lexend',sans-serif!important}
+.page-become,.page-become *,
+.page-models,.page-models *,
+.page-model,.page-model *,
+.page-concierge,.page-concierge *,
+.page-events,.page-events *{font-family:'Lexend',sans-serif!important}
 
 /* =================== HOMEPAGE — content unique to this page =================== */
 /* Palette/nav/footer/model-card/faq-item/back-btn etc. are all handled by
@@ -851,6 +855,7 @@ body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:
 .page-become .btn-option,
 .page-become .photo-upload-area{border-radius:0!important}
 .page-become .form-select option{background:var(--bg2)!important;color:var(--text)!important}
+.page-become .add-lang-btn{border-radius:0!important}
 /* Old-theme fallback (line ~275) hardcodes #70e9ff on hover with
    !important, unscoped — beat it here so this page gets the deep-azure
    accent like every other hover-outline element on the site. */

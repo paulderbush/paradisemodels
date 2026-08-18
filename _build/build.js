@@ -353,7 +353,8 @@ function buildModels() {
     'Our Companions — Paradise Models',
     'Browse our exclusive roster of London companions. Filter by location, nationality, services and more.',
     SITE_URL + '/models/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-models">
@@ -511,6 +512,7 @@ function buildModelProfile(m) {
     desc,
     `${SITE_URL}/models/${m.slug}/`,
     `<meta property="og:image" content="${SITE_URL}/${m.folder}/1.webp">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
@@ -558,7 +560,8 @@ function buildVipModelProfile(m) {
     'VIP Companion — Paradise Models',
     'An exclusive VIP companion, available to members with active VIP catalog access.',
     `${SITE_URL}/models/${m.slug}/`,
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-model">
@@ -920,7 +923,8 @@ function buildConcierge() {
     'Concierge — Paradise Models',
     'The Paradise Models concierge — bespoke travel, events, access and rare acquisitions, arranged with the same discretion as everything else we do.',
     SITE_URL + '/concierge/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-concierge">
@@ -987,7 +991,8 @@ function buildEvents() {
     'Paradise Erotic Events — Paradise Models',
     'Paradise Erotic Events — black tie masquerades, intimate dinners, and immersive theatrical evenings, or a fully bespoke private event built entirely around you.',
     SITE_URL + '/events/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-events">
