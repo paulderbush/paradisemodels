@@ -256,7 +256,8 @@ function buildHome() {
     'Paradise Models — HIGH CLASS INTERNATIONAL ESCORT AGENCY',
     'Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions you will find nowhere else.',
     SITE_URL + '/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-home">
