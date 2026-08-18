@@ -602,7 +602,8 @@ function buildFaq() {
     'FAQ — Paradise Models',
     'Frequently asked questions about our services, companions, and bookings at Paradise Models.',
     SITE_URL + '/faq/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-faq">
@@ -1126,7 +1127,8 @@ function buildSinlist() {
     'The Sin List — Opening Night | Paradise Erotic Events',
     "The Sin List — Opening Night: a private members' club we produced in London, an immersive theatrical evening structured as nine circles.",
     SITE_URL + '/sinlist/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-sinlist">

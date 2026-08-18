@@ -618,22 +618,14 @@ body[class^="page-"] .make-booking-btn:hover{border-color:var(--purple3)!importa
 body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:rgba(225,244,250,0.82)!important}
 
 /* =================== LEXEND FONT ROLLOUT =================== */
-/* Approved site-wide, being rolled onto pages one at a time. Each
-   converted page needs both its own Lexend <link> in its build.js head()
-   call AND its class added to this selector list. A blunt wildcard +
-   !important because most components hardcode font-family:'Zalando Sans'
-   directly rather than inheriting from body, so a body-level-only
-   override wouldn't reach them. */
-.page-home,.page-home *,
-.page-become,.page-become *,
-.page-models,.page-models *,
-.page-model,.page-model *,
-.page-concierge,.page-concierge *,
-.page-events,.page-events *,
-.page-about,.page-about *,
-.page-vip-models,.page-vip-models *,
-.page-account,.page-account *,
-.page-blog,.page-blog *{font-family:'Lexend',sans-serif!important}
+/* Approved site-wide (started as a homepage-only trial, then rolled on
+   page by page) — every page carries a body[class^="page-"] class (see
+   the deep-azure rollout above), so now that every page has Lexend too
+   this can just match the same wildcard rather than listing each class.
+   A blunt wildcard + !important because most components hardcode
+   font-family:'Zalando Sans' directly rather than inheriting from body,
+   so a body-level-only override wouldn't reach them. */
+body[class^="page-"],body[class^="page-"] *{font-family:'Lexend',sans-serif!important}
 
 /* =================== HOMEPAGE — content unique to this page =================== */
 /* Palette/nav/footer/model-card/faq-item/back-btn etc. are all handled by
