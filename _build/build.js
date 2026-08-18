@@ -1006,8 +1006,10 @@ ${ageModalHTML()}
     </div>
 
     <div class="form-section" style="padding:0;overflow:hidden;margin-bottom:2.5rem">
-      <div style="position:relative;min-height:280px;display:flex;align-items:center;padding:2.5rem 1.75rem;background:linear-gradient(90deg,rgba(10,4,8,0.92),rgba(10,4,8,0.55)),url('/images/events.webp?v=${BUILD_TS}') center/cover no-repeat">
-        <p style="max-width:600px;color:rgba(255,255,255,0.88);font-size:15.5px;line-height:1.85">Paradise Erotic Events are known for black tie masquerades, intimate dinners, and immersive theatrical events created for a discerning membership. Each gathering is designed as a living work of art. Beauty, ritual, and performance come together within a framework of elegance and consent.</p>
+      <!-- aspect-ratio matches events.webp's own (1920x1095) so cover crops
+           nothing — the box IS the image's shape at any width. -->
+      <div style="position:relative;aspect-ratio:1920/1095;display:flex;align-items:center;justify-content:center;padding:2.5rem 1.75rem;background:linear-gradient(rgba(10,4,8,0.4),rgba(10,4,8,0.4)),url('/images/events.webp?v=${BUILD_TS}') center/cover no-repeat">
+        <p style="max-width:640px;text-align:center;color:#fff;font-size:15.5px;line-height:1.85">Paradise Erotic Events are known for black tie masquerades, intimate dinners, and immersive theatrical events created for a discerning membership. Each gathering is designed as a living work of art. Beauty, ritual, and performance come together within a framework of elegance and consent.</p>
       </div>
     </div>
 
@@ -1018,18 +1020,24 @@ ${ageModalHTML()}
     </div>
 
     <div class="form-grid-2" style="margin-bottom:2.5rem">
-      <div class="form-section">
+      <div class="form-section" style="display:flex;flex-direction:column">
+        <div style="width:44px;height:44px;border-radius:50%;background:rgba(217,154,168,0.14);border:1px solid rgba(217,154,168,0.35);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d99aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
         <div class="form-section-title">Join Our Event</div>
         <p style="color:var(--text-soft);font-size:14px;line-height:1.75;margin-bottom:1rem">We host closed, invite-only erotic events in London, and every one has its own theme — never the same evening twice. Among them:</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem">
           ${eventThemes.map(t => `<span style="display:inline-block;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--text);font-size:12px">${t}</span>`).join('')}
         </div>
-        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem" href="${SINLIST_TG_LINK}" target="_blank" rel="noopener">Discover Our Upcoming Event</a>
+        <a class="submit-app-btn" style="margin-top:auto;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem;align-self:flex-start" href="${SINLIST_TG_LINK}" target="_blank" rel="noopener">Discover Our Upcoming Event</a>
       </div>
-      <div class="form-section">
+      <div class="form-section" style="display:flex;flex-direction:column">
+        <div style="width:44px;height:44px;border-radius:50%;background:rgba(217,154,168,0.14);border:1px solid rgba(217,154,168,0.35);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d99aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
         <div class="form-section-title">Order Your Private Event <span style="font-weight:400;color:var(--text-muted);font-size:12px">(up to 10 people)</span></div>
-        <p style="color:var(--text-soft);font-size:14px;line-height:1.75;margin-bottom:1.25rem">Share your fantasy with us. Tell us what you desire, and we will bring it to life for your company of up to 10 people — venue, cast, theme and every detail, produced with the same artistry and discretion as our own events.</p>
-        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem" href="${SINLIST_TG_LINK}" target="_blank" rel="noopener">Discuss Your Event</a>
+        <p style="color:var(--text-soft);font-size:14px;line-height:1.75;margin-bottom:1.25rem">Share your fantasy with us. Tell us what you desire — a theme, a scenario, a role you've always wanted to play — and we will bring it to life for your company of up to 10 people. Venue, cast, wardrobe, choreography and every last detail are produced entirely around you, with the same artistry, theatrical craft and discretion as our own events.</p>
+        <a class="submit-app-btn" style="margin-top:auto;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem;align-self:flex-start" href="${SINLIST_TG_LINK}" target="_blank" rel="noopener">Discuss Your Event</a>
       </div>
     </div>
 
@@ -1044,6 +1052,9 @@ ${ageModalHTML()}
     </div>
 
     <div class="form-section" style="text-align:center">
+      <div style="width:44px;height:44px;border-radius:50%;background:rgba(217,154,168,0.14);border:1px solid rgba(217,154,168,0.35);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d99aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </div>
       <div class="form-section-title">Your Most Unforgettable Night</div>
       <p style="color:var(--text-soft);font-size:14px;margin-bottom:1.25rem">Contact us to reserve your place at an upcoming Paradise Erotic Event, or begin planning a private evening entirely your own. One conversation is all it takes.</p>
       <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
@@ -1087,6 +1098,21 @@ function buildSinlist() {
     {price: '£15,000', name: 'Extended Access', items: ['All zones', 'VIP domination zone', 'Two guests permitted']},
     {price: '£30,000', name: 'Full Access', items: ['Unrestricted entry', 'Private comfort manager', 'Accompanied model', 'Two guests permitted']},
   ];
+  const womenOutfits = ['sinlist-women-1.webp', 'sinlist-women-2.webp', 'sinlist-women-3.webp'];
+  const menOutfits = ['sinlist-men-1.webp', 'sinlist-men-2.webp', 'sinlist-men-3.webp'];
+  // Full-bleed image panel with a dark tint and bottom-anchored text —
+  // reused for every section below sourced from a scene photo rather than
+  // a plain panel.
+  const imagePanel = (img, eyebrow, title, body, minH = 260) => `
+    <div class="form-section" style="padding:0;overflow:hidden;margin-bottom:2.5rem">
+      <div style="position:relative;min-height:${minH}px;display:flex;align-items:flex-end;padding:2.5rem 1.75rem 1.75rem;background:linear-gradient(180deg,rgba(10,4,8,0.25),rgba(10,4,8,0.92)),url('/images/events/${img}') center/cover no-repeat">
+        <div>
+          ${eyebrow ? `<div style="font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:#d99aa8;font-weight:700;margin-bottom:0.5rem">${eyebrow}</div>` : ''}
+          <div style="font-size:clamp(1.3rem,3vw,1.7rem);font-weight:700;color:#fff;margin-bottom:0.6rem">${title}</div>
+          <div style="color:rgba(255,255,255,0.82);font-size:14px;line-height:1.8;max-width:560px">${body}</div>
+        </div>
+      </div>
+    </div>`;
 
   return head(
     'The Sin List — Opening Night | Paradise Erotic Events',
@@ -1112,32 +1138,85 @@ ${ageModalHTML()}
         <div>
           <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:#d99aa8;font-weight:700;margin-bottom:0.5rem">An Example of Our Work</div>
           <div style="font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;color:#fff">The Sin List — Opening Night</div>
-          <div style="color:rgba(255,255,255,0.7);font-size:14px;margin-top:0.5rem;max-width:560px">A private members' club we produced in London — an immersive, theatrical evening exploring the architecture of desire.</div>
+          <div style="color:rgba(255,255,255,0.7);font-size:14px;margin-top:0.5rem;max-width:560px">A private members' club we produced in London — an immersive, theatrical evening exploring the architecture of desire. Secret key for your fantasies.</div>
         </div>
       </div>
     </div>
 
     <div class="form-section" style="margin-bottom:2.5rem">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0.5rem;margin-bottom:1.5rem">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0.5rem">
         ${facts.map(([l, v]) => `<div class="stat-box"><div class="stat-label">${l}</div><div class="stat-val" style="font-size:0.82rem">${v}</div></div>`).join('')}
       </div>
+    </div>
 
-      <p style="color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:1.25rem">Structured as nine circles — nine progressive spaces, each its own state of experience — guests moved through a sequence of sensation, tension and release, from observation to full participation. More than twenty actors and actresses built a fully theatrical environment around every guest, from a masquerade dress code through to a private, guided evening.</p>
-      <p style="color:var(--text-soft);font-size:14px;line-height:1.8">Discretion was the foundation of the evening — no devices inside the space, consent as the basis of every interaction, and comfort maintained throughout by our own team.</p>
+    ${imagePanel('sinlist-invitation-bg.webp', 'Invitation', 'A Space For a Selected Few',
+      "The Sin List unveiled a space accessible only to a selected few — a private members' club where desire became part of the experience, and inner impulses served as an entry point into personal transformation.")}
+
+    <div class="form-section" style="margin-bottom:2.5rem;overflow:hidden">
+      <div class="form-grid-2" style="align-items:center">
+        <div>
+          <div class="form-section-title">Concept — 9 Circles</div>
+          <p style="color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:1rem">The evening was structured as an architecture of nine states. Each space represented a distinct level of experience, inspired by the deeper nature of human desire — guests moved through a sequence of sensations, states and interactions, entering a scenario where attention was directed inward.</p>
+          <p style="color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:1rem">Structured as nine progressive circles, the night moved from observation to full participation, from tension to release. More than twenty actors and actresses built a fully theatrical environment around every guest, from a masquerade dress code through to a private, guided evening.</p>
+          <p style="color:var(--text);font-style:italic;font-size:14.5px;line-height:1.8">An experience where control shifted into exploration, and restraint evolved into conscious presence.</p>
+        </div>
+        <div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/sinlist-concept-bg.webp" alt="The Sin List — the gate, before the nine circles" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      </div>
     </div>
 
     <div class="form-section" style="margin-bottom:2.5rem">
-      <div class="form-section-title">Dress Code — Black Tie &amp; Masquerade</div>
-      <p style="color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:1rem">Full black tie was required — tailored suits and formal evening wear, in black, worn with quiet precision. A mask was mandatory for every guest and stayed on for the full evening, dissolving identity into anonymity from the moment of arrival.</p>
-      <p style="color:var(--text-soft);font-size:14px;line-height:1.8">Leather, lace and fine tailoring were welcomed; costume-shop pieces, casualwear, or anything that broke the atmosphere were not. Our team advised every guest privately on mask and attire ahead of the evening.</p>
-    </div>
-
-    <div class="form-section" style="margin-bottom:2.5rem">
-      <div class="form-section-title">The Evening, In Pictures</div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+      <div class="form-section-title">The Experience</div>
+      <p style="color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:1.5rem">The Sin List was an immersive environment where every detail was designed to reveal a new dimension of self. The evening unfolded progressively — from tension to release, from observation to participation — with depth of immersion as its primary instrument. More than 20 actors and actresses immersed every guest in a sensual experience of engaging with their own shadow self.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:0.5rem">
         ${gallery.map(g => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${g.src}" alt="${g.alt}" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
       </div>
     </div>
+
+    ${imagePanel('sinlist-etiquette-bg.webp', 'Etiquette', 'Discretion Was a Fundamental Principle',
+      "All devices remained outside the space. Within the environment: respect for personal boundaries, consent as the basis of all interaction, and conscious presence at all times. Each guest's comfort was maintained by the club's own internal team.", 300)}
+
+    <div class="form-section" style="padding:0;overflow:hidden;margin-bottom:2.5rem">
+      <div style="position:relative;min-height:220px;display:flex;align-items:flex-end;padding:2.5rem 1.75rem 1.75rem;background:linear-gradient(180deg,rgba(10,4,8,0.2),rgba(10,4,8,0.9)),url('/images/events/sinlist-dresscode-bg.webp') center/cover no-repeat">
+        <div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:#d99aa8;font-weight:700;margin-bottom:0.5rem">Dress Code</div>
+          <div style="font-size:clamp(1.3rem,3vw,1.7rem);font-weight:700;color:#fff;margin-bottom:0.6rem">Black Tie &amp; Masquerade</div>
+          <div style="color:rgba(255,255,255,0.82);font-size:14px;line-height:1.8;max-width:560px">Your look was part of the experience and directly shaped the depth of immersion.</div>
+        </div>
+      </div>
+      <div style="padding:1.75rem">
+        <div class="form-grid-2" style="margin-bottom:1.75rem">
+          <div>
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--purple3);font-weight:700;margin-bottom:0.65rem">Recommended Aesthetic — Women</div>
+            <ul style="margin:0;padding-left:1.1rem;color:var(--text-soft);font-size:13.5px;line-height:1.95">
+              <li>Mask, worn for the full evening</li>
+              <li>Materials: leather, silk, latex, metal</li>
+              <li>Colours: black, grey, silver, milk, white</li>
+              <li>Dark sensuality, structured sexuality, ritualistic and symbolic elements</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--purple3);font-weight:700;margin-bottom:0.65rem">Recommended Aesthetic — Men</div>
+            <ul style="margin:0;padding-left:1.1rem;color:var(--text-soft);font-size:13.5px;line-height:1.95">
+              <li>Mask, worn for the full evening</li>
+              <li>Black tie suit</li>
+              <li>Colours: black</li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-grid-2" style="grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:0.5rem">
+          ${womenOutfits.map(w => `<div style="background:#e4e0dc;border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${w}" alt="The Sin List — recommended aesthetic for women" style="width:100%;height:100%;object-fit:contain;display:block"></div>`).join('')}
+        </div>
+        <div class="form-grid-2" style="grid-template-columns:repeat(3,1fr);gap:8px">
+          ${menOutfits.map(m => `<div style="background:#e4e0dc;border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${m}" alt="The Sin List — recommended aesthetic for men" style="width:100%;height:100%;object-fit:contain;display:block"></div>`).join('')}
+        </div>
+      </div>
+    </div>
+
+    ${imagePanel('sinlist-compliance-bg.webp', '', 'Your appearance had to be intentional, refined, and aligned with the atmosphere of the evening.',
+      'Guests who did not comply with the dress code were not admitted.', 200)}
+
+    ${imagePanel('sinlist-access-bg.webp', 'Access', 'Entry By Invitation Only',
+      'Entry was granted by personal invitation or upon approved application. Guest capacity was strictly limited, and the location was disclosed only on the day of the event.', 300)}
 
     <div class="form-section" style="margin-bottom:2.5rem">
       <div class="form-section-title">Access Tiers — This Event</div>
@@ -1154,7 +1233,29 @@ ${ageModalHTML()}
       </div>
     </div>
 
+    ${imagePanel('sinlist-details-bg.webp', 'Details', 'Date: 13 June 2026 · Location: London, UK',
+      "There are places you don't talk about. Only a select few gained access — admission was granted through a strict private interview. The exact location was disclosed to confirmed guests on the day of the event.", 280)}
+
+    <div class="form-section" style="margin-bottom:2.5rem;overflow:hidden">
+      <div class="form-grid-2" style="align-items:center">
+        <div>
+          <div class="form-section-title">P.S. — Complete Discretion At Every Level</div>
+          <ul style="margin:0 0 1.25rem;padding-left:1.1rem;color:var(--text-soft);font-size:14px;line-height:1.95">
+            <li>Our guests gained access to a refined, private environment where security, comfort and confidentiality were fundamental.</li>
+            <li>Each member was individually selected through a strict and considered process.</li>
+            <li>Our community consisted of accomplished individuals — entrepreneurs, public figures, and recognized personalities.</li>
+          </ul>
+        </div>
+        <div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/sinlist-8.webp" alt="The Sin List — a moment of surrender" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      </div>
+      <p style="color:var(--text-soft);font-size:14px;line-height:1.85;margin-bottom:0.75rem">Confidentiality was the core principle of every experience we create. All participants formally agreed to maintain absolute discretion, ensuring that no details regarding identities, attendance, or any aspect of our events, experiences, or operations were ever disclosed.</p>
+      <p style="color:var(--text);font-style:italic;font-size:13.5px">June 2026, London, UK</p>
+    </div>
+
     <div class="form-section" style="text-align:center">
+      <div style="width:44px;height:44px;border-radius:50%;background:rgba(217,154,168,0.14);border:1px solid rgba(217,154,168,0.35);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d99aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </div>
       <div class="form-section-title">Your Most Unforgettable Night</div>
       <p style="color:var(--text-soft);font-size:14px;margin-bottom:1.25rem">This is only one evening from our calendar — get in touch to hear about what's next, or to commission an evening entirely your own.</p>
       <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
