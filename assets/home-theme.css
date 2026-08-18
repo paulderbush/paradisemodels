@@ -622,12 +622,12 @@ body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:
 /* Palette/nav/footer/model-card/faq-item/back-btn etc. are all handled by
    the universal body[class^="page-"] rules above. Only the homepage's own
    hero and section-title gradients are specific to .page-home. */
-/* Font test — Quicksand, homepage only. A blunt wildcard + !important
-   because most components hardcode font-family:'Zalando Sans' directly
-   rather than inheriting from body, so a single body-level override
-   wouldn't reach them. Roll back by deleting this rule (and the Quicksand
-   <link> in buildHome()) if it doesn't stick. */
-.page-home,.page-home *{font-family:'Quicksand',sans-serif!important}
+/* Font test — Lexend, homepage only (previously tried Quicksand). A blunt
+   wildcard + !important because most components hardcode
+   font-family:'Zalando Sans' directly rather than inheriting from body, so
+   a single body-level override wouldn't reach them. Roll back by deleting
+   this rule (and the Lexend <link> in buildHome()) if it doesn't stick. */
+.page-home,.page-home *{font-family:'Lexend',sans-serif!important}
 .page-home .hero,.page-home .hero-bg{border-radius:0!important}
 .page-home .hero{box-shadow:0 24px 60px rgba(2,12,16,0.5)!important}
 .page-home .hero-content h1 span{
