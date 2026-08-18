@@ -392,13 +392,13 @@ footer{
 
 /* =================== DEEP AZURE THEME + SQUARE DESIGN — SITE-WIDE ROLLOUT =================== */
 /* Started as a homepage-only trial, then Julia's profile, then FAQ/About —
-   now rolled out to every page below via a body class set in build.js
+   now rolled out to every page via a body class set in build.js
    (buildHome/buildModelProfile/buildFaq/buildAbout/buildModels/
    buildVipModels/buildConcierge/buildEvents/buildSinlist/buildBecome/
-   buildAccount all set one of .page-home/.page-model/.page-faq/
-   .page-about/.page-models/.page-vip-models/.page-concierge/.page-events/
-   .page-sinlist/.page-become/.page-account). Only the blog placeholder is
-   not yet converted, since it carries no .page-* class.
+   buildAccount/buildPlaceholder all set one of .page-home/.page-model/
+   .page-faq/.page-about/.page-models/.page-vip-models/.page-concierge/
+   .page-events/.page-sinlist/.page-become/.page-account/.page-blog).
+   Every page is converted.
 
    Everything in this section is written against body[class^="page-"] —
    every page-scoped body's class is exactly one of the names above with
@@ -618,18 +618,14 @@ body[class^="page-"] .make-booking-btn:hover{border-color:var(--purple3)!importa
 body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:rgba(225,244,250,0.82)!important}
 
 /* =================== LEXEND FONT ROLLOUT =================== */
-/* Approved site-wide, being rolled onto pages one at a time. Each
-   converted page needs both its own Lexend <link> in its build.js head()
-   call AND its class added to this selector list. A blunt wildcard +
-   !important because most components hardcode font-family:'Zalando Sans'
-   directly rather than inheriting from body, so a body-level-only
-   override wouldn't reach them. */
-.page-home,.page-home *,
-.page-become,.page-become *,
-.page-models,.page-models *,
-.page-model,.page-model *,
-.page-concierge,.page-concierge *,
-.page-events,.page-events *{font-family:'Lexend',sans-serif!important}
+/* Approved site-wide (started as a homepage-only trial, then rolled on
+   page by page) — every page carries a body[class^="page-"] class (see
+   the deep-azure rollout above), so now that every page has Lexend too
+   this can just match the same wildcard rather than listing each class.
+   A blunt wildcard + !important because most components hardcode
+   font-family:'Zalando Sans' directly rather than inheriting from body,
+   so a body-level-only override wouldn't reach them. */
+body[class^="page-"],body[class^="page-"] *{font-family:'Lexend',sans-serif!important}
 
 /* =================== HOMEPAGE — content unique to this page =================== */
 /* Palette/nav/footer/model-card/faq-item/back-btn etc. are all handled by
@@ -860,3 +856,9 @@ body[class^="page-"] .age-modal-text,body[class^="page-"] .age-modal-list{color:
    !important, unscoped — beat it here so this page gets the deep-azure
    accent like every other hover-outline element on the site. */
 .page-become .photo-upload-area:hover{border-color:var(--purple3)!important}
+
+/* =================== BLOG PLACEHOLDER PAGE — content unique to this page =================== */
+/* Reuses .faq-page as a layout wrapper (centered coming-soon copy) —
+   the gradient span is already set inline with var()s in buildPlaceholder(),
+   only the base heading color needs beating the old .faq-page h1 fallback. */
+.page-blog h1{color:var(--text)!important}
