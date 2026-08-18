@@ -809,7 +809,8 @@ function buildVipModels() {
     'VIP Models — Paradise Models',
     'An exclusive selection of VIP companions at Paradise Models. Unlock with a one-time payment.',
     SITE_URL + '/vip-models/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-vip-models">
@@ -873,12 +874,13 @@ function buildPlaceholder({title, slug, heading, headingAccent, lead, metaTitle,
     metaTitle,
     metaDesc,
     SITE_URL + slug,
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-blog">
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
@@ -887,7 +889,7 @@ ${ageModalHTML()}
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
       Back to Home
     </a>
-    <h1 style="font-size:clamp(2.4rem,5vw,4rem);font-weight:700;margin-bottom:1rem">${heading} <span style="background:linear-gradient(135deg,#1a5f7a,#123a66);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${headingAccent}</span></h1>
+    <h1 style="font-size:clamp(2.4rem,5vw,4rem);font-weight:700;margin-bottom:1rem">${heading} <span style="background:linear-gradient(135deg,var(--glow-light),var(--glow-mid));-webkit-background-clip:text;-webkit-text-fill-color:transparent">${headingAccent}</span></h1>
     <p style="color:var(--text-soft);font-size:1.1rem;max-width:520px">${lead}</p>
     <p style="color:var(--text-muted);font-size:1rem;margin-top:1.5rem">Coming soon.</p>
   </div>
@@ -1294,7 +1296,8 @@ function buildAbout() {
     'High Class London Escorts | Paradise Models',
     'Paradise Models — a high-class international escort agency in London, Paris, Monaco, Milan, Dubai, New York, Miami, Zurich and Amsterdam. Verified photos, discreet service, available 24/7 from £300/h.',
     SITE_URL + '/about/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-about">
@@ -1397,7 +1400,8 @@ function buildAccount() {
     'My Account — Paradise Models',
     'Sign in to your Paradise Models account to manage VIP catalog access.',
     SITE_URL + '/account/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-account">
