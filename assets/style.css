@@ -577,12 +577,16 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
 .partners-title{font-size:1.1rem;font-weight:600;margin-bottom:1.2rem;color:var(--text-soft);letter-spacing:0.06em;text-transform:uppercase;font-size:12px}
 .partners-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
 .partner-banner{
-  border-radius:var(--r-sm);overflow:hidden;
+  border-radius:12px;overflow:hidden;
   border:1px solid var(--glass-border);
   transition:all 0.25s;cursor:pointer;
+  max-width:100%;
 }
 .partner-banner:hover{border-color:rgba(var(--brand-light-rgb),0.4);transform:translateY(-2px)}
-.partner-banner img{display:block;height:60px;width:auto}
+/* max-width keeps a wide banner (e.g. the 468x60 UK Adult Zone one) from
+   overflowing a narrow phone screen — it still renders at a full 60px tall
+   everywhere it fits. */
+.partner-banner img{display:block;height:60px;width:auto;max-width:100%}
 
 /* FOOTER */
 footer{
