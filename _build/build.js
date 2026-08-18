@@ -259,7 +259,7 @@ function buildHome() {
     'Paradise Models — HIGH CLASS INTERNATIONAL ESCORT AGENCY',
     'Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions you will find nowhere else.',
     SITE_URL + '/',
-    `<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
@@ -1029,7 +1029,7 @@ ${ageModalHTML()}
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem">
           ${eventThemes.map(t => `<span style="display:inline-block;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--text);font-size:12px">${t}</span>`).join('')}
         </div>
-        <a class="submit-app-btn" style="margin-top:auto;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem;align-self:flex-start" href="${SINLIST_TG_LINK}" target="_blank" rel="noopener">Discover Our Upcoming Event</a>
+        <a class="submit-app-btn" style="margin-top:auto;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem;align-self:flex-start" href="${SINLIST_TG_LINK}" target="_blank" rel="noopener">Talk to Us About Upcoming Event</a>
       </div>
       <div class="form-section" style="display:flex;flex-direction:column">
         <div style="width:44px;height:44px;border-radius:50%;background:rgba(217,154,168,0.14);border:1px solid rgba(217,154,168,0.35);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;flex-shrink:0">
@@ -1204,10 +1204,10 @@ ${ageModalHTML()}
           </div>
         </div>
         <div class="form-grid-2" style="grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:0.5rem">
-          ${womenOutfits.map(w => `<div style="background:#e4e0dc;border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${w}" alt="The Sin List — recommended aesthetic for women" style="width:100%;height:100%;object-fit:contain;display:block"></div>`).join('')}
+          ${womenOutfits.map(w => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${w}" alt="The Sin List — recommended aesthetic for women" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
         </div>
         <div class="form-grid-2" style="grid-template-columns:repeat(3,1fr);gap:8px">
-          ${menOutfits.map(m => `<div style="background:#e4e0dc;border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${m}" alt="The Sin List — recommended aesthetic for men" style="width:100%;height:100%;object-fit:contain;display:block"></div>`).join('')}
+          ${menOutfits.map(m => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${m}" alt="The Sin List — recommended aesthetic for men" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
         </div>
       </div>
     </div>
