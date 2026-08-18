@@ -644,12 +644,13 @@ function buildBecome() {
     'Become a Model — Paradise Models',
     'Apply to join Paradise Models as an escort companion. Submit your application and our team will review within 24–48 hours.',
     SITE_URL + '/become-a-model/',
-    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
-<body>
+<body class="page-become">
 ${orbsHTML()}
-${navHTML(true)}
+${navHTML(true, false, true)}
 ${ageModalHTML()}
 
 <div style="position:relative;z-index:1">
