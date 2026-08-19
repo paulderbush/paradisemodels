@@ -857,8 +857,16 @@ body[class^="page-"],body[class^="page-"] *{font-family:'Lexend',sans-serif!impo
    accent like every other hover-outline element on the site. */
 .page-become .photo-upload-area:hover{border-color:var(--purple3)!important}
 
-/* =================== BLOG PLACEHOLDER PAGE — content unique to this page =================== */
-/* Reuses .faq-page as a layout wrapper (centered coming-soon copy) —
-   the gradient span is already set inline with var()s in buildPlaceholder(),
-   only the base heading color needs beating the old .faq-page h1 fallback. */
-.page-blog h1{color:var(--text)!important}
+/* =================== BLOG PAGE — content unique to this page =================== */
+/* Same .become-header pattern as Concierge/Events/Become/Account above —
+   the old unscoped .become-header rules (dark ink heading, near-invisible
+   lead paragraph) need beating page by page since there's no universal
+   version of them. */
+.page-blog .become-header h1{color:var(--text)!important}
+.page-blog .become-header h1 span{
+  background:linear-gradient(135deg,var(--glow-light),var(--glow-mid))!important;
+  -webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+/* var(--text) (near-white) rather than the --text-soft grey every
+   sibling page uses here — asked for specifically. */
+.page-blog .become-header p{color:var(--text)!important}
