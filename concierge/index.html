@@ -11,9 +11,9 @@
 <meta property="og:description" content="The Paradise Models concierge — bespoke travel, events, access and rare acquisitions, arranged with the same discretion as everything else we do.">
 <meta property="og:url" content="https://velvetescort.co.uk/concierge/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260818234528">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260818234528">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260818234528">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260819001637">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260819001637">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260819001637">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1221,6 +1221,51 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 }
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 
+/* =================== BLOG =================== */
+/* New components, only ever used on .page-blog/.page-blog-post — square
+   corners baked in directly rather than the old-theme-then-page-override
+   two-tier pattern other shared components need, since there's no legacy
+   consumer expecting them rounded. */
+.blog-list{display:flex;flex-direction:column;gap:1.25rem}
+.blog-card{
+  display:flex;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-radius:0;overflow:hidden;transition:border-color 0.2s;
+}
+.blog-card:hover{border-color:var(--purple3)}
+.blog-card-img{flex:0 0 260px;background-size:cover;background-position:center;display:block;min-height:200px}
+.blog-card-body{flex:1;min-width:0;padding:1.5rem;display:flex;flex-direction:column;gap:0.85rem}
+.blog-card-title{font-size:1.3rem;font-weight:700;margin:0;color:var(--text)}
+.blog-card-meta{display:flex;gap:1rem;align-items:flex-start}
+.blog-date{display:flex;flex-direction:column;align-items:center;text-align:center;padding-right:1rem;border-right:1px solid var(--glass-border);flex-shrink:0;min-width:56px}
+.blog-date-day{font-size:1.8rem;font-weight:800;color:var(--purple3);line-height:1}
+.blog-date-my{font-size:0.65rem;font-weight:700;letter-spacing:0.06em;color:var(--text-muted);margin-top:3px;line-height:1.35}
+.blog-card-excerpt{color:var(--text-soft);font-size:14px;line-height:1.7;margin:0}
+.blog-read-more{
+  align-self:flex-start;margin-top:auto;padding:0.6rem 1.4rem;border-radius:0;
+  background:rgba(var(--brand-rgb),0.15);border:1px solid var(--glass-border);
+  color:var(--purple3);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.2s;
+}
+.blog-read-more:hover{background:rgba(var(--brand-rgb),0.3);border-color:var(--purple3)}
+@media(max-width:768px){
+  .blog-card{flex-direction:column}
+  .blog-card-img{flex:none;width:100%;min-height:180px}
+}
+
+.blog-post-hero{width:100%;aspect-ratio:21/9;background-size:cover;background-position:center;border-radius:0;margin:1.5rem 0;border:1px solid var(--glass-border)}
+.blog-post-title{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;color:var(--text);margin-bottom:0.5rem}
+.blog-post-date{color:var(--text-muted);font-size:13px;margin-bottom:2rem;text-transform:uppercase;letter-spacing:0.05em}
+.blog-post-body{color:var(--text-soft);font-size:15px;line-height:1.85;padding-bottom:3rem}
+.blog-post-body p{margin:0 0 1.1rem}
+.blog-post-body h2{color:var(--text);font-size:1.4rem;font-weight:700;margin:2.2rem 0 1rem;scroll-margin-top:110px}
+.blog-post-body a{color:var(--purple3);text-decoration:underline;text-underline-offset:2px}
+.blog-post-body a:hover{color:var(--text)}
+.blog-toc{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:0;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem}
+.blog-toc-title{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
+.blog-toc ul{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:0.45rem}
+.blog-toc a{color:var(--purple3);text-decoration:none;font-size:14px}
+.blog-toc a:hover{text-decoration:underline}
+
 /* =================== iOS INPUT ZOOM GUARD ===================
    iOS Safari force-zooms the page whenever a focused field's font is under
    16px, which shifts the whole layout mid-tap. 16px is the floor that
@@ -1243,11 +1288,11 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260818234528';</script>
+<script>window.BUILD_TS='20260819001637';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260818234528"></script>
+<script src="/assets/currency.js?v=20260819001637"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260818234528">
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260819001637">
 </head>
 <body class="page-concierge">
 <div class="orb-container">
@@ -1271,7 +1316,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818234528" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260819001637" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1314,7 +1359,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260818234528" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260819001637" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1403,56 +1448,56 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
     <div class="form-grid-2" style="margin-bottom:2.5rem">
       
       <div class="form-section" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:3/2;background:url('/images/concierge/travel.webp?v=20260818234528') center/cover no-repeat"></div>
+        <div style="aspect-ratio:3/2;background:url('/images/concierge/travel.webp?v=20260819001637') center/cover no-repeat"></div>
         <div style="padding:1.25rem">
           <div class="form-section-title">Travel & Getaways</div>
           <p style="color:var(--text-soft);font-size:14px;line-height:1.75">Private jets, secluded resorts and bespoke itineraries — routes built around you, not a brochure.</p>
         </div>
       </div>
       <div class="form-section" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:3/2;background:url('/images/concierge/events.webp?v=20260818234528') center/cover no-repeat"></div>
+        <div style="aspect-ratio:3/2;background:url('/images/concierge/events.webp?v=20260819001637') center/cover no-repeat"></div>
         <div style="padding:1.25rem">
           <div class="form-section-title">Events & Celebrations</div>
           <p style="color:var(--text-soft);font-size:14px;line-height:1.75">Private dinners, parties and milestone occasions, produced and run from first idea to last detail.</p>
         </div>
       </div>
       <div class="form-section" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:3/2;background:url('/images/concierge/lifestyle.webp?v=20260818234528') center/cover no-repeat"></div>
+        <div style="aspect-ratio:3/2;background:url('/images/concierge/lifestyle.webp?v=20260819001637') center/cover no-repeat"></div>
         <div style="padding:1.25rem">
           <div class="form-section-title">Lifestyle Support</div>
           <p style="color:var(--text-soft);font-size:14px;line-height:1.75">Personal shoppers, private chefs, wellness and security — the everyday handled seamlessly.</p>
         </div>
       </div>
       <div class="form-section" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:3/2;background:url('/images/concierge/art.webp?v=20260818234528') center/cover no-repeat"></div>
+        <div style="aspect-ratio:3/2;background:url('/images/concierge/art.webp?v=20260819001637') center/cover no-repeat"></div>
         <div style="padding:1.25rem">
           <div class="form-section-title">Access & Reservations</div>
           <p style="color:var(--text-soft);font-size:14px;line-height:1.75">Tables, tickets and rooms that are normally closed to the public, opened through our contacts.</p>
         </div>
       </div>
       <div class="form-section" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:3/2;background:url('/images/concierge/rare.webp?v=20260818234528') center/cover no-repeat"></div>
+        <div style="aspect-ratio:3/2;background:url('/images/concierge/rare.webp?v=20260819001637') center/cover no-repeat"></div>
         <div style="padding:1.25rem">
           <div class="form-section-title">Rare Acquisitions</div>
           <p style="color:var(--text-soft);font-size:14px;line-height:1.75">Hard-to-get pieces — watches, bags, gifts — sourced through relationships built over years.</p>
         </div>
       </div>
       <div class="form-section" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:3/2;background:url('/images/concierge/estate.webp?v=20260818234528') center/cover no-repeat"></div>
+        <div style="aspect-ratio:3/2;background:url('/images/concierge/estate.webp?v=20260819001637') center/cover no-repeat"></div>
         <div style="padding:1.25rem">
           <div class="form-section-title">Stays & Real Estate</div>
           <p style="color:var(--text-soft);font-size:14px;line-height:1.75">Private villas, penthouses and islands, arranged for a weekend or an entire season.</p>
         </div>
       </div>
       <div class="form-section" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:3/2;background:url('/images/concierge/aviation.webp?v=20260818234528') center/cover no-repeat"></div>
+        <div style="aspect-ratio:3/2;background:url('/images/concierge/aviation.webp?v=20260819001637') center/cover no-repeat"></div>
         <div style="padding:1.25rem">
           <div class="form-section-title">Yachts & Private Aviation</div>
           <p style="color:var(--text-soft);font-size:14px;line-height:1.75">Charter or full management, arranged on short notice when timing matters most.</p>
         </div>
       </div>
       <div class="form-section" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:3/2;background:url('/images/concierge/bespoke.webp?v=20260818234528') center/cover no-repeat"></div>
+        <div style="aspect-ratio:3/2;background:url('/images/concierge/bespoke.webp?v=20260819001637') center/cover no-repeat"></div>
         <div style="padding:1.25rem">
           <div class="form-section-title">Bespoke Requests</div>
           <p style="color:var(--text-soft);font-size:14px;line-height:1.75">Anything else. If it can be arranged, we'll arrange it — tell us what you need.</p>
@@ -1497,7 +1542,7 @@ const NATIONALITIES = [];
 const STATIONS = [];
 const CITIES = [];
 </script>
-<script src="/assets/main.js?v=20260818234528"></script>
-<script src="/assets/chat.js?v=20260818234528"></script>
+<script src="/assets/main.js?v=20260819001637"></script>
+<script src="/assets/chat.js?v=20260819001637"></script>
 </body>
 </html>
