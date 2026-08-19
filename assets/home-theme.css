@@ -395,10 +395,10 @@ footer{
    now rolled out to every page via a body class set in build.js
    (buildHome/buildModelProfile/buildFaq/buildAbout/buildModels/
    buildVipModels/buildConcierge/buildEvents/buildSinlist/buildBecome/
-   buildAccount/buildPlaceholder all set one of .page-home/.page-model/
-   .page-faq/.page-about/.page-models/.page-vip-models/.page-concierge/
-   .page-events/.page-sinlist/.page-become/.page-account/.page-blog).
-   Every page is converted.
+   buildAccount/buildBlog/buildBlogPost all set one of .page-home/
+   .page-model/.page-faq/.page-about/.page-models/.page-vip-models/
+   .page-concierge/.page-events/.page-sinlist/.page-become/.page-account/
+   .page-blog/.page-blog-post). Every page is converted.
 
    Everything in this section is written against body[class^="page-"] —
    every page-scoped body's class is exactly one of the names above with

@@ -7,6 +7,7 @@ const css = fs.readFileSync(path.join(__dirname, '../assets/style.css'), 'utf8')
 
 // Load models
 const { MODELS, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES } = require('../data/models.js');
+const { BLOG_POSTS } = require('../data/blog.js');
 // URL-safe slug for a city name, used for element ids and query params.
 const citySlug = (c) => c.toLowerCase().replace(/\s+/g, '-');
 const REAL_MODELS = MODELS.filter(m => m.real);
@@ -884,47 +885,6 @@ const VIP_TEASER_MODELS = ${JSON.stringify(VIP_TEASER_MODELS)};
 </html>`;
 }
 
-// =================== SIMPLE PLACEHOLDER PAGE ===================
-function buildPlaceholder({title, slug, heading, headingAccent, lead, metaTitle, metaDesc}) {
-  return head(
-    metaTitle,
-    metaDesc,
-    SITE_URL + slug,
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
-    '#1a1e42'
-  ) + `
-<body class="page-blog">
-${orbsHTML()}
-${navHTML(true, false, true)}
-${ageModalHTML()}
-
-<div style="position:relative;z-index:1">
-  <div class="faq-page" style="text-align:center;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
-    <a class="back-btn" href="/" style="position:absolute;top:90px;left:2rem">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-      Back to Home
-    </a>
-    <h1 style="font-size:clamp(2.4rem,5vw,4rem);font-weight:700;margin-bottom:1rem">${heading} <span style="background:linear-gradient(135deg,var(--glow-light),var(--glow-mid));-webkit-background-clip:text;-webkit-text-fill-color:transparent">${headingAccent}</span></h1>
-    <p style="color:var(--text-soft);font-size:1.1rem;max-width:520px">${lead}</p>
-    <p style="color:var(--text-muted);font-size:1rem;margin-top:1.5rem">Coming soon.</p>
-  </div>
-</div>
-
-${footerHTML(true)}
-<script>
-const MODELS = [];
-const SERVICES = [];
-const NATIONALITIES = [];
-const STATIONS = [];
-const CITIES = [];
-<\/script>
-<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
-<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
-</body>
-</html>`;
-}
-
 function buildConcierge() {
   const categories = [
     ['Travel & Getaways', 'Private jets, secluded resorts and bespoke itineraries — routes built around you, not a brochure.', 'travel'],
@@ -1402,14 +1362,183 @@ const CITIES = [];
 </html>`;
 }
 
+// Day is used both as a bare number (list date column) and inside a long
+// form ("17 August, 2026" on the article page itself), so split it out
+// once here rather than re-deriving it in two places.
+function formatBlogDate(iso) {
+  const d = new Date(iso + 'T00:00:00Z');
+  return {
+    day: String(d.getUTCDate()).padStart(2, '0'),
+    month: d.toLocaleString('en-US', {month: 'short', timeZone: 'UTC'}).toUpperCase(),
+    monthLong: d.toLocaleString('en-US', {month: 'long', timeZone: 'UTC'}),
+    year: d.getUTCFullYear(),
+  };
+}
+
 function buildBlog() {
-  return buildPlaceholder({
-    metaTitle: 'Blog — Paradise Models',
-    metaDesc: 'The Paradise Models blog — insights, city guides and news from the world of high-class companionship.',
-    slug: '/blog/',
-    heading: 'The', headingAccent: 'Blog',
-    lead: 'Insights, city guides, and news from the world of high-class companionship.',
-  });
+  const posts = BLOG_POSTS.filter(p => p.published).sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  return head(
+    'Blog — Paradise Models',
+    'The Paradise Models blog — insights, city guides and news from the world of high-class companionship.',
+    SITE_URL + '/blog/',
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
+  ) + `
+<body class="page-blog">
+${orbsHTML()}
+${navHTML(true, false, true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="become-page" style="max-width:900px">
+    <a class="back-btn" href="/">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+    <div class="become-header">
+      <h1>The <span>Blog</span></h1>
+      <p>Insights, city guides, and news from the world of high-class companionship.</p>
+    </div>
+
+    ${posts.length ? `<div class="blog-list">
+      ${posts.map(p => {
+        const {day, month, year} = formatBlogDate(p.date);
+        return `
+        <article class="blog-card">
+          <a class="blog-card-img" href="/blog/${p.slug}/" aria-label="${p.title}" style="background-image:url('/images/blog/${p.image}')"></a>
+          <div class="blog-card-body">
+            <a href="/blog/${p.slug}/" style="text-decoration:none;color:inherit"><h2 class="blog-card-title">${p.title}</h2></a>
+            <div class="blog-card-meta">
+              <div class="blog-date">
+                <div class="blog-date-day">${day}</div>
+                <div class="blog-date-my">${month}<br>${year}</div>
+              </div>
+              <p class="blog-card-excerpt">${p.excerpt}</p>
+            </div>
+            <a class="blog-read-more" href="/blog/${p.slug}/">Read More →</a>
+          </div>
+        </article>`;
+      }).join('')}
+    </div>` : `<div class="form-section" style="text-align:center"><p style="color:var(--text-muted);margin:0">Coming soon.</p></div>`}
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = [];
+const NATIONALITIES = [];
+const STATIONS = [];
+const CITIES = [];
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
+</body>
+</html>`;
+}
+
+// vip:true-style split: an unpublished post still gets a real page (so
+// links to it from a published article resolve), just a lightweight
+// "coming soon" notice instead of its real body, and never listed on
+// /blog/ or the sitemap — see BLOG_POSTS' own comment in data/blog.js.
+function buildBlogPost(post) {
+  if (!post.published || !post.sections) {
+    return head(
+      `${post.title} — Paradise Models Blog`,
+      'This article is coming soon to the Paradise Models blog.',
+      `${SITE_URL}/blog/${post.slug}/`,
+      `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+      '#1a1e42'
+    ) + `
+<body class="page-blog-post">
+${orbsHTML()}
+${navHTML(true, false, true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="become-page" style="max-width:760px;text-align:center;min-height:50vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+    <a class="back-btn" href="/blog/" style="position:absolute;top:90px;left:2rem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Blog
+    </a>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:1rem">${post.title}</h1>
+    <p style="color:var(--text-muted);font-size:1rem">Coming soon.</p>
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = [];
+const NATIONALITIES = [];
+const STATIONS = [];
+const CITIES = [];
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
+</body>
+</html>`;
+  }
+
+  const {day, monthLong, year} = formatBlogDate(post.date);
+
+  return head(
+    `${post.title} — Paradise Models Blog`,
+    post.excerpt,
+    `${SITE_URL}/blog/${post.slug}/`,
+    `<meta property="og:image" content="${SITE_URL}/images/blog/${post.image}">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
+  ) + `
+<body class="page-blog-post">
+${orbsHTML()}
+${navHTML(true, false, true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="become-page" style="max-width:760px">
+    <a class="back-btn" href="/blog/">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Blog
+    </a>
+
+    <div class="blog-post-hero" style="background-image:url('/images/blog/${post.image}')"></div>
+
+    <h1 class="blog-post-title">${post.title}</h1>
+    <div class="blog-post-date">${day} ${monthLong}, ${year}</div>
+
+    <div class="blog-post-body">
+      ${post.intro.map(p => `<p>${p}</p>`).join('')}
+
+      <div class="blog-toc">
+        <div class="blog-toc-title">Contents</div>
+        <ul>
+          ${post.sections.map(s => `<li><a href="#${s.id}">${s.heading}</a></li>`).join('')}
+        </ul>
+      </div>
+
+      ${post.sections.map(s => `<h2 id="${s.id}">${s.heading}</h2>
+      ${s.paragraphs.map(p => `<p>${p}</p>`).join('\n      ')}`).join('\n\n      ')}
+    </div>
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = [];
+const NATIONALITIES = [];
+const STATIONS = [];
+const CITIES = [];
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
+</body>
+</html>`;
 }
 
 function buildAccount() {
@@ -1508,6 +1637,10 @@ function buildSitemap() {
     // vip:true models don't get a sitemap entry — nothing should advertise
     // that their URL exists to crawlers ahead of a visitor unlocking it.
     ...PUBLIC_MODELS.filter(m => m.real).map(m => ({url: `/models/${m.slug}/`, priority: '0.8'})),
+    // Same idea for unpublished blog posts — the page exists so links to
+    // it from a published post work, but it's not indexed until real
+    // content is written in and published:true is set.
+    ...BLOG_POSTS.filter(p => p.published).map(p => ({url: `/blog/${p.slug}/`, priority: '0.6'})),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -1551,6 +1684,9 @@ write(path.join(OUT, 'events/index.html'), buildEvents());
 write(path.join(OUT, 'sinlist/index.html'), buildSinlist());
 write(path.join(OUT, 'about/index.html'), buildAbout());
 write(path.join(OUT, 'blog/index.html'), buildBlog());
+BLOG_POSTS.forEach(p => {
+  write(path.join(OUT, `blog/${p.slug}/index.html`), buildBlogPost(p));
+});
 write(path.join(OUT, 'account/index.html'), buildAccount());
 write(path.join(OUT, 'sitemap.xml'), buildSitemap());
 write(path.join(OUT, 'robots.txt'), buildRobots());

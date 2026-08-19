@@ -1202,6 +1202,51 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 }
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
 
+/* =================== BLOG =================== */
+/* New components, only ever used on .page-blog/.page-blog-post — square
+   corners baked in directly rather than the old-theme-then-page-override
+   two-tier pattern other shared components need, since there's no legacy
+   consumer expecting them rounded. */
+.blog-list{display:flex;flex-direction:column;gap:1.25rem}
+.blog-card{
+  display:flex;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-radius:0;overflow:hidden;transition:border-color 0.2s;
+}
+.blog-card:hover{border-color:var(--purple3)}
+.blog-card-img{flex:0 0 260px;background-size:cover;background-position:center;display:block;min-height:200px}
+.blog-card-body{flex:1;min-width:0;padding:1.5rem;display:flex;flex-direction:column;gap:0.85rem}
+.blog-card-title{font-size:1.3rem;font-weight:700;margin:0;color:var(--text)}
+.blog-card-meta{display:flex;gap:1rem;align-items:flex-start}
+.blog-date{display:flex;flex-direction:column;align-items:center;text-align:center;padding-right:1rem;border-right:1px solid var(--glass-border);flex-shrink:0;min-width:56px}
+.blog-date-day{font-size:1.8rem;font-weight:800;color:var(--purple3);line-height:1}
+.blog-date-my{font-size:0.65rem;font-weight:700;letter-spacing:0.06em;color:var(--text-muted);margin-top:3px;line-height:1.35}
+.blog-card-excerpt{color:var(--text-soft);font-size:14px;line-height:1.7;margin:0}
+.blog-read-more{
+  align-self:flex-start;margin-top:auto;padding:0.6rem 1.4rem;border-radius:0;
+  background:rgba(var(--brand-rgb),0.15);border:1px solid var(--glass-border);
+  color:var(--purple3);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.2s;
+}
+.blog-read-more:hover{background:rgba(var(--brand-rgb),0.3);border-color:var(--purple3)}
+@media(max-width:768px){
+  .blog-card{flex-direction:column}
+  .blog-card-img{flex:none;width:100%;min-height:180px}
+}
+
+.blog-post-hero{width:100%;aspect-ratio:21/9;background-size:cover;background-position:center;border-radius:0;margin:1.5rem 0;border:1px solid var(--glass-border)}
+.blog-post-title{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;color:var(--text);margin-bottom:0.5rem}
+.blog-post-date{color:var(--text-muted);font-size:13px;margin-bottom:2rem;text-transform:uppercase;letter-spacing:0.05em}
+.blog-post-body{color:var(--text-soft);font-size:15px;line-height:1.85;padding-bottom:3rem}
+.blog-post-body p{margin:0 0 1.1rem}
+.blog-post-body h2{color:var(--text);font-size:1.4rem;font-weight:700;margin:2.2rem 0 1rem;scroll-margin-top:110px}
+.blog-post-body a{color:var(--purple3);text-decoration:underline;text-underline-offset:2px}
+.blog-post-body a:hover{color:var(--text)}
+.blog-toc{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:0;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem}
+.blog-toc-title{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:700;margin-bottom:0.75rem}
+.blog-toc ul{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:0.45rem}
+.blog-toc a{color:var(--purple3);text-decoration:none;font-size:14px}
+.blog-toc a:hover{text-decoration:underline}
+
 /* =================== iOS INPUT ZOOM GUARD ===================
    iOS Safari force-zooms the page whenever a focused field's font is under
    16px, which shifts the whole layout mid-tap. 16px is the floor that
