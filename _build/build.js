@@ -1029,7 +1029,7 @@ ${ageModalHTML()}
       <div style="position:relative;min-height:220px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:0.9rem;padding:2.5rem 1.75rem 1.75rem;background:linear-gradient(180deg,rgba(10,4,8,0.15),rgba(10,4,8,0.88)),url('/images/events/sinlist-hero.webp') center/cover no-repeat">
         <div>
           <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:#d99aa8;font-weight:700;margin-bottom:0.5rem">An Example of Our Work</div>
-          <div style="font-size:1.6rem;font-weight:700;color:#fff">The Sin List — Opening Night</div>
+          <div style="font-size:1.6rem;font-weight:700;color:#fff">The Sin List</div>
         </div>
         <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem" href="/sinlist/">Explore Our Previous Event</a>
       </div>
