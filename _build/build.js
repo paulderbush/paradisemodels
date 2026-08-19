@@ -974,6 +974,7 @@ function buildEvents() {
     '#1a1e42'
   ) + `
 <body class="page-events">
+<div style="position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,rgba(8,34,43,0.4),rgba(8,34,43,0.88)),url('/images/events.webp?v=${BUILD_TS}') center/cover no-repeat"></div>
 ${orbsHTML()}
 ${navHTML(true, false, true)}
 ${ageModalHTML()}
@@ -989,12 +990,8 @@ ${ageModalHTML()}
       <p>Two ways to go beyond a booking — join one of our own invite-only evenings, or commission a fully bespoke event built entirely around you.</p>
     </div>
 
-    <div class="form-section" style="padding:0;overflow:hidden;margin-bottom:2.5rem">
-      <!-- aspect-ratio matches events.webp's own (1920x1095) so cover crops
-           nothing — the box IS the image's shape at any width. -->
-      <div style="position:relative;aspect-ratio:1920/1095;display:flex;align-items:center;justify-content:center;padding:2.5rem 1.75rem;background:linear-gradient(rgba(10,4,8,0.4),rgba(10,4,8,0.4)),url('/images/events.webp?v=${BUILD_TS}') center/cover no-repeat">
-        <p style="max-width:640px;text-align:center;color:#fff;font-size:15.5px;line-height:1.85">Paradise Erotic Events are known for black tie masquerades, intimate dinners, and immersive theatrical events created for a discerning membership. Each gathering is designed as a living work of art. Beauty, ritual, and performance come together within a framework of elegance and consent.</p>
-      </div>
+    <div class="form-section" style="margin-bottom:2.5rem">
+      <p style="color:var(--text-soft);font-size:14px;line-height:1.85">Paradise Erotic Events are known for black tie masquerades, intimate dinners, and immersive theatrical events created for a discerning membership. Each gathering is designed as a living work of art. Beauty, ritual, and performance come together within a framework of elegance and consent.</p>
     </div>
 
     <div class="form-section" style="margin-bottom:2.5rem">
