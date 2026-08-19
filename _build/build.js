@@ -1039,8 +1039,7 @@ ${ageModalHTML()}
       <div class="form-section-title">Your Most Unforgettable Night</div>
       <p style="color:var(--text-soft);font-size:14px;margin-bottom:1.25rem">Contact us to reserve your place at an upcoming Paradise Erotic Event, or begin planning a private evening entirely your own. One conversation is all it takes.</p>
       <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
-        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem" href="${SINLIST_TG_LINK}" target="_blank" rel="noopener">Message on Telegram</a>
-        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem;background:rgba(255,255,255,0.08)!important;box-shadow:none!important" href="/concierge/">Contact Concierge</a>
+        <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.85rem 1.75rem" href="${SINLIST_TG_LINK}" target="_blank" rel="noopener">Contact Event Manager</a>
       </div>
     </div>
   </div>
