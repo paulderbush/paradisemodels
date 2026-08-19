@@ -974,6 +974,7 @@ function buildEvents() {
     '#1a1e42'
   ) + `
 <body class="page-events">
+<div style="position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.8)),url('/images/events.webp?v=${BUILD_TS}') center/cover no-repeat"></div>
 ${orbsHTML()}
 ${navHTML(true, false, true)}
 ${ageModalHTML()}
@@ -989,12 +990,8 @@ ${ageModalHTML()}
       <p>Two ways to go beyond a booking — join one of our own invite-only evenings, or commission a fully bespoke event built entirely around you.</p>
     </div>
 
-    <div class="form-section" style="padding:0;overflow:hidden;margin-bottom:2.5rem">
-      <!-- aspect-ratio matches events.webp's own (1920x1095) so cover crops
-           nothing — the box IS the image's shape at any width. -->
-      <div style="position:relative;aspect-ratio:1920/1095;display:flex;align-items:center;justify-content:center;padding:2.5rem 1.75rem;background:linear-gradient(rgba(10,4,8,0.4),rgba(10,4,8,0.4)),url('/images/events.webp?v=${BUILD_TS}') center/cover no-repeat">
-        <p style="max-width:640px;text-align:center;color:#fff;font-size:15.5px;line-height:1.85">Paradise Erotic Events are known for black tie masquerades, intimate dinners, and immersive theatrical events created for a discerning membership. Each gathering is designed as a living work of art. Beauty, ritual, and performance come together within a framework of elegance and consent.</p>
-      </div>
+    <div class="form-section" style="margin-bottom:2.5rem">
+      <p style="color:var(--text-soft);font-size:14px;line-height:1.85">Paradise Erotic Events are known for black tie masquerades, intimate dinners, and immersive theatrical events created for a discerning membership. Each gathering is designed as a living work of art. Beauty, ritual, and performance come together within a framework of elegance and consent.</p>
     </div>
 
     <div class="form-section" style="margin-bottom:2.5rem">
@@ -1029,7 +1026,7 @@ ${ageModalHTML()}
       <div style="position:relative;min-height:220px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:0.9rem;padding:2.5rem 1.75rem 1.75rem;background:linear-gradient(180deg,rgba(10,4,8,0.15),rgba(10,4,8,0.88)),url('/images/events/sinlist-hero.webp') center/cover no-repeat">
         <div>
           <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:#d99aa8;font-weight:700;margin-bottom:0.5rem">An Example of Our Work</div>
-          <div style="font-size:1.6rem;font-weight:700;color:#fff">The Sin List — Opening Night</div>
+          <div style="font-size:1.6rem;font-weight:700;color:#fff">The Sin List</div>
         </div>
         <a class="submit-app-btn" style="margin-top:0;display:inline-block;text-decoration:none;width:auto;padding:0.75rem 1.5rem" href="/sinlist/">Explore Our Previous Event</a>
       </div>
