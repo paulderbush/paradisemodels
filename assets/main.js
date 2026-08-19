@@ -65,6 +65,24 @@ function todayISO() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
+// The real <input type="date"> renders its filled value in whatever
+// format the visitor's browser/OS locale picks (day/month/year order,
+// numeric vs abbreviated month, …) — not something CSS can control. To
+// get one consistent "19 August 2026" everywhere, the real date input
+// stays but goes invisible, overlaid on a plain readonly text field that
+// only ever shows this formatted string; same trick the time field
+// already uses (a masked text input) to own its own display format.
+const MONTHS_LONG = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+function formatDateLong(iso) {
+  const [y, m, d] = iso.split('-').map(Number);
+  return `${d} ${MONTHS_LONG[m - 1]} ${y}`;
+}
+function syncDateDisplay() {
+  const real = document.getElementById('bf-date');
+  const display = document.getElementById('bf-date-display');
+  if (real && display && real.value) display.value = formatDateLong(real.value);
+}
+
 function renderCart() {
   const badge = document.getElementById('cartBadge');
   const content = document.getElementById('cartContent');
@@ -97,7 +115,10 @@ function renderCart() {
         </div>
         <input class="bf-input" type="tel" id="bf-contact" placeholder="+44 7000 000000" autocomplete="tel">
         <div class="bf-label">Date</div>
-        <input class="bf-input" type="date" id="bf-date" value="${todayISO()}">
+        <div style="position:relative">
+          <input class="bf-input" type="text" id="bf-date-display" readonly value="${formatDateLong(todayISO())}" style="pointer-events:none">
+          <input type="date" id="bf-date" value="${todayISO()}" onchange="syncDateDisplay()" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;border:none;background:transparent;padding:0;margin:0">
+        </div>
         <div class="bf-label">Time (24h format, e.g. 14:30)</div>
         <input class="bf-input" type="text" id="bf-time" value="__:__" inputmode="numeric" oninput="formatTimeInput(this)" onfocus="this.setSelectionRange(0,0)">
         <div class="bf-label">Your Comments (Optional)</div>
