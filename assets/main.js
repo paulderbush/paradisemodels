@@ -57,6 +57,14 @@ function _setCartBadges(text) {
   if (mobileBadge) mobileBadge.textContent = text;
 }
 
+// The native date input rendered a thin, oddly-shaped placeholder state
+// when empty — defaulting it to today sidesteps that entirely, and still
+// lets the client pick a different date the same way as before.
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
 function renderCart() {
   const badge = document.getElementById('cartBadge');
   const content = document.getElementById('cartContent');
@@ -89,7 +97,7 @@ function renderCart() {
         </div>
         <input class="bf-input" type="tel" id="bf-contact" placeholder="+44 7000 000000" autocomplete="tel">
         <div class="bf-label">Date</div>
-        <input class="bf-input" type="date" id="bf-date">
+        <input class="bf-input" type="date" id="bf-date" value="${todayISO()}">
         <div class="bf-label">Time (24h format, e.g. 14:30)</div>
         <input class="bf-input" type="text" id="bf-time" value="__:__" inputmode="numeric" oninput="formatTimeInput(this)" onfocus="this.setSelectionRange(0,0)">
         <div class="bf-label">Your Comments (Optional)</div>
