@@ -974,7 +974,7 @@ function buildEvents() {
     '#1a1e42'
   ) + `
 <body class="page-events">
-<div style="position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,rgba(8,34,43,0.4),rgba(8,34,43,0.88)),url('/images/events.webp?v=${BUILD_TS}') center/cover no-repeat"></div>
+<div style="position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.8)),url('/images/events.webp?v=${BUILD_TS}') center/cover no-repeat"></div>
 ${orbsHTML()}
 ${navHTML(true, false, true)}
 ${ageModalHTML()}
