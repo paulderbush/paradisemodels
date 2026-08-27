@@ -184,7 +184,9 @@ function buildRealModelHTML(m) {
     ['Age', m.age], ['Height', `${m.height}cm`], ['Weight', `${m.weight}kg`], ['Clothing', m.clothingSize],
     ['Breast', m.breastSize], ['Type', m.breastType], ['Eyes', m.eyeColor], ['Hair', m.hairColor],
   ];
-  const mapQ = encodeURIComponent(m.station + ' Underground Station London');
+  // Touring models (no London tube station) fall back to their city for
+  // both the header line and the map query.
+  const mapQ = encodeURIComponent(m.station ? `${m.station} Underground Station London` : m.city);
   return `
     <a class="back-btn" href="/models/">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
@@ -209,7 +211,8 @@ function buildRealModelHTML(m) {
       <div class="model-detail-info">
         <div>
           <div class="model-detail-name">${m.name}</div>
-          <div style="color:var(--text-soft);font-size:14px;margin-top:4px">${m.nationality} · ${m.station}</div>
+          <div style="color:var(--text-soft);font-size:14px;margin-top:4px">${m.nationality} · ${m.station || m.city}</div>
+          ${m.travelNote ? `<div style="color:var(--purple3);font-size:12.5px;margin-top:4px">${m.travelNote}</div>` : ''}
           <div style="display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap">
             ${m.cats.includes('toprated') ? '<span class="badge badge-top">Top Rated</span>' : ''}
             ${m.cats.includes('new') ? '<span class="badge badge-new">New</span>' : ''}

@@ -497,6 +497,212 @@ const ABBEY_DATA = {
   reviews: [],
 };
 
+const AVRORA_DATA = {
+  id: 9980, real: true, vip: true, folder: 'vip-models/Avrora', slug: 'avrora',
+  name: 'Avrora', age: 25, height: 178, weight: 65,
+  nationality: 'Russian', city: 'Istanbul',
+  rateHour: 700, extraHourPrice: 500,
+  color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'],
+  initials: 'AV',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Russian',
+  // No services list was provided for Avrora — the "Services Included"
+  // panel is hidden automatically on her profile when svcs is empty.
+  svcs: [],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'CIM', price: 50},
+    {name: 'Swallow (Includes OWO & CIM)', price: 100},
+    {name: 'Bi DUO', price: 200},
+    {name: 'Couples', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 700},
+    {label: '90 Min', price: 950},
+    {label: '2 Hours', price: 1200},
+    {label: '3 Hours', price: 1700},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Avrora is a beautiful blonde whose natural elegance and bright green eyes create an immediately captivating presence. With her fresh, all-natural beauty and graceful confidence, she carries herself with a charm that feels both effortless and refined. Her warm smile and engaging personality make her a delightful companion in any social setting.",
+    "Charming, attentive, and open-minded, Avrora enjoys refined evenings, elegant dinners, and memorable social occasions. Whether accompanying you to a sophisticated event or sharing relaxed moments in great company, she creates an atmosphere that feels natural, engaging, and enjoyable. A passionate tennis player, she brings an energetic and active spirit that perfectly complements her graceful femininity. Her healthy lifestyle and natural beauty give her a radiant, fresh appearance that feels genuine and effortlessly attractive.",
+    "Moreover, Avrora is working together with her sister Latisa - which means a perfect DUO for everyone who appreciates immaculate service and unforgettable experience. Angels during the day, devils at nights - performance of these two beautiful woman will make you going crazy...",
+  ],
+  reviews: [],
+};
+
+// =================== TOURING MODELS (non-London, real) ===================
+// city is each model's current/home base — travelNote (shown on her
+// profile, see assets/profile.js) covers the extra cities she's also
+// available in. None of these are part of the fixed homepage CITIES list
+// (see _build/build.js's FILTER_CITIES), so they never get their own
+// homepage city section, but they do show up as filter options on /models/
+// once a real model is based there.
+const GARUDA_DATA = {
+  id: 9979, real: true, vip: false, folder: 'models/Garuda', slug: 'garuda',
+  name: 'Garuda', age: 26, height: 167, weight: 56,
+  nationality: 'Brazilian', city: 'Marbella',
+  travelNote: 'Based in Marbella — also touring London and Dubai',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
+  initials: 'GA',
+  cats: ['new'],
+  breastSize: '36B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese · Spanish',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'CIF', price: 70},
+    {name: 'CIM (Includes OWO)', price: 80},
+    {name: 'Swallow (Includes OWO & CIM)', price: 100},
+    {name: 'A-Level', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Garuda is an open-minded, vibrant 26-year-old girl from Brazil, captivating with her youthful energy and alluring presence. She stands confidently with her luscious brunette hair, radiating charm and a sense of adventure. Her natural beauty, warm smile, and friendly demeanor make her truly unforgettable.",
+    "Garuda is incredibly approachable, warm, and welcoming. Spending time with her feels natural and effortless, as she creates a comfortable and fun environment wherever she goes. Her playful and lively personality makes every moment enjoyable, and her desirability is undeniable.",
+    "Whether you want to spend a hot night in London or hit the party scene, Garuda is the perfect girl to join you. She's the ideal partner to share exciting adventures, dance the night away, and create unforgettable memories together. Her blend of beauty, open-mindedness, and friendliness makes her a memorable choice for those seeking a charming, adventurous, and fun-loving companion.",
+  ],
+  reviews: [],
+};
+
+const CANTU_DATA = {
+  id: 9978, real: true, vip: false, folder: 'models/Cantu', slug: 'cantu',
+  name: 'Cantu', age: 23, height: 157, weight: 55,
+  nationality: 'Brazilian', city: 'Bali',
+  travelNote: 'Based in Bali — also touring London and Dubai',
+  rateHour: 600, extraHourPrice: 400,
+  color: ['rgba(160,180,70,0.4)', 'rgba(100,120,30,0.7)'],
+  initials: 'CA',
+  cats: ['new', 'under25'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWO', 'Rimming giving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'Prostate massage', price: 50},
+    {name: 'Strap-on', price: 50},
+    {name: 'Bi DUO', price: 100},
+    {name: 'WS giving', price: 100},
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 600},
+    {label: '90 Min', price: 800},
+    {label: '2 Hours', price: 1000},
+    {label: '3 Hours', price: 1400},
+    {label: 'Overnight', price: 3000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 600},
+    {label: '90 Min', price: 800},
+    {label: '2 Hours', price: 1000},
+    {label: '3 Hours', price: 1400},
+    {label: 'Overnight', price: 3000},
+  ],
+  description: [
+    "Meet Cantu, a fun and bubbly 23-year-old Brazilian girl with a petite body and a killer, curvy backside. She's got natural beauty and a chill, down-to-earth vibe that makes her super easy to be around. Her lively, cheerful personality keeps the good times rolling and makes every moment fun and relaxed.",
+    "She's genuinely sweet, with a kind heart and a cool, easy-going attitude. Whether you're into chatting, hanging out, or just kicking back and relaxing, Cantu knows how to make you feel comfortable and at ease. Her natural charm and honest vibe make everything feel real and special—no pretenses, just her being herself.",
+    "If you're drawn to her stunning looks, her bubbly energy, or just her genuine warmth, you're in for a good time. She's confident, charming, and super real—perfect for anyone looking for a laid-back, authentic vibe. Spend some time with her and get to know her natural, irresistible charm—you won't regret it.",
+  ],
+  reviews: [],
+};
+
+const GELATO_DATA = {
+  id: 9977, real: true, vip: false, folder: 'models/Gelato', slug: 'gelato',
+  name: 'Gelato', age: 28, height: 171, weight: 50,
+  nationality: 'Lithuanian', city: 'Zurich',
+  travelNote: 'Based in Zurich — touring across Europe and the UK',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(155,89,208,0.4)', 'rgba(100,40,160,0.7)'],
+  initials: 'GE',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'Russian · English · Italian',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'PSE', 'Rimming giving', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'WS giving'],
+  extraSvcs: [
+    {name: 'Bi DUO', price: 150},
+  ],
+  // Outcall only — see hasIncall handling in assets/profile.js, which
+  // hides the Incall tab and defaults to Outcall when this is empty.
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    "Gelato is a beautiful 28-year-old Lithuanian blonde with a naturally slim, sporty figure and an effortlessly elegant presence. Standing at 171 cm and weighing 50 kg, she maintains a toned physique that complements both fashion and lifestyle settings. Her striking blue eyes, silky blonde hair, and fresh natural beauty create a captivating look that is both sophisticated and approachable.",
+    "Active, energetic, and confident, Gelato's sporty lifestyle is reflected in her graceful posture and fit physique. She is a non-smoker who takes pride in maintaining a healthy and polished appearance. With natural 34B measurements, a UK size 6 dress size, and no tattoos, she embodies a clean, classic aesthetic. A subtle belly button piercing adds a playful touch to her otherwise refined appearance.",
+    "Fluent in Russian, English, and Italian, with basic Spanish and German skills, Gelato is comfortable communicating with people from diverse international backgrounds. Her friendly personality, natural charm, and professional attitude make her a pleasure to be around and leave a lasting impression wherever she goes.",
+  ],
+  reviews: [],
+};
+
+const YOSHI_DATA = {
+  id: 9976, real: true, vip: false, folder: 'models/Yoshi', slug: 'yoshi',
+  name: 'Yoshi', age: 24, height: 168, weight: 54,
+  nationality: 'Brazilian', city: 'Mykonos',
+  travelNote: 'Based in Mykonos — touring across Europe',
+  rateHour: 650, extraHourPrice: 500,
+  color: ['rgba(80,20,150,0.4)', 'rgba(50,10,100,0.7)'],
+  initials: 'YO',
+  cats: ['new', 'under25'],
+  breastSize: '32D', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Black', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIF', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'Fingering', 'Fisting receiving', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Poppers', 'Prostate massage', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'Uniforms', 'WS giving'],
+  extraSvcs: [
+    {name: 'Strap-on', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 650},
+    {label: '90 Min', price: 900},
+    {label: '2 Hours', price: 1150},
+    {label: '3 Hours', price: 1650},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 650},
+    {label: '90 Min', price: 900},
+    {label: '2 Hours', price: 1150},
+    {label: '3 Hours', price: 1650},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Yoshi is a striking 24-year-old Brazilian beauty with an exotic allure that turns heads instantly. With her sleek black hair and deep black eyes, she carries a mysterious charm that gives her a subtle Asian-inspired elegance. Standing at 168 cm with a beautifully balanced figure, she blends softness and confidence in a way that feels effortlessly captivating.",
+    "Her enhanced 32D curves complement her feminine silhouette, while a small tattoo adds a hint of personality and intrigue. Yoshi's presence is calm yet magnetic — she doesn't need to speak loudly to command attention. There is something quietly powerful about her gaze, something that lingers long after the first glance.",
+    "Refined, discreet, and selective, Yoshi offers an intimate, elegant experience with the same privacy and comfort clients expect from Paradise Models. Her Brazilian warmth combined with her unique, exotic appearance creates an experience that feels intimate, elegant, and unforgettable.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -543,16 +749,25 @@ const VIP_TEASER_MODELS = [
     teaserImg: '/vip-models/Abbey/teaser-blur.webp',
     cats: [], svcs: ['Body to body massage', 'CIF', 'COB'], rating: '4.9', reviews: [],
   },
+  {
+    id: 9981, real: false, vip: false, slug: 'avrora-teaser',
+    name: 'Avrora', age: 25, height: 178, weight: 65,
+    nationality: 'Russian', city: 'Istanbul',
+    rateHour: 700, color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'], initials: 'AV',
+    teaserImg: '/vip-models/Avrora/teaser-blur.webp',
+    cats: [], svcs: [], rating: '4.9', reviews: [],
+  },
 ];
 
 // London is where the real roster lives now, so the placeholder/generated
 // profiles don't need to (and shouldn't) also claim a London presence —
-// keep them for the other cities, which still have no real models yet.
+// same now applies to Zurich, since Gelato covers it. Keep the rest for
+// the other cities, which still have no real models yet.
 // NOTE: VIP_TEASER_MODELS is intentionally NOT included here — it must
 // never reach the general catalog/search MODELS list (see its own comment
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
-const FAKE_MODELS = generateModels().filter(m => m.city !== 'London');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, ...FAKE_MODELS];
+const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
