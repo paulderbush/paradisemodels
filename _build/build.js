@@ -15,6 +15,12 @@ const REAL_MODELS = MODELS.filter(m => m.real);
 // vip:true models entirely — their data only ever leaves the server via
 // /api/vip-catalog, which checks payment first. See buildVipModelProfile.
 const PUBLIC_MODELS = MODELS.filter(m => !m.vip);
+// The homepage only ever shows a section for a fixed, curated list of
+// cities (CITIES) — a new touring model's city shouldn't spawn a homepage
+// section on its own. The /models/ filter dropdown is different: any city
+// a public model is actually based in should be selectable there, so it's
+// CITIES plus whatever extra cities show up among PUBLIC_MODELS.
+const FILTER_CITIES = Array.from(new Set([...CITIES, ...PUBLIC_MODELS.map(m => m.city)]));
 const SITE_URL = 'https://velvetescort.co.uk';
 // Single source of truth for the Telegram contact — it lives in the hero,
 // the footer and the mobile menu, so define it once.
@@ -235,11 +241,13 @@ function orbsHTML() {
 </div>`;
 }
 
-function modelsDataScript(models = PUBLIC_MODELS) {
+function modelsDataScript(models = PUBLIC_MODELS, cities = CITIES) {
   // Serialize the given model list for browser use (with reviews reset to
   // empty). Every current caller uses the PUBLIC_MODELS default — vip:true
   // models are never embedded client-side anywhere; see /api/vip-catalog
-  // and buildVipModelProfile below.
+  // and buildVipModelProfile below. `cities` defaults to the homepage's
+  // fixed list — the /models/ page passes FILTER_CITIES instead so its
+  // filter dropdown also covers touring models' own cities.
   const data = models.map(m => {
     const copy = Object.assign({}, m);
     copy.reviews = [];
@@ -250,7 +258,7 @@ const MODELS = ${JSON.stringify(data)};
 const SERVICES = ${JSON.stringify(SERVICES)};
 const NATIONALITIES = ${JSON.stringify(NATIONALITIES)};
 const STATIONS = ${JSON.stringify(STATIONS)};
-const CITIES = ${JSON.stringify(CITIES)};
+const CITIES = ${JSON.stringify(cities)};
 <\/script>`;
 }
 
@@ -503,7 +511,7 @@ ${fakeModelOverlayHTML()}
 </div>
 
 ${footerHTML(true)}
-${modelsDataScript()}
+${modelsDataScript(undefined, FILTER_CITIES)}
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/catalog.js?v=${BUILD_TS}"><\/script>
