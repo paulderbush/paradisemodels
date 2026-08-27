@@ -177,13 +177,18 @@ function buildRealModelHTML(m) {
   // whichever type the model actually offers is active by default.
   const hasIncall = m.incallRates && m.incallRates.length > 0;
   const hasOutcall = m.outcallRates && m.outcallRates.length > 0;
+  const hasRates = hasIncall || hasOutcall;
   const initType = hasIncall ? 'incall' : 'outcall';
-  const initRates = hasIncall ? m.incallRates : m.outcallRates;
+  const initRates = hasRates ? (hasIncall ? m.incallRates : m.outcallRates) : [];
   const initRate = initRates[0];
+  // Minimal profiles (a few VIP models so far) may only give a handful of
+  // these — skip any tile whose value wasn't provided rather than showing
+  // e.g. "undefinedkg".
   const stats = [
-    ['Age', m.age], ['Height', `${m.height}cm`], ['Weight', `${m.weight}kg`], ['Clothing', m.clothingSize],
-    ['Breast', m.breastSize], ['Type', m.breastType], ['Eyes', m.eyeColor], ['Hair', m.hairColor],
-  ];
+    ['Age', m.age], ['Height', m.height ? `${m.height}cm` : null], ['Weight', m.weight ? `${m.weight}kg` : null],
+    ['Clothing', m.clothingSize], ['Breast', m.breastSize], ['Type', m.breastType],
+    ['Eyes', m.eyeColor], ['Hair', m.hairColor], ['Measurements', m.measurements],
+  ].filter(([, v]) => v !== undefined && v !== null && v !== '');
   // Touring models (no London tube station) fall back to their city for
   // both the header line and the map query.
   const mapQ = encodeURIComponent(m.station ? `${m.station} Underground Station London` : m.city);
@@ -205,7 +210,7 @@ function buildRealModelHTML(m) {
         </div>
         <div class="model-bio">
           <div class="services-title">About Model</div>
-          ${m.description.map(p => `<p>${p}</p>`).join('')}
+          ${(m.description || []).map(p => `<p>${p}</p>`).join('')}
         </div>
       </div>
       <div class="model-detail-info">
@@ -221,14 +226,17 @@ function buildRealModelHTML(m) {
         <div class="stat-grid-ext">
           ${stats.map(([l, v]) => `<div class="stat-box"><div class="stat-label">${l}</div><div class="stat-val" style="font-size:0.82rem">${v}</div></div>`).join('')}
         </div>
+        ${m.languages ? `
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:13px">
           <span style="color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:0.08em">Languages:</span>
           ${m.languages.split(' · ').map(l => `<span class="service-chip">${l}</span>`).join('')}
-        </div>
+        </div>` : ''}
+        ${m.orientation ? `
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:13px">
           <span style="color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:0.08em">Orientation:</span>
           <span class="service-chip">${m.orientation}</span>
-        </div>
+        </div>` : ''}
+        ${hasRates ? `
         <div class="price-calc">
           <div class="price-calc-title">Book a Session</div>
           <div class="price-type-row">
@@ -247,7 +255,11 @@ function buildRealModelHTML(m) {
             <span class="price-total-val" id="price-total-val">${fmtPrice(initRate.price)}</span>
           </div>
           ${m.extraHourPrice ? `<div class="price-extra-note">Extending your meeting? Every extra hour: <strong>${fmtPrice(m.extraHourPrice)}</strong></div>` : ''}
-        </div>
+        </div>` : `
+        <div class="price-calc">
+          <div class="price-calc-title">Book a Session</div>
+          <div class="price-sub" style="margin-top:0.4rem">Rates available on request — contact us to book.</div>
+        </div>`}
         ${m.svcs && m.svcs.length ? `
         <div class="model-detail-services">
           <div class="services-title">Choose Your Services</div>
@@ -267,7 +279,9 @@ function buildRealModelHTML(m) {
             </div>`).join('')}
           </div>
         </div>` : ''}
-        <button class="make-booking-btn" onclick="makeBooking()">Make a Booking</button>
+        ${hasRates
+          ? `<button class="make-booking-btn" onclick="makeBooking()">Make a Booking</button>`
+          : `<a class="make-booking-btn" href="/concierge/" style="text-decoration:none;display:block;text-align:center;box-sizing:border-box">Contact Concierge</a>`}
         <div style="font-size:12px;color:var(--text-muted);text-align:center">Available 24/7</div>
       </div>
       <div class="model-map-block">

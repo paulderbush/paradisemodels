@@ -540,6 +540,91 @@ const AVRORA_DATA = {
   reviews: [],
 };
 
+// Minimal VIP profiles — only the facts the client actually gave get
+// filled in; everything else (bio paragraphs, services list, extra stat
+// tiles, missing rate durations) is simply left out rather than invented,
+// and the shared profile template (assets/profile.js) hides each section
+// automatically when its data isn't there.
+const ANA_DATA = {
+  id: 9973, real: true, vip: true, folder: 'vip-models/Ana', slug: 'ana',
+  name: 'Ana', age: 23, height: 173,
+  measurements: '90-60-90', breastType: 'Natural',
+  nationality: 'Russian', city: 'London',
+  travelNote: 'Available to travel across Europe and the USA',
+  color: ['rgba(155,89,208,0.4)', 'rgba(100,40,160,0.7)'],
+  initials: 'AN',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [{label: '1 Hour', price: 1250}],
+  outcallRates: [{label: '1 Hour', price: 1250}],
+  description: [],
+  reviews: [],
+};
+
+const BAYLA_DATA = {
+  id: 9972, real: true, vip: true, folder: 'vip-models/Bayla', slug: 'bayla',
+  name: 'Bayla', age: 22, height: 173, weight: 53,
+  measurements: '90-60-90', breastType: 'Natural',
+  nationality: 'Slavic Jewish', city: 'London',
+  travelNote: 'Available to travel across Europe, the UK, Russia, Kazakhstan, China, Korea, the UAE, Saudi Arabia, Uzbekistan, Indonesia, Thailand and the Maldives',
+  color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
+  initials: 'BA',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  // No rate was given for Bayla at all — see hasRates handling in
+  // assets/profile.js, which swaps the booking box for a "contact us"
+  // prompt when both of these are empty.
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+// Adriana's only given rate (1600 EUR / 2 hours) has been converted to GBP
+// at roughly EUR->GBP 0.86, since data/models.js stores every price in GBP
+// (assets/currency.js converts to the visitor's local currency for
+// display from there) — re-check this conversion if the client meant an
+// exact GBP figure.
+const ADRIANA_DATA = {
+  id: 9971, real: true, vip: true, folder: 'vip-models/Adriana', slug: 'adriana',
+  name: 'Adriana', age: 24, height: 172,
+  nationality: 'Spanish', city: 'Dubai',
+  travelNote: 'Available to travel across Europe',
+  color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'],
+  initials: 'AD',
+  cats: ['new'],
+  languages: 'English · Spanish · Catalan',
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [{label: '2 Hours', price: 1400}],
+  outcallRates: [{label: '2 Hours', price: 1400}],
+  description: [
+    "Adriana is a 24-year-old Spanish beauty and former Miss Madrid and Miss Barcelona titleholder, bringing genuine pageant polish and presence to every meeting.",
+  ],
+  reviews: [],
+};
+
+// Leyla's only given rate ($3000, read as covering a 1-2 hour booking —
+// worth confirming with the client) has been converted to GBP at roughly
+// USD->GBP 0.79, for the same reason noted on Adriana above.
+const LEYLA_DATA = {
+  id: 9970, real: true, vip: true, folder: 'vip-models/Leyla', slug: 'leyla',
+  name: 'Leyla', age: 24, height: 171,
+  nationality: 'Turkish', city: 'Dubai',
+  travelNote: 'Available to travel across Europe',
+  color: ['rgba(80,20,150,0.4)', 'rgba(50,10,100,0.7)'],
+  initials: 'LE',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [{label: '1-2 Hours', price: 2400}],
+  outcallRates: [{label: '1-2 Hours', price: 2400}],
+  description: [],
+  reviews: [],
+};
+
 // =================== TOURING MODELS (non-London, real) ===================
 // city is each model's current/home base — travelNote (shown on her
 // profile, see assets/profile.js) covers the extra cities she's also
@@ -703,6 +788,90 @@ const YOSHI_DATA = {
   reviews: [],
 };
 
+const MEILYN_DATA = {
+  id: 9975, real: true, vip: false, folder: 'models/Meilyn', slug: 'meilyn',
+  name: 'Meilyn', age: 28, height: 164, weight: 52,
+  nationality: 'Chinese', city: 'Shanghai',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(200,160,60,0.4)', 'rgba(130,95,20,0.7)'],
+  initials: 'ME',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Chinese',
+  // No services list was provided for Meilyn — the "Services Included"
+  // panel is hidden automatically on her profile when svcs is empty.
+  svcs: [],
+  extraSvcs: [
+    {name: 'COB', price: 50},
+    {name: 'DT', price: 50},
+    {name: 'CIF', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Overnight', price: 5500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 800},
+    {label: '90 Min', price: 1050},
+    {label: '2 Hours', price: 1300},
+    {label: '3 Hours', price: 1800},
+    {label: 'Overnight', price: 5500},
+  ],
+  description: [
+    "A graceful 28-year-old Chinese beauty, she embodies understated elegance, natural charm, and timeless sophistication. Standing at 164 cm with a beautifully balanced, feminine silhouette, she exudes quiet confidence and effortless grace. Her deep brown eyes and lustrous brunette hair enhance her refined features, creating a look that is both captivating and unforgettable.",
+    "With natural beauty, a slender figure, and impeccable style, she represents modern luxury with an air of authenticity. Her tasteful tattoos add a subtle touch of individuality while complementing her polished and sophisticated appearance. Every detail of her presentation reflects elegance, confidence, and impeccable taste.",
+    "Fluent in both Chinese and English, she is comfortable engaging with an international clientele and is admired for her warmth, intelligence, and genuine personality. Poised, attentive, and effortlessly charming, she offers a refined presence that blends sophistication with approachable femininity, leaving a lasting impression wherever she goes.",
+  ],
+  reviews: [],
+};
+
+const TAVRIA_DATA = {
+  id: 9974, real: true, vip: false, folder: 'models/Tavria', slug: 'tavria',
+  name: 'Tavria', age: 21, height: 168, weight: 50,
+  nationality: 'Ukrainian', station: 'Mansion House', city: 'London',
+  travelNote: 'Available to travel across Europe',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(160,180,70,0.4)', 'rgba(100,120,30,0.7)'],
+  initials: 'TA',
+  cats: ['new', 'under25'],
+  breastSize: '32A', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Blue', hairColor: 'Light Brown', orientation: 'Bisexual',
+  languages: 'English · Russian · Ukrainian',
+  svcs: ['69', 'COB', 'DFK', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'MMF for double price', 'OWO', 'Party girl', 'Spanking giving'],
+  extraSvcs: [
+    {name: 'CIF', price: 80},
+    {name: 'CIM (Includes OWO)', price: 80},
+    {name: 'Swallow (Includes CIM & OWO)', price: 100},
+    {name: 'Snowballing (Includes OWO & CIM)', price: 100},
+    {name: 'Bi DUO', price: 200},
+    {name: 'Couples', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Overnight', price: 5000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    "Tavria is a delicate fusion of innocence and hidden fire — a young Ukrainian beauty with light-brown hair and clear blue eyes that seem to glow with quiet emotion. Her natural elegance feels effortless, like a soft melody that lingers in the air. There is something poetic about her presence, a gentle mystery that invites you to look closer and discover what lies beneath her calm exterior.",
+    "She moves with subtle grace, her femininity expressed in the smallest gestures — a glance, a smile, a pause in her step. Tavria's energy is tender yet expressive, blending softness with a daring edge. Her tattoo and piercing hint at a deeper story, a soul that is not afraid to feel, explore, and live beyond the ordinary.",
+    "Rooted in Ukrainian spirit, Tavria carries both warmth and resilience in her heart. She creates an atmosphere of intimacy and comfort, where moments feel more meaningful and time slows down. With her natural beauty and romantic aura, she leaves behind not just an image, but an emotion — one that stays long after she's gone.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -768,6 +937,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
