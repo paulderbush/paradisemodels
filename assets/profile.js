@@ -208,10 +208,11 @@ function buildRealModelHTML(m) {
           <div class="gallery-dots" id="gallery-dots"><span class="gallery-dot active"></span></div>
           <div class="gallery-counter" id="gallery-counter">1 / 1</div>
         </div>
+        ${m.description && m.description.length ? `
         <div class="model-bio">
           <div class="services-title">About Model</div>
-          ${(m.description || []).map(p => `<p>${p}</p>`).join('')}
-        </div>
+          ${m.description.map(p => `<p>${p}</p>`).join('')}
+        </div>` : ''}
       </div>
       <div class="model-detail-info">
         <div>
