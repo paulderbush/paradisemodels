@@ -283,7 +283,7 @@ function modelCardHTML(m, clickable = true, showTags = true) {
       <div class="model-card-badges">${catBadges.join('')}</div>
       <div class="model-card-overlay">
         <div class="model-card-name">${m.name}</div>
-        <div class="model-card-meta">${m.age} yrs · ${m.height}cm · ${m.nationality}</div>
+        <div class="model-card-meta">${[m.age ? `${m.age} yrs` : null, m.height ? `${m.height}cm` : null, m.nationality].filter(Boolean).join(' · ')}</div>
         ${showTags ? `<div class="model-card-tags">${topSvcs}</div>` : ''}
       </div>
     </div>

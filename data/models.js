@@ -625,6 +625,80 @@ const LEYLA_DATA = {
   reviews: [],
 };
 
+const RUNALDA_DATA = {
+  id: 9969, real: true, vip: true, folder: 'vip-models/Runalda', slug: 'runalda',
+  name: 'Runalda', age: 24, height: 170, weight: 49,
+  nationality: 'Spanish/Argentinian', city: 'Ibiza',
+  travelNote: 'Available to travel across Europe',
+  color: ['rgba(155,89,208,0.4)', 'rgba(100,40,160,0.7)'],
+  initials: 'RU',
+  cats: ['new'],
+  breastSize: 'C', eyeColor: 'Grey',
+  svcs: [],
+  extraSvcs: [],
+  // Rates on request — no price at all was given, see hasRates handling
+  // in assets/profile.js (swaps the booking box for a "contact us" prompt).
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+// Tetiana gave no age/height/weight/nationality at all, only her bio and
+// location — the shared profile template already copes with a real model
+// missing any of these (see the stat-grid filter and nationality fallback
+// in assets/profile.js).
+const TETIANA_DATA = {
+  id: 9967, real: true, vip: true, folder: 'vip-models/Tetiana', slug: 'tetiana',
+  name: 'Tetiana', city: 'Dubai',
+  travelNote: 'Based in Dubai — also available across Europe and Bali',
+  color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'],
+  initials: 'TE',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "I'm professional singer and dancer, has took a part in TV shows. Interested in painting, philosophy; do yoga, sport, dance Hip Hop, Vogue, High Heels. Sing in different styles and in different languages. I'm also sociable and punctual person.",
+    "At this moment I'm bringing to life my own project. Made two cover albums with world's hits; at this time I'm finishing my big music project - solo album \"I'd like to drive you wild\", had the video made with the same name. I've done also my solo concert \"My all\" in Caribbean club in Kyiv.",
+  ],
+  reviews: [],
+};
+
+const RAVEN_DATA = {
+  id: 9965, real: true, vip: true, folder: 'vip-models/Raven', slug: 'raven',
+  name: 'Raven', age: 26, height: 176, weight: 55,
+  measurements: '93-64-93', breastSize: '75D',
+  nationality: 'Latvian', city: 'London',
+  travelNote: 'Available everywhere except the USA',
+  color: ['rgba(80,20,150,0.4)', 'rgba(50,10,100,0.7)'],
+  initials: 'RA',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const MAIAN_DATA = {
+  id: 9964, real: true, vip: true, folder: 'vip-models/Maian', slug: 'maian',
+  name: 'Maian', age: 23, height: 176,
+  nationality: 'Spanish', city: 'Madrid',
+  travelNote: 'Available to travel across Europe and Dubai',
+  color: ['rgba(200,160,60,0.4)', 'rgba(130,95,20,0.7)'],
+  initials: 'MA',
+  cats: ['new', 'under25'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
 // =================== TOURING MODELS (non-London, real) ===================
 // city is each model's current/home base — travelNote (shown on her
 // profile, see assets/profile.js) covers the extra cities she's also
@@ -872,6 +946,46 @@ const TAVRIA_DATA = {
   reviews: [],
 };
 
+const LUMONA_DATA = {
+  id: 9968, real: true, vip: false, folder: 'models/Lumona', slug: 'lumona',
+  name: 'Lumona', age: 23, height: 170, weight: 50,
+  nationality: 'Brazilian', city: 'Valletta',
+  travelNote: 'Available to travel across Europe',
+  rateHour: 850,
+  color: ['rgba(160,180,70,0.4)', 'rgba(100,120,30,0.7)'],
+  initials: 'LU',
+  cats: ['new', 'under25'],
+  breastType: 'Natural',
+  languages: 'Portuguese · Spanish · English',
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [{label: '1 Hour', price: 850}],
+  outcallRates: [{label: '1 Hour', price: 850}],
+  description: [
+    "All-natural body and hair. Fluent in Portuguese and Spanish, with intermediate (B2) English.",
+  ],
+  reviews: [],
+};
+
+const EUPHORIA_DATA = {
+  id: 9966, real: true, vip: false, folder: 'models/Euphoria', slug: 'euphoria',
+  name: 'Euphoria', age: 25, height: 175, weight: 60,
+  measurements: '90-60-90', eyeColor: 'Blue',
+  nationality: 'Romanian', city: 'Dubai',
+  travelNote: 'Based in Dubai — also available to travel across the USA, Europe and beyond',
+  color: ['rgba(200,180,150,0.4)', 'rgba(130,110,80,0.7)'],
+  initials: 'EU',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "A well-known influencer, admired online and in person.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -937,6 +1051,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };

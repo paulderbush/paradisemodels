@@ -143,10 +143,19 @@ function updateRange(type) {
   applyFilters();
 }
 
+// Fake (generated) models only ever have rateHour; real ones show their
+// actual lowest quoted rate, which can be null (rates on request — no
+// incall or outcall on file at all, e.g. Euphoria).
+function catalogPrice(m) { return m.real ? startPrice(m) : m.rateHour; }
+
 function sortModels(val) {
   let ms = [...filteredModels];
-  if (val === 'price-asc') ms.sort((a, b) => a.rateHour - b.rateHour);
-  else if (val === 'price-desc') ms.sort((a, b) => b.rateHour - a.rateHour);
+  if (val === 'price-asc' || val === 'price-desc') {
+    const withPrice = ms.filter(m => catalogPrice(m) !== null);
+    const withoutPrice = ms.filter(m => catalogPrice(m) === null);
+    withPrice.sort((a, b) => val === 'price-asc' ? catalogPrice(a) - catalogPrice(b) : catalogPrice(b) - catalogPrice(a));
+    ms = [...withPrice, ...withoutPrice];
+  }
   else if (val === 'age-asc') ms.sort((a, b) => a.age - b.age);
   else if (val === 'name') ms.sort((a, b) => a.name.localeCompare(b.name));
   renderModelsGrid(ms);
