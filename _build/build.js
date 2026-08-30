@@ -1709,7 +1709,7 @@ ${ageModalHTML()}
     <div id="acctDashboard" class="form-section" style="display:none">
       <div class="form-section-title">Signed In</div>
       <p style="margin-bottom:1.25rem">Signed in as <strong id="acctEmailDisplay"></strong></p>
-      <div id="acctVipStatus" style="min-height:60px;padding:1rem;border-radius:var(--r-xs);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:center;text-align:center"></div>
+      <div id="acctVipStatus" style="min-height:60px;padding:1rem;border-radius:0;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:center;text-align:center"></div>
       <a id="acctVipBtn" class="submit-app-btn" href="/vip-models/" style="margin-top:0;margin-bottom:0.75rem;display:block;text-align:center;text-decoration:none;background:rgba(255,255,255,0.08)!important;box-shadow:none!important">View VIP Models</a>
       <button type="button" class="submit-app-btn" onclick="handleSignOut()" style="margin-top:0;background:rgba(255,255,255,0.08)!important;box-shadow:none!important">Sign Out</button>
     </div>
