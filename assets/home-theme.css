@@ -794,6 +794,29 @@ body[class^="page-"],body[class^="page-"] *{font-family:'Lexend',sans-serif!impo
 .page-vip-models .vip-paywall-card .form-section-title,
 .page-model .vip-paywall-card .form-section-title{color:var(--purple3)!important}
 
+/* The unlocked catalog's filter sidebar mirrors /models/ exactly (see the
+   MODELS CATALOG PAGE block above) — same rules, extended to this page. */
+.page-vip-models .results-count{color:var(--text-soft)!important}
+.page-vip-models .filters-sidebar{
+  background:var(--glass)!important;
+  backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;
+  border:1px solid var(--glass-border)!important;
+  border-radius:0!important;
+}
+.page-vip-models .filter-title{color:var(--purple3)!important}
+.page-vip-models .filter-chip,
+.page-vip-models .sort-select,.page-vip-models .mobile-filter-toggle,.page-vip-models .clear-filters{
+  border-radius:0!important;
+}
+.page-vip-models .filter-list{border-radius:8px!important}
+.page-vip-models .sort-select,.page-vip-models .mobile-filter-toggle{
+  background:#0F3441!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  border:1px solid var(--glass-border)!important;
+  color:var(--text)!important;
+}
+.page-vip-models .sort-select option{background:#0F3441;color:var(--text)}
+
 /* =================== CONCIERGE PAGE — content unique to this page =================== */
 /* Palette/nav/footer/back-btn/form-section/submit-app-btn etc. are all
    handled by the universal rules above. Only the heading (which sits

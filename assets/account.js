@@ -90,9 +90,15 @@ async function renderAcctState() {
   const vipBtn = document.getElementById('acctVipBtn');
   vipEl.textContent = 'Checking VIP access…';
   const hasVip = await checkVipAccess(user.id);
+  // Wrapped in one <span> rather than left as loose text + <strong> siblings
+  // of the flex-centered #acctVipStatus box — a flex container blockifies
+  // each in-flow child, including the anonymous box around bare text, and
+  // a block box's trailing whitespace collapses away at its own edge. That
+  // silently ate the space before "active"/"inactive" until it was all one
+  // flex item instead, with normal inline text inside it.
   vipEl.innerHTML = hasVip
-    ? 'VIP catalog access is <strong style="color:#A0E080">active</strong>'
-    : 'VIP catalog access is <strong style="color:#ff8a8a">inactive</strong>';
+    ? '<span>VIP catalog access is <strong style="color:#A0E080">active</strong></span>'
+    : '<span>VIP catalog access is <strong style="color:#ff8a8a">inactive</strong></span>';
   vipBtn.textContent = hasVip ? 'View VIP Models' : 'Get access to VIP models';
 }
 
