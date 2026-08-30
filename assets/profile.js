@@ -208,10 +208,11 @@ function buildRealModelHTML(m) {
           <div class="gallery-dots" id="gallery-dots"><span class="gallery-dot active"></span></div>
           <div class="gallery-counter" id="gallery-counter">1 / 1</div>
         </div>
+        ${m.description && m.description.length ? `
         <div class="model-bio">
           <div class="services-title">About Model</div>
-          ${(m.description || []).map(p => `<p>${p}</p>`).join('')}
-        </div>
+          ${m.description.map(p => `<p>${p}</p>`).join('')}
+        </div>` : ''}
       </div>
       <div class="model-detail-info">
         <div>
@@ -281,7 +282,7 @@ function buildRealModelHTML(m) {
         </div>` : ''}
         ${hasRates
           ? `<button class="make-booking-btn" onclick="makeBooking()">Make a Booking</button>`
-          : `<a class="make-booking-btn" href="/concierge/" style="text-decoration:none;display:block;text-align:center;box-sizing:border-box">Contact Concierge</a>`}
+          : `<a class="make-booking-btn" href="${typeof TG_LINK !== 'undefined' ? TG_LINK : '/concierge/'}" target="_blank" rel="noopener" style="text-decoration:none;display:block;text-align:center;box-sizing:border-box">Request Info</a>`}
         <div style="font-size:12px;color:var(--text-muted);text-align:center">Available 24/7</div>
       </div>
       <div class="model-map-block">
