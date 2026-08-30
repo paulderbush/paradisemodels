@@ -248,6 +248,15 @@ async function submitBooking() {
 // site rather than as a leftover.
 const PLACEHOLDER_BG = 'linear-gradient(160deg,#242a54 0%,#1a1e42 100%)';
 
+// A real model's lowest quoted rate, checking incall then outcall — either
+// can be empty (outcall-only models like Gelato; a minimal VIP profile like
+// Bayla with no rate on file at all) and Math.min() of an empty array is
+// Infinity, not 0, so this returns null there instead of a bogus "from £∞".
+function startPrice(m) {
+  const rates = (m.incallRates && m.incallRates.length) ? m.incallRates : (m.outcallRates || []);
+  return rates.length ? Math.min(...rates.map(r => r.price)) : null;
+}
+
 function modelCardHTML(m, clickable = true, showTags = true) {
   const catBadges = [];
   if (m.cats.includes('new')) catBadges.push('<span class="badge badge-new">New</span>');
@@ -279,7 +288,7 @@ function modelCardHTML(m, clickable = true, showTags = true) {
       </div>
     </div>
     <div class="model-card-footer">
-      <div class="model-rate">${m.real ? `<span>from </span>${fmtPrice(Math.min(...(m.incallRates.length ? m.incallRates : m.outcallRates).map(r => r.price)))}` : `${fmtPrice(m.rateHour)}<span>/hr</span>`}</div>
+      <div class="model-rate">${m.real ? (startPrice(m) !== null ? `<span>from </span>${fmtPrice(startPrice(m))}` : `<span style="font-size:12px">Rates on request</span>`) : `${fmtPrice(m.rateHour)}<span>/hr</span>`}</div>
       <button class="add-to-cart-btn" onclick="event.stopPropagation();addToCart(${m.id})">Info</button>
     </div>
   ${cardEnd}`;
@@ -370,7 +379,7 @@ function renderSearchDropdown(q, ddId) {
       <div class="avatar" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : `background:${PLACEHOLDER_BG}`}">${m.real ? '' : m.initials}</div>
       <div>
         <div style="font-weight:500;font-size:13px">${m.name}</div>
-        <div style="font-size:11px;color:var(--text-muted)">${m.nationality} · ${m.real ? `from ${fmtPrice(Math.min(...m.incallRates.map(r => r.price)))}` : `${fmtPrice(m.rateHour)}/hr`}</div>
+        <div style="font-size:11px;color:var(--text-muted)">${m.nationality} · ${m.real ? (startPrice(m) !== null ? `from ${fmtPrice(startPrice(m))}` : 'Rates on request') : `${fmtPrice(m.rateHour)}/hr`}</div>
       </div>
     </div>`).join('');
   dd.classList.add('show');
