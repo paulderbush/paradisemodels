@@ -216,7 +216,7 @@ function buildRealModelHTML(m) {
       <div class="model-detail-info">
         <div>
           <div class="model-detail-name">${m.name}</div>
-          <div style="color:var(--text-soft);font-size:14px;margin-top:4px">${m.nationality} · ${m.station || m.city}</div>
+          <div style="color:var(--text-soft);font-size:14px;margin-top:4px">${m.nationality ? m.nationality + ' · ' : ''}${m.station || m.city}</div>
           ${m.travelNote ? `<div style="color:var(--purple3);font-size:12.5px;margin-top:4px">${m.travelNote}</div>` : ''}
           <div style="display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap">
             ${m.cats.includes('toprated') ? '<span class="badge badge-top">Top Rated</span>' : ''}
