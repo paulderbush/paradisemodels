@@ -90,7 +90,9 @@ async function renderAcctState() {
   const vipBtn = document.getElementById('acctVipBtn');
   vipEl.textContent = 'Checking VIP access…';
   const hasVip = await checkVipAccess(user.id);
-  vipEl.textContent = hasVip ? '✓ VIP catalog access is active.' : 'No VIP catalog access yet.';
+  vipEl.innerHTML = hasVip
+    ? 'VIP catalog access is <strong style="color:#A0E080">active</strong>'
+    : 'VIP catalog access is <strong style="color:#ff8a8a">inactive</strong>';
   vipBtn.textContent = hasVip ? 'View VIP Models' : 'Get access to VIP models';
 }
 
