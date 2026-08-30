@@ -872,7 +872,115 @@ ${ageModalHTML()}
       </div>
     </div>
 
-    <div id="vipUnlocked" class="models-row" style="display:none"></div>
+    <div id="vipUnlockedWrap" class="models-layout" style="display:none">
+      <!-- MOBILE FILTER TOGGLE -->
+      <button class="mobile-filter-toggle" id="filterToggle" onclick="toggleMobileFilters()">
+        <span style="display:flex;align-items:center;gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Choose Filters</span>
+        <svg id="filterToggleChevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <!-- SIDEBAR -->
+      <div class="filters-sidebar" id="filtersSidebar">
+        <div style="font-size:1rem;font-weight:700;margin-bottom:1.2rem">Filters</div>
+
+        <!-- Category -->
+        <div class="filter-group">
+          <div class="filter-title">Category</div>
+          <div class="filter-chips" id="vipCatChips">
+            <button class="filter-chip active" data-cat="all" onclick="vipSetCat(this,'all')">All</button>
+            <button class="filter-chip" data-cat="recommended" onclick="vipSetCat(this,'recommended')">Recommended</button>
+            <button class="filter-chip" data-cat="under25" onclick="vipSetCat(this,'under25')">Under 25</button>
+            <button class="filter-chip" data-cat="toprated" onclick="vipSetCat(this,'toprated')">Top Rated</button>
+            <button class="filter-chip" data-cat="new" onclick="vipSetCat(this,'new')">New Models</button>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="filter-group">
+          <div class="filter-title">Location</div>
+          <div class="filter-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search city…" oninput="filterVipCities(this.value)">
+          </div>
+          <div class="filter-list" id="vipCityList"></div>
+        </div>
+
+        <!-- Nationality -->
+        <div class="filter-group">
+          <div class="filter-title">Nationality</div>
+          <div class="filter-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search nationality…" oninput="filterVipNat(this.value)">
+          </div>
+          <div class="filter-list" id="vipNatList"></div>
+        </div>
+
+        <!-- Age -->
+        <div class="filter-group">
+          <div class="filter-title">Age</div>
+          <div class="range-wrap">
+            <div class="range-row"><span>18</span><span class="range-vals" id="vipAgeVals">18 – 60</span><span>60</span></div>
+            <div class="range-track" id="vipAgeTrack">
+              <div class="range-fill" id="vipAgeFill"></div>
+              <input type="range" min="18" max="60" value="18" id="vipAgeMin" oninput="updateVipRange('age')">
+              <input type="range" min="18" max="60" value="60" id="vipAgeMax" oninput="updateVipRange('age')">
+            </div>
+          </div>
+        </div>
+
+        <!-- Weight -->
+        <div class="filter-group">
+          <div class="filter-title">Weight (kg)</div>
+          <div class="range-wrap">
+            <div class="range-row"><span>40</span><span class="range-vals" id="vipWeightVals">40 – 100</span><span>100</span></div>
+            <div class="range-track" id="vipWeightTrack">
+              <div class="range-fill" id="vipWeightFill"></div>
+              <input type="range" min="40" max="100" value="40" id="vipWeightMin" oninput="updateVipRange('weight')">
+              <input type="range" min="40" max="100" value="100" id="vipWeightMax" oninput="updateVipRange('weight')">
+            </div>
+          </div>
+        </div>
+
+        <!-- Height -->
+        <div class="filter-group">
+          <div class="filter-title">Height (cm)</div>
+          <div class="range-wrap">
+            <div class="range-row"><span>150</span><span class="range-vals" id="vipHeightVals">150 – 185</span><span>185</span></div>
+            <div class="range-track" id="vipHeightTrack">
+              <div class="range-fill" id="vipHeightFill"></div>
+              <input type="range" min="150" max="185" value="150" id="vipHeightMin" oninput="updateVipRange('height')">
+              <input type="range" min="150" max="185" value="185" id="vipHeightMax" oninput="updateVipRange('height')">
+            </div>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="filter-group">
+          <div class="filter-title">Services</div>
+          <div class="filter-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search service…" oninput="filterVipSvc(this.value)">
+          </div>
+          <div class="services-wrap filter-list" id="vipSvcList"></div>
+        </div>
+
+        <button class="clear-filters" onclick="clearVipFilters()">✕ Clear all filters</button>
+      </div>
+
+      <!-- GRID -->
+      <div>
+        <div class="filters-top-bar">
+          <div class="results-count" id="vipResultsCount">Showing all VIP companions</div>
+          <select class="sort-select" onchange="sortVipModels(this.value)">
+            <option value="default">Sort: Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="age-asc">Age: Youngest first</option>
+            <option value="name">Name: A–Z</option>
+          </select>
+        </div>
+        <div class="models-grid-main" id="vipUnlocked"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1602,6 +1710,7 @@ ${ageModalHTML()}
       <div class="form-section-title">Signed In</div>
       <p style="margin-bottom:1.25rem">Signed in as <strong id="acctEmailDisplay"></strong></p>
       <div id="acctVipStatus" style="padding:1rem;border-radius:var(--r-xs);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);margin-bottom:1.25rem"></div>
+      <a id="acctVipBtn" class="submit-app-btn" href="/vip-models/" style="margin-top:0;margin-bottom:0.75rem;display:block;text-align:center;text-decoration:none;background:rgba(255,255,255,0.08)!important;box-shadow:none!important">View VIP Models</a>
       <button type="button" class="submit-app-btn" onclick="handleSignOut()" style="margin-top:0;background:rgba(255,255,255,0.08)!important;box-shadow:none!important">Sign Out</button>
     </div>
   </div>

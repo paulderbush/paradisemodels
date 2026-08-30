@@ -87,11 +87,11 @@ async function renderAcctState() {
   dash.style.display = 'block';
 
   const vipEl = document.getElementById('acctVipStatus');
+  const vipBtn = document.getElementById('acctVipBtn');
   vipEl.textContent = 'Checking VIP access…';
   const hasVip = await checkVipAccess(user.id);
-  vipEl.innerHTML = hasVip
-    ? '✓ VIP catalog access is active. <a href="/vip-models/">View VIP Models →</a>'
-    : 'No VIP catalog access yet. <a href="/vip-models/">Unlock VIP Models →</a>';
+  vipEl.textContent = hasVip ? '✓ VIP catalog access is active.' : 'No VIP catalog access yet.';
+  vipBtn.textContent = hasVip ? 'View VIP Models' : 'Get access to VIP models';
 }
 
 document.addEventListener('DOMContentLoaded', renderAcctState);

@@ -11,9 +11,9 @@
 <meta property="og:description" content="An exclusive selection of VIP companions at Paradise Models. Unlock with a one-time payment.">
 <meta property="og:url" content="https://velvetescort.co.uk/vip-models/">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="/images/favicon.png?v=20260827110923">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260827110923">
-<link rel="apple-touch-icon" href="/images/favicon.png?v=20260827110923">
+<link rel="icon" type="image/png" href="/images/favicon.png?v=20260830163751">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=20260830163751">
+<link rel="apple-touch-icon" href="/images/favicon.png?v=20260830163751">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1288,11 +1288,11 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
   .chat-input,.chat-name-input{font-size:16px}
 }
 </style>
-<script>window.BUILD_TS='20260827110923';</script>
+<script>window.BUILD_TS='20260830163751';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/currency.js?v=20260827110923"></script>
+<script src="/assets/currency.js?v=20260830163751"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=20260827110923">
+<link rel="stylesheet" href="/assets/home-theme.css?v=20260830163751">
 </head>
 <body class="page-vip-models">
 <div class="orb-container">
@@ -1316,7 +1316,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260827110923" alt="Paradise Models"></a>
+  <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260830163751" alt="Paradise Models"></a>
   <div class="nav-search" id="navSearch">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search models…" id="navSearchInput" oninput="handleNavSearch(this.value)" onfocus="navSearchFocus()" onblur="navSearchBlur()">
@@ -1359,7 +1359,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 <!-- MOBILE MENU -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
   <div class="mobile-menu-head">
-    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260827110923" alt="Paradise Models"></a>
+    <a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/logo-new.png?v=20260830163751" alt="Paradise Models"></a>
     <button class="mobile-menu-close" id="mobileMenuClose" onclick="closeMobileMenu()" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -1458,7 +1458,115 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
       </div>
     </div>
 
-    <div id="vipUnlocked" class="models-row" style="display:none"></div>
+    <div id="vipUnlockedWrap" class="models-layout" style="display:none">
+      <!-- MOBILE FILTER TOGGLE -->
+      <button class="mobile-filter-toggle" id="filterToggle" onclick="toggleMobileFilters()">
+        <span style="display:flex;align-items:center;gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Choose Filters</span>
+        <svg id="filterToggleChevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <!-- SIDEBAR -->
+      <div class="filters-sidebar" id="filtersSidebar">
+        <div style="font-size:1rem;font-weight:700;margin-bottom:1.2rem">Filters</div>
+
+        <!-- Category -->
+        <div class="filter-group">
+          <div class="filter-title">Category</div>
+          <div class="filter-chips" id="vipCatChips">
+            <button class="filter-chip active" data-cat="all" onclick="vipSetCat(this,'all')">All</button>
+            <button class="filter-chip" data-cat="recommended" onclick="vipSetCat(this,'recommended')">Recommended</button>
+            <button class="filter-chip" data-cat="under25" onclick="vipSetCat(this,'under25')">Under 25</button>
+            <button class="filter-chip" data-cat="toprated" onclick="vipSetCat(this,'toprated')">Top Rated</button>
+            <button class="filter-chip" data-cat="new" onclick="vipSetCat(this,'new')">New Models</button>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="filter-group">
+          <div class="filter-title">Location</div>
+          <div class="filter-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search city…" oninput="filterVipCities(this.value)">
+          </div>
+          <div class="filter-list" id="vipCityList"></div>
+        </div>
+
+        <!-- Nationality -->
+        <div class="filter-group">
+          <div class="filter-title">Nationality</div>
+          <div class="filter-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search nationality…" oninput="filterVipNat(this.value)">
+          </div>
+          <div class="filter-list" id="vipNatList"></div>
+        </div>
+
+        <!-- Age -->
+        <div class="filter-group">
+          <div class="filter-title">Age</div>
+          <div class="range-wrap">
+            <div class="range-row"><span>18</span><span class="range-vals" id="vipAgeVals">18 – 60</span><span>60</span></div>
+            <div class="range-track" id="vipAgeTrack">
+              <div class="range-fill" id="vipAgeFill"></div>
+              <input type="range" min="18" max="60" value="18" id="vipAgeMin" oninput="updateVipRange('age')">
+              <input type="range" min="18" max="60" value="60" id="vipAgeMax" oninput="updateVipRange('age')">
+            </div>
+          </div>
+        </div>
+
+        <!-- Weight -->
+        <div class="filter-group">
+          <div class="filter-title">Weight (kg)</div>
+          <div class="range-wrap">
+            <div class="range-row"><span>40</span><span class="range-vals" id="vipWeightVals">40 – 100</span><span>100</span></div>
+            <div class="range-track" id="vipWeightTrack">
+              <div class="range-fill" id="vipWeightFill"></div>
+              <input type="range" min="40" max="100" value="40" id="vipWeightMin" oninput="updateVipRange('weight')">
+              <input type="range" min="40" max="100" value="100" id="vipWeightMax" oninput="updateVipRange('weight')">
+            </div>
+          </div>
+        </div>
+
+        <!-- Height -->
+        <div class="filter-group">
+          <div class="filter-title">Height (cm)</div>
+          <div class="range-wrap">
+            <div class="range-row"><span>150</span><span class="range-vals" id="vipHeightVals">150 – 185</span><span>185</span></div>
+            <div class="range-track" id="vipHeightTrack">
+              <div class="range-fill" id="vipHeightFill"></div>
+              <input type="range" min="150" max="185" value="150" id="vipHeightMin" oninput="updateVipRange('height')">
+              <input type="range" min="150" max="185" value="185" id="vipHeightMax" oninput="updateVipRange('height')">
+            </div>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="filter-group">
+          <div class="filter-title">Services</div>
+          <div class="filter-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search service…" oninput="filterVipSvc(this.value)">
+          </div>
+          <div class="services-wrap filter-list" id="vipSvcList"></div>
+        </div>
+
+        <button class="clear-filters" onclick="clearVipFilters()">✕ Clear all filters</button>
+      </div>
+
+      <!-- GRID -->
+      <div>
+        <div class="filters-top-bar">
+          <div class="results-count" id="vipResultsCount">Showing all VIP companions</div>
+          <select class="sort-select" onchange="sortVipModels(this.value)">
+            <option value="default">Sort: Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="age-asc">Age: Youngest first</option>
+            <option value="name">Name: A–Z</option>
+          </select>
+        </div>
+        <div class="models-grid-main" id="vipUnlocked"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1498,9 +1606,9 @@ const CITIES = ["London","Paris","Monaco","Milan","Dubai","New York","Miami","Zu
 // search, which both read from MODELS.
 const VIP_TEASER_MODELS = [{"id":9985,"real":false,"vip":false,"slug":"aaliyah-teaser","name":"Aaliyah","age":25,"height":166,"weight":46,"nationality":"Persian/British","station":"Battersea","city":"London","rateHour":1600,"color":["rgba(180,60,90,0.4)","rgba(110,25,50,0.7)"],"initials":"AA","teaserImg":"/vip-models/Aaliyah/teaser-blur.webp","cats":[],"svcs":["69","Bi DUO","Body to body massage"],"rating":"4.9","reviews":[]},{"id":9984,"real":false,"vip":false,"slug":"kendal-teaser","name":"Kendal","age":22,"height":170,"weight":50,"nationality":"Brazilian","station":"Paddington","city":"London","rateHour":1600,"color":["rgba(150,110,70,0.4)","rgba(90,60,30,0.7)"],"initials":"KE","teaserImg":"/vip-models/Kendal/teaser-blur.webp","cats":[],"svcs":[],"rating":"4.9","reviews":[]},{"id":9983,"real":false,"vip":false,"slug":"alicia-teaser","name":"Alicia","age":24,"height":178,"weight":50,"nationality":"Italian/Brazilian","station":"Kensington","city":"London","rateHour":1600,"color":["rgba(140,60,200,0.4)","rgba(90,30,140,0.7)"],"initials":"AL","teaserImg":"/vip-models/Alicia/teaser-blur.webp","cats":[],"svcs":["69","FK","GFE"],"rating":"4.9","reviews":[]},{"id":9982,"real":false,"vip":false,"slug":"abbey-teaser","name":"Abbey","age":25,"height":170,"weight":55,"nationality":"British","station":"Soho","city":"London","rateHour":1600,"color":["rgba(200,180,150,0.4)","rgba(130,110,80,0.7)"],"initials":"AB","teaserImg":"/vip-models/Abbey/teaser-blur.webp","cats":[],"svcs":["Body to body massage","CIF","COB"],"rating":"4.9","reviews":[]},{"id":9981,"real":false,"vip":false,"slug":"avrora-teaser","name":"Avrora","age":25,"height":178,"weight":65,"nationality":"Russian","city":"Istanbul","rateHour":700,"color":["rgba(180,60,90,0.4)","rgba(110,25,50,0.7)"],"initials":"AV","teaserImg":"/vip-models/Avrora/teaser-blur.webp","cats":[],"svcs":[],"rating":"4.9","reviews":[]}];
 </script>
-<script src="/assets/main.js?v=20260827110923"></script>
-<script src="/assets/chat.js?v=20260827110923"></script>
-<script src="/assets/auth.js?v=20260827110923"></script>
-<script src="/assets/vip.js?v=20260827110923"></script>
+<script src="/assets/main.js?v=20260830163751"></script>
+<script src="/assets/chat.js?v=20260830163751"></script>
+<script src="/assets/auth.js?v=20260830163751"></script>
+<script src="/assets/vip.js?v=20260830163751"></script>
 </body>
 </html>

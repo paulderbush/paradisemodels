@@ -193,9 +193,9 @@ function buildRealModelHTML(m) {
   // both the header line and the map query.
   const mapQ = encodeURIComponent(m.station ? `${m.station} Underground Station London` : m.city);
   return `
-    <a class="back-btn" href="/models/">
+    <a class="back-btn" href="${m.vip ? '/vip-models/' : '/models/'}">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-      Back to Models
+      Back to ${m.vip ? 'VIP Models' : 'Models'}
     </a>
     <div class="real-detail-layout">
       <div class="detail-left">
