@@ -865,8 +865,9 @@ ${ageModalHTML()}
             <p id="vipPaywallCopy" style="margin-bottom:1.1rem">Sign in to unlock the VIP catalog.</p>
             <div id="vipPriceTag" style="font-size:1.7rem;font-weight:700;margin-bottom:1.1rem"></div>
             <button type="button" class="submit-app-btn" id="vipUnlockBtn" onclick="handleVipCta()" style="margin-top:0">Sign In</button>
+            <a class="submit-app-btn" id="vipTelegramCta" href="${TG_LINK}" target="_blank" rel="noopener" style="margin-top:0;display:none;text-decoration:none">Message on Telegram</a>
             <div id="vipError" style="display:none;color:#ff8a8a;font-size:13px;margin-top:0.9rem"></div>
-            <p style="font-size:12px;color:var(--text-muted);margin-top:1rem">One-time payment. No subscription.</p>
+            <p id="vipPaymentNote" style="font-size:12px;color:var(--text-muted);margin-top:1rem">One-time payment. No subscription.</p>
           </div>
         </div>
       </div>
