@@ -527,9 +527,15 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 // =================== MODEL PROFILE PAGE ===================
 function buildModelProfile(m) {
-  const initRate = m.incallRates[0];
-  const minPrice = Math.min(...m.incallRates.map(r => r.price));
-  const desc = `${m.name} — ${m.nationality} escort in London. Available for incall from £${minPrice}. Book now at Paradise Models.`;
+  // Outcall-only models (Gelato) and "rates on request" ones (Euphoria)
+  // have no incallRates at all — Math.min() of an empty array is Infinity,
+  // not a real price, so this falls back to outcallRates and finally to a
+  // generic line when neither has anything on file.
+  const rates = (m.incallRates && m.incallRates.length) ? m.incallRates : (m.outcallRates || []);
+  const minPrice = rates.length ? Math.min(...rates.map(r => r.price)) : null;
+  const desc = minPrice !== null
+    ? `${m.name} — ${m.nationality} escort in London. Available for incall from £${minPrice}. Book now at Paradise Models.`
+    : `${m.name} — ${m.nationality} escort in London. Contact Paradise Models for rates and availability.`;
 
   return head(
     `${m.name} — Elite London Escort | Paradise Models`,
@@ -559,6 +565,7 @@ const MODELS = [MODEL_DATA];
 const SERVICES = ${JSON.stringify(SERVICES)};
 const NATIONALITIES = ${JSON.stringify(NATIONALITIES)};
 const STATIONS = ${JSON.stringify(STATIONS)};
+const TG_LINK = ${JSON.stringify(TG_LINK)};
 <\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
@@ -606,6 +613,7 @@ const MODELS = [];
 const SERVICES = ${JSON.stringify(SERVICES)};
 const NATIONALITIES = ${JSON.stringify(NATIONALITIES)};
 const STATIONS = ${JSON.stringify(STATIONS)};
+const TG_LINK = ${JSON.stringify(TG_LINK)};
 <\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
