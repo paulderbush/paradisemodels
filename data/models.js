@@ -734,6 +734,124 @@ const ESTELLE_DATA = {
   reviews: [],
 };
 
+const ESMERALDA_DATA = {
+  id: 9961, real: true, vip: true, folder: 'vip-models/Esmeralda', slug: 'esmeralda',
+  name: 'Esmeralda', age: 25, height: 171,
+  nationality: 'Spanish', city: 'Madrid',
+  travelNote: 'Available to travel across Europe and Dubai',
+  breastType: 'Natural',
+  color: ['rgba(200,160,60,0.4)', 'rgba(130,95,20,0.7)'],
+  initials: 'ES',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const NASTYA_DATA = {
+  id: 9957, real: true, vip: true, folder: 'vip-models/Nastya', slug: 'nastya',
+  name: 'Nastya', age: 23, height: 170, weight: 50,
+  measurements: '86-62-93', breastSize: '1.5',
+  nationality: 'Russian', city: 'Dubai',
+  color: ['rgba(160,180,70,0.4)', 'rgba(100,120,30,0.7)'],
+  initials: 'NA',
+  cats: ['new', 'under25'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const NADINE_DATA = {
+  id: 9956, real: true, vip: true, folder: 'vip-models/Nadine', slug: 'nadine',
+  name: 'Nadine', age: 28, height: 171, weight: 70,
+  breastType: 'Enhanced', clothingSize: '10',
+  eyeColor: 'Brown', hairColor: 'Black', orientation: 'Bisexual',
+  nationality: 'Dutch', city: 'Dubai',
+  languages: 'English · Dutch · Arabic',
+  color: ['rgba(80,20,150,0.4)', 'rgba(50,10,100,0.7)'],
+  initials: 'ND',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [
+    {name: 'MMF for double price', price: 170},
+    {name: 'Couples', price: 170},
+    {name: 'CIM (Includes OWO)', price: 170},
+    {name: 'CIF', price: 170},
+    {name: 'Fingering', price: 170},
+    {name: 'Trampling', price: 170},
+    {name: 'Foot fetish', price: 170},
+    {name: 'Toys', price: 170},
+    {name: 'Rimming giving', price: 170},
+    {name: 'Rimming receiving', price: 170},
+    {name: 'Bi DUO', price: 170},
+    {name: 'Roleplay (maid or bunny)', price: 170},
+    {name: 'Domination', price: 170},
+    {name: 'Submission', price: 170},
+    {name: 'Bondage', price: 170},
+    {name: 'DT', price: 170},
+    {name: 'Dirty talk', price: 170},
+    {name: 'GFE', price: 170},
+    {name: 'Sex between breast', price: 170},
+    {name: 'BDSM', price: 170},
+    {name: 'Shower together', price: 170},
+    {name: 'Face sitting', price: 170},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 480},
+    {label: '90 Min', price: 640},
+    {label: 'Overnight', price: 1500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 480},
+    {label: '90 Min', price: 640},
+    {label: 'Overnight', price: 1500},
+  ],
+  extraHourPrice: 250,
+  description: [
+    "Nadine is a breathtaking Dutch beauty whose presence in Dubai feels effortlessly refined and irresistibly warm. Her black hair frames a striking face, and her deep brown eyes carry a confidence that is both soothing and captivating. She embodies a blend of sophistication and softness—graceful in her movements, elegant in her tone, and endlessly alluring in the way she observes the world around her.",
+    "Her silhouette is full, feminine, and wonderfully sculpted, enhanced by her luxurious curves and poised carriage. She has a natural charm untouched by tattoos or piercings, giving her a clean, classic allure that stands out in the most subtle, beautiful way. Whether she's speaking or simply listening, Nadine holds herself with a calm, magnetic composure that draws attention without trying. Being near her feels like stepping into a world of quiet luxury and gentle intimacy.",
+    "Fluent in multiple languages and open-hearted in her desires, Nadine brings an enchanting depth to every connection. Her bisexual nature adds fluidity to her warmth—she loves openly, listens deeply, and engages with a rare sincerity that makes every moment feel meaningful. With her, time stretches softly, wrapped in sophistication, ease, and a touch of mystery. Nadine is not just unforgettable—she is the kind of woman who leaves you feeling enriched, understood, and quietly enchanted long after she's gone.",
+  ],
+  reviews: [],
+};
+
+// Extra services here were quoted at £0 across the board — folded into
+// the plain "included" services list instead of a priced extras list
+// that would show "+£0" on every row. Also outcall-only: every incall
+// price given was £0 too.
+const TINASOUTH_DATA = {
+  id: 9955, real: true, vip: true, folder: 'vip-models/TinaSouth', slug: 'tina-south',
+  name: 'Tina South', age: 25, height: 161, weight: 59,
+  clothingSize: '8-10', breastSize: '5E', breastType: 'Enhanced',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  nationality: 'Russian/Ukrainian', city: 'Dubai',
+  languages: 'English · Russian',
+  color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
+  initials: 'TS',
+  cats: ['new'],
+  svcs: ['DFK', 'FK', 'OWO', 'A-Level', 'DT', 'Toys', 'Group for extra price', 'CIF', 'CIM'],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 500},
+    {label: '90 Min', price: 675},
+    {label: 'Overnight', price: 2450},
+  ],
+  extraHourPrice: 300,
+  description: [
+    "South is a captivating blend of gentle softness and fiery passion, a woman whose presence is felt the moment she enters a room. With deep brown eyes and rich brunette hair, she carries an intense, magnetic femininity that feels both warm and electrifying. Her curves and confident posture reflect a woman who knows her power and enjoys expressing it with natural grace.",
+    "Open-minded and full of vibrant energy, South lives with a true party spirit balanced by a soulful depth. She loves to dance, to travel, to lose herself in movement and music, and to explore the wisdom of ancient cultures. Yoga keeps her centered, while her adventurous heart constantly seeks new sensations, places, and emotions. She is the kind of woman who inspires freedom, laughter, and unforgettable moments.",
+    "With her Russian-Ukrainian roots, South embodies a unique mix of strength and sensitivity. Tattoos and daring piercings underline her bold character, while her gentle side reveals warmth and emotional connection. She is passionate yet caring, playful yet thoughtful — a woman who turns every encounter into an experience and every moment into a memory.",
+  ],
+  reviews: [],
+};
+
 // =================== TOURING MODELS (non-London, real) ===================
 // city is each model's current/home base — travelNote (shown on her
 // profile, see assets/profile.js) covers the extra cities she's also
@@ -1021,6 +1139,129 @@ const EUPHORIA_DATA = {
   reviews: [],
 };
 
+const CAMDICE_DATA = {
+  id: 9960, real: true, vip: false, folder: 'models/Camdice', slug: 'camdice',
+  name: 'Camdice', age: 21, height: 174, weight: 58,
+  nationality: 'Brazilian', city: 'Mykonos',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(155,89,208,0.4)', 'rgba(100,40,160,0.7)'],
+  initials: 'CA',
+  cats: ['new', 'under25'],
+  breastSize: '34C', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · Portuguese · Spanish',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'DT', 'Erotic massage', 'Toys', 'Fisting receiving', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'Tie and Tease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'Smoking fetish', price: 50},
+    {name: 'A-Level', price: 300},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Discover the stunning Camdice, a 22-year-old Brazilian model with a perfect natural body and radiant blonde beauty. Her irresistible charm and confident presence make her the ultimate choice for unforgettable experiences. As a high-class escort, Camdice offers an elite service marked by elegance, sophistication, and genuine allure, ensuring every encounter is both exciting and authentic.",
+    "Known as the best roleplay escort in London, Camdice excels at creating immersive and memorable scenarios that cater to your desires. Whether you're seeking a playful partner for a night out, intimate moments, or a fun roleplay session, she is open-minded and adapts effortlessly to your fantasies. Her versatile and easy-going nature makes every moment enjoyable and stress-free.",
+    "Camdice is all about providing a relaxed and enjoyable experience in a friendly, party-like atmosphere. She's approachable, open-minded, and eager to make your time together truly special. Book now to indulge in her captivating beauty and charismatic personality for an experience you won't forget.",
+  ],
+  reviews: [],
+};
+
+const ZOMELA_DATA = {
+  id: 9959, real: true, vip: false, folder: 'models/Zomela', slug: 'zomela',
+  name: 'Zomela', age: 22, height: 162, weight: 48,
+  nationality: 'Brazilian', city: 'Barcelona',
+  rateHour: 400, extraHourPrice: 300,
+  color: ['rgba(200,160,60,0.4)', 'rgba(130,95,20,0.7)'],
+  initials: 'ZO',
+  cats: ['new', 'under25'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Portuguese · Spanish · French',
+  svcs: ['69', 'CIF', 'CIM', 'COB', 'DFK', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'GFE', 'Massage', 'OWO', 'Party girl', 'Rimming giving', 'WS giving'],
+  extraSvcs: [
+    {name: 'COB', price: 50},
+    {name: 'CIF', price: 50},
+    {name: 'CIM (Includes OWO)', price: 50},
+    {name: 'DT', price: 50},
+    {name: 'Fingering', price: 50},
+    {name: 'WS giving', price: 50},
+    {name: 'Rimming giving', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1100},
+    {label: 'Overnight', price: 2500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 500},
+    {label: '90 Min', price: 700},
+    {label: '2 Hours', price: 850},
+    {label: '3 Hours', price: 1200},
+    {label: 'Overnight', price: 2500},
+  ],
+  description: [
+    "Zomela is one of the most beautiful escorts and attracts lots of attention wherever she goes. She is an elite lady with a great sense of humor, wit, and charm.",
+    "She is a sensual, open-minded, warm lady who loves traveling, dancing, and indulging people. She is a well-educated, interesting young girl who can keep any conversation going.",
+    "When you meet Zomela apart from her amazing body and flawless face you will notice what a great personality she has. Undoubtedly, one of the most beautiful escorts inside and out you have ever met. Book her now and let yourself forget about everything and have the best time of your life.",
+  ],
+  reviews: [],
+};
+
+const KARMELITA_DATA = {
+  id: 9958, real: true, vip: false, folder: 'models/Karmelita', slug: 'karmelita',
+  name: 'Karmelita', age: 25, height: 162, weight: 50,
+  nationality: 'Brazilian', city: 'Dubai',
+  rateHour: 400, extraHourPrice: 350,
+  color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'],
+  initials: 'KA',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Hazel', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: [],
+  extraSvcs: [
+    {name: 'CIM (Includes OWO)', price: 50},
+    {name: 'Rimming giving', price: 50},
+    {name: 'Couples', price: 100},
+    {name: 'Bi DUO', price: 100},
+    {name: 'Filming with mask', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1100},
+    {label: 'Overnight', price: 3000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 450},
+    {label: '90 Min', price: 650},
+    {label: '2 Hours', price: 800},
+    {label: '3 Hours', price: 1150},
+    {label: 'Overnight', price: 3000},
+  ],
+  description: [
+    "<strong>A captivating new presence</strong>, Karmelita is a 25-year-old Brazilian beauty who brings a vibrant, utterly fresh energy to the elite scene. With her cascading long brown hair, deeply expressive hazel eyes, and a stunning, naturally curvaceous silhouette, she effortlessly commands attention while maintaining a warm, approachable grace. As a brand-new face, she represents a flawless blend of youthful vitality and sophisticated allure, making her an instant standout for those who appreciate authentic, natural beauty.",
+    "<strong>Exceedingly open-minded and worldly</strong>, Karmelita possesses a bright, intuitive social intelligence that perfectly complements her striking aesthetic. She approaches new experiences with an authentic, unpretentious enthusiasm, making her an exceptional conversationalist who connects easily on a variety of topics. Whether sharing an intimate, high-end dinner or exploring the dynamic nightlife of a global metropolis, her fluid charm and genuine warmth ensure that every moment feels entirely effortless and engaging.",
+    "<strong>Designed for the discerning individual</strong>, her companionship is ideal for those who value both visual elegance and a sparkling, cosmopolitan outlook. Karmelita is perfectly poised for high-profile international travel, exclusive social gatherings, or quiet, private evenings where discretion and luxury are paramount. Her magnetic charm and spontaneous spirit guarantee an unforgettable experience, leaving a refined and lasting impression.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -1086,6 +1327,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, TINASOUTH_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, TINASOUTH_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
