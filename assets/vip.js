@@ -31,7 +31,7 @@ function vipTeaserPool() {
 function renderVipTeaser() {
   const grid = document.getElementById('vipTeaserGrid');
   if (!grid) return;
-  grid.innerHTML = vipTeaserPool().map(m => modelCardHTML(m, false)).join('');
+  grid.innerHTML = vipTeaserPool().map(m => modelCardHTML(m, false, false)).join('');
 }
 
 // =================== VIP CATALOG FILTERS ===================
@@ -80,7 +80,7 @@ function renderVipGrid(ms) {
   const cnt = document.getElementById('vipResultsCount');
   if (!grid) return;
   grid.innerHTML = ms.length
-    ? ms.map(m => modelCardHTML(m)).join('')
+    ? ms.map(m => modelCardHTML(m, true, false)).join('')
     : `<p style="grid-column:1/-1;text-align:center;color:var(--text-soft);padding:2rem 0">${allVipModels.length ? 'No VIP companions match these filters.' : 'New VIP companions are being added — check back soon.'}</p>`;
   if (cnt) cnt.textContent = `Showing ${ms.length} VIP companion${ms.length === 1 ? '' : 's'}`;
 }
