@@ -96,13 +96,17 @@ function renderCart() {
           <div style="width:44px;height:54px;border-radius:8px;background:url('/${d.modelFolder}/1.webp') top center/cover no-repeat;flex-shrink:0;border:1px solid var(--glass-border)"></div>
           <div>
             <div style="font-weight:600;font-size:15px">${d.modelName}</div>
-            <div style="font-size:12px;color:var(--text-soft)">${d.durationLabel} · ${d.type === 'incall' ? 'Incall' : 'Outcall'}</div>
+            <div style="font-size:12px;color:var(--text-soft)">${d.type === 'incall' ? 'Incall' : 'Outcall'}</div>
           </div>
           <button onclick="_bookingDraft=null;renderCart()" style="margin-left:auto;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.1rem;padding:4px">✕</button>
+        </div>
+        <div style="margin-bottom:0.65rem;border-top:1px solid var(--glass-border);padding-top:0.65rem">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-soft);padding:2px 0"><span>${d.durationLabel}</span><span>${fmtPrice(d.basePrice)}</span></div>
         </div>
         ${d.requestedServices && d.requestedServices.length ? `<div style="margin-bottom:0.65rem;border-top:1px solid var(--glass-border);padding-top:0.65rem">${d.requestedServices.map(s => `<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-soft);padding:2px 0"><span>${s}</span><span style="color:var(--text-muted)">Included</span></div>`).join('')}</div>` : ''}
         ${d.extras.length ? `<div style="margin-bottom:0.65rem;border-top:1px solid var(--glass-border);padding-top:0.65rem">${d.extras.map(e => `<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-soft);padding:2px 0"><span>${e.name}</span><span>+${fmtPrice(e.price)}</span></div>`).join('')}</div>` : ''}
         <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1rem;padding-top:0.5rem;border-top:1px solid var(--glass-border)"><span>Total</span><span>${fmtPrice(d.total)}</span></div>
+        ${d.type === 'outcall' ? `<div style="font-size:11px;color:var(--text-muted);margin-top:0.5rem">For outcall, the taxi fare is paid separately — our manager will confirm the amount.</div>` : ''}
       </div>
       <div class="booking-form">
         <div class="bf-label">Your name</div>
