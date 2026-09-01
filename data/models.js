@@ -821,33 +821,136 @@ const NADINE_DATA = {
   reviews: [],
 };
 
-// Extra services here were quoted at £0 across the board — folded into
-// the plain "included" services list instead of a priced extras list
-// that would show "+£0" on every row. Also outcall-only: every incall
-// price given was £0 too.
-const TINASOUTH_DATA = {
-  id: 9955, real: true, vip: true, folder: 'vip-models/TinaSouth', slug: 'tina-south',
-  name: 'Tina South', age: 25, height: 161, weight: 59,
+// Renamed from "Tina South" to just "South" — folder/slug updated to
+// match. Rates and services replaced with the client's updated pricing,
+// given in AED and converted to GBP (the site's stored currency) at
+// roughly AED->GBP 0.213, rounded to a clean figure — worth the client
+// double-checking against today's actual rate. The old flat per-item
+// "extra services" menu is gone; this one splits into what's included at
+// every tier and a per-act a-la-carte list layered on top.
+const SOUTH_DATA = {
+  id: 9955, real: true, vip: true, folder: 'vip-models/South', slug: 'south',
+  name: 'South', age: 25, height: 161, weight: 59,
   clothingSize: '8-10', breastSize: '5E', breastType: 'Enhanced',
   eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
   nationality: 'Russian/Ukrainian', city: 'Dubai',
   languages: 'English · Russian',
   color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
-  initials: 'TS',
+  initials: 'SO',
   cats: ['new'],
-  svcs: ['DFK', 'FK', 'OWO', 'A-Level', 'DT', 'Toys', 'Group for extra price', 'CIF', 'CIM'],
-  extraSvcs: [],
-  incallRates: [],
-  outcallRates: [
-    {label: '1 Hour', price: 500},
-    {label: '90 Min', price: 675},
-    {label: 'Overnight', price: 2450},
+  svcs: ['Kissing', 'OWO', 'Deep throat', 'Fingering', 'Squirting', 'Classic sex (any position)', 'COB'],
+  extraSvcs: [
+    {name: 'Roleplay', price: 100},
+    {name: 'Toys (hers or his — she has plenty)', price: 100},
+    {name: 'A-Level (up to total time)', price: 200},
+    {name: 'BDSM submissive (light)', price: 200},
+    {name: 'BDSM dominant', price: 200},
+    {name: 'Golden shower (to him)', price: 200},
+    {name: 'Golden shower (to her)', price: 650},
+    {name: 'Rimming', price: 100},
+    {name: 'Facefucking', price: 200},
+    {name: 'CIM', price: 100},
+    {name: 'COF', price: 100},
+    {name: 'CIM + Swallow', price: 200},
+    {name: 'MWW — duo with another girl (without girl-girl play)', price: 100},
+    {name: 'MWW — duo with another girl (with girl-girl play)', price: 200},
+    {name: 'Couples', price: 200},
+    {name: 'Swap partner', price: 200},
+    {name: 'DP (vaginal + anal at once)', price: 400},
   ],
-  extraHourPrice: 300,
+  incallRates: [
+    {label: '1 Hour', price: 650},
+    {label: '2 Hours', price: 750},
+    {label: '4 Hours', price: 1175},
+    {label: '6 Hours', price: 1600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 650},
+    {label: '2 Hours', price: 750},
+    {label: '4 Hours', price: 1175},
+    {label: '6 Hours', price: 1600},
+  ],
   description: [
     "South is a captivating blend of gentle softness and fiery passion, a woman whose presence is felt the moment she enters a room. With deep brown eyes and rich brunette hair, she carries an intense, magnetic femininity that feels both warm and electrifying. Her curves and confident posture reflect a woman who knows her power and enjoys expressing it with natural grace.",
     "Open-minded and full of vibrant energy, South lives with a true party spirit balanced by a soulful depth. She loves to dance, to travel, to lose herself in movement and music, and to explore the wisdom of ancient cultures. Yoga keeps her centered, while her adventurous heart constantly seeks new sensations, places, and emotions. She is the kind of woman who inspires freedom, laughter, and unforgettable moments.",
     "With her Russian-Ukrainian roots, South embodies a unique mix of strength and sensitivity. Tattoos and daring piercings underline her bold character, while her gentle side reveals warmth and emotional connection. She is passionate yet caring, playful yet thoughtful — a woman who turns every encounter into an experience and every moment into a memory.",
+    "Outcall bookings additionally include the taxi fare. An MMW booking (two men, one woman) is charged at double the standard rate — open to discussion.",
+  ],
+  reviews: [],
+};
+
+const AMINA_DATA = {
+  id: 9954, real: true, vip: true, folder: 'vip-models/Amina', slug: 'amina',
+  name: 'Amina', age: 25, height: 165, weight: 62,
+  nationality: 'Moroccan', city: 'Dubai',
+  languages: 'French · Arabic · English',
+  color: ['rgba(200,160,60,0.4)', 'rgba(130,95,20,0.7)'],
+  initials: 'AM',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const SELENA_DATA = {
+  id: 9953, real: true, vip: true, folder: 'vip-models/Selena', slug: 'selena',
+  name: 'Selena', age: 22, height: 172, weight: 47,
+  clothingSize: '6', breastSize: 'C', breastType: 'Natural',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  nationality: 'Ukrainian', city: 'Dubai',
+  languages: 'English · Russian · Ukrainian',
+  color: ['rgba(155,89,208,0.4)', 'rgba(100,40,160,0.7)'],
+  initials: 'SE',
+  cats: ['new'],
+  // CIM/CIF were quoted at £0 — folded into the plain "included" services
+  // list instead of a priced extras list that would show "+£0".
+  svcs: ['69', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWC', 'OWO', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Uniforms', 'CIM', 'CIF'],
+  extraSvcs: [],
+  incallRates: [{label: '1 Hour', price: 1300}],
+  outcallRates: [{label: '1 Hour', price: 1300}],
+  description: [
+    "Selena carries a quiet, irresistible charm—graceful, effortless, and deeply feminine. Her slender silhouette and naturally beautiful curves give her presence a delicate allure, while her warm brown eyes reveal both confidence and softness. With her gentle smile and calm demeanor, she draws attention without ever trying, leaving an impression that lingers long after she enters a room.",
+    "Her long brown hair frames her face like a whisper, enhancing her natural radiance and timeless beauty. Selena moves with the poise of someone who understands her own elegance—light, fluid, almost ethereal. Every detail about her, from her natural C-cup curves to her slender frame, speaks of authenticity and understated sensuality.",
+    "Ukrainian by origin, Selena brings a blend of warmth, sincerity, and feminine mystery to every moment. She embodies a rare kind of romance—gentle yet captivating, serene yet unforgettable. Being around her feels like a soft exhale, a quiet escape into something tender, beautiful, and effortlessly enchanting.",
+  ],
+  reviews: [],
+};
+
+const MAURA_DATA = {
+  id: 9952, real: true, vip: true, folder: 'vip-models/Maura', slug: 'maura',
+  name: 'Maura', height: 175, weight: 55,
+  eyeColor: 'Green', breastType: 'Natural',
+  nationality: 'Brazilian/German', city: 'London',
+  languages: 'English',
+  color: ['rgba(160,180,70,0.4)', 'rgba(100,120,30,0.7)'],
+  initials: 'MA',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const ALINA_DATA = {
+  id: 9951, real: true, vip: true, folder: 'vip-models/Alina', slug: 'alina',
+  name: 'Alina', height: 177,
+  measurements: '88-64-92', eyeColor: 'Green/Grey', hairColor: 'Blonde', breastType: 'Natural',
+  city: 'London',
+  languages: 'English · French',
+  color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'],
+  initials: 'AL',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "Winner of a beauty pageant, Alina has appeared on magazine covers and in the pages of Vogue, and has walked the runway at Fashion Week as a professional model.",
   ],
   reviews: [],
 };
@@ -1327,6 +1430,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, TINASOUTH_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, TINASOUTH_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
