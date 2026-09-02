@@ -955,6 +955,93 @@ const ALINA_DATA = {
   reviews: [],
 };
 
+const GRACE_DATA = {
+  id: 9950, real: true, vip: true, folder: 'vip-models/Grace', slug: 'grace',
+  name: 'Grace', age: 28, height: 165, weight: 49,
+  clothingSize: '6', breastSize: '5DD', breastType: 'Natural',
+  eyeColor: 'Dark brown', hairColor: 'Dark brunette', orientation: 'Heterosexual',
+  nationality: 'Dominican Republic', city: 'Ibiza',
+  languages: 'English · Spanish · German',
+  color: ['rgba(200,150,60,0.4)', 'rgba(140,90,20,0.7)'],
+  initials: 'GR',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const KOA_DATA = {
+  id: 9949, real: true, vip: true, folder: 'vip-models/Koa', slug: 'koa',
+  name: 'Koa', age: 24, height: 170, weight: 50,
+  clothingSize: '4', breastSize: '75B',
+  eyeColor: 'Brown', hairColor: 'Brown', orientation: 'Heterosexual',
+  nationality: 'Russian', station: "Earl's Court", city: 'London',
+  languages: 'English',
+  color: ['rgba(90,140,200,0.4)', 'rgba(30,80,150,0.7)'],
+  initials: 'KO',
+  cats: ['new'],
+  svcs: ['69', 'FK', 'DFK', 'GFE', 'OWO', 'OWC', 'COB', 'CIF', 'CIM', 'Fingering', 'Face sitting', 'Dirty talk', 'Smoking fetish', 'Roleplay', 'Foot fetish', 'Light domination', 'DUO', 'Massage'],
+  extraSvcs: [
+    {name: 'Swallow (Includes OWO & CIM)', price: 100},
+    {name: 'Snowballing', price: 100},
+    {name: 'Rimming giving', price: 50},
+    {name: 'Filming with mask', price: 100},
+    {name: 'Filming without mask', price: 150},
+    {name: 'Strap-on', price: 50},
+    {name: 'WS giving', price: 50},
+    {name: 'WS receiving', price: 100},
+    {name: 'Bi DUO', price: 50},
+    {name: 'A-Level', price: 100},
+    {name: 'DP', price: 100},
+    {name: 'Couples', price: 100},
+  ],
+  incallRates: [
+    {label: '30 Min', price: 750},
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1250},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight (9h)', price: 4000},
+  ],
+  outcallRates: [
+    {label: '30 Min', price: 750},
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1250},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight (9h)', price: 4000},
+  ],
+  description: [],
+  reviews: [],
+};
+
+const LIVIA_DATA = {
+  id: 9948, real: true, vip: true, folder: 'vip-models/Livia', slug: 'livia',
+  name: 'Livia', age: 24, height: 172, weight: 55,
+  clothingSize: '6-8', breastSize: '34C', breastType: 'Enhanced',
+  eyeColor: 'Dark brown', hairColor: 'Black', orientation: 'Bisexual',
+  nationality: 'Brazilian', city: 'Dubai',
+  languages: 'Portuguese · English · Spanish',
+  color: ['rgba(200,80,120,0.4)', 'rgba(140,30,70,0.7)'],
+  initials: 'LI',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 630},
+    {label: 'Extra Hour', price: 475},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 630},
+    {label: 'Extra Hour', price: 475},
+  ],
+  description: [
+    "Livia is happy to travel and meet clients across the UK and internationally. In Dubai specifically, she does not meet local Emirati clients, Arab clients who aren't regular or verified customers, Israeli clients, or anyone who uses illicit substances — she screens new clients carefully and may decline a booking that doesn't feel right.",
+  ],
+  reviews: [],
+};
+
 // =================== TOURING MODELS (non-London, real) ===================
 // city is each model's current/home base — travelNote (shown on her
 // profile, see assets/profile.js) covers the extra cities she's also
@@ -1365,6 +1452,184 @@ const KARMELITA_DATA = {
   reviews: [],
 };
 
+const MERCEDES_DATA = {
+  id: 9947, real: true, vip: false, folder: 'models/Mercedes', slug: 'mercedes',
+  name: 'Mercedes', age: 26, height: 160, weight: 55,
+  nationality: 'French/Moroccan', station: 'Mayfair', city: 'London',
+  rateHour: 1250, extraHourPrice: 800,
+  color: ['rgba(120,90,180,0.4)', 'rgba(70,40,130,0.7)'],
+  initials: 'ME',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · French · Arabic',
+  svcs: ['Bi DUO', 'COB', 'Dirty talk', 'DT', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease'],
+  extraSvcs: [
+    {name: 'DFK', price: 100},
+    {name: 'Erotic massage', price: 100},
+    {name: 'Rimming giving', price: 150},
+    {name: 'CIF', price: 150},
+    {name: 'A-Level', price: 300},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1600},
+    {label: '2 Hours', price: 2050},
+    {label: '3 Hours', price: 2850},
+    {label: 'Overnight', price: 5750},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1600},
+    {label: '2 Hours', price: 2050},
+    {label: '3 Hours', price: 2850},
+    {label: 'Overnight', price: 5750},
+  ],
+  description: [
+    "A captivating Moroccan-French brunette of 26, she effortlessly blends North African warmth with refined Parisian elegance. With rich dark hair, warm olive skin, and a striking, natural hourglass silhouette, her magnetic presence offers an elite experience defined by beauty, charm, and complete discretion. Warm-hearted, open-minded, and genuinely cultured, she excels at crafting tailored, seamless encounters. Whether accompanying distinguished gentlemen to high-profile dinners, galas, and luxury travel, or hosting private, unhurried rendez-vous, her adaptable nature ensures every moment feels comfortable, natural, and highly refined.",
+    "Splitting her time between Paris and select international destinations, Mercedes caters to discerning clients who value privacy and world-class companionship. Offering a broad range of bespoke extra services designed around your desires, she is the ultimate choice for an exquisite, memorable escape.",
+  ],
+  reviews: [],
+};
+
+const SAVANNAH_DATA = {
+  id: 9946, real: true, vip: false, folder: 'models/Savannah', slug: 'savannah',
+  name: 'Savannah', age: 27, height: 157, weight: 57,
+  nationality: 'British', city: 'Monaco',
+  rateHour: 600, extraHourPrice: 500,
+  color: ['rgba(80,170,140,0.4)', 'rgba(30,110,90,0.7)'],
+  initials: 'SA',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Green', hairColor: 'Light brown', orientation: 'Bisexual',
+  languages: 'English',
+  svcs: ['69', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Toys', 'Fingering', 'FK', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'PSE', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'Bi DUO', price: 100},
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 600},
+    {label: '90 Min', price: 750},
+    {label: '2 Hours', price: 900},
+    {label: '3 Hours', price: 1200},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 600},
+    {label: '90 Min', price: 800},
+    {label: '2 Hours', price: 1000},
+    {label: '3 Hours', price: 1300},
+    {label: 'Overnight', price: 4000},
+  ],
+  description: [
+    "Savannah is the kind of beauty that stops you in your tracks — effortlessly elegant, with striking green eyes that seem to shimmer under any light. Her natural charm is undeniable, framed by soft features and a radiant smile that makes every glance feel electric. There's a confident, sensual energy about her, the kind that feels both refined and dangerously alluring.",
+    "With her warm British accent and natural femininity, Savannah creates an atmosphere of ease and intimacy from the first moment. She's sophisticated yet playful, knowing exactly how to make every encounter feel spontaneous and personal. Her energy is magnetic — graceful, unhurried, and utterly captivating.",
+    "If you're seeking someone truly exceptional, Savannah is a rare find. Every meeting with her is more than just a moment — it's an experience that stays with you long after she's gone.",
+  ],
+  reviews: [],
+};
+
+const CAPA_DATA = {
+  id: 9945, real: true, vip: false, folder: 'models/Capa', slug: 'capa',
+  name: 'Capa', age: 26, height: 170, weight: 55,
+  nationality: 'Brazilian', station: 'Nine Elms', city: 'London',
+  travelNote: 'Also based in Rio de Janeiro',
+  rateHour: 600, extraHourPrice: 400,
+  color: ['rgba(210,90,60,0.4)', 'rgba(150,40,20,0.7)'],
+  initials: 'CA',
+  cats: ['new'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Redhead', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: [],
+  extraSvcs: [
+    {name: 'CIF', price: 100},
+    {name: 'Bi DUO', price: 100},
+    {name: 'Couples', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 600},
+    {label: '90 Min', price: 800},
+    {label: '2 Hours', price: 1000},
+    {label: '3 Hours', price: 1400},
+    {label: 'Overnight', price: 3000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 600},
+    {label: '90 Min', price: 800},
+    {label: '2 Hours', price: 1000},
+    {label: '3 Hours', price: 1400},
+    {label: 'Overnight', price: 3000},
+  ],
+  description: [
+    "Capa is a striking redhead with a mature, magnetic presence that instantly captivates. Slim and elegant, she carries herself with the kind of confidence only experience can bring. Her fiery hair frames high cheekbones and a knowing smile, while her toned body moves with feline grace and boundless energy. There's a spark in her eyes — playful, daring, and full of promise — that hints at the wild ride she offers behind closed doors.",
+    "Capa lives for the thrill, a true party girl who brings high energy, sensuality, and a taste for the unexpected to every encounter. She's a master of massage, using her skilled hands to melt tension and awaken desire. But what truly sets her apart is her legendary OWO — uninhibited, deep, and passionately attentive, she turns it into an art form that leaves you weak, satisfied, and craving more.",
+    "Whether you want to let loose, be pampered, or experience the best oral you've ever had, Capa is the one to call. She doesn't just entertain — she electrifies. Let her lead the way into a night you'll never forget.",
+  ],
+  reviews: [],
+};
+
+const COLENIA_DATA = {
+  id: 9944, real: true, vip: false, folder: 'models/Colenia', slug: 'colenia',
+  name: 'Colenia', age: 23, height: 170, weight: 65,
+  nationality: 'Brazilian', station: "Earl's Court", city: 'London',
+  travelNote: 'Also based in Capri',
+  rateHour: 350, extraHourPrice: 250,
+  color: ['rgba(230,190,90,0.4)', 'rgba(170,130,40,0.7)'],
+  initials: 'CO',
+  cats: ['new'],
+  breastSize: '36C', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Green', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Italian · Portuguese',
+  svcs: [],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'WS giving', price: 50},
+    {name: 'WS receiving', price: 50},
+    {name: 'Rimming giving', price: 50},
+    {name: 'Strap-on', price: 50},
+    {name: 'Couples', price: 100},
+    {name: 'Filming with mask', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 600},
+    {label: '3 Hours', price: 850},
+    {label: 'Overnight', price: 2000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 650},
+    {label: '3 Hours', price: 900},
+    {label: 'Overnight', price: 2000},
+  ],
+  description: [
+    "Colenia is a mesmerizing Brazilian beauty wrapped in soft light and quiet intrigue. Petite and graceful, she moves with the fluidity of someone who is always half a step ahead of your thoughts. Her hair frames a face lit by green eyes that seem to hold secrets—warm, inviting, yet impossible to fully unravel. There's an aura about her that draws you in, even before she speaks.",
+    "Her slender, feminine figure carries a natural elegance, with curves that feel subtle yet captivating. Everything about her is gentle but charged with an undercurrent of sensual energy. She has the kind of presence that lingers in a room—soft, confident, and quietly magnetic. One look from her can feel like a whisper against your skin.",
+    "With a spirit that embraces both sweetness and boldness, Colenia brings a mysterious allure to every encounter. Her bisexual openness adds layers to her charm, making her both unpredictable and deeply intriguing. She is the woman who slips into your mind long after she's gone—enigmatic, tempting, and unforgettable in a way that feels almost dreamlike.",
+  ],
+  reviews: [],
+};
+
+const IVY_DATA = {
+  id: 9943, real: true, vip: false, folder: 'models/Ivy', slug: 'ivy',
+  name: 'Ivy', height: 170, weight: 55,
+  measurements: '90-63-90', breastSize: '3', breastType: 'Natural',
+  city: 'Phuket',
+  color: ['rgba(90,180,110,0.4)', 'rgba(30,120,60,0.7)'],
+  initials: 'IV',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -1430,6 +1695,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
