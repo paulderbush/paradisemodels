@@ -1533,8 +1533,7 @@ const SAVANNAH_DATA = {
 const CAPA_DATA = {
   id: 9945, real: true, vip: false, folder: 'models/Capa', slug: 'capa',
   name: 'Capa', age: 26, height: 170, weight: 55,
-  nationality: 'Brazilian', station: 'Nine Elms', city: 'London',
-  travelNote: 'Also based in Rio de Janeiro',
+  nationality: 'Brazilian', city: 'Rio de Janeiro',
   rateHour: 600, extraHourPrice: 400,
   color: ['rgba(210,90,60,0.4)', 'rgba(150,40,20,0.7)'],
   initials: 'CA',
@@ -1573,8 +1572,7 @@ const CAPA_DATA = {
 const COLENIA_DATA = {
   id: 9944, real: true, vip: false, folder: 'models/Colenia', slug: 'colenia',
   name: 'Colenia', age: 23, height: 170, weight: 65,
-  nationality: 'Brazilian', station: "Earl's Court", city: 'London',
-  travelNote: 'Also based in Capri',
+  nationality: 'Brazilian', city: 'Capri',
   rateHour: 350, extraHourPrice: 250,
   color: ['rgba(230,190,90,0.4)', 'rgba(170,130,40,0.7)'],
   initials: 'CO',
