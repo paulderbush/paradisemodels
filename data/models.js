@@ -1042,6 +1042,38 @@ const LIVIA_DATA = {
   reviews: [],
 };
 
+const EMMA_DATA = {
+  id: 9942, real: true, vip: true, folder: 'vip-models/Emma', slug: 'emma',
+  name: 'Emma', age: 27, height: 178, weight: 60,
+  clothingSize: '8', breastSize: '34C', breastType: 'Natural',
+  eyeColor: 'Blue', hairColor: 'Redhead', orientation: 'Bisexual',
+  nationality: 'Latvian', station: 'High Street Kensington', city: 'London',
+  languages: 'English · Russian · Latvian',
+  color: ['rgba(180,60,140,0.4)', 'rgba(120,20,90,0.7)'],
+  initials: 'EM',
+  cats: ['new'],
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'Erotic massage', 'Couples', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Emma carries an effortless allure—tall, graceful, and striking with her rare combination of fiery red hair and crystal-blue eyes. Her presence feels like a quiet flame: warm, mesmerizing, and impossible to overlook. Whether she enters a room or steps in front of a camera, she radiates a natural confidence shaped by her Latvian charm and her own unmistakable sense of individuality.",
+    "Her beauty is entirely natural, highlighted by soft lines, long legs, and a poised silhouette that moves with calm assurance. At 178 cm, she carries herself like someone born to be admired, yet there is a subtle elegance in the way she holds back, leaving just enough mystery in her smile and her eyes. She is both classic and modern at once—refined, fresh, and effortlessly captivating.",
+    "Behind her serene look lies a playful and open-minded spirit. Emma's bisexual orientation adds depth to her free-flowing, genuine nature; she connects with people through emotion, atmosphere, and authenticity. She is a woman who loves beauty, movement, and meaningful energy—someone who leaves a quiet, lasting impression wherever she goes.",
+  ],
+  reviews: [],
+};
+
 // =================== TOURING MODELS (non-London, real) ===================
 // city is each model's current/home base — travelNote (shown on her
 // profile, see assets/profile.js) covers the extra cities she's also
@@ -1628,6 +1660,44 @@ const IVY_DATA = {
   reviews: [],
 };
 
+const CORESSA_DATA = {
+  id: 9941, real: true, vip: false, folder: 'models/Coressa', slug: 'coressa',
+  name: 'Coressa', age: 18, height: 170, weight: 51,
+  nationality: 'Brazilian', city: 'Florianopolis',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(200,70,50,0.4)', 'rgba(140,30,20,0.7)'],
+  initials: 'CR',
+  cats: ['new'],
+  breastSize: '32A', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Redhead', orientation: 'Heterosexual',
+  languages: 'English · Portuguese · Spanish',
+  svcs: ['69', 'Body to body massage', 'CIF', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'Prostate massage', price: 50},
+    {name: 'CIM (Includes OWO)', price: 100},
+    {name: 'Rimming giving', price: 100},
+    {name: 'Swallow (Includes OWO & CIM)', price: 200},
+    {name: 'Snowballing', price: 200},
+    {name: 'A-Level', price: 300},
+    {name: 'DP', price: 500},
+  ],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    "Coressa is a striking 18-year-old Brazilian model, bringing with her a vibrant beauty that is impossible to overlook. With her flowing red hair, luminous fair skin, and captivating green eyes, she has a look that feels both rare and effortlessly elegant. Her warm smile and confident presence create an immediate sense of charm that naturally draws people toward her.",
+    "Slim and graceful, Coressa embodies a clean, natural beauty that feels refreshing and authentic. Her porcelain skin, fiery red hair, and bright green eyes give her a distinctive and memorable look, while her relaxed confidence highlights her effortless femininity. Very open-minded and curious about the world, she enjoys meeting new people and discovering new experiences.",
+    "Perfect company for elegant dinner dates, Coressa is engaging, attentive, and easy to be around. Her open minded spirit is ready to explore and give unforgettable experience. Various of extra services will make every moment unique and unforgettable. With her natural charm, slender figure, and vibrant personality, Coressa leaves a bright and lasting impression wherever she goes.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -1693,6 +1763,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };

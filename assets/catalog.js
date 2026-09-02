@@ -69,7 +69,7 @@ function setCat(el, cat) {
 function buildCityList() {
   const el = document.getElementById('cityList');
   if (!el) return;
-  el.innerHTML = CITIES.map(c => `
+  el.innerHTML = CITIES.slice().sort().map(c => `
     <label class="filter-check">
       <input type="checkbox" value="${c}" onchange="toggleCity('${c}',this.checked)"> ${c}
     </label>`).join('');
