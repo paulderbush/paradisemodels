@@ -548,6 +548,17 @@ body[class^="page-"] .submit-app-btn{
 }
 body[class^="page-"] .submit-app-btn:hover{border-color:var(--purple3)!important}
 
+/* Booking cart panel (assets/main.js renderCart) is a persistent overlay
+   on every page, not page-scoped content like the rest of the form
+   components below — square it universally instead of per-page, so it
+   looks the same everywhere it opens. The card it sits inside
+   (.booking-summary) keeps its rounded corners on purpose. */
+body[class^="page-"] .bf-input,
+body[class^="page-"] .bf-method{
+  border-radius:0!important;
+}
+body[class^="page-"] .bf-method:hover{border-color:var(--purple3)!important}
+
 /* Content panels (About, Concierge, Events, Account) — solid dark for the
    old bright-cyan theme's contrast needs; our page is already dark, so
    the default translucent glass reads right instead. */
@@ -687,14 +698,12 @@ body[class^="page-"],body[class^="page-"] *{font-family:'Lexend',sans-serif!impo
 .page-model .model-detail-services,
 .page-model .price-type-btn,
 .page-model .duration-btn,
-.page-model .rv-type-btn,
-.page-model .bf-method{
+.page-model .rv-type-btn{
   border-radius:0!important;
 }
 .page-model .price-type-btn:not(:disabled):hover,
 .page-model .duration-btn:hover,
-.page-model .rv-type-btn:hover,
-.page-model .bf-method:hover{
+.page-model .rv-type-btn:hover{
   border-color:var(--purple3)!important;
 }
 .page-model .stat-box,
@@ -854,8 +863,6 @@ body[class^="page-"],body[class^="page-"] *{font-family:'Lexend',sans-serif!impo
 .page-account .become-header p{color:var(--text-soft)!important}
 .page-account #acctLoading{color:var(--text-soft)!important}
 .page-account .form-input{border-radius:0!important}
-.page-account .bf-method{border-radius:0!important}
-.page-account .bf-method:hover{border-color:var(--purple3)!important}
 
 /* =================== BECOME A MODEL PAGE — content unique to this page =================== */
 /* .become-header/.form-section/.form-input etc. are all shared components
