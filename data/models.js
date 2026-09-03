@@ -1074,6 +1074,103 @@ const EMMA_DATA = {
   reviews: [],
 };
 
+const HELENA_DATA = {
+  id: 9938, real: true, vip: true, folder: 'vip-models/Helena', slug: 'helena',
+  name: 'Helena', age: 27, height: 177, weight: 54,
+  clothingSize: '8', breastSize: '34C', breastType: 'Natural',
+  eyeColor: 'Green', hairColor: 'Brown', orientation: 'Heterosexual',
+  nationality: 'Ukrainian', city: 'London',
+  languages: 'English · Russian · Ukrainian',
+  color: ['rgba(90,150,120,0.4)', 'rgba(30,90,60,0.7)'],
+  initials: 'HE',
+  cats: ['new'],
+  svcs: ['GFE', 'OWC', 'OWO'],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1500},
+    {label: '90 Min', price: 2100},
+    {label: '2 Hours', price: 2500},
+    {label: '3 Hours', price: 3500},
+    {label: 'Extra Hour', price: 1000},
+    {label: 'Overnight', price: 7000},
+  ],
+  description: [
+    "Helena carries an effortless grace, the kind that turns a quiet moment into something unforgettable. Tall and poised, with a slender silhouette and naturally soft curves, she moves with the calm confidence of someone who understands her own allure. Her green eyes hold a quiet depth, warm and inviting, framed by rich brown hair that falls like a gentle whisper over her shoulders.",
+    "There is a purity and natural elegance about her — no tattoos, no piercings, nothing to distract from her innate beauty. She embodies refinement without trying, a serene blend of sophistication and softness. Her presence feels both grounding and intriguing, the type of charm that slowly reveals itself the longer she stays near.",
+    "Originally from Ukraine, Helena carries a sense of warmth and sincerity that enhances her captivating appearance. She is the kind of woman whose beauty is not just seen but felt — in her calm smile, her genuine nature, and the quiet confidence she radiates. With her natural 34C shape and graceful height, she leaves an impression that lingers delicately, like a memory you're compelled to return to.",
+  ],
+  reviews: [],
+};
+
+const EMILIANA_DATA = {
+  id: 9937, real: true, vip: true, folder: 'vip-models/Emiliana', slug: 'emiliana',
+  name: 'Emiliana', age: 26, height: 175, weight: 55,
+  clothingSize: '6', breastSize: '32D', breastType: 'Enhanced',
+  eyeColor: 'Blue', hairColor: 'Brunette', orientation: 'Bisexual',
+  nationality: 'British', station: 'Paddington', city: 'London',
+  languages: 'English',
+  color: ['rgba(80,110,190,0.4)', 'rgba(30,50,140,0.7)'],
+  initials: 'EI',
+  cats: ['new'],
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Couples', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'Tie and Tease', 'Uniforms', 'WS giving'],
+  extraSvcs: [
+    {name: 'Couples', price: 600},
+  ],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1500},
+    {label: '2 Hours', price: 2400},
+    {label: '3 Hours', price: 3300},
+    {label: 'Extra Hour', price: 900},
+    {label: 'Overnight', price: 6000},
+  ],
+  description: [
+    "Emiliana carries the kind of refined charm that feels both effortless and unforgettable. Tall and graceful, with a statuesque frame and a composed presence, she moves with the quiet confidence of someone who knows her own elegance. Her blue eyes are striking—cool, clear, and expressive—set in perfect contrast against her rich brunette hair. Every detail about her feels intentional, polished, and naturally captivating.",
+    "Her silhouette is slender yet feminine, highlighted by her smooth lines and subtly enhanced curves. Emiliana's look remains completely natural aside from her beautifully shaped silicone breasts; she wears no tattoos or piercings, giving her a clean, classic, timeless beauty. There is a softness in the way she smiles, a poised stillness in the way she listens, and a graceful fluidity in the way she moves—traits that make her presence magnetic without needing to say a word.",
+    "Originally from England, Emiliana embodies a blend of sophistication and intriguing duality. Bisexual and open-minded, she exudes a warm, gentle energy paired with a deeper, more mysterious allure beneath the surface. Whether in conversation or quiet company, she brings refinement, intimacy, and a calming confidence that makes every moment with her feel both elevated and quietly unforgettable.",
+  ],
+  reviews: [],
+};
+
+const ZENDAYA_DATA = {
+  id: 9936, real: true, vip: true, folder: 'vip-models/Zendaya', slug: 'zendaya',
+  name: 'Zendaya', age: 22, height: 170, weight: 52,
+  clothingSize: 'XS', breastSize: '32C', breastType: 'Natural',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  nationality: 'Brazilian', station: "Earl's Court", city: 'London',
+  languages: 'English · Spanish · Portuguese',
+  color: ['rgba(200,150,90,0.4)', 'rgba(140,90,30,0.7)'],
+  initials: 'ZE',
+  cats: ['new'],
+  svcs: ['69', 'Bi DUO', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Spanking giving', 'Uniforms', 'WS giving'],
+  extraSvcs: [
+    {name: 'Couples', price: 750},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1650},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
+    {label: 'Overnight', price: 5750},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1650},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
+    {label: 'Overnight', price: 5750},
+  ],
+  description: [
+    "Zendaya is an exceptional 22-year-old Brazilian beauty whose refined elegance and effortless sophistication make her a true VIP presence. Standing at 170 cm with a graceful silhouette, she captivates with her naturally radiant appearance, warm brown eyes, and rich brown hair. Her timeless style and quiet confidence create an impression of understated luxury that lingers long after the first meeting.",
+    "Completely natural, with a beautifully balanced 32C figure and no tattoos or piercings, Zendaya embodies authenticity and classic femininity. Every aspect of her appearance reflects harmony and refinement, from her polished presentation to her poised demeanor. She carries herself with ease and confidence, making every moment in her company feel exclusive and memorable.",
+    "Fluent in English, Spanish, and Portuguese, Zendaya effortlessly connects with an international clientele through her warmth, intelligence, and engaging personality. Her Brazilian charm, combined with her elegant presence and cosmopolitan outlook, creates an atmosphere of comfort, sophistication, and genuine connection. Graceful, charismatic, and unforgettable, Zendaya represents the very definition of modern luxury.",
+  ],
+  reviews: [],
+};
+
 // =================== TOURING MODELS (non-London, real) ===================
 // city is each model's current/home base — travelNote (shown on her
 // profile, see assets/profile.js) covers the extra cities she's also
@@ -1698,6 +1795,90 @@ const CORESSA_DATA = {
   reviews: [],
 };
 
+const RIONA_DATA = {
+  id: 9940, real: true, vip: false, folder: 'models/Riona', slug: 'riona',
+  name: 'Riona', age: 25, height: 173, weight: 57,
+  nationality: 'Ukrainian', station: 'Kensington', city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(160,110,190,0.4)', 'rgba(100,50,140,0.7)'],
+  initials: 'RI',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Russian · Ukrainian',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'PSE', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'Prostate massage', price: 50},
+    {name: 'CIM (Includes OWO)', price: 100},
+    {name: 'Rimming giving', price: 100},
+    {name: 'Swallow (Includes OWO & CIM)', price: 200},
+    {name: 'Snowballing', price: 200},
+    {name: 'A-Level', price: 300},
+    {name: 'DP', price: 500},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "Riona is a Ukrainian escort, and she has all those qualities you would associate with a woman from this part of the world. A hot climate, a hot body, and a hot sexual appetite; that's what you get with Riona! She has been published in magazines like Playboy and L'Officiel.",
+    "As one of our high class escorts, Riona creates experiences second to none. From pornstar experiences to getting out the toys, book Riona for a memory that will be unforgettable.",
+    "She loves to look after that body of hers in the gym, and she's always getting fancy clothes in order to better show it off. She has a lot of experience — you might have some fun figuring out exactly what that entails!",
+  ],
+  reviews: [],
+};
+
+const SHAE_DATA = {
+  id: 9939, real: true, vip: false, folder: 'models/Shae', slug: 'shae',
+  name: 'Shae', age: 24, height: 172, weight: 54,
+  nationality: 'Brazilian', station: 'Chelsea', city: 'London',
+  rateHour: 1000, extraHourPrice: 500,
+  color: ['rgba(90,180,150,0.4)', 'rgba(30,120,90,0.7)'],
+  initials: 'SH',
+  cats: ['new'],
+  breastSize: '36C', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Light brown', orientation: 'Bisexual',
+  languages: 'English · Portuguese · Spanish',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Group for extra price', "Lady's services", 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Tie and Tease', 'WS giving'],
+  extraSvcs: [
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1250},
+    {label: '2 Hours', price: 1500},
+    {label: '3 Hours', price: 2000},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1250},
+    {label: '2 Hours', price: 1500},
+    {label: '3 Hours', price: 2000},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  description: [
+    "Shae is an elegant Brazilian model with light brown hair and captivating green eyes. Her sophisticated style and confident presence make her the perfect party partner. She exudes charm and grace, ensuring every moment spent with her is memorable and enjoyable.",
+    "Open-minded and adventurous, Shae loves exploring new experiences and connecting on a deeper level. Her genuine and friendly nature makes her easy to talk to, creating a relaxed and fun atmosphere. Whether at a social event or private moment, she knows how to make everyone feel special and engaged.",
+    "In addition to her elegance and vibrant personality, Shae is also great for long bookings. Her endurance, dedication, and caring attitude ensure that she provides a consistent, enjoyable experience over extended periods. She is the ideal companion for those seeking a memorable, engaging, and lasting connection.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -1763,6 +1944,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
