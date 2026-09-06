@@ -2108,18 +2108,29 @@ const DEBINI_DATA = {
   clothingSize: '8', breastSize: '34C', breastType: 'Enhanced',
   eyeColor: 'Hazel', hairColor: 'Blonde', orientation: 'Heterosexual',
   nationality: 'Brazilian', city: 'Milan',
-  rateHour: 500,
+  rateHour: 500, extraHourPrice: 500,
   languages: 'English · Portuguese',
   color: ['rgba(210,170,80,0.4)', 'rgba(150,110,20,0.7)'],
   initials: 'DE',
   cats: ['new'],
-  // Client gave 11 named extras with no fixed prices ("on request") and
-  // asked for everything else from the master SERVICES list folded into
-  // the included list — extraSvcs has no "price on request" mode (every
-  // row needs a real number for the booking calculator), so all of it
-  // just lives in svcs instead, same fix as Selena's zero-priced extras.
-  svcs: SERVICES.slice(),
-  extraSvcs: [],
+  // Client's 11 named extras have no fixed price ("on request" — manager
+  // confirms the cost directly), everything else from the master SERVICES
+  // list is included. A null price renders the row without a "+£X" tag
+  // or click-to-add behaviour (see buildRealModelHTML/refreshPriceDisplay).
+  svcs: SERVICES.filter(s => !['OWO', 'CIM', 'CIF', 'Snowballing', 'WS giving', 'Prostate massage', 'Domination', 'Fisting giving', 'Tie and Tease', 'Filming with mask', 'Strap-on'].includes(s)),
+  extraSvcs: [
+    {name: 'OWO', price: null},
+    {name: 'CIM', price: null},
+    {name: 'CIF', price: null},
+    {name: 'Snowballing', price: null},
+    {name: 'WS giving', price: null},
+    {name: 'Prostate massage', price: null},
+    {name: 'Domination', price: null},
+    {name: 'Fisting giving', price: null},
+    {name: 'Tie and Tease', price: null},
+    {name: 'Filming with mask', price: null},
+    {name: 'Strap-on', price: null},
+  ],
   incallRates: [{label: '1 Hour', price: 500}],
   outcallRates: [{label: '1 Hour', price: 500}],
   description: [
