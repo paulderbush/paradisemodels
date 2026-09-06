@@ -2322,6 +2322,167 @@ const NEMUNA_DATA = {
   reviews: [],
 };
 
+const SAVAGE_DATA = {
+  id: 9920, real: true, vip: false, folder: 'models/Savage', slug: 'savage',
+  name: 'Savage', age: 23, height: 177, weight: 56,
+  nationality: 'Russian/Ukrainian', station: 'Marylebone', city: 'London',
+  rateHour: 1000, extraHourPrice: 500,
+  color: ['rgba(190,190,90,0.4)', 'rgba(130,130,30,0.7)'],
+  initials: 'SV',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · Russian · Ukrainian',
+  svcs: ['69', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Erotic massage', 'Face sitting', 'FK', 'Massage', 'OWO', 'Party girl', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Striptease'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1250},
+    {label: '2 Hours', price: 1500},
+    {label: '3 Hours', price: 2000},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1250},
+    {label: '2 Hours', price: 1500},
+    {label: '3 Hours', price: 2000},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  description: [
+    "Savage — the name alone hints at something untamed, and she lives up to it in the most captivating way. A true Ukrainian fashion model, she exudes runway elegance with every step. Tall, slender, and strikingly poised, her angular cheekbones and piercing gaze speak of editorial glamour and natural intensity. She doesn't just walk into a room—she owns it.",
+    "With a background in high fashion, Savage brings a unique blend of refinement and raw magnetism to every encounter. She's sophisticated yet unpredictable, cool yet innately sensual. Her presence is electric—whether in a private setting or an upscale event, she turns moments into memories with a mix of intellect, charm, and subtle seduction. This is not your typical GFE—it's a heightened experience, curated with finesse and instinct.",
+    "For those who crave more than beauty—for those drawn to power wrapped in elegance—Savage is the embodiment of modern allure. A true party lover, to turn every moment into pure excitement. One evening with her, and you'll understand: some names aren't given, they're earned.",
+  ],
+  reviews: [],
+};
+
+const ARIELLE_DATA = {
+  id: 9919, real: true, vip: false, folder: 'models/Arielle', slug: 'arielle',
+  name: 'Arielle', age: 24, height: 170, weight: 47,
+  nationality: 'Russian', city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(150,120,200,0.4)', 'rgba(90,60,150,0.7)'],
+  initials: 'AR',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '4',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'COB', 'DFK', 'Erotic massage', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Massage', 'OWC', 'OWO', 'Soft spanking receiving', 'Spanking giving'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1400},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 5000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1400},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    "A mesmerizing young Russian beauty, she embodies timeless elegance, effortless sophistication, and irresistible femininity. Standing at 170 cm with a graceful, ultra-slim silhouette, she captivates with her refined presence and natural charm. Her expressive brown eyes and lustrous brunette hair create a classic and unforgettable beauty, enhanced by delicate features and impeccable style.",
+    "Blessed with natural 34B curves and a slender, feminine figure, she radiates understated luxury and modern glamour. Free from tattoos and always immaculately presented, her look is both sophisticated and effortlessly chic, while subtle piercings add a touch of contemporary allure.",
+    "Fluent in both Russian and English, she moves comfortably in international circles with confidence, intelligence, and grace. Warm, attentive, and naturally charismatic, she possesses an enchanting presence that leaves a lasting impression. Elegant yet approachable, she is the epitome of contemporary luxury and refined femininity.",
+  ],
+  reviews: [],
+};
+
+const AVA_DATA = {
+  id: 9918, real: true, vip: false, folder: 'models/Ava', slug: 'ava',
+  name: 'Ava', age: 26, height: 165, weight: 52,
+  nationality: 'Persian', station: 'Chelsea', city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(210,140,160,0.4)', 'rgba(150,70,100,0.7)'],
+  initials: 'AY',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Farsi',
+  svcs: ['69', 'CIM', 'COB', 'Dirty talk', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'Foot fetish', 'GFE', 'Handcuffs', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'CIM', price: 100},
+    {name: 'Erotic massage', price: 100},
+    {name: 'Tantric massage', price: 100},
+    {name: 'OWO', price: 100},
+    {name: 'CIM (Includes OWO)', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "Her beauty is the kind that stops time. Ava is an exotic blend of Latin fire and Persian elegance, with a radiant glow that commands attention in any room she enters. Every detail — from her silk-dark hair to the hypnotic depth of her eyes — speaks of luxury, mystery, and allure. Her graceful poise and sensual aura make her unforgettable from the very first glance.",
+    "Ava is a true high-class companion for those who appreciate refinement and intensity in equal measure. Whether you're attending an elite event or indulging in a private escape, she brings sophistication and warmth with effortless charm. Her presence is polished, her style immaculate, and her conversation captivating — the perfect match for a man who values taste and discretion.",
+    "Let Ava take you to a world where pleasure meets elegance. She's not just a luxury escort — she's an experience wrapped in silk, spice, and temptation. Ready to make your party fantasy something you can touch, feel, and never forget.",
+  ],
+  reviews: [],
+};
+
+const PAULA_DATA = {
+  id: 9917, real: true, vip: false, folder: 'models/Paula', slug: 'paula',
+  name: 'Paula', age: 22, height: 170, weight: 50,
+  nationality: 'Spanish', station: 'South Kensington', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(90,150,190,0.4)', 'rgba(30,90,140,0.7)'],
+  initials: 'PA',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Blue', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Spanish · Portuguese',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', "Lady's services", 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Poppers', 'Prostate massage', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'WS giving', 'WS receiving'],
+  extraSvcs: [
+    {name: 'CIF', price: 100},
+    {name: 'CIM (Includes OWO)', price: 100},
+    {name: 'Swallow (Includes CIM & OWO)', price: 100},
+    {name: 'Squirting', price: 200},
+    {name: 'Couples', price: 200},
+    {name: 'Rimming giving', price: 300},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4500},
+  ],
+  description: [
+    "Paula is a gorgeous 22 year old bisexual Spanish escort in London. She looks absolutely incredible in a bikini and even better when she is wearing her sexy lingerie. Her slim, petite figure, tanned skin, long brunette hair and all natural beauty really make her an unbelievably amazing girl to meet.",
+    "Paula is much more than just beauty, which is why she is one of the most popular high class escorts around the world. She is intelligent and offers a huge range of exciting escort services including Swallow, CIM, dinner dates, domination, fetish play, massages, roleplay. Her skill set and professionalism can not be questioned.",
+    "To book the services of one of most popular and highly recommended girls, be sure to contact Paradise Models. A true party lover, available 24/7 to turn every moment into pure excitement. Paula is exclusively represented by our agency!",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -2387,6 +2548,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
