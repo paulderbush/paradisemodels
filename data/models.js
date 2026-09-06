@@ -2722,6 +2722,207 @@ const MALAGA_DATA = {
   reviews: [],
 };
 
+const ANGELIN_DATA = {
+  id: 9910, real: true, vip: false, folder: 'models/Angelin', slug: 'angelin',
+  name: 'Angelin', age: 25, height: 171, weight: 55,
+  nationality: 'Portuguese', station: 'South Kensington', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(180,140,90,0.4)', 'rgba(120,80,30,0.7)'],
+  initials: 'AG',
+  cats: ['new'],
+  breastSize: '34C', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Spanish · Portuguese',
+  svcs: ['69', 'A-Level', 'Bi DUO', 'COB', 'DFK', 'Dirty talk', 'Couples', 'Toys', 'Face sitting', 'Fingering', 'GFE', 'Lapdancing', 'Massage', 'OWC', 'OWO', 'Party girl', 'Striptease'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Allow yourself to be enchanted by Angelin — a refined brunette with a soft, innocent allure and a deeply seductive edge. With natural grace and luxury in every detail, she brings an elevated touch to every encounter, blending sweetness with sophistication.",
+    "As a top-tier companion for distinguished gentlemen, she offers more than a pretty face — she provides a genuine, intimate connection wrapped in elegance and charm. Whether it's an evening out or a private rendezvous, she adapts seamlessly to your desires with poise and authenticity.",
+    "Discretion, quality, and chemistry define every moment she shares. She keeps her circle exclusive and her standards high. If you're seeking a luxurious escape with someone who's available 24/7, loves party, and embodies both warmth and temptation, Angelin is just a reservation away.",
+  ],
+  reviews: [],
+};
+
+const WEIZEL_DATA = {
+  id: 9909, real: true, vip: false, folder: 'models/Weizel', slug: 'weizel',
+  name: 'Weizel', age: 26, height: 163, weight: 50,
+  nationality: 'Brazilian', station: 'West Kensington', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(210,190,110,0.4)', 'rgba(150,130,40,0.7)'],
+  initials: 'WE',
+  cats: ['new'],
+  breastSize: '32B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Erotic massage', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWO', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Spanking giving', 'Striptease', 'WS giving'],
+  extraSvcs: [
+    {name: 'Bi DUO', price: 100},
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  description: [
+    "Weizel is a captivating 26-year-old Brazilian blonde whose delicate beauty and striking blue eyes create an unforgettable first impression. Standing at 163 cm with a graceful 32B natural figure, she combines effortless femininity with a fresh, radiant appearance. Her soft blonde hair and expressive blue eyes give her a luminous charm that feels both elegant and irresistibly alluring.",
+    "With her natural silhouette and subtle tattoos adding a touch of individuality, Weizel perfectly balances classic beauty with modern confidence. Her polished appearance and graceful demeanor create an atmosphere that feels relaxed, inviting, and effortlessly sophisticated. Every detail about her reflects authenticity, style, and a naturally magnetic presence.",
+    "Fluent in Portuguese and with basic English, Weizel brings warmth and vibrant Brazilian energy to every interaction. Open-minded, engaging, and naturally charismatic, she creates a memorable atmosphere through her beauty and genuine charm. Elegant, distinctive, and full of personality, Weizel offers an experience defined by confidence, femininity, and lasting appeal.",
+  ],
+  reviews: [],
+};
+
+const MEARA_DATA = {
+  id: 9908, real: true, vip: false, folder: 'models/Meara', slug: 'meara',
+  name: 'Meara', age: 24, height: 167, weight: 56,
+  nationality: 'Brazilian', station: 'Kensington', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(160,90,60,0.4)', 'rgba(100,50,20,0.7)'],
+  initials: 'MR',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Spanish · Portuguese · Italian',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Domination', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'PSE', 'Soft spanking receiving', 'Spanking giving', 'Striptease'],
+  extraSvcs: [
+    {name: 'CIF', price: 80},
+    {name: 'CIM (Includes OWO)', price: 80},
+    {name: 'A-Level', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1050},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 5000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1050},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    "Meara is a luxurious Latin beauty with an air of innocence that only enhances her irresistible charm. Her velvety skin, dark flowing hair, and soulful eyes create an enchanting first impression with a quiet seduction that builds slowly, drawing you in. Her elegance is effortless, her curves sculpted to be explored, and her energy radiates a soft, sensual warmth.",
+    "Open-minded and delightfully uninhibited, Meara offers an experience tailored to your most refined desires. She welcomes A-level and your boldest fantasies with grace and curiosity. She speaks fluent English, Portuguese, Spanish, and Italian, making her an exquisite companion for international clients. Available 24/7 for unforgettable party or chill time.",
+    "For the gentleman who craves both sophistication and surrender, Meara invites you into her world, where every fantasy is given the attention it deserves.",
+  ],
+  reviews: [],
+};
+
+const ELARA_DATA = {
+  id: 9907, real: true, vip: false, folder: 'models/Elara', slug: 'elara',
+  name: 'Elara', age: 25, height: 167, weight: 52,
+  nationality: 'Brazilian', station: 'Marylebone', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(90,170,130,0.4)', 'rgba(30,110,70,0.7)'],
+  initials: 'ER',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Spanish · Portuguese',
+  svcs: ['69', 'COB', 'DFK', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'PSE', 'Spanking giving'],
+  extraSvcs: [
+    {name: 'Bi DUO', price: 100},
+    {name: 'Couples', price: 100},
+    {name: 'A-Level', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1100},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3800},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1100},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3800},
+  ],
+  description: [
+    "Elara is a breathtaking 25-year-old Brazilian blonde whose radiant beauty and graceful elegance leave an unforgettable impression. Standing at 167 cm with a slender, feminine silhouette and beautifully enhanced curves, she embodies modern sophistication with effortless charm. Her luminous green eyes and silky blonde hair create a striking combination, giving her a naturally glamorous and irresistibly captivating presence.",
+    "With no tattoos or piercings, Elara embraces a timeless and polished aesthetic that highlights her refined beauty. Her confident yet graceful demeanor reflects elegance in its purest form, while her warm smile and poised personality make every moment in her company feel relaxed and exclusive. Every detail about her appearance radiates femininity, luxury, and understated sophistication.",
+    "A proud Brazilian, Elara brings vibrant warmth and positive energy wherever she goes. Fluent in Portuguese and Spanish, she connects naturally through her engaging personality and open-minded spirit. Beautiful, charismatic, and effortlessly refined, Elara offers an experience defined by elegance, genuine connection, and lasting memories.",
+  ],
+  reviews: [],
+};
+
+const TWILIGHT_DATA = {
+  id: 9906, real: true, vip: false, folder: 'models/Twilight', slug: 'twilight',
+  name: 'Twilight', age: 23, height: 163,
+  nationality: 'Brazilian', station: 'Paddington', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(90,90,150,0.4)', 'rgba(40,40,100,0.7)'],
+  initials: 'TW',
+  cats: ['new'],
+  breastSize: '36B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Spanish · Portuguese',
+  svcs: ['69', 'COB', 'Erotic massage', 'Toys', 'Face sitting', 'FK', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Striptease'],
+  extraSvcs: [
+    {name: 'DT', price: 50},
+    {name: 'Strap-on', price: 50},
+    {name: 'CIF', price: 100},
+    {name: 'Couples', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  description: [
+    "Twilight is the best GFE luxury escort you were looking for! She will make your experience unforgettable with her hot personality. Twilight offers a huge variety of services that will make all your wildest dreams come true.",
+    "Twilight is a high class model, and we can guarantee you an incredible time together, full of naughtiness.",
+    "Book her now before anyone else does!",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -2787,6 +2988,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
