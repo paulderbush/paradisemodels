@@ -160,7 +160,7 @@ function refreshPriceDisplay() {
   const m = _pricing.model; if (!m) return;
   const rates = _pricing.type === 'incall' ? m.incallRates : m.outcallRates;
   const rate = rates[_pricing.durationIdx] || rates[0];
-  let extras = 0; _pricing.extras.forEach(i => extras += m.extraSvcs[i].price);
+  let extras = 0; _pricing.extras.forEach(i => extras += m.extraSvcs[i].price || 0);
   const total = rate.price + extras;
   const pEl = document.getElementById('price-main');
   const sEl = document.getElementById('price-sub');
@@ -270,8 +270,14 @@ function buildRealModelHTML(m) {
         ${m.extraSvcs && m.extraSvcs.length ? `
         <div class="model-detail-services">
           <div class="services-title">Extra Services</div>
+          ${m.extraSvcs.some(s => s.price == null) ? `<div class="price-extra-note">Pricing for these extra services will be confirmed by our manager.</div>` : ''}
           <div class="extra-svc-list">
-            ${m.extraSvcs.map((s, i) => `
+            ${m.extraSvcs.map((s, i) => s.price == null ? `
+            <div class="extra-svc-row" style="cursor:default">
+              <div class="extra-svc-left">
+                <span class="extra-svc-name">${s.name}</span>
+              </div>
+            </div>` : `
             <div class="extra-svc-row" onclick="toggleExtraSvc(${i})">
               <div class="extra-svc-left">
                 <div class="extra-svc-chk">✓</div>
