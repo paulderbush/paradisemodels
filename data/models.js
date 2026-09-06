@@ -2141,6 +2141,187 @@ const DEBINI_DATA = {
   reviews: [],
 };
 
+const LAUREN_DATA = {
+  id: 9925, real: true, vip: false, folder: 'models/Lauren', slug: 'lauren',
+  name: 'Lauren', age: 26, height: 173, weight: 53,
+  nationality: 'Russian', station: "Earl's Court", city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(90,140,190,0.4)', 'rgba(30,80,140,0.7)'],
+  initials: 'LA',
+  cats: ['new'],
+  breastSize: '34C', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Blue', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Russian',
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1400},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 5000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1400},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    "Meet Lauren, a stunning 26-year-old Russian brunette with a delicate and captivating presence. Her amazing blue-grey eyes and natural elegance make her truly stand out. Intelligent and well-educated, she embodies sophistication and class, making her the perfect companion for finer dates and refined occasions. Her graceful demeanor and keen intellect create an atmosphere of aesthetic pleasure and meaningful connection—she truly appreciates interesting chats and stimulating conversations.",
+    "Lauren's refined taste and charming personality ensure that every moment spent together is both enjoyable and memorable. She knows how to create a polished, sophisticated experience, blending beauty with brains to leave a lasting impression. Whether you're seeking engaging dialogue, a romantic evening, or an elegant companion, Lauren provides impeccable service tailored to your desires.",
+    "For those who value intellect, beauty, and interesting conversations, Lauren is the ideal choice.",
+  ],
+  reviews: [],
+};
+
+const KRETA_DATA = {
+  id: 9924, real: true, vip: false, folder: 'models/Kreta', slug: 'kreta',
+  name: 'Kreta', age: 24, height: 177, weight: 59,
+  nationality: 'Brazilian/Italian', station: 'Chelsea', city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(200,150,90,0.4)', 'rgba(140,90,30,0.7)'],
+  initials: 'KR',
+  cats: ['new'],
+  breastSize: '32B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Spanish · Portuguese',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Spanking giving', 'Strap-on', 'Striptease', 'Uniforms', 'WS giving'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "Kreta is a stunning 24-year-old beauty with a tall, elegant silhouette and a naturally captivating presence. Standing at 177 cm, she carries herself with effortless confidence, her brunette hair and warm brown eyes creating a soft yet alluring harmony. Her natural figure enhances her refined, authentic look, making her beauty feel both modern and timeless.",
+    "With a very small tattoo adding just a hint of individuality, Kreta maintains a clean, polished image that highlights her natural charm. Open-minded and bisexual, she radiates a relaxed confidence and a free-spirited energy, blending sophistication with a subtle, playful edge. She moves with grace, always leaving a quiet but lasting impression.",
+    "With Brazilian and Italian roots, Kreta embodies a beautiful mix of passion and elegance. Fluent in Portuguese and English, with intermediate Spanish, she connects easily across cultures. Her presence feels warm, intelligent, and effortlessly engaging — a perfect balance of style, personality, and natural allure.",
+  ],
+  reviews: [],
+};
+
+const CATRINA_DATA = {
+  id: 9923, real: true, vip: false, folder: 'models/Catrina', slug: 'catrina',
+  name: 'Catrina', age: 23, height: 168, weight: 48,
+  nationality: 'Ukrainian', station: 'Paddington', city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(180,120,190,0.4)', 'rgba(120,60,140,0.7)'],
+  initials: 'CT',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Ukrainian · Russian',
+  svcs: ['69', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'WS giving'],
+  extraSvcs: [
+    {name: 'Bi DUO', price: 100},
+  ],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "Introducing Catrina, a stunning 23-year-old Ukrainian model renowned for her natural beauty and authentic charm. With her serene and captivating presence, she creates a warm and inviting atmosphere that makes every encounter memorable. Catrina's fresh-faced, effortless elegance and open-minded attitude allow her to connect genuinely with those she interacts with.",
+    "Her friendly and professional approach ensures that every session is respectful, discreet, and tailored to your desires. Whether you're seeking engaging conversation or a more adventurous experience, Catrina is dedicated to making your time special. She is attentive to your needs and always strives to provide a satisfying and enjoyable connection.",
+    "Catrina offers a range of services designed to meet different preferences, ensuring a thoroughly fulfilling experience. Her genuine personality and commitment to excellence make her the perfect choice for those looking for authenticity and a heartfelt encounter.",
+  ],
+  reviews: [],
+};
+
+const ESMIRA_DATA = {
+  id: 9922, real: true, vip: false, folder: 'models/Esmira', slug: 'esmira',
+  name: 'Esmira', age: 24, height: 165, weight: 57,
+  nationality: 'German', station: 'Brixton', city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(150,110,80,0.4)', 'rgba(100,60,30,0.7)'],
+  initials: 'EB',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · German',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Group for extra price', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWO', 'Party girl', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease', 'Uniforms', 'WS giving'],
+  extraSvcs: [
+    {name: 'Filming with mask', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "A stunning 24-year-old German beauty, she embodies effortless elegance, confidence, and refined sophistication. Standing at 165 cm with a beautifully feminine silhouette, she captivates with her expressive brown eyes and luxurious brunette hair, creating a timeless and effortlessly glamorous appearance.",
+    "Her enhanced curves and polished presentation give her a naturally sophisticated allure, while her completely tattoo- and piercing-free appearance adds to her classic, elegant aesthetic. Poised, confident, and impeccably presented, she carries herself with an understated sense of luxury and feminine grace.",
+    "Fluent in both German and English, she is comfortable in international settings and connects effortlessly through her warm, engaging personality. Sophisticated yet approachable, she combines classic German elegance with modern glamour, leaving a memorable impression wherever she goes.",
+  ],
+  reviews: [],
+};
+
+const NEMUNA_DATA = {
+  id: 9921, real: true, vip: false, folder: 'models/Nemuna', slug: 'nemuna',
+  name: 'Nemuna', age: 18, height: 175, weight: 50,
+  nationality: 'Russian', station: "Earl's Court", city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(160,130,100,0.4)', 'rgba(110,80,50,0.7)'],
+  initials: 'NE',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Hazel', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Erotic massage', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving'],
+  extraSvcs: [
+    {name: 'CIM (Includes OWO)', price: 50},
+    {name: 'CIF', price: 50},
+    {name: 'Bi DUO', price: 50},
+    {name: 'WS giving', price: 50},
+    {name: 'Couples', price: 100},
+  ],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "Nemuna has a naturally elegant presence, with soft brunette curls framing her face and warm hazel eyes. Standing tall at 175 cm, she moves with effortless grace and an easy, unhurried confidence.",
+    "She brings a gentle, curious energy to every meeting — sincere, attentive, and genuinely present. Every moment with Nemuna feels calm and unrushed, with a warmth that lingers well after you've said goodbye.",
+    "If you're looking for a companion who is graceful, warm, and easy to talk to, Nemuna is ready to welcome you.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -2206,6 +2387,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
