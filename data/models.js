@@ -1376,33 +1376,6 @@ const LOLA_DATA = {
   reviews: [],
 };
 
-const DEBINI_DATA = {
-  id: 9927, real: true, vip: true, folder: 'vip-models/Debini', slug: 'debini',
-  name: 'Debini', age: 25, height: 160, weight: 57,
-  clothingSize: '8', breastSize: '34C', breastType: 'Enhanced',
-  eyeColor: 'Hazel', hairColor: 'Blonde', orientation: 'Heterosexual',
-  nationality: 'Brazilian', city: 'Milan',
-  languages: 'English · Portuguese',
-  color: ['rgba(210,170,80,0.4)', 'rgba(150,110,20,0.7)'],
-  initials: 'DE',
-  cats: ['new'],
-  // Client gave 11 named extras with no fixed prices ("on request") and
-  // asked for everything else from the master SERVICES list folded into
-  // the included list — extraSvcs has no "price on request" mode (every
-  // row needs a real number for the booking calculator), so all of it
-  // just lives in svcs instead, same fix as Selena's zero-priced extras.
-  svcs: SERVICES.slice(),
-  extraSvcs: [],
-  incallRates: [{label: '1 Hour', price: 500}],
-  outcallRates: [{label: '1 Hour', price: 500}],
-  description: [
-    "Debini is a Brazilian beautiful escort who exudes beauty and allure. She has a toned body, brown eyes, and long blonde hair. She is an endlessly imaginative fetish and fantasy escort who is always ready to try new fetishes and fantasies.",
-    "Debini will undoubtedly make the occasion memorable that you would want to repeat over and over again. Her flexible nature and hourglass figure make her the perfect partner for trying out novel and exciting positions in the bedroom.",
-    "Debini is the ideal option for anyone seeking something genuinely distinctive and memorable. She is enthusiastic, assured, and genuinely enjoys what she does. Experience the best in sensual and fantasy escorting by calling us right away.",
-  ],
-  reviews: [],
-};
-
 const ISABELLA_DATA = {
   id: 9926, real: true, vip: true, folder: 'vip-models/Isabella', slug: 'isabella',
   name: 'Isabella', height: 174, weight: 56,
@@ -2129,6 +2102,34 @@ const SHAE_DATA = {
   reviews: [],
 };
 
+const DEBINI_DATA = {
+  id: 9927, real: true, vip: false, folder: 'models/Debini', slug: 'debini',
+  name: 'Debini', age: 25, height: 160, weight: 57,
+  clothingSize: '8', breastSize: '34C', breastType: 'Enhanced',
+  eyeColor: 'Hazel', hairColor: 'Blonde', orientation: 'Heterosexual',
+  nationality: 'Brazilian', city: 'Milan',
+  rateHour: 500,
+  languages: 'English · Portuguese',
+  color: ['rgba(210,170,80,0.4)', 'rgba(150,110,20,0.7)'],
+  initials: 'DE',
+  cats: ['new'],
+  // Client gave 11 named extras with no fixed prices ("on request") and
+  // asked for everything else from the master SERVICES list folded into
+  // the included list — extraSvcs has no "price on request" mode (every
+  // row needs a real number for the booking calculator), so all of it
+  // just lives in svcs instead, same fix as Selena's zero-priced extras.
+  svcs: SERVICES.slice(),
+  extraSvcs: [],
+  incallRates: [{label: '1 Hour', price: 500}],
+  outcallRates: [{label: '1 Hour', price: 500}],
+  description: [
+    "Debini is a Brazilian beautiful escort who exudes beauty and allure. She has a toned body, brown eyes, and long blonde hair. She is an endlessly imaginative fetish and fantasy escort who is always ready to try new fetishes and fantasies.",
+    "Debini will undoubtedly make the occasion memorable that you would want to repeat over and over again. Her flexible nature and hourglass figure make her the perfect partner for trying out novel and exciting positions in the bedroom.",
+    "Debini is the ideal option for anyone seeking something genuinely distinctive and memorable. She is enthusiastic, assured, and genuinely enjoys what she does. Experience the best in sensual and fantasy escorting by calling us right away.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -2194,6 +2195,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, DEBINI_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, DEBINI_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
