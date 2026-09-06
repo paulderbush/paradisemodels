@@ -1171,6 +1171,229 @@ const ZENDAYA_DATA = {
   reviews: [],
 };
 
+const KAMILA_DATA = {
+  id: 9935, real: true, vip: true, folder: 'vip-models/Kamila', slug: 'kamila',
+  name: 'Kamila', age: 23, height: 175, weight: 53,
+  measurements: '91-67-90', breastSize: '3.5', breastType: 'Natural',
+  city: 'London',
+  color: ['rgba(170,130,200,0.4)', 'rgba(110,70,150,0.7)'],
+  initials: 'KM',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const KETANA_DATA = {
+  id: 9934, real: true, vip: true, folder: 'vip-models/Ketana', slug: 'ketana',
+  name: 'Ketana', age: 23, height: 175, weight: 53,
+  clothingSize: '6', breastSize: '34B', breastType: 'Natural',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Bisexual',
+  nationality: 'Russian', station: 'Marble Arch', city: 'London',
+  languages: 'English · Russian',
+  color: ['rgba(200,190,130,0.4)', 'rgba(150,130,60,0.7)'],
+  initials: 'KE',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1700},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
+    {label: 'Overnight', price: 5750},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1700},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
+    {label: 'Overnight', price: 5750},
+  ],
+  description: [
+    "Ketana is a striking 23-year-old Russian beauty whose statuesque elegance and natural sophistication make an unforgettable first impression. Standing at 175 cm with beautifully balanced proportions and a graceful, all-natural figure, she embodies effortless refinement. Her light blonde hair and captivating green eyes create a luminous contrast, giving her an appearance that is both timeless and exceptionally distinctive.",
+    "Completely natural, with no tattoos or piercings, Ketana embraces classic femininity in its purest form. Her slender silhouette and polished style reflect understated luxury, while her calm confidence and poised demeanor add depth to her remarkable beauty. Every detail about her presence feels elegant, harmonious, and effortlessly captivating.",
+    "Fluent in English and naturally engaging, Ketana combines intelligence with warmth, creating an atmosphere that is relaxed, sophisticated, and genuinely memorable. Her refined charm and graceful personality make every encounter feel exclusive and personal, offering an experience defined by authenticity, elegance, and lasting impression.",
+  ],
+  reviews: [],
+};
+
+const ISA_DATA = {
+  id: 9933, real: true, vip: true, folder: 'vip-models/Isa', slug: 'isa',
+  name: 'Isa', age: 22, height: 158, weight: 46,
+  clothingSize: '4', breastSize: '32B', breastType: 'Natural',
+  eyeColor: 'Brown', hairColor: 'Blonde', orientation: 'Bisexual',
+  nationality: 'Brazilian', station: 'Knightsbridge', city: 'London',
+  languages: 'English · Portuguese',
+  color: ['rgba(220,170,190,0.4)', 'rgba(160,90,120,0.7)'],
+  initials: 'IS',
+  cats: ['new'],
+  svcs: ['69', 'A-Level', 'Bi DUO', 'Body to body massage', 'CIF', 'COB', 'DFK', 'Dirty talk', 'Domination', 'Couples', 'Face sitting', 'GFE', 'OWO', 'Party girl', 'Roleplay', 'Tie and Tease'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1600},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
+    {label: 'Overnight', price: 5750},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1600},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
+    {label: 'Overnight', price: 5750},
+  ],
+  description: [
+    "Isa is a 22-year-old escort with a fresh, natural look and a warm, approachable aura. She is petite, standing at 158 cm and weighing just 46 kg, with a delicate figure that adds to her charm, making her truly memorable.",
+    "Her natural beauty and genuine personality create an authentic experience that leaves a lasting impression. Isa exudes a sweet, warm vibe that captivates everyone she meets, and her easygoing demeanor makes her easy to connect with. She radiates an irresistible charm that is both captivating and soothing.",
+    "Isa is very open-minded and willing to explore a variety of experiences. She provides excellent A-level services and can accommodate a wide range of preferences and desires. Her flexible attitude and genuine enthusiasm ensure that every encounter is enjoyable and memorable for her clients.",
+  ],
+  reviews: [],
+};
+
+const LEENA_DATA = {
+  id: 9932, real: true, vip: true, folder: 'vip-models/Leena', slug: 'leena',
+  name: 'Leena', age: 22, height: 173, weight: 58,
+  clothingSize: '6', breastSize: '34D', breastType: 'Enhanced',
+  eyeColor: 'Brown', hairColor: 'Black', orientation: 'Bisexual',
+  nationality: 'French', city: 'London',
+  languages: 'English · French · Spanish · Chinese',
+  color: ['rgba(90,120,190,0.4)', 'rgba(40,60,140,0.7)'],
+  initials: 'LE',
+  cats: ['new'],
+  svcs: ['A-Level', 'Bi DUO', 'GFE', 'Light domination', 'OWO', 'Roleplay'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1100},
+    {label: '90 Min', price: 1550},
+    {label: '2 Hours', price: 2200},
+    {label: '3 Hours', price: 3300},
+    {label: 'Extra Hour', price: 1100},
+    {label: 'Overnight', price: 5000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1100},
+    {label: '90 Min', price: 1550},
+    {label: '2 Hours', price: 2200},
+    {label: '3 Hours', price: 3300},
+    {label: 'Extra Hour', price: 1100},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [],
+  reviews: [],
+};
+
+const RACHEL_DATA = {
+  id: 9931, real: true, vip: true, folder: 'vip-models/Rachel', slug: 'rachel',
+  name: 'Rachel', age: 30, height: 173, weight: 56,
+  clothingSize: '8', breastSize: '36C', breastType: 'Natural',
+  eyeColor: 'Blue', hairColor: 'Light brown', orientation: 'Heterosexual',
+  nationality: 'Russian', station: 'Sloane Square', city: 'London',
+  languages: 'English · Russian',
+  color: ['rgba(90,160,190,0.4)', 'rgba(30,100,130,0.7)'],
+  initials: 'RA',
+  cats: ['new'],
+  svcs: ['69', 'A-Level', 'Bi DUO', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4000},
+  ],
+  description: [
+    "Rachel is one of these gorgeous Russian high-class escorts in London, who is equally beautiful on the inside and out. Rachel, a seductive blue-eyed babe, is an expert at keeping the sexual tension high until it threatens to burst. When you are with her, you will feel king of the world. Being able to immediately arouse a strong connection with you is what distinguishes Rachel as being so unique and unforgettable. She exudes a charm that will make you want to submit to her control.",
+    "Every interaction with Rachel is electrifying due to her love of flirting and her inherent sexuality. This escort takes excellent care of her appearance, and in addition to having a flawlessly toned body from frequent gym visits, she also has gorgeous skin and shiny hair. One of her best qualities is how much effort she puts into making you feel loved. Your encounter will be filled with laughter, and as your shoulders and jaw relax, you will feel the pressure of daily life lift.",
+  ],
+  reviews: [],
+};
+
+const SOFIA_DATA = {
+  id: 9930, real: true, vip: true, folder: 'vip-models/Sofia', slug: 'sofia',
+  name: 'Sofia', age: 24, height: 170, weight: 65,
+  clothingSize: 'S/M', breastSize: '36D', breastType: 'Enhanced',
+  eyeColor: 'Dark brown', hairColor: 'Black', orientation: 'Heterosexual',
+  nationality: 'Colombian', city: 'Dubai',
+  languages: 'Spanish · English',
+  color: ['rgba(200,120,90,0.4)', 'rgba(150,60,30,0.7)'],
+  initials: 'SF',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const SILLA_DATA = {
+  id: 9929, real: true, vip: true, folder: 'vip-models/Silla', slug: 'silla',
+  name: 'Silla', height: 172,
+  breastSize: 'C', breastType: 'Natural', eyeColor: 'Green',
+  nationality: 'Italian', city: 'Milan',
+  color: ['rgba(90,180,160,0.4)', 'rgba(30,120,100,0.7)'],
+  initials: 'SI',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "Silla is an elegant, all-natural Italian beauty based in Milan, with a graceful, well-mannered presence. Her green eyes and completely natural figure give her a refined, effortless look. Well educated and softly spoken, she brings a calm, sophisticated energy to every meeting, and is available to travel across Europe.",
+  ],
+  reviews: [],
+};
+
+const LOLA_DATA = {
+  id: 9928, real: true, vip: true, folder: 'vip-models/Lola', slug: 'lola',
+  name: 'Lola', age: 21, height: 177,
+  breastType: 'Natural',
+  nationality: 'French', city: 'Paris',
+  color: ['rgba(190,90,140,0.4)', 'rgba(130,30,80,0.7)'],
+  initials: 'LO',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const ISABELLA_DATA = {
+  id: 9926, real: true, vip: true, folder: 'vip-models/Isabella', slug: 'isabella',
+  name: 'Isabella', height: 174, weight: 56,
+  hairColor: 'Light brunette', eyeColor: 'Blue', breastType: 'Natural',
+  city: 'Ibiza',
+  color: ['rgba(120,150,210,0.4)', 'rgba(60,90,160,0.7)'],
+  initials: 'IZ',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "Isabella is a sweet, well-read, and empathetic law student based in Ibiza, with an amusing, warm personality and natural sex appeal. She stands 174 cm with a completely natural figure, light brunette hair, and striking blue eyes, and is available to travel across Europe.",
+  ],
+  reviews: [],
+};
+
 // =================== TOURING MODELS (non-London, real) ===================
 // city is each model's current/home base — travelNote (shown on her
 // profile, see assets/profile.js) covers the extra cities she's also
@@ -1879,6 +2102,34 @@ const SHAE_DATA = {
   reviews: [],
 };
 
+const DEBINI_DATA = {
+  id: 9927, real: true, vip: false, folder: 'models/Debini', slug: 'debini',
+  name: 'Debini', age: 25, height: 160, weight: 57,
+  clothingSize: '8', breastSize: '34C', breastType: 'Enhanced',
+  eyeColor: 'Hazel', hairColor: 'Blonde', orientation: 'Heterosexual',
+  nationality: 'Brazilian', city: 'Milan',
+  rateHour: 500,
+  languages: 'English · Portuguese',
+  color: ['rgba(210,170,80,0.4)', 'rgba(150,110,20,0.7)'],
+  initials: 'DE',
+  cats: ['new'],
+  // Client gave 11 named extras with no fixed prices ("on request") and
+  // asked for everything else from the master SERVICES list folded into
+  // the included list — extraSvcs has no "price on request" mode (every
+  // row needs a real number for the booking calculator), so all of it
+  // just lives in svcs instead, same fix as Selena's zero-priced extras.
+  svcs: SERVICES.slice(),
+  extraSvcs: [],
+  incallRates: [{label: '1 Hour', price: 500}],
+  outcallRates: [{label: '1 Hour', price: 500}],
+  description: [
+    "Debini is a Brazilian beautiful escort who exudes beauty and allure. She has a toned body, brown eyes, and long blonde hair. She is an endlessly imaginative fetish and fantasy escort who is always ready to try new fetishes and fantasies.",
+    "Debini will undoubtedly make the occasion memorable that you would want to repeat over and over again. Her flexible nature and hourglass figure make her the perfect partner for trying out novel and exciting positions in the bedroom.",
+    "Debini is the ideal option for anyone seeking something genuinely distinctive and memorable. She is enthusiastic, assured, and genuinely enjoys what she does. Experience the best in sensual and fantasy escorting by calling us right away.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -1944,6 +2195,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, ...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, ...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
