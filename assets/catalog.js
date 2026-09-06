@@ -44,9 +44,9 @@ function applyFilters() {
   if (selectedCities.length) ms = ms.filter(m => selectedCities.includes(m.city));
   if (selectedNats.length) ms = ms.filter(m => selectedNats.includes(m.nationality));
   if (selectedSvcs.length) ms = ms.filter(m => selectedSvcs.every(s => m.svcs.includes(s)));
-  ms = ms.filter(m => m.age >= ageRange[0] && m.age <= ageRange[1]);
-  ms = ms.filter(m => m.weight >= weightRange[0] && m.weight <= weightRange[1]);
-  ms = ms.filter(m => m.height >= heightRange[0] && m.height <= heightRange[1]);
+  ms = ms.filter(m => m.age == null || (m.age >= ageRange[0] && m.age <= ageRange[1]));
+  ms = ms.filter(m => m.weight == null || (m.weight >= weightRange[0] && m.weight <= weightRange[1]));
+  ms = ms.filter(m => m.height == null || (m.height >= heightRange[0] && m.height <= heightRange[1]));
   filteredModels = ms;
   renderModelsGrid(ms);
 }
