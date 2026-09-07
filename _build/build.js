@@ -21,6 +21,25 @@ const PUBLIC_MODELS = MODELS.filter(m => !m.vip);
 // a public model is actually based in should be selectable there, so it's
 // CITIES plus whatever extra cities show up among PUBLIC_MODELS.
 const FILTER_CITIES = Array.from(new Set([...CITIES, ...PUBLIC_MODELS.map(m => m.city)]));
+// A city row with fewer than 4 public models used to look like the agency
+// had no presence there at all, even when it actually has real VIP models
+// in that city sitting behind the paywall. To fix that without leaking any
+// gated data, this ships only the minimum needed for an enticing locked
+// card — name, age, nationality and a destroyed-detail blurred cover (see
+// vip-models/README's teaser-blur.webp recipe) — never services, rates,
+// or anything from the real profile. Cards built from this always link to
+// /vip-models/, never to the model's own (also-gated) /models/{slug}/.
+const VIP_CITY_TEASERS = MODELS
+  .filter(m => m.vip && m.real && CITIES.includes(m.city))
+  .map(m => ({
+    id: m.id,
+    name: m.name,
+    age: m.age ?? null,
+    nationality: m.nationality ?? null,
+    city: m.city,
+    initials: m.initials,
+    teaserImg: `/${m.folder}/teaser-blur.webp`,
+  }));
 const SITE_URL = 'https://velvetescort.co.uk';
 // Single source of truth for the Telegram contact — it lives in the hero,
 // the footer and the mobile menu, so define it once.
@@ -358,6 +377,9 @@ ${CITIES.map((c, i) => `  <div class="section"${i === 0 ? '' : ' style="padding-
 
 ${footerHTML(true)}
 ${modelsDataScript()}
+<script>
+const VIP_CITY_TEASERS = ${JSON.stringify(VIP_CITY_TEASERS)};
+<\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script>
