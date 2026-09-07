@@ -3286,6 +3286,212 @@ const MAINE_DATA = {
   reviews: [],
 };
 
+const BECCA_DATA = {
+  id: 9895, real: true, vip: false, folder: 'models/Becca', slug: 'becca',
+  name: 'Becca', age: 27, height: 175, weight: 55,
+  nationality: 'British', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(200,180,110,0.4)', 'rgba(140,120,40,0.7)'],
+  initials: 'BC',
+  cats: ['new'],
+  breastSize: '32DD', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'CIF', price: 100},
+    {name: 'CIM (Includes OWO)', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Becca is a radiant British blonde model, known for her fit body and toned figure. She is a fascinating, high-class elite babe who enjoys learning new things. With her seductive eyes, she gives off an air of mystery. Becca has the ability to follow every conversation with enthusiasm. Whether it's a night at the theater or a dinner party, she is the perfect companion.",
+    "A date with Becca is a thrilling, erotically charged experience. This refined, beautiful woman possesses a natural style and grace befitting of royalty. Becca is well-educated, smart, and well-bred, and she fits right in with any social or professional environment around London. She is one of those exceptional individuals who are equally stunning on the inside as they are on the outside.",
+    "Becca is a really naughty, cuddly, and unrestrained girl, but she gets tired of living a tidy life every day. She is eager to meet you and be thrilled by you in order to quench her intense thrill-seeking appetite!",
+  ],
+  reviews: [],
+};
+
+const BELAGIO_DATA = {
+  id: 9894, real: true, vip: false, folder: 'models/Belagio', slug: 'belagio',
+  name: 'Belagio', age: 20, height: 165, weight: 50,
+  nationality: 'Brazilian', station: 'Fulham', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(190,130,90,0.4)', 'rgba(130,70,30,0.7)'],
+  initials: 'BG',
+  cats: ['new'],
+  breastSize: '32B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'DFK', 'Erotic massage', 'Toys', 'Face sitting', 'FK', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Soft spanking receiving', 'Spanking giving', 'Striptease'],
+  extraSvcs: [
+    {name: 'DT', price: 50},
+    {name: 'Prostate massage', price: 50},
+    {name: 'CIF', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 5000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 5000},
+  ],
+  description: [
+    "Belagio is a dazzling burst of energy, with a bright smile and a playful, mischievous spark. Her eyes sparkle with curiosity, and her natural, glowing beauty turns heads wherever she goes. With a petite frame and an easy charm, Belagio brings an aura that's sweet, stylish, and impossible to ignore.",
+    "She's your ultimate party muse — vibrant, spontaneous, and always ready to turn up the fun. Whether you're hitting the hottest spots in town or sharing a private night of flirtatious laughter, Belagio brings an intoxicating blend of warmth and edge, full of energy, excitement, and endless possibilities.",
+    "If you're craving a fresh, exhilarating escape with someone who lives in the moment, Belagio is your perfect match. Available 24/7 for best party time. Say yes — she's waiting to light up your night.",
+  ],
+  reviews: [],
+};
+
+const CAROLYN_DATA = {
+  id: 9893, real: true, vip: false, folder: 'models/Carolyn', slug: 'carolyn',
+  name: 'Carolyn', age: 25, height: 169, weight: 50,
+  nationality: 'Slovakian/Swedish', station: 'Chelsea', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(120,190,150,0.4)', 'rgba(60,130,90,0.7)'],
+  initials: 'CL',
+  cats: ['new'],
+  breastSize: '32D', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Spanish',
+  svcs: ['69', 'Bi DUO', 'COB', 'DFK', 'Dirty talk', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', "Lady's services", 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Uniforms', 'WS giving', 'WS receiving'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3750},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3750},
+  ],
+  description: [
+    "Carolyn is a breathtaking 25-year-old blonde whose refined beauty and striking green eyes create an instantly unforgettable impression. Standing at 169 cm with a slender, elegant figure and glamorous enhanced 32D silhouette, she perfectly combines sophistication with irresistible femininity. Her soft blonde hair and radiant features give her a polished, luxurious presence that naturally draws attention wherever she goes.",
+    "With no tattoos or piercings, Carolyn embodies timeless elegance and classic beauty in its purest form. Her graceful appearance and confident energy create an atmosphere that feels both refined and inviting, balancing glamour with effortless charm. Every detail about her reflects sophistication, sensuality, and a naturally captivating allure.",
+    "With Slovakian and Swedish roots, Carolyn carries a unique European elegance that enhances her international appeal. Fluent in both English and Spanish, she connects easily and naturally, bringing warmth, charisma, and vibrant energy into every encounter. Stylish, open-minded, and unforgettable, Carolyn offers an experience defined by beauty, confidence, and genuine connection.",
+  ],
+  reviews: [],
+};
+
+const EVA_DATA = {
+  id: 9892, real: true, vip: false, folder: 'models/Eva', slug: 'eva',
+  name: 'Eva', age: 22, height: 160, weight: 55,
+  nationality: 'Eastern European', station: "Earl's Court", city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(150,120,190,0.4)', 'rgba(90,60,140,0.7)'],
+  initials: 'EV',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'PSE', 'Rimming receiving', 'Roleplay', 'Spanking giving', 'Striptease'],
+  extraSvcs: [
+    {name: 'WS giving', price: 50},
+    {name: 'CIM', price: 100},
+    {name: 'Bi DUO', price: 100},
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1050},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3750},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1050},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3750},
+  ],
+  description: [
+    "Eva is a stunning Eastern European beauty with a powerful, feminine presence. Confident, sensual, and flawlessly elegant, she captivates with her curves, intense gaze, and natural allure.",
+    "She offers an exclusive, intimate experience for those who value discretion, quality, and unforgettable chemistry. Time with Eva is refined, passionate, and always exceptional.",
+    "Available 24/7 by appointment only.",
+  ],
+  reviews: [],
+};
+
+const STELLARIA_DATA = {
+  id: 9891, real: true, vip: false, folder: 'models/Stellaria', slug: 'stellaria',
+  name: 'Stellaria', age: 21, height: 175, weight: 50,
+  nationality: 'Brazilian', station: 'Knightsbridge', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(90,160,190,0.4)', 'rgba(30,100,140,0.7)'],
+  initials: 'ST',
+  cats: ['new'],
+  breastSize: '32B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Italian · Portuguese',
+  svcs: ['69', 'Body to body massage', 'COB', 'Dirty talk', 'DP', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Group for extra price', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'Party girl', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'OWO', price: 70},
+    {name: 'CIF', price: 100},
+    {name: 'Rimming giving', price: 100},
+    {name: 'Bi DUO', price: 100},
+    {name: 'Prostate massage', price: 100},
+    {name: 'DFK', price: 100},
+    {name: 'Couples', price: 200},
+    {name: 'A-Level', price: 300},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1850},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1850},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  description: [
+    "Stellaria is a young blonde woman with a graceful and elegant appearance, standing 175 cm tall and weighing 50 kg. Her striking green eyes and long blonde hair create a naturally captivating look, while her slim figure adds to her sophisticated charm.",
+    "Confident, friendly, and open-minded, she enjoys meeting new people and creating meaningful connections. With a warm personality and a positive outlook on life, she easily makes others feel comfortable in her company. As a bisexual woman, she appreciates authenticity, mutual respect, and genuine chemistry.",
+    "Whether enjoying travel, social events, or relaxed conversations, she brings a combination of beauty, confidence, and charm wherever she goes.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -3351,6 +3557,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
