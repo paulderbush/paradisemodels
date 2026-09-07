@@ -1445,8 +1445,7 @@ const GARUDA_DATA = {
 const CANTU_DATA = {
   id: 9978, real: true, vip: false, folder: 'models/Cantu', slug: 'cantu',
   name: 'Cantu', age: 23, height: 157, weight: 55,
-  nationality: 'Brazilian', city: 'Bali',
-  travelNote: 'Based in Bali — also touring London and Dubai',
+  nationality: 'Brazilian', city: 'London',
   rateHour: 600, extraHourPrice: 400,
   color: ['rgba(160,180,70,0.4)', 'rgba(100,120,30,0.7)'],
   initials: 'CA',
@@ -2107,7 +2106,7 @@ const DEBINI_DATA = {
   name: 'Debini', age: 25, height: 160, weight: 57,
   clothingSize: '8', breastSize: '34C', breastType: 'Enhanced',
   eyeColor: 'Hazel', hairColor: 'Blonde', orientation: 'Heterosexual',
-  nationality: 'Brazilian', city: 'Milan',
+  nationality: 'Brazilian', city: 'Chisinau',
   rateHour: 500, extraHourPrice: 500,
   languages: 'English · Portuguese',
   color: ['rgba(210,170,80,0.4)', 'rgba(150,110,20,0.7)'],
@@ -2115,8 +2114,9 @@ const DEBINI_DATA = {
   cats: ['new'],
   // Client's 11 named extras have no fixed price ("on request" — manager
   // confirms the cost directly), everything else from the master SERVICES
-  // list is included. A null price renders the row without a "+£X" tag
-  // or click-to-add behaviour (see buildRealModelHTML/refreshPriceDisplay).
+  // list is included. A null price renders the row without a "+£X" tag,
+  // but it's still clickable — see toggleIncludedExtra in profile.js — so
+  // a client can flag which of these they want quoted.
   svcs: SERVICES.filter(s => !['OWO', 'CIM', 'CIF', 'Snowballing', 'WS giving', 'Prostate massage', 'Domination', 'Fisting giving', 'Tie and Tease', 'Filming with mask', 'Strap-on'].includes(s)),
   extraSvcs: [
     {name: 'OWO', price: null},
@@ -3013,13 +3013,28 @@ const LINDA_DATA = {
   id: 9903, real: true, vip: false, folder: 'models/Linda', slug: 'linda',
   name: 'Linda', height: 183,
   nationality: 'Spanish', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
   color: ['rgba(200,90,110,0.4)', 'rgba(140,40,60,0.7)'],
   initials: 'LD',
   cats: ['new'],
   svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'Dirty talk', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Poppers', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'Tie and Tease', 'Uniforms', 'WS giving'],
   extraSvcs: [],
-  incallRates: [],
-  outcallRates: [],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
   description: [
     "With her striking height of 183 cm and unmistakable Spanish flair, Linda is impossible to miss. Elegant yet effortlessly sultry, she turns heads with her confident posture, glowing complexion, and that smoldering gaze that speaks volumes before she even utters a word. Every inch of her exudes sophistication, yet there's a playful sparkle in her eyes that hints at the wild side waiting just beneath the surface.",
     "Linda is degree educated in economics and has professionally modelled in Spain. She is here in London to continue her studies and hopefully break into the real estate business as her career goal.",
@@ -4117,6 +4132,102 @@ const VENTANA_DATA = {
   reviews: [],
 };
 
+const ZARAH_DATA = {
+  id: 9873, real: true, vip: true, folder: 'vip-models/Zarah', slug: 'zarah',
+  name: 'Zarah', age: 23, height: 175,
+  breastSize: '32B', breastType: 'Natural',
+  nationality: 'Australian', city: 'London',
+  travelNote: 'Based in London — also available to travel',
+  color: ['rgba(90,170,150,0.4)', 'rgba(20,110,90,0.7)'],
+  initials: 'ZA',
+  cats: ['new'],
+  svcs: [],
+  extraSvcs: [],
+  // Rates on request — see hasRates handling in assets/profile.js, which
+  // swaps the booking box for a "contact us" prompt when both are empty.
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const KIRA_DATA = {
+  id: 9875, real: true, vip: false, folder: 'models/Kira', slug: 'kira',
+  name: 'Kira', age: 25, height: 175, weight: 55,
+  nationality: 'Russian', station: 'Kensington', city: 'London',
+  rateHour: 1000, extraHourPrice: 600,
+  color: ['rgba(140,160,220,0.4)', 'rgba(60,80,160,0.7)'],
+  initials: 'KY',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'A-Level', 'Bi DUO', 'Body to body massage', 'CIF', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DP', 'Erotic massage', 'Face sitting', 'Filming with mask', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Poppers', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'WS giving'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "Kira exudes a sophisticated and alluring energy that immediately captures your attention. As a stunning blonde Russian model, she combines elegance with a playful, open-minded spirit that makes every moment together both exciting and profoundly satisfying. Her radiant beauty and captivating looks are complemented by her confident attitude and genuine desire to please, creating an irresistible aura of sensuality.",
+    "With her warm, friendly nature and adventurous approach, Kira loves to explore your deepest desires with enthusiasm and care. Whether you're drawn to her flirtatious charm or her soft, teasing touch, she knows how to make every encounter unforgettable. Her services include passionate DFK, OWO, and a variety of positions, all delivered with enthusiasm, sophistication, and a touch of class.",
+    "Kira's vibrant personality makes her a truly exceptional choice for those seeking a memorable and luxurious experience. Don't miss your chance — she's here for a limited time, so seize the moment and indulge in a session that will leave you satisfied and eager to return.",
+  ],
+  reviews: [],
+};
+
+const MOJO_DATA = {
+  id: 9874, real: true, vip: false, folder: 'models/Mojo', slug: 'mojo',
+  name: 'Mojo', age: 19, height: 172, weight: 50,
+  nationality: 'Argentinian', station: 'Battersea', city: 'London',
+  rateHour: 800, extraHourPrice: 500,
+  color: ['rgba(220,190,80,0.4)', 'rgba(160,130,10,0.7)'],
+  initials: 'MJ',
+  cats: ['new', 'under25'],
+  breastSize: '32A', breastType: 'Natural', clothingSize: '4',
+  eyeColor: 'Brown', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Spanish',
+  svcs: ['69', 'CIF', 'COB', 'DFK', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Massage', 'MMF for double price', 'OWC', 'Party girl', 'Poppers', 'Rimming giving', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving'],
+  extraSvcs: [
+    {name: 'OWO', price: 100},
+    {name: 'Couples', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 800},
+    {label: '90 Min', price: 1050},
+    {label: '2 Hours', price: 1300},
+    {label: '3 Hours', price: 1800},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 800},
+    {label: '90 Min', price: 1050},
+    {label: '2 Hours', price: 1300},
+    {label: '3 Hours', price: 1800},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4500},
+  ],
+  description: [
+    "Mojo is an exotic vision of rare beauty — an Argentinian blonde with striking, model-like features that immediately set her apart. Her ultra-slim figure, high cheekbones, and captivating eyes create a look that is both unforgettable and almost otherworldly. She moves with quiet confidence, her presence magnetic in the most effortless way.",
+    "Behind her delicate frame lies a deeply sensual companion who knows exactly how to create tension, intimacy, and pleasure. Mojo is elegant yet daring, refined yet full of fire. Her touch is soft, her energy hypnotic, and every moment spent with her feels like stepping into a dream made just for you.",
+    "A true party lover, Mojo brings a sense of freedom, fun, and fantasy wherever she goes. If you're drawn to the unusual, the rare, and the truly unforgettable — she's waiting.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -4182,6 +4293,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLINA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLINA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLINA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLINA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };

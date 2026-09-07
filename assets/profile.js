@@ -1,6 +1,6 @@
 // =================== PROFILE PAGE ===================
 let _gallery = {items: [], current: 0};
-let _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), includedChoices: new Set(), model: null};
+let _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), includedChoices: new Set(), includedExtras: new Set(), model: null};
 
 // =================== GALLERY ===================
 function probeModelMedia(folder, cb) {
@@ -156,6 +156,17 @@ function toggleIncludedSvc(idx, el) {
   if (chk) chk.classList.toggle('on', _pricing.includedChoices.has(idx));
 }
 
+// Same idea as toggleIncludedSvc, but for price:null extraSvcs rows (e.g.
+// Debini's "manager confirms the cost" extras) — flagging one here can't
+// add anything to the total, it just tells the manager which price-on-
+// request extras this client actually wants quoted (see makeBooking).
+function toggleIncludedExtra(idx, el) {
+  if (_pricing.includedExtras.has(idx)) _pricing.includedExtras.delete(idx);
+  else _pricing.includedExtras.add(idx);
+  const chk = el.querySelector('.extra-svc-chk');
+  if (chk) chk.classList.toggle('on', _pricing.includedExtras.has(idx));
+}
+
 function refreshPriceDisplay() {
   const m = _pricing.model; if (!m) return;
   const rates = _pricing.type === 'incall' ? m.incallRates : m.outcallRates;
@@ -273,8 +284,9 @@ function buildRealModelHTML(m) {
           ${m.extraSvcs.some(s => s.price == null) ? `<div class="price-extra-note">Pricing for these extra services will be confirmed by our manager.</div>` : ''}
           <div class="extra-svc-list">
             ${m.extraSvcs.map((s, i) => s.price == null ? `
-            <div class="extra-svc-row" style="cursor:default">
+            <div class="extra-svc-row" onclick="toggleIncludedExtra(${i},this)">
               <div class="extra-svc-left">
+                <div class="extra-svc-chk">✓</div>
                 <span class="extra-svc-name">${s.name}</span>
               </div>
             </div>` : `
@@ -300,7 +312,7 @@ function buildRealModelHTML(m) {
 
 function openRealModel(m) {
   const defaultType = m.incallRates && m.incallRates.length ? 'incall' : 'outcall';
-  _pricing = {type: defaultType, durationIdx: 0, extras: new Set(), includedChoices: new Set(), model: m};
+  _pricing = {type: defaultType, durationIdx: 0, extras: new Set(), includedChoices: new Set(), includedExtras: new Set(), model: m};
   // Seeded with the fallback single photo so the lightbox works even
   // before probeModelMedia's async scan resolves and replaces it below.
   _gallery = {items: [{type: 'photo', idx: 1, src: `/${m.folder}/1.webp`}], current: 0};

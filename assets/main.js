@@ -168,7 +168,9 @@ function makeBooking() {
   const extrasTotal = extrasArr.reduce((s, e) => s + e.price, 0);
   const requestedServices = [];
   if (_pricing.includedChoices) _pricing.includedChoices.forEach(i => requestedServices.push(m.svcs[i]));
-  _bookingDraft = {modelId: m.id, modelName: m.name, modelFolder: m.folder, type: _pricing.type, durationLabel: rate.label, basePrice: rate.price, extras: extrasArr, extrasTotal, requestedServices, total: rate.price + extrasTotal};
+  const requestedPriceOnRequest = [];
+  if (_pricing.includedExtras) _pricing.includedExtras.forEach(i => requestedPriceOnRequest.push(m.extraSvcs[i].name));
+  _bookingDraft = {modelId: m.id, modelName: m.name, modelFolder: m.folder, type: _pricing.type, durationLabel: rate.label, basePrice: rate.price, extras: extrasArr, extrasTotal, requestedServices, requestedPriceOnRequest, total: rate.price + extrasTotal};
   _contactMethod = 'email';
   renderCart();
   openCart();
@@ -225,7 +227,8 @@ async function submitBooking() {
   const contactLabel = _contactMethod === 'email' ? 'Email' : _contactMethod === 'whatsapp' ? 'WhatsApp' : 'Telegram';
   const extrasText = d.extras.length ? d.extras.map(e => `  • ${e.name} +£${e.price}`).join('\n') : '  None';
   const requestedText = d.requestedServices && d.requestedServices.length ? d.requestedServices.map(s => `  • ${s}`).join('\n') : '  Not specified';
-  const msg = `🔖 <b>New Booking Request</b>\n\n<b>Model:</b> ${d.modelName}\n<b>Client:</b> ${name}\n<b>${contactLabel}:</b> ${contact}\n\n<b>Session:</b> ${d.durationLabel} · ${d.type === 'incall' ? 'Incall' : 'Outcall'}\n<b>Base:</b> £${d.basePrice}\n\n<b>Requested Services:</b>\n${requestedText}\n\n<b>Extras:</b>\n${extrasText}\n\n<b>Total: £${d.total}</b>\n\n<b>Date:</b> ${date}\n<b>Time:</b> ${time}${comments ? `\n\n<b>Comments:</b>\n${comments}` : ''}`;
+  const priceOnRequestText = d.requestedPriceOnRequest && d.requestedPriceOnRequest.length ? `\n\n<b>Extras to Price (confirm with client):</b>\n${d.requestedPriceOnRequest.map(n => `  • ${n}`).join('\n')}` : '';
+  const msg = `🔖 <b>New Booking Request</b>\n\n<b>Model:</b> ${d.modelName}\n<b>Client:</b> ${name}\n<b>${contactLabel}:</b> ${contact}\n\n<b>Session:</b> ${d.durationLabel} · ${d.type === 'incall' ? 'Incall' : 'Outcall'}\n<b>Base:</b> £${d.basePrice}\n\n<b>Requested Services:</b>\n${requestedText}\n\n<b>Extras:</b>\n${extrasText}${priceOnRequestText}\n\n<b>Total: £${d.total}</b>\n\n<b>Date:</b> ${date}\n<b>Time:</b> ${time}${comments ? `\n\n<b>Comments:</b>\n${comments}` : ''}`;
   const btn = document.querySelector('.booking-submit-btn');
   if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
   try {
