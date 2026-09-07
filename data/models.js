@@ -3492,6 +3492,204 @@ const STELLARIA_DATA = {
   reviews: [],
 };
 
+const ALISA_DATA = {
+  id: 9890, real: true, vip: false, folder: 'models/Alisa', slug: 'alisa',
+  name: 'Alisa', age: 28, height: 170, weight: 50,
+  nationality: 'Russian', station: 'Chelsea', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(160,90,190,0.4)', 'rgba(100,30,140,0.7)'],
+  initials: 'AS',
+  cats: ['new'],
+  breastSize: '34C', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'COB', 'Dirty talk', 'Domination', 'Erotic massage', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Light domination', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'Bi DUO', price: 50},
+    {name: 'CIM', price: 50},
+    {name: 'Strap-on', price: 50},
+    {name: 'WS giving', price: 50},
+    {name: 'DP', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3600},
+  ],
+  description: [
+    "Alisa is a stunning 28-year-old Russian beauty standing 170 cm tall, with a naturally curvy figure, warm green eyes and rich brunette hair.",
+    "Confident and attentive, she loves genuine conversation just as much as she enjoys getting playful once the door closes. She takes pride in making every meeting feel relaxed, natural and unhurried.",
+    "Based in Chelsea, Alisa welcomes gentlemen who appreciate elegance paired with an adventurous spirit.",
+  ],
+  reviews: [],
+};
+
+const AMANDA_DATA = {
+  id: 9889, real: true, vip: false, folder: 'models/Amanda', slug: 'amanda',
+  name: 'Amanda', age: 25, height: 157, weight: 46,
+  nationality: 'Brazilian/Italian', station: "Earl's Court", city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(200,140,80,0.4)', 'rgba(150,80,20,0.7)'],
+  initials: 'MD',
+  cats: ['new'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Group for extra price', 'Handcuffs', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'Strap-on', price: 50},
+    {name: 'WS giving', price: 50},
+    {name: 'Bi DUO', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  description: [
+    "Amanda is a vibrant 25-year-old Brazilian-Italian companion, standing 157 cm tall with an enhanced, curvy figure, warm brown eyes and dark brunette hair.",
+    "Playful, sociable and full of energy, she thrives on making every encounter feel exciting and effortless. Her open-minded nature and genuine warmth put people at ease right from the first hello.",
+    "Based near Earl's Court, Amanda is ready to bring her charm and enthusiasm to your next meeting.",
+  ],
+  reviews: [],
+};
+
+const KITTY_DATA = {
+  id: 9888, real: true, vip: false, folder: 'models/Kitty', slug: 'kitty',
+  name: 'Kitty', age: 27, height: 165, weight: 40,
+  nationality: 'Brazilian', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(210,170,60,0.4)', 'rgba(160,110,10,0.7)'],
+  initials: 'KI',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '4',
+  eyeColor: 'Brown', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · Portuguese · Spanish',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Domination', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'WS giving', price: 50},
+  ],
+  // Outcall only — see hasIncall handling in assets/profile.js, which
+  // hides the Incall tab and defaults to Outcall when this is empty.
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Kitty is a petite 27-year-old Brazilian beauty, standing 165 cm tall with a slim, toned figure, soft brown eyes and sleek blonde hair.",
+    "Sweet, flirtatious and full of charm, she loves making every date feel personal and fun. Fluent in English, Portuguese and Spanish, she's a natural at putting gentlemen from any background at ease.",
+    "Kitty is available for outcall meetings across London.",
+  ],
+  reviews: [],
+};
+
+const DOLINA_DATA = {
+  id: 9887, real: true, vip: false, folder: 'models/Dolina', slug: 'dolina',
+  name: 'Dolina', age: 24, height: 178, weight: 65,
+  nationality: 'Brazilian', station: 'Knightsbridge', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(70,150,130,0.4)', 'rgba(20,90,70,0.7)'],
+  initials: 'DO',
+  cats: ['new'],
+  breastSize: '36B', breastType: 'Natural', clothingSize: '10',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'COB', 'DFK', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Massage', 'OWC', 'OWO', 'Party girl', 'Rimming receiving', 'Striptease', 'WS giving'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'Bi DUO', price: 50},
+    {name: 'Rimming giving', price: 70},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 700},
+    {label: '90 Min', price: 950},
+    {label: '2 Hours', price: 1200},
+    {label: '3 Hours', price: 1700},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Dolina is a tall, statuesque 24-year-old Brazilian companion, standing 178 cm tall with a slender figure, warm brown eyes and long brunette hair.",
+    "Open-minded and bisexual, Dolina loves connecting with both men and couples, bringing a relaxed, genuine energy to every meeting. Her adventurous spirit makes her a favourite for gentlemen looking for something a little different.",
+    "Based near Knightsbridge, Dolina welcomes both incall and outcall bookings across London.",
+  ],
+  reviews: [],
+};
+
+const HOLIKA_DATA = {
+  id: 9886, real: true, vip: false, folder: 'models/Holika', slug: 'holika',
+  name: 'Holika', age: 26, height: 169, weight: 49,
+  nationality: 'Russian', station: 'Kensington', city: 'London',
+  rateHour: 650, extraHourPrice: 500,
+  color: ['rgba(190,80,140,0.4)', 'rgba(130,20,80,0.7)'],
+  initials: 'HO',
+  cats: ['new'],
+  breastSize: '34F', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Brown', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'Erotic massage', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'CIM', price: 50},
+    {name: 'DT', price: 50},
+    {name: 'Prostate massage', price: 50},
+    {name: 'DFK', price: 50},
+    {name: 'Rimming giving', price: 100},
+    {name: 'Couples', price: 200},
+  ],
+  // Outcall only, and no Overnight tier was quoted for Holika — see
+  // hasIncall handling in assets/profile.js.
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 650},
+    {label: '90 Min', price: 850},
+    {label: '2 Hours', price: 1150},
+    {label: '3 Hours', price: 1650},
+    {label: 'Extra Hour', price: 500},
+  ],
+  description: [
+    "Holika is a striking 26-year-old Russian companion, standing 169 cm tall with a curvy, enhanced figure, warm brown eyes and sleek blonde hair.",
+    "Bisexual and open-minded, Holika brings a playful, confident energy to every meeting, equally at home with couples as with individual gentlemen. She's attentive, easygoing and always ready to make a date memorable.",
+    "Based near Kensington, Holika is available for outcall meetings across London.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -3557,6 +3755,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLINA_DATA, HOLIKA_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLINA_DATA, HOLIKA_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
