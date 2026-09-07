@@ -3099,6 +3099,193 @@ const MIKAMI_DATA = {
   reviews: [],
 };
 
+const DARISTE_DATA = {
+  id: 9900, real: true, vip: false, folder: 'models/Dariste', slug: 'dariste',
+  name: 'Dariste', age: 24, height: 160, weight: 50,
+  nationality: 'Brazilian', station: 'Mayfair', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(190,110,140,0.4)', 'rgba(130,50,80,0.7)'],
+  initials: 'DA',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'Rimming giving', price: 100},
+    {name: 'Bi DUO', price: 100},
+    {name: 'A-Level', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 4000},
+  ],
+  description: [
+    "Dariste is a sweet and irresistible 24-year-old beauty who knows how to leave a lasting impression. Standing at 160 cm, she carries herself with a natural elegance that's both youthful and alluring. Her soft features, gentle smile, and playful gaze make her feel like a dream you don't want to wake up from. Everything about her — from the way she moves to the way she speaks — radiates charm and warmth.",
+    "Beneath that angelic exterior is a deliciously naughty side. Dariste is full of sensual energy and loves to explore desire without hesitation. She thrives on passion and connection, always eager to make every encounter intense and unforgettable. With her, every moment feels spontaneous, fiery, and deeply satisfying.",
+    "Whether you're craving soft kisses or wild nights, Dariste is ready to turn your fantasies into reality. Let her sweetness disarm you, then let her fire take over — she's waiting for you in London.",
+  ],
+  reviews: [],
+};
+
+const MEL_DATA = {
+  id: 9899, real: true, vip: false, folder: 'models/Mel', slug: 'mel',
+  name: 'Mel', age: 29, height: 170, weight: 54,
+  nationality: 'British', station: 'Kensington', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(210,190,120,0.4)', 'rgba(150,130,50,0.7)'],
+  initials: 'ML',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'PSE', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease', 'WS receiving'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'CIM', price: 50},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Mel is a dazzling British blonde with that unmistakable Playboy charm — sexy, glamorous, and impossible to ignore. At 29, she radiates polished confidence and high-end allure, with curves in all the right places and a smile that's pure seduction. Her look is classic yet bold, the kind that turns heads in five-star lobbies and lingers in your thoughts long after the night ends.",
+    "Every encounter with Mel is like stepping into a world where indulgence is the only rule. She's witty, attentive, and deeply sensual, the perfect luxury companion for the man who expects more than just beauty. Whether it's an elite dinner date or an unforgettable night behind closed doors, she brings a mix of elegance and fire that makes every second feel tailored and exclusive.",
+    "Anyone wanting services from GFE to PSE, massages to watersports, Mel is a choice that will deliver, exceeding expectations.",
+    "Mel isn't just high-class — she defines it. Sophisticated, provocative, party lover, and utterly unforgettable, she's here to make your fantasies feel like your new reality.",
+  ],
+  reviews: [],
+};
+
+const MERCURY_DATA = {
+  id: 9898, real: true, vip: false, folder: 'models/Mercury', slug: 'mercury',
+  name: 'Mercury', age: 23, height: 188, weight: 62,
+  nationality: 'Brazilian', station: 'West Kensington', city: 'London',
+  color: ['rgba(150,110,190,0.4)', 'rgba(90,50,140,0.7)'],
+  initials: 'MU',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Group for extra price', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'Poppers', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease', 'Uniforms', 'WS giving'],
+  extraSvcs: [
+    {name: 'OWO', price: 50},
+    {name: 'CIF', price: 50},
+    {name: 'Bi DUO', price: 50},
+    {name: 'Rimming giving', price: 50},
+    {name: 'Prostate massage', price: 50},
+    {name: 'Squirting', price: 50},
+    {name: 'Strap-on', price: 100},
+    {name: 'Couples', price: 200},
+  ],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "Mercury is a striking 23-year-old Brazilian beauty whose exceptional height and graceful silhouette make her impossible to overlook. Standing at an impressive 188 cm, she possesses a rare statuesque presence that exudes confidence, elegance, and effortless individuality. Her rich brunette hair and warm brown eyes add softness to her distinctive appearance, creating a beautiful balance between strength and femininity.",
+    "With her naturally feminine 34B figure and subtle tattoos, Mercury embraces a look that is both authentic and modern. Her extraordinary height gives her a commanding, model-like presence, while her graceful demeanor and natural confidence make her equally captivating on a personal level. Every detail about her reflects originality, sophistication, and a magnetic charm that leaves a lasting impression.",
+    "Proud of her Brazilian heritage, Mercury brings warmth and vibrant energy to every interaction. Speaking Portuguese and basic English, she connects through her engaging personality and naturally charismatic spirit. Tall, elegant, and truly distinctive, Mercury offers a presence defined by confidence, beauty, and unforgettable individuality.",
+  ],
+  reviews: [],
+};
+
+const BELLORIA_DATA = {
+  id: 9897, real: true, vip: false, folder: 'models/Belloria', slug: 'belloria',
+  name: 'Belloria', age: 25, height: 170, weight: 55,
+  nationality: 'Ukrainian', station: "Earl's Court", city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(210,200,110,0.4)', 'rgba(150,140,40,0.7)'],
+  initials: 'BL',
+  cats: ['new'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Ukrainian · Russian',
+  svcs: ['69', 'COB', 'DFK', 'Erotic massage', 'Face sitting', 'FK', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Striptease'],
+  extraSvcs: [
+    {name: 'CIM (Includes OWO)', price: 100},
+  ],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Belloria is the kind of blonde beauty who turns heads the moment she enters the room. Standing at 172 cm with natural elegance and a radiant smile, she embodies the perfect balance of charm and sensuality. Her striking Slavic features reflect both her Ukrainian and Russian heritage, giving her a unique allure that feels irresistible.",
+    "At just 25, Belloria is vibrant, confident, and effortlessly captivating. Her presence carries a natural sophistication, while her playful energy keeps every moment exciting. Whether it's a refined evening engagement or a more private encounter, she knows exactly how to make her company feel unforgettable.",
+    "Treat yourself to the company of someone truly exceptional. Belloria is here to make your time extraordinary, leaving you with memories as dazzling as her beauty.",
+  ],
+  reviews: [],
+};
+
+const MAINE_DATA = {
+  id: 9896, real: true, vip: false, folder: 'models/Maine', slug: 'maine',
+  name: 'Maine', age: 27, height: 179, weight: 65,
+  nationality: 'Brazilian', station: 'Marylebone', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(90,160,150,0.4)', 'rgba(30,100,90,0.7)'],
+  initials: 'MN',
+  cats: ['new'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '10',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Erotic massage', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWC', 'Party girl', 'Poppers', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'OWO', price: 100},
+    {name: 'A-Level', price: 100},
+    {name: 'Bi DUO', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Maine is a striking 27-year-old Brazilian beauty with a tall, commanding presence and an effortlessly confident aura. Standing at 179 cm, she carries herself with elegance and strength, her long silhouette and graceful posture making her stand out in any setting. Her brunette hair and warm brown eyes create a rich, inviting look that feels both sophisticated and deeply feminine.",
+    "Her enhanced 34C curves complement her statuesque figure, adding softness to her powerful presence. A tasteful tattoo brings a touch of individuality and edge, reflecting her expressive personality. As a non-smoker with a bisexual orientation, Maine embodies a modern, open-minded spirit paired with calm self-assurance.",
+    "Fluent in Portuguese and speaking basic English, she connects through genuine warmth and confident energy. Maine's Brazilian charm, combined with her tall elegance and magnetic personality, creates an unforgettable impression — a woman who is both strong and alluring, leaving a lasting sense of confidence and desire.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -3164,6 +3351,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
