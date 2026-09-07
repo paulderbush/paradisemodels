@@ -2923,6 +2923,182 @@ const TWILIGHT_DATA = {
   reviews: [],
 };
 
+const SAVANA_DATA = {
+  id: 9905, real: true, vip: false, folder: 'models/Savana', slug: 'savana',
+  name: 'Savana', age: 27, height: 180, weight: 62,
+  nationality: 'Russian', station: 'Victoria', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(90,150,200,0.4)', 'rgba(30,90,150,0.7)'],
+  initials: 'SN',
+  cats: ['new'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '10',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWO', 'Party girl', 'PSE', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'CIF', price: 100},
+    {name: 'CIM (Includes OWO)', price: 100},
+    {name: 'DT', price: 100},
+    {name: 'DP', price: 100},
+    {name: 'Bi DUO', price: 100},
+    {name: 'WS giving', price: 100},
+    {name: 'WS receiving', price: 100},
+    {name: 'A-Level', price: 150},
+    {name: 'Couples', price: 150},
+    {name: 'Rimming giving', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1100},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1100},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Savana is a striking 27-year-old Russian beauty whose tall, sculpted silhouette and natural elegance captivate at first glance. Standing 180 cm with a graceful, athletic presence, she combines striking blue eyes and soft blonde hair into a look that is both refined and effortlessly sensual. Confident, versatile, and magnetic, she carries herself with the poise of a true international model.",
+    "Her name is well-recognized in the fashion world: Savana is the Best Model of Emirates Fashion Week 2025 and a cover model for Playboy and FHM, achievements that speak to her professionalism, charisma, and natural star quality. She thrives in front of the camera, bringing intensity, sophistication, and emotion to every shoot, whether high fashion, editorial, or lifestyle.",
+    "Beyond modeling, Savana leads an active and adventurous life. She loves skiing, sailing, swimming, and kitesurfing, embracing travel, adrenaline, and the freedom of movement. Open-minded, confident, and bisexual, she combines beauty with independence, ambition, and a vibrant, cosmopolitan spirit that makes her unforgettable.",
+  ],
+  reviews: [],
+};
+
+const ALDARI_DATA = {
+  id: 9904, real: true, vip: false, folder: 'models/Aldari', slug: 'aldari',
+  name: 'Aldari', age: 26, height: 165,
+  nationality: 'Russian', station: "Earl's Court", city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(150,190,110,0.4)', 'rgba(90,130,50,0.7)'],
+  initials: 'AK',
+  cats: ['new'],
+  breastSize: '34B', clothingSize: '6',
+  eyeColor: 'Green', orientation: 'Heterosexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'COB', 'DFK', 'Erotic massage', 'Face sitting', 'FK', 'GFE', 'Light domination', 'Massage', 'OWO', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Uniforms'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Welcome to Aldari's profile.",
+    "Aldari is a gorgeous high end escort in London. She is 26 years old from Russia. Aldari is currently located in London and is available for a huge selection of elite escort services in the city.",
+    "If you still find it hard to accept someone can look as good as Aldari does, take a look at her selfie picture and you can see she looks just as good in person as she does compared to her professional images. Aldari is the type of lady who looks great wearing a long dress as she accompanies you to dinner and looks even better in just her underwear in your hotel room.",
+    "If you are obsessed as we are about offering our clientele the chance to meet the beautiful Aldari, contact Paradise Models and we will introduce you to this amazing lady.",
+  ],
+  reviews: [],
+};
+
+const LINDA_DATA = {
+  id: 9903, real: true, vip: false, folder: 'models/Linda', slug: 'linda',
+  name: 'Linda', height: 183,
+  nationality: 'Spanish', city: 'London',
+  color: ['rgba(200,90,110,0.4)', 'rgba(140,40,60,0.7)'],
+  initials: 'LD',
+  cats: ['new'],
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'Dirty talk', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Poppers', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'Tie and Tease', 'Uniforms', 'WS giving'],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "With her striking height of 183 cm and unmistakable Spanish flair, Linda is impossible to miss. Elegant yet effortlessly sultry, she turns heads with her confident posture, glowing complexion, and that smoldering gaze that speaks volumes before she even utters a word. Every inch of her exudes sophistication, yet there's a playful sparkle in her eyes that hints at the wild side waiting just beneath the surface.",
+    "Linda is degree educated in economics and has professionally modelled in Spain. She is here in London to continue her studies and hopefully break into the real estate business as her career goal.",
+    "For dinner dates Linda adores seafood, and Scotts in Mayfair would do just nicely. Linda is the embodiment of high-class indulgence blended with the thrill of a true party girl. She knows how to elevate any encounter, whether it's an upscale soirée or a night out that blurs into sunrise. Her vibe is addictive — a magnetic mix of refined taste and irresistible spontaneity. You'll find her company both thrilling and grounding, with laughter, flirtation, and genuine chemistry flowing naturally.",
+    "If you're ready for something out of the ordinary — a woman who brings both top-tier elegance and unapologetic fun — Linda is your perfect match. Time with her is never rushed, always memorable, and undeniably worth repeating.",
+  ],
+  reviews: [],
+};
+
+const AGAVA_DATA = {
+  id: 9902, real: true, vip: false, folder: 'models/Agava', slug: 'agava',
+  name: 'Agava', age: 24, height: 176, weight: 58,
+  nationality: 'Brazilian', station: 'Mayfair', city: 'London',
+  color: ['rgba(180,100,150,0.4)', 'rgba(120,40,90,0.7)'],
+  initials: 'AZ',
+  cats: ['new'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Spanish · Portuguese',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWO', 'Party girl', 'PSE', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'Fisting giving', price: 50},
+    {name: 'Bi DUO', price: 100},
+    {name: 'WS receiving', price: 100},
+    {name: 'Filming with mask', price: 150},
+    {name: 'Filming without mask', price: 200},
+  ],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "Agava is a breathtaking 24-year-old Brazilian beauty who radiates confidence and irresistible charm. Tall and striking at 176 cm, with a perfectly sculpted figure and enhanced curves, she moves with a sultry grace that captures every eye in the room. Her rich brunette hair frames a face of flawless allure, while her deep brown eyes hint at passion, mischief, and a world of unspoken temptation.",
+    "There's a boldness to Agava — the kind that excites and entices in equal measure. She's playful yet commanding, sweet yet daring, and loves to explore both sides of pleasure with her open, sensual spirit. Her tattoos trace a story of confidence and seduction, each one a glimpse into the wild heart that beats beneath her smooth skin.",
+    "Whether you're drawn to her fiery energy or her soft, teasing touch, Agava knows exactly how to make every encounter unforgettable. She's more than a fantasy — she's a living, breathing temptation, ready to awaken your desires and leave you craving more.",
+  ],
+  reviews: [],
+};
+
+const MIKAMI_DATA = {
+  id: 9901, real: true, vip: false, folder: 'models/Mikami', slug: 'mikami',
+  name: 'Mikami', age: 23, height: 165, weight: 42,
+  nationality: 'Brazilian', station: 'Kensington', city: 'London',
+  rateHour: 750, extraHourPrice: 500,
+  color: ['rgba(210,180,90,0.4)', 'rgba(150,120,30,0.7)'],
+  initials: 'MI',
+  cats: ['new'],
+  breastSize: '32A', breastType: 'Natural', clothingSize: '4',
+  eyeColor: 'Brown', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'PSE', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'WS giving', price: 100},
+    {name: 'WS receiving', price: 100},
+    {name: 'Bi DUO', price: 150},
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 1000},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Mikami is a delicate blend of innocence and quiet magnetism. With her soft blonde hair and warm brown eyes, she carries an effortless charm that draws attention without ever asking for it. There is something gentle in the way she moves, as if she floats through the world with her own quiet rhythm, leaving behind a feeling of lightness and curiosity.",
+    "Her presence is calm, yet intriguing. Mikami has a playful, open-minded spirit and a natural warmth that makes people feel instantly comfortable around her. She enjoys simple pleasures, meaningful moments, and the beauty hidden in everyday life. There is a subtle mystery in her smile — the kind that invites you to look a little closer and wonder what stories she holds inside.",
+    "Born in Brazil, Mikami brings with her a touch of sun and softness wherever she goes. She is graceful, authentic, and true to herself, embracing her individuality with confidence. Behind her gentle exterior lives a vibrant soul, full of color, emotion, and a quiet passion for life that makes every encounter unforgettable.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -2988,6 +3164,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, NAMES_F };

@@ -262,11 +262,16 @@ function startPrice(m) {
 }
 
 function modelCardHTML(m, clickable = true, showTags = true) {
+  // A missing cats/svcs array must never throw here — this runs inside
+  // a single .map() over the whole grid, so one bad model would blank
+  // every card, not just her own.
+  const cats = m.cats || [];
+  const svcs = m.svcs || [];
   const catBadges = [];
-  if (m.cats.includes('new')) catBadges.push('<span class="badge badge-new">New</span>');
-  if (m.cats.includes('toprated')) catBadges.push('<span class="badge badge-top">Top Rated</span>');
+  if (cats.includes('new')) catBadges.push('<span class="badge badge-new">New</span>');
+  if (cats.includes('toprated')) catBadges.push('<span class="badge badge-top">Top Rated</span>');
   if (m.vip) catBadges.push('<span class="badge badge-vip">⭐ VIP</span>');
-  const topSvcs = showTags ? m.svcs.slice(0, 3).map(s => `<span class="tag-chip">${s}</span>`).join('') : '';
+  const topSvcs = showTags ? svcs.slice(0, 3).map(s => `<span class="tag-chip">${s}</span>`).join('') : '';
 
   // For real models wrap in link, for fake use onclick
   const cardStart = m.real
