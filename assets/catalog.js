@@ -38,12 +38,19 @@ function initModelsPage() {
   }, 100);
 }
 
+// A missing field only ever costs a model visibility under a filter
+// the visitor actively opted into and that field actually contradicts
+// (city/nationality/services checkboxes) — it must never cost her
+// visibility under one that's simply on by default (age/weight/height
+// ranges, which apply on every page load whether touched or not).
+// Guards below (m.cats &&, m.svcs &&) are just crash-proofing in case
+// a future profile omits one of those arrays entirely.
 function applyFilters() {
   let ms = [...MODELS];
-  if (activeCat !== 'all') ms = ms.filter(m => m.cats.includes(activeCat));
+  if (activeCat !== 'all') ms = ms.filter(m => m.cats && m.cats.includes(activeCat));
   if (selectedCities.length) ms = ms.filter(m => selectedCities.includes(m.city));
   if (selectedNats.length) ms = ms.filter(m => selectedNats.includes(m.nationality));
-  if (selectedSvcs.length) ms = ms.filter(m => selectedSvcs.every(s => m.svcs.includes(s)));
+  if (selectedSvcs.length) ms = ms.filter(m => selectedSvcs.every(s => m.svcs && m.svcs.includes(s)));
   ms = ms.filter(m => m.age == null || (m.age >= ageRange[0] && m.age <= ageRange[1]));
   ms = ms.filter(m => m.weight == null || (m.weight >= weightRange[0] && m.weight <= weightRange[1]));
   ms = ms.filter(m => m.height == null || (m.height >= heightRange[0] && m.height <= heightRange[1]));
