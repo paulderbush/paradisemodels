@@ -322,14 +322,51 @@ function openFakeModel(id) {
 }
 
 // =================== HOME SECTIONS ===================
+// A locked teaser card for a real VIP model in a city whose public roster
+// is thin — see VIP_CITY_TEASERS in _build/build.js for what's actually
+// shipped (name/age/nationality/blurred cover only, never services, rates
+// or the real photo). Always links to the catalog, never to the model's
+// own gated /models/{slug}/ page, since there's nothing to unlock there
+// without an active VIP subscription anyway.
+function vipCityTeaserCardHTML(m) {
+  return `
+  <a class="model-card" href="/vip-models/" style="text-decoration:none;display:block;color:inherit">
+    <div class="model-card-img" style="background:url('${m.teaserImg}${window.BUILD_TS ? '?v=' + window.BUILD_TS : ''}') center/cover no-repeat">
+      <div class="model-card-badges"><span class="badge badge-vip">⭐ VIP</span></div>
+      <div class="model-card-overlay">
+        <div class="model-card-name">${m.name}</div>
+        <div class="model-card-meta">${[m.age ? `${m.age} yrs` : null, m.nationality].filter(Boolean).join(' · ')}</div>
+      </div>
+    </div>
+    <div class="model-card-footer">
+      <div class="model-rate"><span style="font-size:12px">🔒 VIP Access</span></div>
+      <span class="add-to-cart-btn">Unlock</span>
+    </div>
+  </a>`;
+}
+
 function renderHomeCityRows() {
   if (typeof CITIES === 'undefined' || !CITIES) return;
   CITIES.forEach(c => {
     const slug = c.toLowerCase().replace(/\s+/g, '-');
     const el = document.getElementById('cityRow-' + slug);
     if (!el) return;
-    const ms = MODELS.filter(m => m.city === c).slice(0, 4);
-    el.innerHTML = ms.map(m => modelCardHTML(m, true, false)).join('');
+    const cityModels = MODELS.filter(m => m.city === c);
+    // Priority: real public models first, then a real (but locked) VIP
+    // presence, and only then the synthetic filler profiles (m.real ===
+    // false) — otherwise a thin city gets padded out with generated
+    // placeholders before a genuine VIP teaser ever gets a look in, which
+    // is exactly the "looks like nobody's here" problem this fixes.
+    let cards = cityModels.filter(m => m.real).slice(0, 4).map(m => modelCardHTML(m, true, false));
+    if (cards.length < 4 && typeof VIP_CITY_TEASERS !== 'undefined' && VIP_CITY_TEASERS) {
+      const need = 4 - cards.length;
+      cards = cards.concat(VIP_CITY_TEASERS.filter(v => v.city === c).slice(0, need).map(vipCityTeaserCardHTML));
+    }
+    if (cards.length < 4) {
+      const need = 4 - cards.length;
+      cards = cards.concat(cityModels.filter(m => !m.real).slice(0, need).map(m => modelCardHTML(m, true, false)));
+    }
+    el.innerHTML = cards.join('');
   });
 }
 
