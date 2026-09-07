@@ -255,13 +255,20 @@ async function submitBooking() {
 // site rather than as a leftover.
 const PLACEHOLDER_BG = 'linear-gradient(160deg,#242a54 0%,#1a1e42 100%)';
 
-// A real model's lowest quoted rate, checking incall then outcall — either
-// can be empty (outcall-only models like Gelato; a minimal VIP profile like
-// Bayla with no rate on file at all) and Math.min() of an empty array is
-// Infinity, not 0, so this returns null there instead of a bogus "from £∞".
+// A real model's lowest quoted rate for an actual bookable session, checking
+// incall then outcall — either can be empty (outcall-only models like
+// Gelato; a minimal VIP profile like Bayla with no rate on file at all) and
+// Math.min() of an empty array is Infinity, not 0, so this returns null
+// there instead of a bogus "from £∞". "Extra Hour" is excluded even though
+// it's a row in the same rates array — it's an add-on price for extending
+// an existing booking, always cheaper than any real session length, so
+// including it made the catalog/search/cards show it as if it were the
+// model's starting price (e.g. Linda "from £500" when her actual minimum
+// booking is £750/hr — 500 is just her per-extra-hour add-on).
 function startPrice(m) {
   const rates = (m.incallRates && m.incallRates.length) ? m.incallRates : (m.outcallRates || []);
-  return rates.length ? Math.min(...rates.map(r => r.price)) : null;
+  const bookable = rates.filter(r => r.label !== 'Extra Hour');
+  return bookable.length ? Math.min(...bookable.map(r => r.price)) : null;
 }
 
 function modelCardHTML(m, clickable = true, showTags = true) {
