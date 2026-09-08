@@ -6,7 +6,7 @@ const path = require('path');
 const css = fs.readFileSync(path.join(__dirname, '../assets/style.css'), 'utf8');
 
 // Load models
-const { MODELS, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES } = require('../data/models.js');
+const { MODELS, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES } = require('../data/models.js');
 const { BLOG_POSTS } = require('../data/blog.js');
 // URL-safe slug for a city name, used for element ids and query params.
 const citySlug = (c) => c.toLowerCase().replace(/\s+/g, '-');
@@ -278,6 +278,7 @@ const SERVICES = ${JSON.stringify(SERVICES)};
 const NATIONALITIES = ${JSON.stringify(NATIONALITIES)};
 const STATIONS = ${JSON.stringify(STATIONS)};
 const CITIES = ${JSON.stringify(cities)};
+const CATEGORIES = ${JSON.stringify(CATEGORIES)};
 <\/script>`;
 }
 
@@ -432,13 +433,11 @@ ${fakeModelOverlayHTML()}
         <!-- Category -->
         <div class="filter-group">
           <div class="filter-title">Category</div>
-          <div class="filter-chips" id="catChips">
-            <button class="filter-chip active" data-cat="all" onclick="setCat(this,'all')">All</button>
-            <button class="filter-chip" data-cat="recommended" onclick="setCat(this,'recommended')">Recommended</button>
-            <button class="filter-chip" data-cat="under25" onclick="setCat(this,'under25')">Under 25</button>
-            <button class="filter-chip" data-cat="toprated" onclick="setCat(this,'toprated')">Top Rated</button>
-            <button class="filter-chip" data-cat="new" onclick="setCat(this,'new')">New Models</button>
+          <div class="filter-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search category…" oninput="filterCat(this.value)" id="catSearch">
           </div>
+          <div class="filter-list" id="catList"></div>
         </div>
 
         <!-- Location -->
@@ -916,13 +915,11 @@ ${ageModalHTML()}
         <!-- Category -->
         <div class="filter-group">
           <div class="filter-title">Category</div>
-          <div class="filter-chips" id="vipCatChips">
-            <button class="filter-chip active" data-cat="all" onclick="vipSetCat(this,'all')">All</button>
-            <button class="filter-chip" data-cat="recommended" onclick="vipSetCat(this,'recommended')">Recommended</button>
-            <button class="filter-chip" data-cat="under25" onclick="vipSetCat(this,'under25')">Under 25</button>
-            <button class="filter-chip" data-cat="toprated" onclick="vipSetCat(this,'toprated')">Top Rated</button>
-            <button class="filter-chip" data-cat="new" onclick="vipSetCat(this,'new')">New Models</button>
+          <div class="filter-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search category…" oninput="filterVipCat(this.value)">
           </div>
+          <div class="filter-list" id="vipCatList"></div>
         </div>
 
         <!-- Location -->

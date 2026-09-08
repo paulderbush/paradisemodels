@@ -508,9 +508,7 @@ html.no-scroll,html.no-scroll body{overflow:hidden;height:100%}
   padding:2px 8px;border-radius:var(--r);
   font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
 }
-.badge-new{background:rgba(160,224,128,0.2);border:1px solid rgba(160,224,128,0.4);color:#A0E080}
 .badge-vip{background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.35);color:#FFD700}
-.badge-top{background:rgba(255,100,100,0.15);border:1px solid rgba(255,100,100,0.3);color:#FF7070}
 .model-card-overlay{
   position:absolute;bottom:0;left:0;right:0;
   background:linear-gradient(to top,rgba(var(--panel-rgb),0.95) 0%,transparent 100%);
@@ -639,19 +637,6 @@ footer a{color:var(--purple3);text-decoration:none}
 .filter-title{font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem}
 .filter-group{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(var(--brand-light-rgb),0.1)}
 .filter-group:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-
-/* Filter chips */
-.filter-chips{display:flex;flex-wrap:wrap;gap:6px}
-.filter-chip{
-  padding:0.3rem 0.8rem;border-radius:var(--r);
-  background:rgba(var(--brand-rgb),0.08);border:1px solid var(--glass-border);
-  color:var(--text-soft);font-size:12px;font-weight:500;cursor:pointer;
-  transition:all 0.2s;font-family:'Zalando Sans',sans-serif;
-}
-.filter-chip:hover,.filter-chip.active{
-  background:rgba(var(--brand-rgb),0.28);border-color:var(--purple3);
-  color:var(--text);
-}
 
 /* Filter search */
 .filter-search{
