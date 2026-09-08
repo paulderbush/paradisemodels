@@ -68,4 +68,53 @@ async function isVipPaid(userId) {
   return !!(rows[0] && rows[0].paid);
 }
 
-module.exports = {SUPABASE_URL, SUPABASE_ANON_KEY, getUserFromAuthHeader, upsertVipAccess, isVipPaid};
+// Reads the Telegram catalog bot's conversation state for one chat (see
+// sql/002_bot_sessions.sql). A serverless function has no memory between
+// invocations, so this is how api/telegram-bot.js remembers "we're
+// mid-booking, waiting for the client's date" from one webhook call to the
+// next. Falls back to a fresh idle session on any read failure or missing
+// row, rather than throwing — a lost session just restarts the bot's
+// conversation flow, which is recoverable, so it shouldn't break the
+// webhook response Telegram is waiting on.
+async function getBotSession(chatId) {
+  const idle = {state: 'idle', data: {}};
+  if (!SUPABASE_SERVICE_ROLE_KEY) return idle;
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/bot_sessions?chat_id=eq.${chatId}&select=state,data`, {
+    headers: {
+      apikey: SUPABASE_SERVICE_ROLE_KEY,
+      Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`
+    }
+  }).catch(() => null);
+  if (!r || !r.ok) return idle;
+  const rows = await r.json().catch(() => []);
+  const row = rows[0];
+  return row ? {state: row.state, data: row.data || {}} : idle;
+}
+
+// Upserts a chat's session state. Setting state back to 'idle' (rather than
+// deleting the row) keeps a single upsert code path and leaves a small,
+// harmless trail of one row per chat that has ever talked to the bot.
+async function setBotSession(chatId, state, data) {
+  if (!SUPABASE_SERVICE_ROLE_KEY) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY is not configured');
+  }
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/bot_sessions`, {
+    method: 'POST',
+    headers: {
+      apikey: SUPABASE_SERVICE_ROLE_KEY,
+      Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+      'Content-Type': 'application/json',
+      Prefer: 'resolution=merge-duplicates,return=minimal'
+    },
+    body: JSON.stringify({chat_id: chatId, state, data: data || {}, updated_at: new Date().toISOString()})
+  });
+  if (!r.ok) {
+    const text = await r.text().catch(() => '');
+    throw new Error(`Supabase upsert failed (${r.status}): ${text}`);
+  }
+}
+
+module.exports = {
+  SUPABASE_URL, SUPABASE_ANON_KEY, getUserFromAuthHeader, upsertVipAccess, isVipPaid,
+  getBotSession, setBotSession
+};

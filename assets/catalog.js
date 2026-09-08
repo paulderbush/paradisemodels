@@ -1,6 +1,6 @@
 // =================== CATALOG PAGE ===================
 let filteredModels = [...MODELS];
-let activeCat = 'all';
+let selectedCats = [];
 let selectedCities = [];
 let selectedNats = [];
 let selectedSvcs = [];
@@ -22,6 +22,7 @@ function applyCityFromURL() {
 
 function initModelsPage() {
   renderModelsGrid(MODELS);
+  buildCatList();
   buildCityList();
   applyCityFromURL();
   buildNatList();
@@ -47,7 +48,7 @@ function initModelsPage() {
 // a future profile omits one of those arrays entirely.
 function applyFilters() {
   let ms = [...MODELS];
-  if (activeCat !== 'all') ms = ms.filter(m => m.cats && m.cats.includes(activeCat));
+  if (selectedCats.length) ms = ms.filter(m => selectedCats.every(c => m.cats && m.cats.includes(c)));
   if (selectedCities.length) ms = ms.filter(m => selectedCities.includes(m.city));
   if (selectedNats.length) ms = ms.filter(m => selectedNats.includes(m.nationality));
   if (selectedSvcs.length) ms = ms.filter(m => selectedSvcs.every(s => m.svcs && m.svcs.includes(s)));
@@ -66,10 +67,21 @@ function renderModelsGrid(ms) {
   if (cnt) cnt.textContent = `Showing ${ms.length} companion${ms.length === 1 ? '' : 's'}`;
 }
 
-function setCat(el, cat) {
-  document.querySelectorAll('#catChips .filter-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  activeCat = cat;
+function buildCatList() {
+  const el = document.getElementById('catList');
+  if (!el) return;
+  el.innerHTML = CATEGORIES.map(c => `
+    <label class="filter-check">
+      <input type="checkbox" value="${c}" onchange="toggleCat('${c}',this.checked)"> ${c}
+    </label>`).join('');
+}
+function filterCat(q) {
+  const els = document.querySelectorAll('#catList .filter-check');
+  els.forEach(el => { el.style.display = el.textContent.toLowerCase().includes(q.toLowerCase()) ? 'flex' : 'none'; });
+}
+function toggleCat(c, checked) {
+  if (checked) selectedCats.push(c);
+  else selectedCats = selectedCats.filter(x => x !== c);
   applyFilters();
 }
 
@@ -169,9 +181,8 @@ function sortModels(val) {
 }
 
 function clearFilters() {
-  activeCat = 'all'; selectedCities = []; selectedNats = []; selectedSvcs = [];
+  selectedCats = []; selectedCities = []; selectedNats = []; selectedSvcs = [];
   ageRange = [18, 60]; weightRange = [40, 100]; heightRange = [150, 185];
-  document.querySelectorAll('#catChips .filter-chip').forEach((c, i) => c.classList.toggle('active', i === 0));
   document.querySelectorAll('.filter-check input').forEach(cb => cb.checked = false);
   const ageMin = document.getElementById('ageMin'); if (ageMin) ageMin.value = 18;
   const ageMax = document.getElementById('ageMax'); if (ageMax) ageMax.value = 60;

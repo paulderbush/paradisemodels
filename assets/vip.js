@@ -44,7 +44,7 @@ function renderVipTeaser() {
 // data/models.js, which have no weight on file).
 let allVipModels = [];
 let filteredVipModels = [];
-let vipActiveCat = 'all';
+let vipSelectedCats = [];
 let vipSelectedCities = [];
 let vipSelectedNats = [];
 let vipSelectedSvcs = [];
@@ -56,6 +56,7 @@ async function renderVipUnlocked() {
   const grid = document.getElementById('vipUnlocked');
   if (!grid) return;
   allVipModels = await fetchVipModels();
+  buildVipCatList();
   buildVipCityList();
   buildVipNatList();
   buildVipSvcList();
@@ -64,7 +65,7 @@ async function renderVipUnlocked() {
 
 function vipApplyFilters() {
   let ms = [...allVipModels];
-  if (vipActiveCat !== 'all') ms = ms.filter(m => m.cats && m.cats.includes(vipActiveCat));
+  if (vipSelectedCats.length) ms = ms.filter(m => vipSelectedCats.every(c => m.cats && m.cats.includes(c)));
   if (vipSelectedCities.length) ms = ms.filter(m => vipSelectedCities.includes(m.city));
   if (vipSelectedNats.length) ms = ms.filter(m => vipSelectedNats.includes(m.nationality));
   if (vipSelectedSvcs.length) ms = ms.filter(m => vipSelectedSvcs.every(s => m.svcs && m.svcs.includes(s)));
@@ -85,10 +86,24 @@ function renderVipGrid(ms) {
   if (cnt) cnt.textContent = `Showing ${ms.length} VIP companion${ms.length === 1 ? '' : 's'}`;
 }
 
-function vipSetCat(el, cat) {
-  document.querySelectorAll('#vipCatChips .filter-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  vipActiveCat = cat;
+// Uses the same fixed global CATEGORIES list as the public catalog (see
+// assets/catalog.js's buildCatList) rather than deriving options from
+// allVipModels — categories are a fixed taxonomy, not something to infer
+// from whatever happens to be unlocked right now.
+function buildVipCatList() {
+  const el = document.getElementById('vipCatList');
+  if (!el) return;
+  el.innerHTML = CATEGORIES.map(c => `
+    <label class="filter-check">
+      <input type="checkbox" value="${c}" onchange="toggleVipCat('${c}',this.checked)"> ${c}
+    </label>`).join('');
+}
+function filterVipCat(q) {
+  document.querySelectorAll('#vipCatList .filter-check').forEach(el => { el.style.display = el.textContent.toLowerCase().includes(q.toLowerCase()) ? 'flex' : 'none'; });
+}
+function toggleVipCat(c, checked) {
+  if (checked) vipSelectedCats.push(c);
+  else vipSelectedCats = vipSelectedCats.filter(x => x !== c);
   vipApplyFilters();
 }
 
@@ -185,9 +200,8 @@ function sortVipModels(val) {
 }
 
 function clearVipFilters() {
-  vipActiveCat = 'all'; vipSelectedCities = []; vipSelectedNats = []; vipSelectedSvcs = [];
+  vipSelectedCats = []; vipSelectedCities = []; vipSelectedNats = []; vipSelectedSvcs = [];
   vipAgeRange = [18, 60]; vipWeightRange = [40, 100]; vipHeightRange = [150, 185];
-  document.querySelectorAll('#vipCatChips .filter-chip').forEach((c, i) => c.classList.toggle('active', i === 0));
   document.querySelectorAll('#filtersSidebar .filter-check input').forEach(cb => cb.checked = false);
   const bounds = {age: [18, 60], weight: [40, 100], height: [150, 185]};
   Object.keys(bounds).forEach(type => {
