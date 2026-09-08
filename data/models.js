@@ -4946,6 +4946,229 @@ const BAILEY_DATA = {
   reviews: [],
 };
 
+const PHYLLIS_DATA = {
+  id: 9855, real: true, vip: false, folder: 'models/Phyllis', slug: 'phyllis',
+  name: 'Phyllis', age: 25, height: 175, weight: 60,
+  nationality: 'Brazilian', station: 'Notting Hill', city: 'London',
+  rateHour: 450, extraHourPrice: 300,
+  color: ['rgba(220,190,100,0.4)', 'rgba(160,130,20,0.7)'],
+  initials: 'PH',
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Blonde Escorts', 'Brazilian Escorts London', 'Couples Escorts'],
+  breastSize: '32B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Light Brown', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Bi DUO', 'CIF', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Face sitting', 'Filming with mask', 'FK', 'Foot fetish', 'GFE', "Lady's services", 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Uniforms'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 700},
+    {label: '3 Hours', price: 1000},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 450},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1050},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2500},
+  ],
+  description: [
+    "Phyllis is a captivating 25-year-old Brazilian blonde whose light brown eyes and graceful 32B natural figure create an effortlessly elegant impression. Standing at 175 cm with a slender, feminine silhouette, she combines natural beauty with a confident and distinctive presence. Her radiant blonde hair and refined appearance give her a fresh, luminous charm that is both inviting and memorable.",
+    "Her large tattoo adds a bold touch of individuality, while her navel piercing brings a subtle hint of playful allure. Phyllis balances classic femininity with a modern, confident edge, creating an atmosphere that feels relaxed, stylish, and naturally magnetic. Her unique look and graceful presence make her stand out with effortless sophistication.",
+    "Portuguese is her native language, and she also speaks English, allowing her to connect comfortably with an international audience. Open-minded, engaging, and full of Brazilian warmth, Phyllis brings a genuine sense of charm and vibrant personality to every interaction. Elegant, distinctive, and effortlessly alluring, she creates a memorable atmosphere defined by confidence, femininity, and lasting appeal.",
+  ],
+  reviews: [],
+};
+
+const GIULIA_DATA = {
+  id: 9854, real: true, vip: false, folder: 'models/Giulia', slug: 'giulia',
+  name: 'Giulia', age: 23, height: 177, weight: 51,
+  nationality: 'Brazilian', station: 'Monument', city: 'London',
+  rateHour: 450, extraHourPrice: 300,
+  color: ['rgba(130,200,140,0.4)', 'rgba(30,130,50,0.7)'],
+  initials: 'GU',
+  cats: ['All Natural Escorts', 'Blonde Escorts', 'Party Girl Escorts', 'Recommended Escorts'],
+  breastSize: '34A', breastType: 'Natural', clothingSize: '4',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · Italian · Portuguese',
+  svcs: ['69', 'COB', 'FK', 'GFE', 'Light domination', 'MMF for double price', 'OWC', 'Party girl'],
+  extraSvcs: [
+    {name: 'WS giving', price: 20},
+    {name: 'DFK', price: 50},
+    {name: 'OWO', price: 50},
+    {name: 'DT', price: 50},
+    {name: 'Face sitting', price: 50},
+    {name: 'Massage', price: 80},
+    {name: 'Body to body massage', price: 80},
+    {name: 'Sensual massage', price: 80},
+    {name: 'CIF', price: 100},
+    {name: 'CIM', price: 100},
+    {name: 'Filming with mask', price: 450},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 700},
+    {label: '3 Hours', price: 1000},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2300},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 450},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1050},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2300},
+  ],
+  description: [
+    "Giulia is a tall, graceful blonde with luminous green eyes that instantly draw attention. Her beauty feels effortless and fresh, highlighted by a natural elegance and a soft, feminine aura. There is a gentle glow in her presence, as if she carries sunlight with her wherever she goes.",
+    "She moves through life with calm confidence and quiet charm, blending sweetness with inner strength. Giulia's energy is light, warm, and inviting, making every conversation feel easy and natural. Behind her delicate appearance lives a curious soul, always open to the world, cultures, and new experiences.",
+    "Born in Brazil and fluent in several languages, Giulia embodies international allure. She is modern, intelligent, and endlessly captivating — a girl who feels both familiar and rare at the same time. With her refined beauty and open heart, she leaves a lasting impression long after the first glance.",
+  ],
+  reviews: [],
+};
+
+const AISHA_DATA = {
+  id: 9853, real: true, vip: false, folder: 'models/Aisha', slug: 'aisha',
+  name: 'Aisha', age: 21, height: 158, weight: 48,
+  nationality: 'Russian', station: 'Knightsbridge', city: 'London',
+  rateHour: 400, extraHourPrice: 350,
+  color: ['rgba(190,150,190,0.4)', 'rgba(120,60,120,0.7)'],
+  initials: 'AH',
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Recommended Escorts', 'Russian Escorts London'],
+  breastSize: '32B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Russian · Ukrainian',
+  svcs: ['69', 'COB', 'DFK', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Group for extra price', 'Light domination', 'Massage', 'MMF for double price', 'OWO', 'Party girl', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Tie and Tease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'CIF', price: 70},
+    {name: 'CIM', price: 70},
+    {name: 'Swallow', price: 100},
+    {name: 'Filming without mask', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1100},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3300},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 450},
+    {label: '90 Min', price: 650},
+    {label: '2 Hours', price: 800},
+    {label: '3 Hours', price: 1150},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3300},
+  ],
+  description: [
+    "Meet Aisha, a captivating 21-year-old Russian beauty who effortlessly combines a warm, engaging look with a genuinely adventurous spirit. With her petite frame, soft brown eyes, and delicate features, she brings a refreshing, all-natural charm to every room she enters. Free from any enhancements, her look is entirely authentic, making her the perfect choice for a gentleman who appreciates pure, unforced beauty and vibrant energy.",
+    "Behind that warm smile lies an incredibly open-minded and sophisticated companion. Aisha loves connecting on a deeper level and welcomes new experiences with genuine curiosity and excitement. Whether you are looking for a playful laugh over a quiet dinner, a stunning date for an exclusive event, or a deeply relaxed, private escape from the world, her easy-going nature ensures you will both feel completely at ease from the very first moment.",
+    "Aisha understands that the best moments in life are built on chemistry, discretion, and mutual desire. She is ready to turn your time together into an unforgettable memory tailored exactly to your mood. Reach out today to experience her rare blend of natural elegance and captivating charm first-hand — you deserve an encounter this perfect.",
+  ],
+  reviews: [],
+};
+
+const YAROSLAVA_DATA = {
+  id: 9852, real: true, vip: false, folder: 'models/Yaroslava', slug: 'yaroslava',
+  name: 'Yaroslava', age: 23, height: 175, weight: 56,
+  nationality: 'Kazakh', station: "Earl's Court", city: 'London',
+  rateHour: 400, extraHourPrice: 350,
+  color: ['rgba(230,200,90,0.4)', 'rgba(170,140,10,0.7)'],
+  initials: 'YA',
+  cats: ['All Natural Escorts', 'Blonde Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Russian Escorts London'],
+  breastSize: '32B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Black', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'DFK', 'Dirty talk', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWO', 'Party girl', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'CIM', price: 50},
+    {name: 'DT', price: 50},
+    {name: 'Prostate massage', price: 50},
+    {name: 'CIF', price: 100},
+    {name: 'Swallow', price: 100},
+    {name: 'PSE', price: 100},
+    {name: 'Tie and Tease', price: 100},
+    {name: 'Filming with mask', price: 150},
+    {name: 'Filming without mask', price: 250},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1100},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3300},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 450},
+    {label: '90 Min', price: 650},
+    {label: '2 Hours', price: 800},
+    {label: '3 Hours', price: 1150},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3300},
+  ],
+  description: [
+    "Meet Yaroslava, a stunning 23-year-old natural beauty with Kazakh-Russian roots. She's got gorgeous blonde hair and a vibe that's all about chill, confidence, and good energy. Her bright eyes and genuine smile instantly make you feel at ease, and her laid-back personality makes every moment fun and relaxed.",
+    "Yaroslava is very open-minded and loves to party, always up for new adventures and exciting experiences. She's highly professional and dedicated to providing the best, most memorable encounters. Whether it's flirty conversations or some playful roleplay, she's eager to make sure everything's just right and keeps things exciting and satisfying.",
+    "Beyond her natural beauty, she's friendly, down-to-earth, and genuinely cares about making you feel comfortable and happy. If you're looking for someone authentic, lively, and ready to turn up the fun while maintaining a professional attitude, Yaroslava's the perfect girl to bring your fantasies to life.",
+  ],
+  reviews: [],
+};
+
+const CHAVELA_DATA = {
+  id: 9851, real: true, vip: false, folder: 'models/Chavela', slug: 'chavela',
+  name: 'Chavela', age: 22, height: 166, weight: 63,
+  nationality: 'Brazilian', station: 'Aldgate East', city: 'London',
+  rateHour: 400, extraHourPrice: 300,
+  color: ['rgba(210,110,90,0.4)', 'rgba(150,50,30,0.7)'],
+  initials: 'CH',
+  cats: ['Bisexual Escorts', 'Brazilian Escorts London', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Curvy Escorts', 'Party Girl Escorts', 'Striptease Escorts'],
+  breastSize: '36D', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese · Spanish',
+  svcs: ['69', 'Body to body massage', 'COB', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Group for extra price', "Lady's services", 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'Party girl', 'Prostate massage', 'PSE', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'DFK', price: 30},
+    {name: 'OWO', price: 30},
+    {name: 'CIF', price: 50},
+    {name: 'WS giving', price: 60},
+    {name: 'CIM', price: 70},
+    {name: 'Strap-on', price: 70},
+    {name: 'Swallow', price: 90},
+    {name: 'Bi DUO', price: 100},
+    {name: 'Rimming giving', price: 100},
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 700},
+    {label: '3 Hours', price: 1000},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2800},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 450},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1050},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2800},
+  ],
+  description: [
+    "Prepare to be completely captivated by Chavela, a stunning young brunette who effortlessly combines natural allure with a striking, sophisticated edge. Instantly recognizable by her signature, ultra-sexy glasses and an unforgettable, curvy Brazilian physique, she represents the absolute pinnacle of premium companionship. Every detail of her appearance—from her flawless dark hair to her jaw-dropping, busty silhouette — is designed to leave a lasting impression.",
+    "As one of our top-rated elite models, Chavela has earned a flawless reputation built on versatility and unparalleled professionalism. She proudly offers an extensive menu of premium services tailored to match your exact desires, ensuring a completely bespoke experience. Whether you require an elegant partner for a high-profile event or an intimate, unhurried escape, she adapts seamlessly to fulfill your expectations.",
+    "What truly sets Chavela apart is her vibrant energy and her genuine dedication to her guests' absolute satisfaction. Every moment spent in her presence is marked by luxury, comfort, and an undeniable chemistry that makes time stand still. Book your time with perfection today and discover exactly why Chavela remains a premier favorite.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -5011,6 +5234,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA,VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
