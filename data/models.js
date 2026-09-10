@@ -1086,7 +1086,7 @@ const HELENA_DATA = {
   name: 'Helena', age: 27, height: 177, weight: 54,
   clothingSize: '8', breastSize: '34C', breastType: 'Natural',
   eyeColor: 'Green', hairColor: 'Brown', orientation: 'Heterosexual',
-  nationality: 'Ukrainian', city: 'London',
+  nationality: 'Ukrainian', city: 'Zurich',
   languages: 'English · Russian · Ukrainian',
   color: ['rgba(90,150,120,0.4)', 'rgba(30,90,60,0.7)'],
   initials: 'HE',
