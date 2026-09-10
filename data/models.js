@@ -1086,7 +1086,7 @@ const HELENA_DATA = {
   name: 'Helena', age: 27, height: 177, weight: 54,
   clothingSize: '8', breastSize: '34C', breastType: 'Natural',
   eyeColor: 'Green', hairColor: 'Brown', orientation: 'Heterosexual',
-  nationality: 'Ukrainian', city: 'London',
+  nationality: 'Ukrainian', city: 'Zurich',
   languages: 'English · Russian · Ukrainian',
   color: ['rgba(90,150,120,0.4)', 'rgba(30,90,60,0.7)'],
   initials: 'HE',
@@ -5243,6 +5243,277 @@ const ANGELINA_DATA = {
   reviews: [],
 };
 
+const BRENDA_DATA = {
+  id: 9847, real: true, vip: false, folder: 'models/Brenda', slug: 'brenda',
+  name: 'Brenda', age: 29, height: 172, weight: 78,
+  nationality: 'Brazilian', city: 'London',
+  color: ['rgba(200,140,90,0.4)', 'rgba(140,80,30,0.7)'],
+  initials: 'BR',
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Busty Escorts', 'Curvy Escorts', 'Mature Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Striptease Escorts'],
+  breastSize: '38C', breastType: 'Natural', clothingSize: '16',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Portuguese · Spanish · French',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'DT', 'Erotic massage', 'Face sitting', 'FK', 'GFE', 'Lapdancing', 'Latex outfit', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Uniforms', 'WS giving'],
+  extraSvcs: [
+    {name: 'CIM', price: 100},
+    {name: 'A-Level', price: 100},
+    {name: 'Nuru massage', price: 100},
+  ],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 450},
+    {label: '90 Min', price: 700},
+    {label: '2 Hours', price: 900},
+    {label: '3 Hours', price: 1350},
+    {label: 'Extra Hour', price: 450},
+    {label: 'Overnight', price: 2000},
+  ],
+  description: [
+    "Brenda is a sultry Brazilian enchantress with an irresistible hourglass body and a naturally full bust that leaves a lasting impression. Her curves are bold and unapologetically feminine, exuding a raw, confident allure. With her smoldering gaze and radiant smile, Brenda knows exactly how to captivate — she's the kind of woman who turns heads the moment she enters a room.",
+    "Fluent in English, Spanish, French, and Portuguese, Brenda brings a truly international charm to every encounter. She offers a deeply indulgent experience, including professional Nuru massage, tailored to leave you utterly relaxed and fully satisfied. Her skills, both intuitive and practiced, elevate physical connection into something extraordinary — slow, intense, unforgettable.",
+    "If you're craving a curvy seductress who knows how to please on every level, Brenda is ready to deliver a high-voltage escape. Outcall visits only — let her take control and show you the true meaning of uninhibited pleasure.",
+  ],
+  reviews: [],
+};
+
+const MANORI_DATA = {
+  id: 9846, real: true, vip: false, folder: 'models/Manori', slug: 'manori',
+  name: 'Manori', age: 28, height: 167, weight: 54,
+  nationality: 'Brazilian', station: 'Earl\'s Court', city: 'London',
+  color: ['rgba(150,90,70,0.4)', 'rgba(100,50,30,0.7)'],
+  initials: 'MW',
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Curvy Escorts', 'Mature Escorts', 'Party Girl Escorts', 'Striptease Escorts'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'DFK', 'Dirty talk', 'Domination', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Massage', 'Party girl', 'Poppers', 'Roleplay', 'Strap-on'],
+  extraSvcs: [
+    {name: 'Swallow', price: 100},
+    {name: 'OWO', price: 100},
+    {name: 'Bi DUO', price: 100},
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1100},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 450},
+    {label: '90 Min', price: 650},
+    {label: '2 Hours', price: 800},
+    {label: '3 Hours', price: 1150},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3000},
+  ],
+  description: [
+    "Manori is the kind of woman who commands attention without saying a word — a striking brunette with a perfectly toned, athletic body and a captivating smile that melts the room. Her energy is grounded and sensual, with a natural elegance shaped by experience and confidence. Every line of her physique reflects strength and passion, wrapped in feminine allure.",
+    "Deeply in tune with her sensuality, Manori knows how to create a connection that's both electrifying and effortless. She brings the warmth and fire of Brazil into every encounter — attentive, intuitive, and fully present. Whether you're seeking a sophisticated muse or an unforgettable night of intensity, she delivers with grace and strength.",
+    "With Manori, you don't just get a date — you get a moment of escape, designed to awaken every sense. Let yourself be drawn in by her smile, and let the rest unfold naturally.",
+  ],
+  reviews: [],
+};
+
+const MANTERRA_DATA = {
+  id: 9845, real: true, vip: false, folder: 'models/Manterra', slug: 'manterra',
+  name: 'Manterra', age: 27, height: 163, weight: 60,
+  nationality: 'Brazilian', station: 'Marylebone', city: 'London',
+  color: ['rgba(170,100,80,0.4)', 'rgba(110,60,40,0.7)'],
+  initials: 'MT',
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Curvy Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Striptease Escorts'],
+  breastSize: '36C', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Spanish · Portuguese',
+  svcs: ['69', 'COB', 'DFK', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'FK', 'GFE', 'Light domination', 'Massage', 'OWO', 'Party girl', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'CIM', price: 50},
+    {name: 'Bi DUO', price: 50},
+    {name: 'Rimming giving', price: 50},
+    {name: 'A-Level', price: 100},
+    {name: 'Filming with mask', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 650},
+    {label: '3 Hours', price: 950},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2400},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 700},
+    {label: '3 Hours', price: 1000},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2400},
+  ],
+  description: [
+    "Manterra is a charming Brazilian brunette, known for her big bust and unforgettable experience. She is a gorgeous, five star luxury escort who enjoys spending quality time with you. Manterra is expert at following every conversation with passion. She is the perfect companion for every occasion. She is an elite lady with a great sense of humor, wit, and charm. She is a sensual, open-minded, warm lady who loves traveling, dancing, and indulging people.",
+    "Manterra is a confident and unrestrained woman who will make all your seductive wishes real. She wants to see you, so book her now!",
+  ],
+  reviews: [],
+};
+
+const MILEVA_DATA = {
+  id: 9844, real: true, vip: false, folder: 'models/Mileva', slug: 'mileva',
+  name: 'Mileva', age: 18, height: 157, weight: 46,
+  nationality: 'Ukrainian', station: 'Earl\'s Court', city: 'London',
+  color: ['rgba(190,180,120,0.4)', 'rgba(130,120,50,0.7)'],
+  initials: 'MV',
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Blonde Escorts', 'Couples Escorts', 'Mature Escorts', 'Striptease Escorts', 'Ukrainian Escorts'],
+  breastSize: '30B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Russian · Ukrainian',
+  svcs: ['69', 'COB', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Massage', 'OWO', 'Poppers', 'Rimming receiving', 'Spanking giving', 'Striptease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'DFK', price: 40},
+    {name: 'CIF', price: 70},
+    {name: 'CIM', price: 70},
+    {name: 'Prostate massage', price: 70},
+    {name: 'Bi DUO', price: 100},
+    {name: 'Couples', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1100},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3300},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 450},
+    {label: '90 Min', price: 650},
+    {label: '2 Hours', price: 800},
+    {label: '3 Hours', price: 1150},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3300},
+  ],
+  description: [
+    "Mileva is a striking Ukrainian companion with a graceful frame, soft blonde hair and captivating green eyes. Her look is elegant and refined, paired with a naturally confident presence that draws attention wherever she goes.",
+    "Warm and open-minded, Mileva connects easily and brings a relaxed, engaging energy to every meeting. She carries herself with quiet confidence, blending charm with genuine attentiveness.",
+    "For a companion who combines Eastern European elegance with an easy, natural warmth, Mileva is an excellent choice. Book your time with her today.",
+  ],
+  reviews: [],
+};
+
+const ROSE_DATA = {
+  id: 9843, real: true, vip: false, folder: 'models/Rose', slug: 'rose',
+  name: 'Rose', age: 25, height: 165, weight: 63,
+  nationality: 'Brazilian', station: 'Marylebone', city: 'London',
+  color: ['rgba(210,90,110,0.4)', 'rgba(150,30,60,0.7)'],
+  initials: 'RO',
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Curvy Escorts', 'Mature Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Striptease Escorts'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Blue', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Spanish · Portuguese',
+  svcs: ['COB', 'DFK', 'Toys', 'Face sitting', 'FK', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'Party girl', 'Poppers', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'OWO', price: 50},
+    {name: 'CIF', price: 100},
+    {name: 'A-Level', price: 100},
+    {name: 'Bi DUO', price: 100},
+    {name: 'WS giving', price: 100},
+    {name: 'Rimming giving', price: 100},
+    {name: 'Strap-on', price: 100},
+    {name: 'CIM', price: 150},
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 700},
+    {label: '3 Hours', price: 1050},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 2800},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 600},
+    {label: '2 Hours', price: 750},
+    {label: '3 Hours', price: 1100},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 2800},
+  ],
+  description: [
+    "Rose is a stunning Brazilian beauty who embodies confident femininity and mature allure. At 25, she radiates self-assurance and sensual charm, with captivating blue eyes that contrast beautifully with her rich brunette hair. Her curvy silhouette, enhanced figure, and graceful presence create an unforgettable impression wherever she goes.",
+    "Her style is bold yet elegant, perfectly balancing sophistication with passion. Open-minded and charismatic, Rose embraces her bisexual orientation with confidence and authenticity, celebrating connection in all its forms.",
+    "Warm, magnetic, and irresistibly captivating, Rose knows exactly how to make every moment feel special. Her Brazilian fire, combined with her mature confidence, creates an atmosphere that is both inviting and unforgettable — a true embodiment of sensual elegance and empowered beauty.",
+  ],
+  reviews: [],
+};
+
+const FRANCESCA_DATA = {
+  id: 9842, real: true, vip: false, folder: 'models/Francesca', slug: 'francesca',
+  name: 'Francesca', age: 26, height: 170, weight: 48.5,
+  nationality: 'Italian', city: 'Milan',
+  color: ['rgba(160,110,150,0.4)', 'rgba(100,50,90,0.7)'],
+  initials: 'FR',
+  cats: [],
+  breastType: 'Natural',
+  eyeColor: 'Hazel Green', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'Italian · English · Spanish',
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "Francesca is an elegant Italian companion based in Milan, with rich brunette hair and striking hazel-green eyes that give her a magnetic, sophisticated look. Her presence is refined and effortlessly graceful, equally at home in Milan's most polished settings.",
+    "Fluent in Italian and English with conversational Spanish, she offers warm, attentive company for those who value discretion and genuine connection. Her manner is calm, engaging and unhurried.",
+    "For sophisticated companionship in Milan, Francesca is an outstanding choice. Rates available on request — get in touch to arrange your time with her.",
+  ],
+  reviews: [],
+};
+
+const FRANCHE_DATA = {
+  id: 9841, real: true, vip: false, folder: 'models/Franche', slug: 'franche',
+  name: 'Franche', age: 24, height: 170, weight: 50,
+  nationality: 'Italian', city: 'Milan',
+  color: ['rgba(200,170,120,0.4)', 'rgba(140,110,60,0.7)'],
+  initials: 'FA',
+  cats: [],
+  breastSize: '34C', breastType: 'Enhanced',
+  eyeColor: 'Brown', hairColor: 'Dark Blonde', orientation: 'Bisexual',
+  languages: 'Italian · English · French · Spanish',
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "Franche brings a bright, confident energy to Milan — a striking dark blonde with warm brown eyes and a naturally elegant figure. She carries herself with an easy, magnetic charm that suits the city's stylish pace.",
+    "Multilingual and well-travelled, she moves comfortably between Italian, English, French and Spanish company, always warm, open-minded and genuinely engaging.",
+    "For vibrant, sophisticated company in Milan, Franche is a wonderful choice. Rates available on request — get in touch to arrange your time with her.",
+  ],
+  reviews: [],
+};
+
+const ANDREA_DATA = {
+  id: 9840, real: true, vip: false, folder: 'models/Andrea', slug: 'andrea',
+  name: 'Andrea', age: 24, height: 172, weight: 49,
+  nationality: 'Serbian', city: 'Milan',
+  color: ['rgba(150,140,180,0.4)', 'rgba(90,80,130,0.7)'],
+  initials: 'AF',
+  cats: [],
+  breastSize: 'B+', breastType: 'Natural', clothingSize: 'XS',
+  eyeColor: 'Brown', hairColor: 'Brown', orientation: 'Bisexual',
+  languages: 'Serbian · English · Russian',
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "Andrea brings a slender, graceful presence to Milan — a Serbian beauty with soft brown hair, warm brown eyes and a naturally petite figure. Her look is understated and elegant, with a quiet confidence that draws people in.",
+    "Open-minded and easygoing, she connects effortlessly across languages, comfortable in Serbian, English and conversational Russian. Her manner is warm and unhurried, favouring genuine connection over anything rushed.",
+    "For refined company in Milan, Andrea is an excellent choice. Rates available on request — get in touch to arrange your time with her.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -5308,6 +5579,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
