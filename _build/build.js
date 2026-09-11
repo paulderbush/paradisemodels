@@ -998,6 +998,10 @@ ${ageModalHTML()}
       <div>
         <div class="filters-top-bar">
           <div class="results-count" id="vipResultsCount">Showing all VIP companions</div>
+          <div class="filter-search vip-name-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search VIP models…" oninput="filterVipByName(this.value)" id="vipNameSearch">
+          </div>
           <select class="sort-select" onchange="sortVipModels(this.value)">
             <option value="default">Sort: Default</option>
             <option value="price-asc">Price: Low to High</option>
