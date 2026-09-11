@@ -5572,7 +5572,7 @@ const GUMMI_DATA = {
   breastSize: '34A', breastType: 'Natural', clothingSize: '8',
   eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English · Portuguese',
-  svcs: [],
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'Party girl', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease'],
   extraSvcs: [
     {name: 'OWO', price: 50},
     {name: 'CIF', price: 100},
@@ -5650,7 +5650,7 @@ const DINASTIA_DATA = {
   breastSize: '38DD', breastType: 'Natural', clothingSize: '10',
   eyeColor: 'Brown', hairColor: 'Blonde', orientation: 'Bisexual',
   languages: 'English · Spanish',
-  svcs: [],
+  svcs: ['69', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fetish', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Latex outfit', 'Light domination', 'Massage', 'OWC', 'Party girl', 'Poppers', 'Prostate massage', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'Tie and Tease', 'Uniforms'],
   extraSvcs: [
     {name: 'Body to body massage', price: 50},
     {name: 'Fisting giving', price: 50},
