@@ -44,6 +44,7 @@ function renderVipTeaser() {
 // data/models.js, which have no weight on file).
 let allVipModels = [];
 let filteredVipModels = [];
+let vipNameQuery = '';
 let vipSelectedCats = [];
 let vipSelectedCities = [];
 let vipSelectedNats = [];
@@ -63,8 +64,14 @@ async function renderVipUnlocked() {
   vipApplyFilters();
 }
 
+function filterVipByName(q) {
+  vipNameQuery = q;
+  vipApplyFilters();
+}
+
 function vipApplyFilters() {
   let ms = [...allVipModels];
+  if (vipNameQuery.trim()) ms = ms.filter(m => m.name && m.name.toLowerCase().includes(vipNameQuery.trim().toLowerCase()));
   if (vipSelectedCats.length) ms = ms.filter(m => vipSelectedCats.every(c => m.cats && m.cats.includes(c)));
   if (vipSelectedCities.length) ms = ms.filter(m => vipSelectedCities.includes(m.city));
   if (vipSelectedNats.length) ms = ms.filter(m => vipSelectedNats.includes(m.nationality));
@@ -200,8 +207,10 @@ function sortVipModels(val) {
 }
 
 function clearVipFilters() {
+  vipNameQuery = '';
   vipSelectedCats = []; vipSelectedCities = []; vipSelectedNats = []; vipSelectedSvcs = [];
   vipAgeRange = [18, 60]; vipWeightRange = [40, 100]; vipHeightRange = [150, 185];
+  const nameEl = document.getElementById('vipNameSearch'); if (nameEl) nameEl.value = '';
   document.querySelectorAll('#filtersSidebar .filter-check input').forEach(cb => cb.checked = false);
   const bounds = {age: [18, 60], weight: [40, 100], height: [150, 185]};
   Object.keys(bounds).forEach(type => {
