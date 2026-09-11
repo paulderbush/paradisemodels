@@ -6359,6 +6359,217 @@ const DELMAR_DATA = {
   reviews: [],
 };
 
+const FURONDA_DATA = {
+  id: 9819, real: true, vip: false, folder: 'models/Furonda', slug: 'furonda',
+  name: 'Furonda', age: 22, height: 161, weight: 60,
+  nationality: 'Brazilian', station: 'Paddington', city: 'London',
+  color: ['rgba(170,120,110,0.4)', 'rgba(110,60,50,0.7)'],
+  initials: 'FU',
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Striptease Escorts'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '10',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'COB', 'DFK', 'DT', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWC', 'Party girl', 'Poppers', 'Prostate massage', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'OWO', price: 50},
+    {name: 'Bi DUO', price: 100},
+    {name: 'Couples', price: 150},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 650},
+    {label: '3 Hours', price: 950},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2700},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 700},
+    {label: '3 Hours', price: 1000},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2700},
+  ],
+  description: [
+    "Furonda is a captivating Brazilian beauty whose presence radiates warmth, confidence, and irresistible charm. With her rich brunette hair and deep brown eyes, she carries a natural magnetism that instantly draws attention. There's an easy sensuality in the way she moves — soft, grounded, and full of vibrant energy that feels both inviting and exciting.",
+    "Her feminine silhouette is beautifully shaped, enhanced by graceful curves that reflect her confident, open spirit. Tattoos add a touch of bold personality to her look, hinting at a playful and adventurous side beneath her calm exterior. Furonda knows how to balance sweetness with intensity, creating an aura that feels alive, passionate, and unmistakably Latin.",
+    "Open-minded and affectionate, Furonda connects through genuine chemistry and shared energy. She brings warmth into every moment, making time with her feel natural, spontaneous, and deeply engaging. With her Brazilian fire and soft sensual presence, she leaves a lasting impression — one that lingers long after the moment has passed.",
+  ],
+  reviews: [],
+};
+
+const NADEL_DATA = {
+  id: 9818, real: true, vip: false, folder: 'models/Nadel', slug: 'nadel',
+  name: 'Nadel', age: 21, height: 171, weight: 65,
+  nationality: 'Brazilian', station: 'Soho', city: 'London',
+  color: ['rgba(160,140,190,0.4)', 'rgba(100,80,130,0.7)'],
+  initials: 'NL',
+  cats: ['Brunette Escorts', 'Busty Escorts', 'Curvy Escorts', 'Party Girl Escorts'],
+  breastSize: '32B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'A-Level', 'COB', 'DT', 'Erotic massage', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWC', 'Party girl', 'PSE', 'Rimming receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'Face sitting', price: 30},
+    {name: 'OWO', price: 40},
+    {name: 'FK', price: 40},
+    {name: 'DFK', price: 40},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 650},
+    {label: '3 Hours', price: 950},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 700},
+    {label: '3 Hours', price: 1000},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2500},
+  ],
+  description: [
+    "Meet Nadel, a gorgeous Brazilian brunette with a vibe that'll leave you hooked. She's got a sexy, curvy body and stunning brown eyes that show she's full of life and curiosity. Her dark hair flows perfectly, and her confident, laid-back attitude makes her even more irresistible.",
+    "Nadel's super open-minded and loves trying new things. She's all about having a good time, whether it's deep chats or playful roleplay. She's great at making sure you get the best experience, tailoring everything to keep things exciting and satisfying.",
+    "Beyond her looks, she's warm, real, and totally tuned into what you want. She's all about creating a chill, fun vibe where you can relax and enjoy every moment. If you're looking for someone who's fun, flirty, and ready to make your fantasies come true, Nadel's the one.",
+  ],
+  reviews: [],
+};
+
+const MALATI_DATA = {
+  id: 9817, real: true, vip: false, folder: 'models/Malati', slug: 'malati',
+  name: 'Malati', age: 27, height: 160, weight: 60,
+  nationality: 'Brazilian', station: 'Baker Street', city: 'London',
+  color: ['rgba(190,150,120,0.4)', 'rgba(130,90,60,0.7)'],
+  initials: 'MQ',
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Brazilian Escorts London', 'Brunette Escorts', 'Party Girl Escorts', 'Striptease Escorts'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '10',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Toys', 'Face sitting', 'FK', 'GFE', 'Lapdancing', 'Massage', 'OWC', 'OWO', 'Party girl', 'Rimming receiving', 'Striptease'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'DT', price: 50},
+    {name: 'Prostate massage', price: 50},
+    {name: 'CIM', price: 100},
+    {name: 'Bi DUO', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 300},
+    {label: '90 Min', price: 450},
+    {label: '2 Hours', price: 550},
+    {label: '3 Hours', price: 800},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 2000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 600},
+    {label: '3 Hours', price: 850},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 2000},
+  ],
+  description: [
+    "Malati is a beautiful Brazilian brunette whose natural curves and effortless elegance create a truly captivating presence. Standing at 160 cm with a naturally feminine figure, she combines soft sophistication with warm confidence. Her rich brunette hair and expressive brown eyes enhance her timeless beauty, giving her an inviting and unforgettable charm.",
+    "With her natural appearance and subtle tattoos, Malati perfectly balances authenticity with modern individuality. She carries herself with quiet confidence and graceful femininity, creating an atmosphere that feels both relaxed and irresistibly alluring. Her polished style and genuine warmth make every encounter feel personal, refined, and effortlessly memorable.",
+    "Fluent in both Portuguese and English, Malati connects naturally through her engaging personality and vibrant Brazilian spirit. Open-minded, charismatic, and attentive, she brings warmth and positive energy wherever she goes. Elegant, genuine, and naturally captivating, Malati offers an experience defined by beauty, confidence, and meaningful connection.",
+  ],
+  reviews: [],
+};
+
+const GLO_DATA = {
+  id: 9816, real: true, vip: false, folder: 'models/Glo', slug: 'glo',
+  name: 'Glo', age: 24, height: 160, weight: 55,
+  nationality: 'Brazilian', station: 'Poplar', city: 'London',
+  color: ['rgba(220,200,120,0.4)', 'rgba(160,140,50,0.7)'],
+  initials: 'GL',
+  cats: ['Bisexual Escorts', 'Blonde Escorts', 'Busty Escorts', 'Couples Escorts', 'Curvy Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Striptease Escorts'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · Portuguese · Spanish',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'Party girl', 'PSE', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Striptease'],
+  extraSvcs: [
+    {name: 'WS giving', price: 30},
+    {name: 'Rimming giving', price: 30},
+    {name: 'OWO', price: 40},
+    {name: 'CIF', price: 50},
+    {name: 'Couples', price: 70},
+    {name: 'A-Level', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 300},
+    {label: '90 Min', price: 450},
+    {label: '2 Hours', price: 550},
+    {label: '3 Hours', price: 800},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 1800},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 600},
+    {label: '3 Hours', price: 850},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 1800},
+  ],
+  description: [
+    "Glo is an unforgettable vision of blonde allure, her sun-kissed hair and mesmerizing gaze drawing you in from the first glance. Her body is a living canvas — artful tattoos trace her flawless skin, each one a story, a secret, an invitation. With her radiant beauty and sultry curves, she turns heads effortlessly, but it's her magnetic presence that truly captivates.",
+    "Originally from Brazil, Glo brings passion, heat, and rhythm to every moment spent together. She's adventurous, open-minded, and completely uninhibited — ready to explore every fantasy with seductive finesse and natural charm. Her touch is electric, her energy intoxicating, and she thrives on creating experiences that feel deeply personal and wildly exhilarating.",
+    "If you're seeking the best — not just in looks, but in connection, intensity, and pure satisfaction — Glo is your ultimate escape. She doesn't just meet expectations; she rewrites them. Let her take you where pleasure has no limits.",
+  ],
+  reviews: [],
+};
+
+const MINOLA_DATA = {
+  id: 9815, real: true, vip: false, folder: 'models/Minola', slug: 'minola',
+  name: 'Minola', age: 26, height: 171, weight: 58,
+  nationality: 'Brazilian', station: 'Baker Street', city: 'London',
+  color: ['rgba(180,130,150,0.4)', 'rgba(120,70,90,0.7)'],
+  initials: 'MC',
+  cats: ['Bisexual Escorts', 'Brazilian Escorts London', 'Brunette Escorts', 'Party Girl Escorts', 'Roleplay Escorts'],
+  breastSize: '34D', breastType: 'Enhanced', clothingSize: '10',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'COB', 'Toys', 'Face sitting', 'Fingering', 'Foot fetish', 'GFE', 'Group for extra price', "Lady's services", 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'Party girl', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving'],
+  extraSvcs: [
+    {name: 'FK', price: 10},
+    {name: 'DFK', price: 20},
+    {name: 'OWO', price: 30},
+    {name: 'CIF', price: 50},
+    {name: 'CIM', price: 50},
+    {name: 'Prostate massage', price: 50},
+    {name: 'A-Level', price: 100},
+    {name: 'Couples', price: 200},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 300},
+    {label: '90 Min', price: 450},
+    {label: '2 Hours', price: 550},
+    {label: '3 Hours', price: 800},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 2000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 600},
+    {label: '3 Hours', price: 850},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 2000},
+  ],
+  description: [
+    "Minola is an elegant Brazilian brunette with a warm, confident presence and an effortlessly captivating look. Her deep brown eyes and rich hair frame a graceful, feminine figure that draws attention with quiet ease.",
+    "Open-minded and attentive, she enjoys creating a relaxed, genuine connection, comfortable with everything from playful roleplay to unhurried conversation. Her manner is warm and engaging, always tuned into what makes the moment feel right.",
+    "Fluent in Portuguese and English, Minola brings vibrant Brazilian charm to every encounter. For a companion who blends elegance with an easy, natural warmth, she's an excellent choice.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -6424,6 +6635,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
