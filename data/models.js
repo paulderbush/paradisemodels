@@ -1186,7 +1186,7 @@ const KAMILA_DATA = {
   color: ['rgba(170,130,200,0.4)', 'rgba(110,70,150,0.7)'],
   initials: 'KM',
   cats: ['new'],
-  svcs: [],
+  svcs: ['COB', 'DUO', 'Face sitting', 'FK', 'Massage', 'OWC', 'Party girl', 'Spanking giving', 'WS giving'],
   extraSvcs: [],
   incallRates: [],
   outcallRates: [],
