@@ -211,6 +211,10 @@ function footerHTML(paradise = false) {
     </div>
     <div class="footer-left">
       <p>© 2026 ${brand}. All rights reserved. For adults 18+ only.</p>
+      <div class="footer-legal-links">
+        <a href="/terms/">Terms and Conditions</a>
+        <a href="/privacypolicy/">Privacy Policy</a>
+      </div>
     </div>
   </div>
 </footer>`;
@@ -1510,6 +1514,335 @@ const CITIES = [];
 </html>`;
 }
 
+// Shared wrapper for a long-form legal document page: title, an anchor-link
+// table of contents, then the numbered sections themselves. scroll-margin-top
+// on each heading keeps it clear of the fixed nav when a TOC link is clicked.
+function legalDocPage({title, desc, path: urlPath, heading, intro = '', toc, sections}) {
+  return head(
+    `${title} | Paradise Models`,
+    desc,
+    SITE_URL + urlPath,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    '#1a1e42'
+  ) + `
+<body class="page-about">
+${orbsHTML()}
+${navHTML(true, false, true)}
+${ageModalHTML()}
+
+<div style="position:relative;z-index:1">
+  <div class="become-page" style="max-width:820px">
+    <a class="back-btn" href="/">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+
+    <div class="form-section" style="margin-bottom:2rem">
+      <h1 style="font-size:clamp(1.5rem,3.5vw,2rem);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:0.75rem">${heading}</h1>
+      ${intro}
+      <ol style="margin:0;padding-left:1.25rem;color:var(--text-soft);font-size:14px;line-height:2">
+        ${toc.map(([id, label]) => `<li><a href="#${id}" style="color:var(--purple3);text-decoration:none">${label}</a></li>`).join('\n        ')}
+      </ol>
+    </div>
+
+    ${sections.map(([id, label, body]) => `
+    <div class="form-section" id="${id}" style="scroll-margin-top:90px">
+      <div class="form-section-title" style="font-size:1.05rem;color:var(--text);text-transform:none;letter-spacing:normal">${label}</div>
+      <div style="color:var(--text-soft);font-size:14px;line-height:1.85">${body}</div>
+    </div>`).join('\n')}
+  </div>
+</div>
+
+${footerHTML(true)}
+<script>
+const MODELS = [];
+const SERVICES = [];
+const NATIONALITIES = [];
+const STATIONS = [];
+const CITIES = [];
+<\/script>
+<script src="/assets/main.js?v=${BUILD_TS}"><\/script>
+<script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
+</body>
+</html>`;
+}
+
+function buildTerms() {
+  const toc = [
+    ['introduction', 'Introduction'],
+    ['copyright-notice', 'Copyright notice'],
+    ['licence-to-use-website', 'Licence to use website'],
+    ['acceptable-use', 'Acceptable use'],
+    ['services', 'Services'],
+    ['registration-and-accounts', 'Registration and accounts'],
+    ['user-ids-and-passwords', 'User IDs and passwords'],
+    ['cancellation-and-suspension-of-accounts', 'Cancellation and suspension of accounts'],
+    ['your-content-licence', 'Your content: Licence'],
+  ];
+  const sections = [
+    ['introduction', '1. Introduction', `
+      <p style="margin-bottom:0.6rem">1.1 These terms and conditions govern your use of our website.</p>
+      <p style="margin-bottom:0.6rem">1.2 By using our website, you accept these terms and conditions in full; accordingly, if you disagree with these terms and conditions or any part of these terms and conditions, you must not use our website.</p>
+      <p style="margin-bottom:0.6rem">1.3 If you register with our website or make a purchase on our website, we will ask you to expressly agree to these terms and conditions.</p>
+      <p style="margin-bottom:0.6rem">1.4 You must be at least 18 years of age to use our website; and by using our website or agreeing to these terms and conditions, you warrant and represent to us that you are at least 18 years of age.</p>
+      <p>1.5 Our website uses cookies; by using our website or agreeing to these terms and conditions, you consent to our use of cookies in accordance with the terms of our <a href="/privacypolicy/" style="color:var(--purple3)">privacy policy</a>.</p>
+    `],
+    ['copyright-notice', '2. Copyright notice', `
+      <p style="margin-bottom:0.6rem">2.1 Copyright (c) 2026 Paradise Models International.</p>
+      <p style="margin-bottom:0.4rem">2.2 Subject to the express provisions of these terms and conditions:</p>
+      <ol style="margin:0 0 0 1.25rem;padding:0;list-style-type:lower-alpha">
+        <li style="margin-bottom:0.4rem">we, together with our licensors, own and control all the copyright and other intellectual property rights in our website and the material on our website; and</li>
+        <li>all the copyright and other intellectual property rights in our website and the material on our website are reserved.</li>
+      </ol>
+    `],
+    ['licence-to-use-website', '3. Licence to use website', `
+      <p style="margin-bottom:0.4rem">3.1 You may:</p>
+      <ol style="margin:0 0 0.6rem 1.25rem;padding:0;list-style-type:lower-alpha">
+        <li style="margin-bottom:0.3rem">view pages from our website in a web browser;</li>
+        <li style="margin-bottom:0.3rem">download pages from our website for caching in a web browser;</li>
+        <li style="margin-bottom:0.3rem">print pages from our website for your own personal and non-commercial use, provided that such printing is not systematic or excessive; and</li>
+        <li>use our booking and enquiry services on our website in accordance with these terms and conditions,</li>
+      </ol>
+      <p style="margin-bottom:0.6rem">subject to the other provisions of these terms and conditions.</p>
+      <p style="margin-bottom:0.6rem">3.2 Except as expressly permitted by Section 3.1 or the other provisions of these terms and conditions, you must not download any material from our website or save any such material to your computer.</p>
+      <p style="margin-bottom:0.6rem">3.3 You may only use our website for your own personal and business purposes, and you must not use our website for any other purposes.</p>
+      <p style="margin-bottom:0.6rem">3.4 Except as expressly permitted by these terms and conditions, you must not edit or otherwise modify any material on our website.</p>
+      <p style="margin-bottom:0.4rem">3.5 Unless you own or control the relevant rights in the material, you must not:</p>
+      <ol style="margin:0 0 0.6rem 1.25rem;padding:0;list-style-type:lower-alpha">
+        <li style="margin-bottom:0.3rem">republish material from our website (including republication on another website);</li>
+        <li style="margin-bottom:0.3rem">sell, rent or sub-license material from our website;</li>
+        <li style="margin-bottom:0.3rem">show any material from our website in public;</li>
+        <li style="margin-bottom:0.3rem">exploit our website's material for a commercial purpose; or</li>
+        <li>redistribute material from our website.</li>
+      </ol>
+      <p>3.6 We reserve the right to restrict access to areas of our website, or indeed our whole website, at our discretion; you must not circumvent or bypass, or attempt to circumvent or bypass, any access restriction measures on our website.</p>
+    `],
+    ['acceptable-use', '4. Acceptable use', `
+      <p style="margin-bottom:0.6rem">4.1 You must not use our website in any way that causes, or may cause, damage to our website or impairment of the availability or accessibility of our website; or in any way which is unlawful, illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent or harmful purpose or activity.</p>
+      <p style="margin-bottom:0.6rem">4.2 You must not use our website to copy, store, host, transmit, send, use, publish or distribute any material which consists of (or is linked to) any spyware, computer virus, Trojan horse, worm, keystroke logger, rootkit or other malicious computer software.</p>
+      <p style="margin-bottom:0.6rem">4.3 You must not conduct any systematic or automated data collection activities (including without limitation scraping, data mining, data extraction and data harvesting) on or in relation to our website without our express written consent.</p>
+      <p style="margin-bottom:0.6rem">4.4 You must not use our website to transmit or send unsolicited commercial communications.</p>
+      <p style="margin-bottom:0.6rem">4.5 You must not use our website for any purposes related to marketing without our express written consent.</p>
+      <p>4.6 You must ensure that all information you supply to us through our website, or in relation to our website, is true, accurate, current, complete and non-misleading.</p>
+    `],
+    ['services', '5. Services', `
+      <p style="margin-bottom:0.6rem">5.1 Paradise Models is an introduction and companionship agency that facilitates bookings with the independent companions featured on our website (the "Services").</p>
+      <p style="margin-bottom:0.6rem">5.2 All bookings made through our website, or via our telephone, Telegram or other messaging channels, are subject to availability and to these terms and conditions.</p>
+      <p style="margin-bottom:0.6rem">5.3 We reserve the right to decline, cancel or amend any booking at our discretion, including where a client fails to meet our verification or safety requirements.</p>
+      <p style="margin-bottom:0.6rem">5.4 Any rates, services and availability shown on our website are indicative and are confirmed at the time of booking.</p>
+      <p>5.5 You agree that our website and our Services must only be used for lawful purposes, and that any arrangement made through our Services is between consenting adults.</p>
+    `],
+    ['registration-and-accounts', '6. Registration and accounts', `
+      <p style="margin-bottom:0.6rem">6.1 In order to access certain features of our website (including our VIP Models section), you may be required to register for an account.</p>
+      <p style="margin-bottom:0.6rem">6.2 You must provide accurate and complete information when registering for an account on our website, and you must keep that information up to date.</p>
+      <p style="margin-bottom:0.6rem">6.3 You must not register for an account on our website if you are under 18 years of age.</p>
+      <p style="margin-bottom:0.6rem">6.4 If you provide any information that is untrue, inaccurate, not current or incomplete, we reserve the right to suspend or terminate your account.</p>
+      <p>6.5 You are solely responsible for maintaining the confidentiality of your account details and for any activities that occur under your account.</p>
+    `],
+    ['user-ids-and-passwords', '7. User IDs and passwords', `
+      <p style="margin-bottom:0.6rem">7.1 If you register for an account on our website, you will be asked to choose a username and password.</p>
+      <p style="margin-bottom:0.6rem">7.2 Your username must not be liable to mislead and must not be used to impersonate any other person.</p>
+      <p style="margin-bottom:0.6rem">7.3 You must keep your password confidential and must not disclose it to any other person.</p>
+      <p>7.4 We may disable your username and password at our sole discretion, without notice or explanation, including if you fail to comply with any of these terms and conditions.</p>
+    `],
+    ['cancellation-and-suspension-of-accounts', '8. Cancellation and suspension of accounts', `
+      <p style="margin-bottom:0.4rem">8.1 We may, at our sole discretion and without notice or explanation, if we reasonably believe that you have breached any provision of these terms and conditions:</p>
+      <ol style="margin:0 0 0.6rem 1.25rem;padding:0;list-style-type:lower-alpha">
+        <li style="margin-bottom:0.3rem">suspend your account;</li>
+        <li style="margin-bottom:0.3rem">restrict your access to our website; or</li>
+        <li>cancel your account.</li>
+      </ol>
+      <p>8.2 You may cancel your account on our website at any time by contacting us using our contact details.</p>
+    `],
+    ['your-content-licence', '9. Your content: Licence', `
+      <p style="margin-bottom:0.6rem">9.1 In these terms and conditions, "your content" means all works and materials (including without limitation text, graphics, images, audio material, video material and files) that you submit to us or our website for storage or publication on, processing by, or transmission via, our website.</p>
+      <p style="margin-bottom:0.6rem">9.2 You grant to us a worldwide, irrevocable, non-exclusive, royalty-free licence to use, reproduce, store, adapt and publish your content, for the purposes of operating and promoting our website and our Services.</p>
+      <p style="margin-bottom:0.6rem">9.3 You warrant and represent that your content will comply with these terms and conditions.</p>
+      <p>9.4 We reserve the right, without notice or liability to you, to remove your content from our website, or otherwise cease publishing it, at any time.</p>
+    `],
+  ];
+  return legalDocPage({
+    title: 'Terms and Conditions',
+    desc: 'Terms and conditions for using the Paradise Models website and booking our companionship services.',
+    path: '/terms/',
+    heading: 'Terms and Conditions',
+    toc,
+    sections,
+  });
+}
+
+function buildPrivacy() {
+  const toc = [
+    ['intro', 'Intro'],
+    ['definitions', 'Definitions'],
+    ['types-of-data-collected', 'Types of Data Collected'],
+    ['disclosure-of-data', 'Disclosure of Data'],
+    ['payments', 'Payments'],
+    ['links-to-other-sites', 'Links to Other Sites'],
+    ['childrens-privacy', "Children's Privacy"],
+    ['changes-to-this-privacy-policy', 'Changes to This Privacy Policy'],
+    ['contact-us', 'Contact Us'],
+  ];
+  const sections = [
+    ['intro', '1. Intro', `
+      <p style="margin-bottom:0.6rem"><strong>Effective date:</strong> September 1, 2026</p>
+      <p style="margin-bottom:0.6rem">Paradise Models International ("us", "we", or "our") operates the <a href="https://www.paradisemodels.com" style="color:var(--purple3)">www.paradisemodels.com</a> website (hereinafter referred to as the "Service").</p>
+      <p style="margin-bottom:0.6rem">This page informs you of our policies regarding the collection, use and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
+      <p>We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our <a href="/terms/" style="color:var(--purple3)">Terms and Conditions</a>, accessible from <a href="https://www.paradisemodels.com" style="color:var(--purple3)">www.paradisemodels.com</a>.</p>
+    `],
+    ['definitions', '2. Definitions', `
+      <p style="margin-bottom:0.3rem"><strong>Service</strong></p>
+      <p style="margin-bottom:0.8rem">Service is the <a href="https://www.paradisemodels.com" style="color:var(--purple3)">www.paradisemodels.com</a> website operated by Paradise Models International.</p>
+      <p style="margin-bottom:0.3rem"><strong>Personal Data</strong></p>
+      <p style="margin-bottom:0.8rem">Personal Data means data about a living individual who can be identified from those data (or from those and other information either in our possession or likely to come into our possession).</p>
+      <p style="margin-bottom:0.3rem"><strong>Usage Data</strong></p>
+      <p style="margin-bottom:0.8rem">Usage Data is data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</p>
+      <p style="margin-bottom:0.3rem"><strong>Cookies</strong></p>
+      <p style="margin-bottom:0.8rem">Cookies are small files stored on your device (computer or mobile device).</p>
+      <p style="margin-bottom:0.3rem"><strong>Data Controller</strong></p>
+      <p style="margin-bottom:0.8rem">Data Controller means the natural or legal person who (either alone or jointly or in common with other persons) determines the purposes for which and the manner in which any personal information are, or are to be, processed. For the purpose of this Privacy Policy, we are a Data Controller of your Personal Data.</p>
+      <p style="margin-bottom:0.3rem"><strong>Data Processors (or Service Providers)</strong></p>
+      <p style="margin-bottom:0.8rem">Data Processor (or Service Provider) means any natural or legal person who processes the data on behalf of the Data Controller. We may use the services of various Service Providers in order to process your data more effectively.</p>
+      <p style="margin-bottom:0.3rem"><strong>Data Subject (or User)</strong></p>
+      <p style="margin-bottom:0.8rem">Data Subject is any living individual who is using our Service and is the subject of Personal Data.</p>
+      <p style="margin-bottom:0.3rem"><strong>Information Collection and Use</strong></p>
+      <p>We collect several different types of information for various purposes to provide and improve our Service to you.</p>
+    `],
+    ['types-of-data-collected', '3. Types of Data Collected', `
+      <p style="margin-bottom:0.3rem"><strong>Personal Data</strong></p>
+      <p style="margin-bottom:0.8rem">While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to:</p>
+      <ul style="margin:0 0 0.8rem 1.25rem;padding:0">
+        <li>Email address</li>
+        <li>First name and last name</li>
+        <li>Phone number</li>
+      </ul>
+      <p style="margin-bottom:0.3rem"><strong>Cookies and Usage Data</strong></p>
+      <p style="margin-bottom:0.8rem">We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or the instructions provided in any email we send.</p>
+      <p style="margin-bottom:0.3rem"><strong>Usage Data</strong></p>
+      <p style="margin-bottom:0.8rem">We may also collect information on how the Service is accessed and used ("Usage Data"). This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
+      <p style="margin-bottom:0.3rem"><strong>Tracking &amp; Cookies Data</strong></p>
+      <p style="margin-bottom:0.6rem">We use cookies and similar tracking technologies to track the activity on our Service and we hold certain information.</p>
+      <p style="margin-bottom:0.6rem">Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Other tracking technologies are also used, such as beacons, tags and scripts, to collect and track information and to improve and analyse our Service.</p>
+      <p style="margin-bottom:0.6rem">You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
+      <p style="margin-bottom:0.3rem">Examples of Cookies we use:</p>
+      <ul style="margin:0 0 1rem 1.25rem;padding:0">
+        <li style="margin-bottom:0.3rem"><strong>Session Cookies.</strong> We use Session Cookies to operate our Service.</li>
+        <li style="margin-bottom:0.3rem"><strong>Preference Cookies.</strong> We use Preference Cookies to remember your preferences and various settings.</li>
+        <li><strong>Security Cookies.</strong> We use Security Cookies for security purposes.</li>
+      </ul>
+      <p style="margin-bottom:0.3rem"><strong>Use of Data</strong></p>
+      <p style="margin-bottom:0.4rem">Paradise Models International uses the collected data for various purposes:</p>
+      <ul style="margin:0 0 0.8rem 1.25rem;padding:0">
+        <li style="margin-bottom:0.2rem">To provide and maintain our Service</li>
+        <li style="margin-bottom:0.2rem">To notify you about changes to our Service</li>
+        <li style="margin-bottom:0.2rem">To allow you to participate in interactive features of our Service when you choose to do so</li>
+        <li style="margin-bottom:0.2rem">To provide customer support</li>
+        <li style="margin-bottom:0.2rem">To gather analysis or valuable information so that we can improve our Service</li>
+        <li style="margin-bottom:0.2rem">To monitor the usage of our Service</li>
+        <li style="margin-bottom:0.2rem">To detect, prevent and address technical issues</li>
+        <li>To provide you with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about, unless you have opted not to receive such information</li>
+      </ul>
+      <p style="margin-bottom:0.3rem"><strong>Legal Basis for Processing Personal Data under the General Data Protection Regulation (GDPR)</strong></p>
+      <p style="margin-bottom:0.6rem">If you are from the European Economic Area (EEA), Paradise Models International's legal basis for collecting and using the personal information described in this Privacy Policy depends on the Personal Data we collect and the specific context in which we collect it.</p>
+      <p style="margin-bottom:0.4rem">Paradise Models International may process your Personal Data because:</p>
+      <ul style="margin:0 0 0.8rem 1.25rem;padding:0">
+        <li style="margin-bottom:0.2rem">We need to perform a contract with you</li>
+        <li style="margin-bottom:0.2rem">You have given us permission to do so</li>
+        <li style="margin-bottom:0.2rem">The processing is in our legitimate interests and it is not overridden by your rights</li>
+        <li style="margin-bottom:0.2rem">For payment processing purposes</li>
+        <li>To comply with the law</li>
+      </ul>
+      <p style="margin-bottom:0.3rem"><strong>Retention of Data</strong></p>
+      <p style="margin-bottom:0.6rem">Paradise Models International will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes and enforce our legal agreements and policies.</p>
+      <p style="margin-bottom:0.6rem">Paradise Models International will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of our Service, or we are legally obligated to retain this data for longer periods.</p>
+      <p style="margin-bottom:0.3rem"><strong>Transfer of Data</strong></p>
+      <p style="margin-bottom:0.6rem">Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.</p>
+      <p style="margin-bottom:0.6rem">If you are located outside the United Kingdom and choose to provide information to us, please note that we transfer the data, including Personal Data, to the United Kingdom and process it there.</p>
+      <p style="margin-bottom:0.6rem">Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p>
+      <p>Paradise Models International will take all the steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy, and no transfer of your Personal Data will take place to an organisation or a country unless there are adequate controls in place, including the security of your data and other personal information.</p>
+    `],
+    ['disclosure-of-data', '4. Disclosure of Data', `
+      <p style="margin-bottom:0.3rem"><strong>Business Transaction</strong></p>
+      <p style="margin-bottom:0.8rem">If Paradise Models International is involved in a merger, acquisition or asset sale, your Personal Data may be transferred. We will provide notice before your Personal Data is transferred and becomes subject to a different Privacy Policy.</p>
+      <p style="margin-bottom:0.3rem"><strong>Disclosure for Law Enforcement</strong></p>
+      <p style="margin-bottom:0.8rem">Under certain circumstances, Paradise Models International may be required to disclose your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).</p>
+      <p style="margin-bottom:0.3rem"><strong>Legal Requirements</strong></p>
+      <p style="margin-bottom:0.4rem">Paradise Models International may disclose your Personal Data in the good faith belief that such action is necessary to:</p>
+      <ul style="margin:0 0 0.8rem 1.25rem;padding:0">
+        <li style="margin-bottom:0.2rem">Comply with a legal obligation</li>
+        <li style="margin-bottom:0.2rem">Protect and defend the rights or property of Paradise Models International</li>
+        <li style="margin-bottom:0.2rem">Prevent or investigate possible wrongdoing in connection with the Service</li>
+        <li style="margin-bottom:0.2rem">Protect the personal safety of users of the Service or the public</li>
+        <li>Protect against legal liability</li>
+      </ul>
+      <p style="margin-bottom:0.3rem"><strong>Security of Data</strong></p>
+      <p style="margin-bottom:0.8rem">The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
+      <p style="margin-bottom:0.3rem"><strong>Our Policy on "Do Not Track" Signals under the California Online Protection Act (CalOPPA)</strong></p>
+      <p style="margin-bottom:0.6rem">We do not support Do Not Track ("DNT"). Do Not Track is a preference you can set in your web browser to inform websites that you do not want to be tracked.</p>
+      <p style="margin-bottom:0.8rem">You can enable or disable Do Not Track by visiting the Preferences or Settings page of your web browser.</p>
+      <p style="margin-bottom:0.3rem"><strong>Your Data Protection Rights under the General Data Protection Regulation (GDPR)</strong></p>
+      <p style="margin-bottom:0.6rem">If you are a resident of the European Economic Area (EEA), you have certain data protection rights. Paradise Models International aims to take reasonable steps to allow you to correct, amend, delete or limit the use of your Personal Data.</p>
+      <p style="margin-bottom:0.6rem">If you wish to be informed about what Personal Data we hold about you, and if you want it to be removed from our systems, please contact us.</p>
+      <p style="margin-bottom:0.4rem">In certain circumstances, you have the following data protection rights:</p>
+      <ul style="margin:0 0 0.8rem 1.25rem;padding:0">
+        <li style="margin-bottom:0.3rem">The right to access, update or delete the information we have on you. Whenever made possible, you can access, update or request deletion of your Personal Data directly within your account settings section. If you are unable to perform these actions yourself, please contact us to assist you.</li>
+        <li style="margin-bottom:0.3rem">The right of rectification. You have the right to have your information rectified if that information is inaccurate or incomplete.</li>
+        <li style="margin-bottom:0.3rem">The right to object. You have the right to object to our processing of your Personal Data.</li>
+        <li style="margin-bottom:0.3rem">The right of restriction. You have the right to request that we restrict the processing of your personal information.</li>
+        <li style="margin-bottom:0.3rem">The right to data portability. You have the right to be provided with a copy of the information we have on you in a structured, machine-readable and commonly used format.</li>
+        <li>The right to withdraw consent. You also have the right to withdraw your consent at any time where Paradise Models International relied on your consent to process your personal information.</li>
+      </ul>
+      <p style="margin-bottom:0.6rem">Please note that we may ask you to verify your identity before responding to such requests.</p>
+      <p style="margin-bottom:0.6rem">You have the right to complain to a Data Protection Authority about our collection and use of your Personal Data. For more information, please contact your local data protection authority in the European Economic Area (EEA).</p>
+      <p style="margin-bottom:0.3rem"><strong>Service Providers</strong></p>
+      <p style="margin-bottom:0.6rem">We may employ third party companies and individuals to facilitate our Service ("Service Providers"), provide the Service on our behalf, perform Service-related services or assist us in analysing how our Service is used.</p>
+      <p style="margin-bottom:0.8rem">These third parties have access to your Personal Data only to perform these tasks on our behalf, and are obligated not to disclose or use it for any other purpose.</p>
+      <p style="margin-bottom:0.3rem"><strong>Analytics</strong></p>
+      <p style="margin-bottom:0.6rem">We may use third-party Service Providers to monitor and analyse the use of our Service.</p>
+      <p style="margin-bottom:0.3rem"><strong>Google Analytics</strong></p>
+      <p style="margin-bottom:0.6rem">Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service.</p>
+      <p style="margin-bottom:0.6rem">This data is shared with other Google services. Google may use the collected data to contextualise and personalise the ads of its own advertising network.</p>
+      <p style="margin-bottom:0.6rem">You can opt out of having your activity on the Service made available to Google Analytics by installing the Google Analytics opt-out browser add-on. The add-on prevents the Google Analytics JavaScript (ga.js, analytics.js and dc.js) from sharing information with Google Analytics about visit activity.</p>
+      <p>For more information on the privacy practices of Google, please visit the Google Privacy &amp; Terms web page: <a href="https://policies.google.com/privacy" style="color:var(--purple3)" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+    `],
+    ['payments', '5. Payments', `
+      <p style="margin-bottom:0.6rem">We may provide paid products and/or services within the Service. In that case, we use third-party services for payment processing (e.g. payment processors).</p>
+      <p style="margin-bottom:0.6rem">We will not store or collect your payment card details. That information is provided directly to our third-party payment processors, whose use of your personal information is governed by their Privacy Policy. These payment processors adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, MasterCard, American Express and Discover. PCI-DSS requirements help ensure the secure handling of payment information.</p>
+      <p style="margin-bottom:0.3rem">The payment processors we work with are:</p>
+      <p>Stripe: their Privacy Policy can be viewed at <a href="https://stripe.com/privacy" style="color:var(--purple3)" target="_blank" rel="noopener">stripe.com/privacy</a>.</p>
+    `],
+    ['links-to-other-sites', '6. Links to Other Sites', `
+      <p style="margin-bottom:0.6rem">Our Service may contain links to other sites that are not operated by us. If you click a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
+      <p>We have no control over, and assume no responsibility for, the content, privacy policies or practices of any third party sites or services.</p>
+    `],
+    ['childrens-privacy', "7. Children's Privacy", `
+      <p style="margin-bottom:0.6rem">Our Service does not address anyone under the age of 18 ("Children").</p>
+      <p>We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your child has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers.</p>
+    `],
+    ['changes-to-this-privacy-policy', '8. Changes to This Privacy Policy', `
+      <p style="margin-bottom:0.6rem">We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+      <p style="margin-bottom:0.6rem">We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective, and update the "effective date" at the top of this Privacy Policy.</p>
+      <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+    `],
+    ['contact-us', '9. Contact Us', `
+      <p style="margin-bottom:0.4rem">If you have any questions about this Privacy Policy, please contact us:</p>
+      <ul style="margin:0;padding-left:1.25rem">
+        <li style="margin-bottom:0.3rem">By email: <a href="mailto:paradisemodels.world@gmail.com" style="color:var(--purple3)">paradisemodels.world@gmail.com</a></li>
+        <li style="margin-bottom:0.3rem">By visiting this page on our website: <a href="https://www.paradisemodels.com/privacypolicy" style="color:var(--purple3)">www.paradisemodels.com/privacypolicy</a></li>
+        <li>By Telegram: <a href="https://t.me/paradisemodelslondon" style="color:var(--purple3)" target="_blank" rel="noopener">t.me/paradisemodelslondon</a></li>
+      </ul>
+    `],
+  ];
+  return legalDocPage({
+    title: 'Privacy Policy',
+    desc: "Paradise Models' privacy policy — how we collect, use and protect your personal data.",
+    path: '/privacypolicy/',
+    heading: 'Privacy Policy',
+    toc,
+    sections,
+  });
+}
+
 // Day is used both as a bare number (list date column) and inside a long
 // form ("17 August, 2026" on the article page itself), so split it out
 // once here rather than re-deriving it in two places.
@@ -1779,6 +2112,8 @@ function buildSitemap() {
     {url: '/events/', priority: '0.7'},
     {url: '/sinlist/', priority: '0.6'},
     {url: '/about/', priority: '0.7'},
+    {url: '/terms/', priority: '0.3'},
+    {url: '/privacypolicy/', priority: '0.3'},
     {url: '/blog/', priority: '0.7'},
     {url: '/account/', priority: '0.4'},
     {url: '/faq/', priority: '0.7'},
@@ -1832,6 +2167,8 @@ write(path.join(OUT, 'concierge/index.html'), buildConcierge());
 write(path.join(OUT, 'events/index.html'), buildEvents());
 write(path.join(OUT, 'sinlist/index.html'), buildSinlist());
 write(path.join(OUT, 'about/index.html'), buildAbout());
+write(path.join(OUT, 'terms/index.html'), buildTerms());
+write(path.join(OUT, 'privacypolicy/index.html'), buildPrivacy());
 write(path.join(OUT, 'blog/index.html'), buildBlog());
 BLOG_POSTS.forEach(p => {
   write(path.join(OUT, `blog/${p.slug}/index.html`), buildBlogPost(p));
