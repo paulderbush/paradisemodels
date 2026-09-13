@@ -1,5 +1,6 @@
 // =================== CATALOG PAGE ===================
 let filteredModels = [...MODELS];
+let nameQuery = '';
 let selectedCats = [];
 let selectedCities = [];
 let selectedNats = [];
@@ -46,8 +47,14 @@ function initModelsPage() {
 // ranges, which apply on every page load whether touched or not).
 // Guards below (m.cats &&, m.svcs &&) are just crash-proofing in case
 // a future profile omits one of those arrays entirely.
+function filterByName(q) {
+  nameQuery = q;
+  applyFilters();
+}
+
 function applyFilters() {
   let ms = [...MODELS];
+  if (nameQuery.trim()) ms = ms.filter(m => m.name && m.name.toLowerCase().includes(nameQuery.trim().toLowerCase()));
   if (selectedCats.length) ms = ms.filter(m => selectedCats.every(c => m.cats && m.cats.includes(c)));
   if (selectedCities.length) ms = ms.filter(m => selectedCities.includes(m.city));
   if (selectedNats.length) ms = ms.filter(m => selectedNats.includes(m.nationality));
@@ -181,8 +188,10 @@ function sortModels(val) {
 }
 
 function clearFilters() {
+  nameQuery = '';
   selectedCats = []; selectedCities = []; selectedNats = []; selectedSvcs = [];
   ageRange = [18, 60]; weightRange = [40, 100]; heightRange = [150, 185];
+  const nameEl = document.getElementById('nameSearch'); if (nameEl) nameEl.value = '';
   document.querySelectorAll('.filter-check input').forEach(cb => cb.checked = false);
   const ageMin = document.getElementById('ageMin'); if (ageMin) ageMin.value = 18;
   const ageMax = document.getElementById('ageMax'); if (ageMax) ageMax.value = 60;
