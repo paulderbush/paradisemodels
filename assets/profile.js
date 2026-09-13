@@ -283,7 +283,7 @@ function buildRealModelHTML(m) {
           <div class="price-calc-title">Book a Session</div>
           <div class="price-type-row">
             <button class="price-type-btn${initType === 'incall' ? ' active' : ''}${hasIncall ? '' : ' disabled'}" data-type="incall" ${hasIncall ? `onclick="selectPriceType('incall')"` : 'disabled'}>Incall</button>
-            <button class="price-type-btn${initType === 'outcall' ? ' active' : ''}${hasOutcall ? '' : ' disabled'}" data-type="outcall" ${hasOutcall ? `onclick="selectPriceType('outcall')"` : 'disabled'}>Outcall <span style="font-size:10px;opacity:0.6">min 1hr</span></button>
+            <button class="price-type-btn${initType === 'outcall' ? ' active' : ''}${hasOutcall ? '' : ' disabled'}" data-type="outcall" ${hasOutcall ? `onclick="selectPriceType('outcall')"` : 'disabled'}>Outcall</button>
           </div>
           <div class="duration-row" id="duration-btns">
             ${initRates.map((r, i) => `<button class="duration-btn${i === 0 ? ' active' : ''}" onclick="selectDuration(${i})">${r.label}</button>`).join('')}

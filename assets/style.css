@@ -984,7 +984,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--purple3)}
 .rates-toggle-header{display:flex;align-items:center;gap:10px;margin-bottom:0.75rem;cursor:pointer;font-weight:600;font-size:0.95rem;user-select:none}
 .rates-toggle-header input[type=checkbox]{accent-color:var(--purple);width:16px;height:16px;cursor:pointer;flex-shrink:0}
 .rates-fields{display:none}
-.rates-fields.active{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+.rates-fields.active{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem}
 .services-chk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
 
 /* wrap: the price field appears on demand and a fixed-width input on the
