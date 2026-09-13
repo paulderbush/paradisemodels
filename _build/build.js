@@ -490,11 +490,11 @@ ${fakeModelOverlayHTML()}
         <div class="filter-group">
           <div class="filter-title">Height (cm)</div>
           <div class="range-wrap" id="heightWrap">
-            <div class="range-row"><span>150</span><span class="range-vals" id="heightVals">150 – 185</span><span>185</span></div>
+            <div class="range-row"><span>150</span><span class="range-vals" id="heightVals">150 – 195</span><span>195</span></div>
             <div class="range-track" id="heightTrack">
               <div class="range-fill" id="heightFill"></div>
-              <input type="range" min="150" max="185" value="150" id="heightMin" oninput="updateRange('height')">
-              <input type="range" min="150" max="185" value="185" id="heightMax" oninput="updateRange('height')">
+              <input type="range" min="150" max="195" value="150" id="heightMin" oninput="updateRange('height')">
+              <input type="range" min="150" max="195" value="195" id="heightMax" oninput="updateRange('height')">
             </div>
           </div>
         </div>
@@ -744,7 +744,7 @@ ${ageModalHTML()}
       <div class="form-section">
         <div class="form-section-title">Physical Details</div>
         <div class="form-grid-3">
-          <div class="form-field"><label>Height (cm) *</label><input class="form-input" type="number" name="height" placeholder="168" min="150" max="185" required></div>
+          <div class="form-field"><label>Height (cm) *</label><input class="form-input" type="number" name="height" placeholder="168" min="150" max="195" required></div>
           <div class="form-field"><label>Weight (kg) *</label><input class="form-input" type="number" name="weight" placeholder="55" min="40" max="100" required></div>
           <div class="form-field"><label>Dress Size (UK)</label><input class="form-input" type="text" name="dress" placeholder="8, 10, 12…"></div>
           <div class="form-field"><label>Feet Size (UK)</label><input class="form-input" type="text" name="feet" placeholder="4, 5, 6…"></div>
@@ -976,11 +976,11 @@ ${ageModalHTML()}
         <div class="filter-group">
           <div class="filter-title">Height (cm)</div>
           <div class="range-wrap">
-            <div class="range-row"><span>150</span><span class="range-vals" id="vipHeightVals">150 – 185</span><span>185</span></div>
+            <div class="range-row"><span>150</span><span class="range-vals" id="vipHeightVals">150 – 195</span><span>195</span></div>
             <div class="range-track" id="vipHeightTrack">
               <div class="range-fill" id="vipHeightFill"></div>
-              <input type="range" min="150" max="185" value="150" id="vipHeightMin" oninput="updateVipRange('height')">
-              <input type="range" min="150" max="185" value="185" id="vipHeightMax" oninput="updateVipRange('height')">
+              <input type="range" min="150" max="195" value="150" id="vipHeightMin" oninput="updateVipRange('height')">
+              <input type="range" min="150" max="195" value="195" id="vipHeightMax" oninput="updateVipRange('height')">
             </div>
           </div>
         </div>

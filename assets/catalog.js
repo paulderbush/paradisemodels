@@ -7,7 +7,7 @@ let selectedNats = [];
 let selectedSvcs = [];
 let ageRange = [18, 60];
 let weightRange = [40, 100];
-let heightRange = [150, 185];
+let heightRange = [150, 195];
 
 function cityToSlug(c) { return c.toLowerCase().replace(/\s+/g, '-'); }
 
@@ -159,7 +159,7 @@ function updateRange(type) {
   if (type === 'height') { heightRange = [lo, hi]; const v = document.getElementById('heightVals'); if (v) v.textContent = lo + ' – ' + hi; }
   const fill = document.getElementById(type + 'Fill');
   if (fill) {
-    const bounds = {age: [18, 60], weight: [40, 100], height: [150, 185]}[type];
+    const bounds = {age: [18, 60], weight: [40, 100], height: [150, 195]}[type];
     const range = bounds[1] - bounds[0];
     const left = ((lo - bounds[0]) / range) * 100;
     const right = ((hi - bounds[0]) / range) * 100;
@@ -190,7 +190,7 @@ function sortModels(val) {
 function clearFilters() {
   nameQuery = '';
   selectedCats = []; selectedCities = []; selectedNats = []; selectedSvcs = [];
-  ageRange = [18, 60]; weightRange = [40, 100]; heightRange = [150, 185];
+  ageRange = [18, 60]; weightRange = [40, 100]; heightRange = [150, 195];
   const nameEl = document.getElementById('nameSearch'); if (nameEl) nameEl.value = '';
   document.querySelectorAll('.filter-check input').forEach(cb => cb.checked = false);
   const ageMin = document.getElementById('ageMin'); if (ageMin) ageMin.value = 18;
@@ -198,7 +198,7 @@ function clearFilters() {
   const weightMin = document.getElementById('weightMin'); if (weightMin) weightMin.value = 40;
   const weightMax = document.getElementById('weightMax'); if (weightMax) weightMax.value = 100;
   const heightMin = document.getElementById('heightMin'); if (heightMin) heightMin.value = 150;
-  const heightMax = document.getElementById('heightMax'); if (heightMax) heightMax.value = 185;
+  const heightMax = document.getElementById('heightMax'); if (heightMax) heightMax.value = 195;
   ['age', 'weight', 'height'].forEach(t => updateRange(t));
   applyFilters();
 }
