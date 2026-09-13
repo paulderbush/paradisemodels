@@ -535,19 +535,27 @@ const BAYLA_DATA = {
 // exact GBP figure.
 const ADRIANA_DATA = {
   id: 9971, real: true, vip: true, folder: 'vip-models/Adriana', slug: 'adriana',
-  name: 'Adriana', age: 24, height: 172,
-  nationality: 'Spanish', city: 'Dubai',
-  travelNote: 'Available to travel across Europe',
+  name: 'Adriana', age: 24, height: 174, weight: 54,
+  breastSize: '34E', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Light Brown', orientation: 'Bisexual',
+  nationality: 'British', city: 'Dubai',
   color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'],
   initials: 'AD',
-  cats: ['new'],
-  languages: 'English · Spanish · Catalan',
-  svcs: [],
+  cats: ['Busty Escorts', 'Recommended Escorts'],
+  languages: 'English',
+  svcs: ['69', 'CIF', 'COB', 'DFK', 'Dinner Dates', 'Dirty talk', 'DT', 'FK', 'GFE', 'Massage', 'OWC', 'OWO', 'Party girl', 'Roleplay', 'Shower together'],
   extraSvcs: [],
-  incallRates: [{label: '2 Hours', price: 1400}],
-  outcallRates: [{label: '2 Hours', price: 1400}],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '2 Hours', price: 1750},
+    {label: '3 Hours', price: 2250},
+    {label: 'Extra Hour', price: 500},
+  ],
   description: [
-    "Adriana is a 24-year-old Spanish beauty and former Miss Madrid and Miss Barcelona titleholder, bringing genuine pageant polish and presence to every meeting.",
+    "Adriana is an absolutely stunning British signed model based in Dubai. Her natural beauty and confident presence make her stand out immediately. She has a warm, inviting personality that makes every moment comfortable and enjoyable.",
+    "Her professionalism and high-class service are truly impressive. Adriana knows how to engage and connect, ensuring that every experience is memorable. She's versatile and adapts effortlessly to what you're looking for.",
+    "Overall, my time with Adriana was exceptional. Her charm, beauty, and dedication left me completely satisfied. I highly recommend her to anyone seeking a top-quality experience. I look forward to seeing her again soon!",
   ],
   reviews: [],
 };
@@ -783,7 +791,7 @@ const SOUTH_DATA = {
   languages: 'English · Russian',
   color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
   initials: 'SO',
-  cats: ['new'],
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Party Girl Escorts', 'Ukrainian Escorts'],
   svcs: ['Kissing', 'OWO', 'Deep throat', 'Fingering', 'Squirting', 'Classic sex (any position)', 'COB'],
   extraSvcs: [
     {name: 'Roleplay', price: 100},
@@ -7889,6 +7897,246 @@ const RUSALKA_DATA = {
   reviews: [],
 };
 
+const EMANUELLA_DATA = {
+  id: 9779, real: true, vip: true, folder: 'vip-models/Emanuella', slug: 'emanuella',
+  name: 'Emanuella', age: 22, height: 165, weight: 51,
+  breastSize: '34B', breastType: 'Natural', clothingSize: '4',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  nationality: 'Brazilian', city: 'Dubai',
+  languages: 'English · Spanish · Portuguese',
+  color: ['rgba(200,160,100,0.4)', 'rgba(140,100,40,0.7)'],
+  initials: 'NM',
+  cats: ['Brazilian Escorts London', 'Brunette Escorts', 'Party Girl Escorts', 'Striptease Escorts'],
+  svcs: ['69', 'Body to body massage', 'CIM', 'DFK', 'Dirty talk', 'Domination', 'Erotic massage', 'Toys', 'Face sitting', 'Group for extra price', "Lady's service", 'Lapdancing', 'Massage', 'MMF', 'MMF for double price', 'OWC', 'Party girl', 'Prostate massage', 'PSE', 'Roleplay', 'Squirting', 'Strap-on', 'Striptease'],
+  extraSvcs: [
+    {name: 'FK', price: 100},
+    {name: 'Tie and Tease', price: 200},
+    {name: 'Fisting giving', price: 200},
+    {name: 'CIF', price: 200},
+    {name: 'DT', price: 200},
+    {name: 'COB', price: 200},
+    {name: 'WS giving', price: 250},
+    {name: 'Bi DUO', price: 300},
+    {name: 'Rimming receiving', price: 300},
+    {name: 'WS receiving', price: 300},
+    {name: 'OWO', price: 300},
+    {name: 'Foot fetish', price: 400},
+    {name: 'Filming with mask', price: 500},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 900},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 900},
+    {label: '2 Hours', price: 1250},
+    {label: '3 Hours', price: 1750},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Emanuella is a captivating 22-year-old Brazilian beauty who embodies elegance, natural charm, and effortless sophistication. Standing at 165 cm with a slender, feminine silhouette, she radiates confidence and grace. Her expressive brown eyes and silky brunette hair create a timeless and striking beauty, perfectly complemented by her polished sense of style and warm personality.",
+    "Blessed with natural curves and a flawless appearance free from tattoos and piercings, she represents classic femininity with a modern touch. Her refined presentation, graceful manners, and understated glamour make her presence both captivating and unforgettable.",
+    "Fluent in Portuguese, English, and Spanish, she effortlessly connects with people from diverse cultures and backgrounds. Friendly, attentive, and naturally charismatic, she combines vibrant Brazilian warmth with elegance and sophistication. Her genuine charm, confidence, and refined demeanor ensure every encounter is memorable and truly exceptional.",
+  ],
+  reviews: [],
+};
+
+const KASABIA_DATA = {
+  id: 9778, real: true, vip: true, folder: 'vip-models/Kasabia', slug: 'kasabia',
+  name: 'Kasabia', age: 25, height: 165, weight: 60,
+  breastSize: '38D', breastType: 'Natural', clothingSize: '10',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  nationality: 'Turkish', city: 'Dubai',
+  languages: 'English · Turkish',
+  color: ['rgba(180,130,110,0.4)', 'rgba(120,70,50,0.7)'],
+  initials: 'KB',
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Busty Escorts'],
+  svcs: ['69', 'Body to body massage', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DP', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'WS receiving'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1400},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 3100},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1400},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 3100},
+  ],
+  description: [
+    "Kasabia is a captivating 25-year-old Turkish beauty whose striking dark features and naturally voluptuous figure create an unforgettable impression. Standing at 165 cm, she combines graceful femininity with quiet confidence, while her rich dark hair and deep brown eyes give her an elegant and undeniably magnetic presence. Her all-natural silhouette enhances her authentic beauty, offering a timeless appeal that never goes unnoticed.",
+    "With her naturally full figure and refined sense of style, Kasabia embodies sophistication without excess. Every detail about her appearance feels balanced and genuine, highlighting her confidence and effortless charm. Her warm smile, polished presentation, and graceful demeanor create an atmosphere that is both inviting and luxurious, making every encounter feel relaxed and memorable.",
+    "Fluent in both English and Turkish, Kasabia connects with ease through her engaging personality and natural charisma. Her cultural richness, combined with her elegant presence and authentic femininity, gives her a unique appeal that sets her apart. Sophisticated, warm, and effortlessly captivating, Kasabia offers an experience defined by beauty, confidence, and genuine connection.",
+  ],
+  reviews: [],
+};
+
+const ELIZAVETA_DATA = {
+  id: 9777, real: true, vip: true, folder: 'vip-models/Elizaveta', slug: 'elizaveta',
+  name: 'Elizaveta', age: 24, height: 175, weight: 60,
+  breastSize: 'Big 4', breastType: 'Natural', clothingSize: '10',
+  eyeColor: 'Blue', hairColor: 'Brunette', orientation: 'Bisexual',
+  nationality: 'Russian', city: 'Dubai',
+  languages: 'English · Russian',
+  color: ['rgba(140,150,190,0.4)', 'rgba(70,80,140,0.7)'],
+  initials: 'EZ',
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Roleplay Escorts'],
+  svcs: ['69', 'COB', 'DFK', 'Dirty talk', 'Face sitting', 'Fingering', 'FK', 'GFE', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting'],
+  extraSvcs: [
+    {name: 'CIF', price: 100},
+    {name: 'DT', price: 100},
+    {name: 'WS giving', price: 100},
+    {name: 'WS receiving', price: 100},
+    {name: 'OWO', price: 200},
+    {name: 'CIM (Includes OWO)', price: 200},
+    {name: 'Swallow (Includes CIM & OWO)', price: 200},
+    {name: 'Snowballing (Includes OWO & CIM)', price: 200},
+    {name: 'Rimming giving', price: 200},
+    {name: 'Rimming receiving', price: 200},
+    {name: 'Bi DUO', price: 200},
+    {name: 'Couples', price: 200},
+    {name: 'Filming with mask', price: 750},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 800},
+    {label: '2 Hours', price: 1000},
+    {label: '3 Hours', price: 1200},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 2000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 750},
+    {label: '90 Min', price: 800},
+    {label: '2 Hours', price: 1000},
+    {label: '3 Hours', price: 1200},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 2000},
+  ],
+  description: [
+    "Elizaveta carries a striking presence—tall, poised, and effortlessly graceful. With her rich brunette hair flowing softly around her face and deep blue eyes that seem to hold an entire story within them, she combines natural beauty with quiet confidence. Her silhouette, feminine and sculpted, reflects both strength and softness, giving her an unmistakable allure.",
+    "Sophisticated yet warm in her demeanor, Elizaveta moves with the natural elegance of someone who understands her own charm. Her curves are beautifully balanced, and her statuesque height only enhances the magnetic impression she leaves in any room. She has a calm, steady energy that draws people in, making her both captivating and approachable at once.",
+    "Proudly Russian, she embodies a blend of classic refinement and modern allure. Whether presenting herself in a polished, chic style or in something more natural and understated, Elizaveta radiates confidence without ever needing to force it. She is the kind of woman whose presence lingers long after she steps away—graceful, unforgettable, and undeniably enchanting.",
+  ],
+  reviews: [],
+};
+
+const HANNA_DATA = {
+  id: 9776, real: true, vip: true, folder: 'vip-models/Hanna', slug: 'hanna',
+  name: 'Hanna', age: 25, height: 170, weight: 52,
+  breastSize: '34C', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Blue', hairColor: 'Light Brown', orientation: 'Bisexual',
+  nationality: 'Belarusian', city: 'Dubai',
+  languages: 'English · Russian',
+  color: ['rgba(160,180,200,0.4)', 'rgba(90,120,150,0.7)'],
+  initials: 'HA',
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Recommended Escorts'],
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dinner Dates', 'FK', 'GFE', 'OWC', 'OWO', 'Shower together', 'Soft spanking receiving', 'Striptease'],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [
+    "Introducing Hanna, a stunning 25-year-old model from Belarus who is here to elevate your experience to new heights. With her captivating presence and open-minded attitude, she offers a unique and memorable encounter tailored to your desires. Her professionalism ensures every interaction is respectful, discreet, and truly enjoyable.",
+    "Hanna has light brown long hair, a slim shape, and mesmerizing blue eyes with an alluring charm that effortlessly draws you in. Her confident demeanor and warm personality make her the perfect companion for those seeking an adventurous and engaging experience. She is passionate about providing a satisfying connection, always attentive to your needs and preferences.",
+    "With her open-minded nature and commitment to excellence, Hanna guarantees an unforgettable time. Whether you're looking for a relaxed conversation or an exciting adventure, she is dedicated to making your fantasies come true. Book now and indulge in the exceptional service that only Hanna can provide.",
+  ],
+  reviews: [],
+};
+
+const VANESSA_DATA = {
+  id: 9775, real: true, vip: true, folder: 'vip-models/Vanessa', slug: 'vanessa',
+  name: 'Vanessa', age: 25, height: 165, weight: 50,
+  breastSize: 'DD', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  nationality: 'Dominican', city: 'Dubai',
+  languages: 'English · Spanish · German',
+  color: ['rgba(190,150,120,0.4)', 'rgba(130,90,50,0.7)'],
+  initials: 'VS',
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Busty Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1200},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1200},
+  ],
+  description: [
+    "Vanessa is a woman who carries an unmistakable aura of warmth and sophistication. With her dark brunette hair, deep café-brown eyes, and naturally graceful silhouette, she captivates effortlessly, leaving an impression that lingers long after she enters a room. Her presence exudes both softness and confidence, a combination that feels as rare as it is alluring.",
+    "Born in the Dominican Republic, Vanessa embodies an international elegance shaped by culture, travel, and experience. Fluent in English, Spanish, and German, she connects with people easily and naturally, making every interaction feel comfortable and genuine. Her refined style and natural charm create a magnetic blend that draws others into her orbit.",
+    "Petite yet striking, Vanessa moves with the poise of someone who understands both beauty and intention. Her natural DD curves complement her graceful frame, while her gentle demeanor adds an inviting warmth. Whether in conversation or simply sharing a moment, she brings a sense of calm, femininity, and quiet depth that makes her truly unforgettable.",
+  ],
+  reviews: [],
+};
+
+const DARIA_DATA = {
+  id: 9774, real: true, vip: true, folder: 'vip-models/Daria', slug: 'daria',
+  name: 'Daria', age: 22, height: 174, weight: 55,
+  breastSize: '2', breastType: 'Natural', clothingSize: 'S',
+  eyeColor: 'Blue', hairColor: 'Light Brown', orientation: 'Bisexual',
+  nationality: 'Ukrainian', city: 'Dubai',
+  languages: 'English · Russian · Ukrainian',
+  color: ['rgba(160,180,210,0.4)', 'rgba(90,120,160,0.7)'],
+  initials: 'DR',
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Ukrainian Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1900},
+  ],
+  description: [
+    "Daria is a gentle Ukrainian beauty whose presence feels calm and effortlessly captivating. Her light-brown hair frames a soft, expressive face, while her blue eyes shine with a quiet brilliance that's both tender and unforgettable. She carries herself with a natural grace—soft, feminine, and subtly confident—making every moment around her feel lighter and warmer.",
+    "Her natural figure is slender and beautifully balanced, untouched by tattoos or piercings, giving her an aura of clean, classic simplicity. There's something serene about the way she moves—elegant, unhurried, and full of quiet charm. She radiates authenticity, the kind that doesn't need embellishment or bold statements. Her beauty speaks through softness, through gentle lines and warm expressions.",
+    "Daria has a soul that feels deep and open-hearted. She listens with sincerity, connects with ease, and brings a peaceful romantic energy into every interaction. Time with her feels soothing and intimate, like being wrapped in a calm embrace. Daria is the kind of woman who lingers in your thoughts long after—graceful and unforgettable in the most tender way.",
+  ],
+  reviews: [],
+};
+
+const MONIKA_DATA = {
+  id: 9773, real: true, vip: true, folder: 'vip-models/Monika', slug: 'monika',
+  name: 'Monika', age: 22, height: 174, weight: 55,
+  breastSize: '3', breastType: 'Natural', clothingSize: 'XS-S',
+  eyeColor: 'Brown', hairColor: 'Blonde', orientation: 'Heterosexual',
+  nationality: 'Russian', city: 'Dubai',
+  languages: 'English · Russian',
+  color: ['rgba(210,190,140,0.4)', 'rgba(150,120,50,0.7)'],
+  initials: 'OM',
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Striptease Escorts'],
+  svcs: ['69', 'Bi DUO', 'COB', 'DFK', 'FK', 'Foot fetish', 'Massage', 'OWC', 'OWO', 'Rimming receiving', 'Squirting', 'Striptease', 'Swallow', 'WS giving'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 950},
+    {label: '90 Min', price: 1400},
+    {label: 'Extra Hour', price: 950},
+    {label: 'Overnight', price: 3500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 950},
+    {label: '90 Min', price: 1400},
+    {label: 'Extra Hour', price: 950},
+    {label: 'Overnight', price: 3500},
+  ],
+  description: [
+    "Monika is a captivating woman whose beauty carries the unmistakable grace of the runway. With her tall, feminine silhouette, deep brown eyes, and flowing blonde hair, she has a presence that feels both refined and effortlessly magnetic. Her natural curves and soft, expressive features give her a timeless charm—the kind that lingers in memory long after a first glance.",
+    "Beyond her striking appearance, Monika is known for the elegance and confidence she brings to every room. As Miss Fashion Russia 2024, she embodies modern sophistication, balancing poise with an aura of quiet mystery. Her achievements continued to shine as she earned the prestigious title of The Queen of Eurasia 2025, highlighting her dedication, charisma, and the artistry she brings into her work.",
+    "Yet behind the crowns and spotlight stands someone who remains authentic and warm. Monika's natural beauty and graceful spirit make her enchanting without effort, while her calm strength and ambition reveal a depth as alluring as her appearance. She is a blend of classic femininity and modern power—an unforgettable presence wherever she goes.",
+  ],
+  reviews: [],
+};
+
 // The VIP page's locked teaser grid (see vipTeaserPool in assets/vip.js)
 // deliberately never sends a real VIP model's actual cover photo to the
 // browser — a CSS blur filter is trivially stripped client-side (dev
@@ -7954,6 +8202,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = [];
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, VERADUBAI_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, VERADUBAI_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA, EMANUELLA_DATA, KASABIA_DATA, ELIZAVETA_DATA, HANNA_DATA, VANESSA_DATA, DARIA_DATA, MONIKA_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, VERADUBAI_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, VERADUBAI_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA, EMANUELLA_DATA, KASABIA_DATA, ELIZAVETA_DATA, HANNA_DATA, VANESSA_DATA, DARIA_DATA, MONIKA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
