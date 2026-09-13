@@ -789,8 +789,6 @@ ${ageModalHTML()}
         <div class="rates-section">
           <label class="rates-toggle-header"><input type="checkbox" id="incallToggle" onchange="toggleRates('incall',this.checked)"><span>Incall</span></label>
           <div class="rates-fields" id="incallFields">
-            <div class="form-field"><label>30 min</label><input class="form-input" type="text" name="incall30" placeholder="£"></div>
-            <div class="form-field"><label>45 min</label><input class="form-input" type="text" name="incall45" placeholder="£"></div>
             <div class="form-field"><label>1 hour</label><input class="form-input" type="text" name="incall1h" placeholder="£"></div>
             <div class="form-field"><label>Extra hour</label><input class="form-input" type="text" name="incallExtra" placeholder="£"></div>
             <div class="form-field"><label>Overnight</label><input class="form-input" type="text" name="incallOver" placeholder="£"></div>
@@ -799,8 +797,6 @@ ${ageModalHTML()}
         <div class="rates-section" style="margin-top:1.25rem">
           <label class="rates-toggle-header"><input type="checkbox" id="outcallToggle" onchange="toggleRates('outcall',this.checked)"><span>Outcall</span></label>
           <div class="rates-fields" id="outcallFields">
-            <div class="form-field"><label>30 min</label><input class="form-input" type="text" name="outcall30" placeholder="£"></div>
-            <div class="form-field"><label>45 min</label><input class="form-input" type="text" name="outcall45" placeholder="£"></div>
             <div class="form-field"><label>1 hour</label><input class="form-input" type="text" name="outcall1h" placeholder="£"></div>
             <div class="form-field"><label>Extra hour</label><input class="form-input" type="text" name="outcallExtra" placeholder="£"></div>
             <div class="form-field"><label>Overnight</label><input class="form-input" type="text" name="outcallOver" placeholder="£"></div>
@@ -832,7 +828,7 @@ ${ageModalHTML()}
         <p style="font-size:13px;color:var(--text-soft);margin-bottom:1rem">Upload clear, recent photos and/or short video clips. Minimum 3 photos. JPG, PNG, MP4, MOV.</p>
         <div class="photo-upload-area" onclick="document.getElementById('photoInput').click()">
           <input type="file" id="photoInput" multiple accept="image/*,video/*" onchange="handleFiles(this)">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(176,127,222,0.5)" stroke-width="1.5" style="margin-bottom:0.75rem"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple3)" stroke-width="1.5" style="margin-bottom:0.75rem"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
           <p style="color:var(--text-soft);font-size:14px;margin:0">Click to select photos &amp; videos</p>
           <p style="color:var(--text-muted);font-size:12px;margin:4px 0 0">JPG, PNG · MP4, MOV · multiple files allowed</p>
         </div>

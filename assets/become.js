@@ -108,8 +108,8 @@ Black Clients: ${_getOpt('blackClients')}  |  Disabled: ${_getOpt('disabledClien
 🗣 Languages: ${langs}
 
 💰 <b>RATES</b>
-Incall — 30m: ${v('incall30')}  45m: ${v('incall45')}  1h: ${v('incall1h')}  +1h: ${v('incallExtra')}  Night: ${v('incallOver')}
-Outcall — 30m: ${v('outcall30')}  45m: ${v('outcall45')}  1h: ${v('outcall1h')}  +1h: ${v('outcallExtra')}  Night: ${v('outcallOver')}
+Incall — 1h: ${v('incall1h')}  +1h: ${v('incallExtra')}  Night: ${v('incallOver')}
+Outcall — 1h: ${v('outcall1h')}  +1h: ${v('outcallExtra')}  Night: ${v('outcallOver')}
 
 📍 <b>ADDRESS (Incall)</b>
 ${v('street')}, ${v('building')}, ${v('apt')}, ${v('postcode')}
