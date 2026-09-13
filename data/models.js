@@ -783,7 +783,7 @@ const SOUTH_DATA = {
   languages: 'English · Russian',
   color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
   initials: 'SO',
-  cats: ['new'],
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Party Girl Escorts', 'Ukrainian Escorts'],
   svcs: ['Kissing', 'OWO', 'Deep throat', 'Fingering', 'Squirting', 'Classic sex (any position)', 'COB'],
   extraSvcs: [
     {name: 'Roleplay', price: 100},
