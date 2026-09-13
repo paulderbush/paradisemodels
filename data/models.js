@@ -20,67 +20,6 @@ const CATEGORIES = ["All Natural Escorts","British Escorts London","Curvy Escort
 
 const NAMES_F = ["Anastasia","Isabella","Valentina","Sophia","Natasha","Elena","Mia","Camille","Oksana","Alicia","Diana","Kate","Veronika","Lara","Monica","Zara","Nikita","Simone","Irina","Tatiana","Daria","Alina","Yvette","Chloe","Gabrielle","Polina","Roxana","Bianca","Jade","Crystal"];
 
-const COLORS = [
-  ['rgba(123,47,190,0.4)','rgba(74,24,128,0.7)'],
-  ['rgba(155,89,208,0.4)','rgba(100,40,160,0.7)'],
-  ['rgba(80,20,150,0.4)','rgba(50,10,100,0.7)'],
-  ['rgba(140,60,200,0.4)','rgba(90,30,140,0.7)'],
-];
-
-// Seeded LCG random number generator
-function makeRng(seed) {
-  let s = seed;
-  return function() {
-    s = (s * 1664525 + 1013904223) & 0xffffffff;
-    return (s >>> 0) / 0xffffffff;
-  };
-}
-
-function generateModels() {
-  return Array.from({length: 45}, (_, i) => {
-    const rng = makeRng(i * 999 + 1);
-    const rndInt = (a, b) => Math.floor(rng() * (b - a + 1)) + a;
-    const pickN = (arr, n) => {
-      const shuffled = [...arr];
-      for (let j = shuffled.length - 1; j > 0; j--) {
-        const k = Math.floor(rng() * (j + 1));
-        [shuffled[j], shuffled[k]] = [shuffled[k], shuffled[j]];
-      }
-      return shuffled.slice(0, n);
-    };
-
-    const age = rndInt(18, 45);
-    const cats = [];
-    if (rng() > 0.5) cats.push('recommended');
-    if (age < 25) cats.push('under25');
-    if (rng() > 0.5) cats.push('toprated');
-    if (rng() > 0.7) cats.push('new');
-    const svcs = pickN(SERVICES, rndInt(8, 20));
-    const col = COLORS[i % COLORS.length];
-    const name = NAMES_F[i % NAMES_F.length] + (i >= NAMES_F.length ? ` ${i + 1}` : '');
-    const slug = name.toLowerCase().replace(/\s+/g, '-');
-    return {
-      id: i,
-      name,
-      slug,
-      age,
-      height: rndInt(158, 180),
-      weight: rndInt(48, 72),
-      nationality: NATIONALITIES[rndInt(0, NATIONALITIES.length - 1)],
-      station: STATIONS[rndInt(0, STATIONS.length - 1)],
-      city: CITIES[i % CITIES.length],
-      cats,
-      svcs,
-      rateHour: rndInt(3, 8) * 50,
-      color: col,
-      initials: name.charAt(0),
-      rating: (4 + rng()).toFixed(1),
-      reviews: [],
-      real: false,
-    };
-  });
-}
-
 // =================== REAL MODELS ===================
 const JULIA_DATA = {
   id: 9996, real: true, vip: false, folder: 'models/Julia', slug: 'julia',
@@ -365,7 +304,7 @@ const AALIYAH_DATA = {
   rateHour: 1600, extraHourPrice: 1000,
   color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'],
   initials: 'AA',
-  cats: [],
+  cats: ['Bisexual Escorts', 'Busty Escorts', 'Party Girl Escorts', 'Striptease Escorts', 'Brunette Escorts', 'Couples Escorts', 'Roleplay Escorts'],
   breastSize: '32E', breastType: 'Enhanced', clothingSize: '6',
   eyeColor: 'Black', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English',
@@ -400,7 +339,7 @@ const KENDAL_DATA = {
   rateHour: 1600, extraHourPrice: 600,
   color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
   initials: 'KE',
-  cats: ['recommended'],
+  cats: ['All Natural Escorts', 'Recommended Escorts', 'Brunette Escorts'],
   breastSize: '34B', breastType: 'Natural', clothingSize: '6',
   eyeColor: 'Black', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English',
@@ -437,7 +376,7 @@ const ALICIA_DATA = {
   rateHour: 1600, extraHourPrice: 900,
   color: ['rgba(140,60,200,0.4)', 'rgba(90,30,140,0.7)'],
   initials: 'AL',
-  cats: [],
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Party Girl Escorts'],
   breastSize: '32C', breastType: '', clothingSize: '4',
   eyeColor: 'Light Brown', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English · Italian · Spanish · Portuguese',
@@ -478,7 +417,7 @@ const ABBEY_DATA = {
   rateHour: 1600, extraHourPrice: 1600,
   color: ['rgba(200,180,150,0.4)', 'rgba(130,110,80,0.7)'],
   initials: 'AB',
-  cats: [],
+  cats: ['All Natural Escorts', 'Blonde Escorts', 'Party Girl Escorts'],
   breastSize: '32B', breastType: 'Natural', clothingSize: '6-8',
   eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Heterosexual',
   languages: 'English',
@@ -697,7 +636,7 @@ const MAIAN_DATA = {
   travelNote: 'Available to travel across Europe and Dubai',
   color: ['rgba(200,160,60,0.4)', 'rgba(130,95,20,0.7)'],
   initials: 'MA',
-  cats: ['new', 'under25'],
+  cats: ['Brunette Escorts'],
   svcs: [],
   extraSvcs: [],
   incallRates: [],
@@ -1090,7 +1029,7 @@ const HELENA_DATA = {
   languages: 'English · Russian · Ukrainian',
   color: ['rgba(90,150,120,0.4)', 'rgba(30,90,60,0.7)'],
   initials: 'HE',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Roleplay Escorts', 'Ukrainian Escorts'],
   svcs: ['GFE', 'OWC', 'OWO'],
   extraSvcs: [],
   incallRates: [],
@@ -1119,7 +1058,7 @@ const EMILIANA_DATA = {
   languages: 'English',
   color: ['rgba(80,110,190,0.4)', 'rgba(30,50,140,0.7)'],
   initials: 'EI',
-  cats: ['new'],
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Striptease Escorts'],
   svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Couples', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'Tie and Tease', 'Uniforms', 'WS giving'],
   extraSvcs: [
     {name: 'Couples', price: 600},
@@ -1149,7 +1088,7 @@ const ZENDAYA_DATA = {
   languages: 'English · Spanish · Portuguese',
   color: ['rgba(200,150,90,0.4)', 'rgba(140,90,30,0.7)'],
   initials: 'ZE',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Brazilian Escorts London', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts'],
   svcs: ['69', 'Bi DUO', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Spanking giving', 'Uniforms', 'WS giving'],
   extraSvcs: [
     {name: 'Couples', price: 750},
@@ -1203,7 +1142,7 @@ const KETANA_DATA = {
   languages: 'English · Russian',
   color: ['rgba(200,190,130,0.4)', 'rgba(150,130,60,0.7)'],
   initials: 'KE',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Blonde Escorts', 'Recommended Escorts', 'Bisexual Escorts', 'Party Girl Escorts', 'Russian Escorts London'],
   svcs: [],
   extraSvcs: [],
   incallRates: [
@@ -1239,7 +1178,7 @@ const ISA_DATA = {
   languages: 'English · Portuguese',
   color: ['rgba(220,170,190,0.4)', 'rgba(160,90,120,0.7)'],
   initials: 'IS',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts'],
   svcs: ['69', 'A-Level', 'Bi DUO', 'Body to body massage', 'CIF', 'COB', 'DFK', 'Dirty talk', 'Domination', 'Couples', 'Face sitting', 'GFE', 'OWO', 'Party girl', 'Roleplay', 'Tie and Tease'],
   extraSvcs: [],
   incallRates: [
@@ -1275,7 +1214,7 @@ const LEENA_DATA = {
   languages: 'English · French · Spanish · Chinese',
   color: ['rgba(90,120,190,0.4)', 'rgba(40,60,140,0.7)'],
   initials: 'LE',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Busty Escorts', 'Recommended Escorts', 'Roleplay Escorts'],
   svcs: ['A-Level', 'Bi DUO', 'GFE', 'Light domination', 'OWO', 'Roleplay'],
   extraSvcs: [],
   incallRates: [
@@ -1307,7 +1246,7 @@ const RACHEL_DATA = {
   languages: 'English · Russian',
   color: ['rgba(90,160,190,0.4)', 'rgba(30,100,130,0.7)'],
   initials: 'RA',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Curvy Escorts', 'Mature Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Russian Escorts London', 'Striptease Escorts'],
   svcs: ['69', 'A-Level', 'Bi DUO', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
   extraSvcs: [],
   incallRates: [
@@ -7359,7 +7298,7 @@ const ANGEL_DATA = {
   languages: 'English · Italian · Portuguese',
   color: ['rgba(140,170,110,0.4)', 'rgba(70,110,40,0.7)'],
   initials: 'NG',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Brunette Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Striptease Escorts'],
   svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Massage', 'OWC', 'OWO', 'Party girl', 'Rimming giving', 'Rimming receiving', 'Strap-on', 'Striptease', 'WS giving'],
   extraSvcs: [
     {name: 'CIM', price: 100},
@@ -7401,7 +7340,7 @@ const EMILIE_DATA = {
   languages: 'English · French',
   color: ['rgba(180,140,100,0.4)', 'rgba(120,80,40,0.7)'],
   initials: 'IL',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Recommended Escorts'],
   svcs: ['Bi DUO', 'Dinner Dates', 'GFE', 'OWC', 'OWO'],
   extraSvcs: [],
   incallRates: [
@@ -7437,7 +7376,7 @@ const MAYA_DATA = {
   languages: 'English',
   color: ['rgba(170,130,110,0.4)', 'rgba(110,70,50,0.7)'],
   initials: 'YM',
-  cats: ['new'],
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Recommended Escorts'],
   svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Fingering', 'FK', 'Foot fetish', 'Handcuffs', "Lady's service", 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Poppers', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
   extraSvcs: [
     {name: 'CIF', price: 100},
@@ -7870,7 +7809,7 @@ const VIP_TEASER_MODELS = [
 // never reach the general catalog/search MODELS list (see its own comment
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
-const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
+const FAKE_MODELS = [];
 const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA,...FAKE_MODELS];
 
 module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
