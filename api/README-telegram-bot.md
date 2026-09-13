@@ -40,7 +40,13 @@ vars, never in the repo or in the browser.
      allowed to be tapped from, so whoever needs to grant VIP access must be
      a member of it.
    - `TELEGRAM_BOOKINGS_THREAD_ID` — optional, a forum topic id within that
-     chat (leave unset for a non-forum group or the General topic).
+     chat for booking enquiries (leave unset for a non-forum group or the
+     General topic).
+   - `TELEGRAM_VIP_THREAD_ID` — optional, a **separate** forum topic id for
+     VIP payment requests, so they don't mix in with regular bookings.
+     Leave unset to have them land in the same place as
+     `TELEGRAM_BOOKINGS_THREAD_ID` (or the General topic if that's unset
+     too).
    - `SUPABASE_SERVICE_ROLE_KEY` — the bot uses it to store conversation
      state (`sql/002_bot_sessions.sql`) and Telegram-chat VIP access
      (`sql/003_bot_vip_access.sql`).
@@ -128,7 +134,8 @@ moment). Instead:
 1. Tapping **"💳 Pay by card"** asks the client how a manager can reach
    them (WhatsApp, Telegram username, or phone).
 2. The bot forwards that, along with the client's chat id, to
-   `TELEGRAM_BOOKINGS_CHAT_ID` with a **"✅ Confirm payment received"**
+   `TELEGRAM_BOOKINGS_CHAT_ID` (in the `TELEGRAM_VIP_THREAD_ID` topic, kept
+   separate from regular bookings) with a **"✅ Confirm payment received"**
    button.
 3. A manager arranges and takes the £300 payment directly with the client
    (outside the bot), then taps that button.

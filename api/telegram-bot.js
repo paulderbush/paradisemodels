@@ -281,12 +281,14 @@ async function handleVipContactStep(chatId, text, from) {
   await forwardVipRequest(chatId, text.trim(), from);
 }
 
-// Posts the VIP payment request to the same manager chat bookings use, with
-// a button that marks this chat as paid (see the grantvip: callback in
-// handleUpdate) once the manager has actually taken payment.
+// Posts the VIP payment request to the same manager chat bookings use, but
+// in its own topic (TELEGRAM_VIP_THREAD_ID) so VIP requests don't get mixed
+// in with regular booking enquiries. Includes a button that marks this
+// chat as paid (see the grantvip: callback in handleUpdate) once the
+// manager has actually taken payment.
 async function forwardVipRequest(chatId, contact, from) {
   const TG_CHAT = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
-  const TG_THREAD = process.env.TELEGRAM_BOOKINGS_THREAD_ID;
+  const TG_THREAD = process.env.TELEGRAM_VIP_THREAD_ID;
   const username = from && from.username ? `@${from.username}` : 'no username';
   const msg = `🔓 <b>VIP Access Request (Telegram Bot)</b>\n\n<b>Telegram:</b> ${username} (chat id <code>${chatId}</code>)\n<b>Contact:</b> ${escapeHtml(contact)}\n<b>Amount:</b> £${VIP_PRICE_GBP}\n\n<i>Arrange payment directly with the client, then tap below once it's confirmed.</i>`;
   const keyboard = {inline_keyboard: [[{text: '✅ Confirm payment received', callback_data: `grantvip:${chatId}`}]]};
