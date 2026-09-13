@@ -1,4 +1,31 @@
 // =================== PROFILE PAGE ===================
+// Center coordinates for every city a model can be based in — used as the
+// map fallback when a model has no specific station/area (a bare city name
+// isn't reliably geocoded by the no-API-key Google Maps embed, so it was
+// rendering blank for touring/VIP models).
+const CITY_COORDS = {
+  'London': '51.5072,-0.1276',
+  'Paris': '48.8566,2.3522',
+  'Monaco': '43.7384,7.4246',
+  'Milan': '45.4642,9.1900',
+  'Dubai': '25.2048,55.2708',
+  'New York': '40.7128,-74.0060',
+  'Miami': '25.7617,-80.1918',
+  'Zurich': '47.3769,8.5417',
+  'Amsterdam': '52.3676,4.9041',
+  'Barcelona': '41.3851,2.1734',
+  'Capri': '40.5532,14.2429',
+  'Florianopolis': '-27.5954,-48.5480',
+  'Ibiza': '38.9067,1.4206',
+  'Istanbul': '41.0082,28.9784',
+  'Madrid': '40.4168,-3.7038',
+  'Marbella': '36.5099,-4.8863',
+  'Mykonos': '37.4467,25.3289',
+  'Phuket': '7.8804,98.3923',
+  'Rio de Janeiro': '-22.9068,-43.1729',
+  'Shanghai': '31.2304,121.4737',
+  'Valletta': '35.8989,14.5146',
+};
 let _gallery = {items: [], current: 0};
 let _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), includedChoices: new Set(), includedExtras: new Set(), model: null};
 
@@ -201,8 +228,10 @@ function buildRealModelHTML(m) {
     ['Eyes', m.eyeColor], ['Hair', m.hairColor], ['Measurements', m.measurements],
   ].filter(([, v]) => v !== undefined && v !== null && v !== '');
   // Touring models (no London tube station) fall back to their city for
-  // both the header line and the map query.
-  const mapQ = encodeURIComponent(m.station ? `${m.station} Underground Station London` : m.city);
+  // the header line. The map query falls back to that city's center
+  // coordinates — a bare city name isn't reliably geocoded by the
+  // no-API-key Google Maps embed and was rendering a blank map.
+  const mapQ = encodeURIComponent(m.station ? `${m.station} Underground Station London` : (CITY_COORDS[m.city] || m.city));
   return `
     <a class="back-btn" href="${m.vip ? '/vip-models/' : '/models/'}">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
