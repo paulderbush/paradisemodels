@@ -114,7 +114,43 @@ async function setBotSession(chatId, state, data) {
   }
 }
 
+// Same idea as isVipPaid/upsertVipAccess above, but keyed by Telegram
+// chat_id (see sql/003_bot_vip_access.sql) instead of a Supabase auth user
+// — the bot's VIP unlock has no website account behind it.
+async function isTelegramVipPaid(chatId) {
+  if (!SUPABASE_SERVICE_ROLE_KEY || !chatId) return false;
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/bot_vip_access?chat_id=eq.${chatId}&select=paid`, {
+    headers: {
+      apikey: SUPABASE_SERVICE_ROLE_KEY,
+      Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`
+    }
+  }).catch(() => null);
+  if (!r || !r.ok) return false;
+  const rows = await r.json().catch(() => []);
+  return !!(rows[0] && rows[0].paid);
+}
+
+async function upsertTelegramVipAccess(row) {
+  if (!SUPABASE_SERVICE_ROLE_KEY) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY is not configured');
+  }
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/bot_vip_access`, {
+    method: 'POST',
+    headers: {
+      apikey: SUPABASE_SERVICE_ROLE_KEY,
+      Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+      'Content-Type': 'application/json',
+      Prefer: 'resolution=merge-duplicates,return=minimal'
+    },
+    body: JSON.stringify(row)
+  });
+  if (!r.ok) {
+    const text = await r.text().catch(() => '');
+    throw new Error(`Supabase upsert failed (${r.status}): ${text}`);
+  }
+}
+
 module.exports = {
   SUPABASE_URL, SUPABASE_ANON_KEY, getUserFromAuthHeader, upsertVipAccess, isVipPaid,
-  getBotSession, setBotSession
+  getBotSession, setBotSession, isTelegramVipPaid, upsertTelegramVipAccess
 };

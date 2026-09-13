@@ -46,8 +46,8 @@ module.exports = async function handler(req, res) {
     const userId = session.client_reference_id || (session.metadata && session.metadata.supabase_user_id);
 
     if (!userId) {
-      console.error('stripe-webhook: checkout.session.completed with no supabase user id', session.id);
-      // Acknowledge anyway — retrying won't produce a user id either, and
+      console.error('stripe-webhook: checkout.session.completed with no supabase user id or telegram chat id', session.id);
+      // Acknowledge anyway — retrying won't produce an id either, and
       // Stripe will keep resending an event we 4xx/5xx on.
       return res.status(200).json({received: true, warning: 'no user id on session'});
     }

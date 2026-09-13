@@ -1,28 +1,53 @@
 'use strict';
-// Telegram catalog bot — lets a client browse the public model roster and
-// submit a booking enquiry without leaving Telegram. Webhook handler: point
-// this bot's setWebhook at POST https://<domain>/api/telegram-bot.
+// Telegram catalog bot — lets a client filter the model roster (city,
+// categories, age, rate) and submit a booking enquiry without leaving
+// Telegram, reading the same data/models.js the site itself builds from.
 //
-// Deliberately reads data/models.js directly (the same single source of
-// truth the site build reads from) rather than scraping the live site or
-// keeping a separate copy, so there is nothing to keep in sync — a new
-// model added to data/models.js shows up here on the next request with no
-// extra step.
+// Flow: /start -> city (incl. cities that only have VIP presence) ->
+// categories (multi-select toggle) -> age bucket -> rate bucket -> results
+// (public models matching the filters, one message per companion: photo +
+// stats + price + Book/More buttons). If any VIP companion also matches the
+// same filters, a "Want VIP models too?" button appears below the public
+// results; tapping it either shows the matching VIP companions (if this
+// chat has already paid) or asks for a contact method and forwards a VIP
+// payment request to the manager chat — there's no automated checkout yet
+// (no Stripe, no crypto processor configured), so a manager takes payment
+// out of band and taps "Confirm payment received" on the forwarded request
+// to unlock that chat (see the grantvip: callback in handleUpdate).
 //
-// VIP models are out of scope on purpose: the whole point of vip:true is
-// that the data never leaves the server except after a paid Stripe
-// checkout (see api/vip-catalog.js's comment) — a Telegram bot has no
-// equivalent payment gate yet, so this only ever shows the public roster.
-const {MODELS} = require('../data/models.js');
-const {getBotSession, setBotSession} = require('./_lib/supabaseAdmin');
+// VIP model data is read directly from data/models.js here (this is
+// server-side code, same trust level as api/vip-catalog.js) but is only
+// ever sent to a chat after isTelegramVipPaid() confirms that chat has
+// paid — the same "never leaves the server until paid" rule the website
+// enforces, just checked against bot_vip_access instead of vip_access.
+const {MODELS, CATEGORIES} = require('../data/models.js');
+const {getBotSession, setBotSession, isTelegramVipPaid, upsertTelegramVipAccess} = require('./_lib/supabaseAdmin');
 const {sendMessage, editMessageText, sendPhoto, answerCallbackQuery} = require('./_lib/telegramBot');
 
-const SITE_URL = 'https://velvetescort.co.uk';
-const MODELS_PER_PAGE = 8;
+const SITE_URL = process.env.SITE_URL || 'https://velvetescort.co.uk';
+const RESULTS_PER_PAGE = 5;
+const VIP_PRICE_GBP = 300;
 const WEBHOOK_SECRET = process.env.TELEGRAM_WEBHOOK_SECRET;
+
+const AGE_BUCKETS = [
+  {key: 'u', label: 'Under 23', test: age => age != null && age <= 23},
+  {key: 'm', label: '24–27', test: age => age != null && age >= 24 && age <= 27},
+  {key: 'p', label: '27+', test: age => age != null && age >= 27},
+];
+const PRICE_BUCKETS = [
+  {key: 'u', label: 'Under £500', test: p => p != null && p < 500},
+  {key: 'm', label: '£501–£1000', test: p => p != null && p >= 500 && p <= 1000},
+  {key: 'p', label: '£1000+', test: p => p != null && p >= 1000},
+];
 
 function publicModels() {
   return MODELS.filter(m => m.real && !m.vip);
+}
+function vipModels() {
+  return MODELS.filter(m => m.real && m.vip);
+}
+function modelBySlug(slug) {
+  return MODELS.find(m => m.real && m.slug === slug);
 }
 
 // Mirrors startPrice() in assets/main.js (same "Extra Hour" exclusion fix
@@ -38,37 +63,77 @@ function citySlug(c) {
   return c.toLowerCase().replace(/\s+/g, '-');
 }
 
-function citiesWithCounts() {
-  const counts = new Map();
-  publicModels().forEach(m => counts.set(m.city, (counts.get(m.city) || 0) + 1));
-  return Array.from(counts.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+// Escapes the handful of characters that matter to Telegram's HTML
+// parse_mode (used on every sendMessage/editMessageText call) so free-text
+// a client types — a booking contact, a date — can't break the message.
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// Union of every city with a public model and every city with a VIP model —
+// a client can pick a VIP-only city and still reach the "want VIP?" offer
+// even though no public result will ever show for it.
 function cityKeyboard() {
-  const rows = citiesWithCounts().map(([city, count]) => ([
-    {text: `${city} (${count})`, callback_data: `c:${citySlug(city)}:0`}
-  ]));
+  const pubCounts = new Map();
+  publicModels().forEach(m => pubCounts.set(m.city, (pubCounts.get(m.city) || 0) + 1));
+  const vipCities = new Set(vipModels().map(m => m.city));
+  const allCities = new Set([...pubCounts.keys(), ...vipCities]);
+  const rows = Array.from(allCities).sort((a, b) => a.localeCompare(b)).map(city => {
+    const label = pubCounts.has(city) ? `${city} (${pubCounts.get(city)})` : `${city} (VIP only)`;
+    return [{text: label, callback_data: `city:${citySlug(city)}`}];
+  });
   return {inline_keyboard: rows};
 }
 
-function modelsInCity(slug) {
-  return publicModels().filter(m => citySlug(m.city) === slug);
+function cityNameFromSlug(slug) {
+  const m = MODELS.find(x => x.real && citySlug(x.city) === slug);
+  return m ? m.city : slug;
 }
 
-function cityPageKeyboard(slug, page) {
-  const all = modelsInCity(slug);
-  const start = page * MODELS_PER_PAGE;
-  const pageModels = all.slice(start, start + MODELS_PER_PAGE);
-  const rows = pageModels.map(m => ([{text: m.name, callback_data: `m:${m.slug}`}]));
-  const navRow = [];
-  if (page > 0) navRow.push({text: '⬅ Prev', callback_data: `c:${slug}:${page - 1}`});
-  if (start + MODELS_PER_PAGE < all.length) navRow.push({text: 'Next ➡', callback_data: `c:${slug}:${page + 1}`});
-  if (navRow.length) rows.push(navRow);
-  rows.push([{text: '🏙 All cities', callback_data: 'cities'}]);
+function catStepText(data) {
+  const chosen = (data.cats || []).map(i => CATEGORIES[i]);
+  return [
+    `<b>City:</b> ${cityNameFromSlug(data.city)}`,
+    '',
+    'Choose one or more categories (tap to select), then Continue:',
+    chosen.length ? `\n<i>Selected: ${chosen.join(', ')}</i>` : ''
+  ].filter(Boolean).join('\n');
+}
+
+function catKeyboard(selected) {
+  const sel = new Set(selected || []);
+  const rows = [];
+  for (let i = 0; i < CATEGORIES.length; i += 2) {
+    const row = [i, i + 1].filter(j => j < CATEGORIES.length).map(j => ({
+      text: `${sel.has(j) ? '✅ ' : ''}${CATEGORIES[j]}`,
+      callback_data: `cat:${j}`
+    }));
+    rows.push(row);
+  }
+  rows.push([{text: '▶️ Continue', callback_data: 'cats:done'}]);
   return {inline_keyboard: rows};
 }
 
-function modelCaption(m) {
+function ageKeyboard() {
+  return {inline_keyboard: [AGE_BUCKETS.map(b => ({text: b.label, callback_data: `age:${b.key}`}))]};
+}
+
+function priceKeyboard() {
+  return {inline_keyboard: [PRICE_BUCKETS.map(b => ({text: b.label, callback_data: `price:${b.key}`}))]};
+}
+
+function matchesFilters(m, data) {
+  if (citySlug(m.city) !== data.city) return false;
+  const cats = (data.cats || []).map(i => CATEGORIES[i]);
+  if (cats.length && !cats.every(c => m.cats && m.cats.includes(c))) return false;
+  const ageBucket = AGE_BUCKETS.find(b => b.key === data.age);
+  if (ageBucket && !ageBucket.test(m.age)) return false;
+  const priceBucket = PRICE_BUCKETS.find(b => b.key === data.price);
+  if (priceBucket && !priceBucket.test(startPrice(m))) return false;
+  return true;
+}
+
+function resultCaption(m) {
   const price = startPrice(m);
   const lines = [
     `<b>${m.name}</b>`,
@@ -79,44 +144,55 @@ function modelCaption(m) {
   return lines.join('\n');
 }
 
-function modelKeyboard(m) {
+function resultKeyboard(m) {
+  const moreUrl = m.vip ? `${SITE_URL}/vip-models/` : `${SITE_URL}/models/${m.slug}/`;
   return {inline_keyboard: [
-    [{text: '📅 Book', callback_data: `bk:${m.slug}`}],
-    [{text: '⬅ Back to city', callback_data: `c:${citySlug(m.city)}:0`}]
+    [{text: '📅 Book', callback_data: `bk:${m.slug}`}, {text: '🔗 More', url: moreUrl}]
   ]};
 }
 
-async function showCityPage(chatId, slug, page, messageId) {
-  const all = modelsInCity(slug);
-  if (!all.length) {
-    await sendMessage(chatId, "No companions listed in that city right now.", {reply_markup: cityKeyboard()});
-    return;
+async function sendResultsBatch(chatId, data, pool, offset, kind) {
+  const matches = pool.filter(m => matchesFilters(m, data));
+  const page = matches.slice(offset, offset + RESULTS_PER_PAGE);
+  for (const m of page) {
+    const photoUrl = `${SITE_URL}/${m.folder}/1.webp`;
+    await sendPhoto(chatId, photoUrl, resultCaption(m), {reply_markup: resultKeyboard(m)});
   }
-  const cityName = all[0].city;
-  const text = `<b>${cityName}</b> — ${all.length} companion${all.length === 1 ? '' : 's'}`;
-  const keyboard = cityPageKeyboard(slug, page);
-  if (messageId) {
-    await editMessageText(chatId, messageId, text, {reply_markup: keyboard}).catch(() => sendMessage(chatId, text, {reply_markup: keyboard}));
-  } else {
-    await sendMessage(chatId, text, {reply_markup: keyboard});
-  }
-}
+  const nextOffset = offset + RESULTS_PER_PAGE;
+  const hasMore = nextOffset < matches.length;
+  const isLastBatchOfPublicResults = kind === 'pub' && !hasMore;
 
-async function showModel(chatId, slug) {
-  const m = publicModels().find(x => x.slug === slug);
-  if (!m) {
-    await sendMessage(chatId, "That companion isn't available anymore.", {reply_markup: cityKeyboard()});
+  const tailButtons = [];
+  if (hasMore) tailButtons.push([{text: `Show ${Math.min(RESULTS_PER_PAGE, matches.length - nextOffset)} more`, callback_data: `${kind}:${nextOffset}`}]);
+
+  if (isLastBatchOfPublicResults) {
+    const vipMatches = vipModels().filter(m => matchesFilters(m, data));
+    if (vipMatches.length) {
+      tailButtons.push([{text: `🔓 ${vipMatches.length} VIP companion${vipMatches.length === 1 ? '' : 's'} also match — I want VIP`, callback_data: 'vip:show'}]);
+    }
+  }
+  tailButtons.push([{text: '🔁 New search', callback_data: 'restart'}]);
+
+  if (!matches.length && offset === 0) {
+    const noun = kind === 'vip' ? 'VIP companions' : 'companions';
+    await sendMessage(chatId, `No ${noun} match those filters.`, {reply_markup: {inline_keyboard: tailButtons}});
     return;
   }
-  const photoUrl = `${SITE_URL}/${m.folder}/1.webp`;
-  await sendPhoto(chatId, photoUrl, modelCaption(m), {reply_markup: modelKeyboard(m)});
+  await sendMessage(chatId, offset === 0 ? `Showing ${Math.min(RESULTS_PER_PAGE, matches.length)} of ${matches.length} match${matches.length === 1 ? '' : 'es'}:` : 'More matches:', {reply_markup: {inline_keyboard: tailButtons}});
 }
 
 async function startBooking(chatId, slug) {
-  const m = publicModels().find(x => x.slug === slug);
+  const m = modelBySlug(slug);
   if (!m) {
     await sendMessage(chatId, "That companion isn't available anymore.");
     return;
+  }
+  if (m.vip) {
+    const paid = await isTelegramVipPaid(chatId);
+    if (!paid) {
+      await sendMessage(chatId, "That's a VIP companion — unlock VIP access first (send /start, pick her city/filters, then \"I want VIP\").");
+      return;
+    }
   }
   await setBotSession(chatId, 'awaiting_name', {modelSlug: slug, modelName: m.name});
   await sendMessage(chatId, `Booking enquiry for <b>${m.name}</b>.\n\nWhat's your name? (/cancel to stop)`);
@@ -126,7 +202,7 @@ async function handleBookingStep(chatId, session, text) {
   const data = session.data || {};
   if (/^\/cancel$/i.test(text.trim())) {
     await setBotSession(chatId, 'idle', {});
-    await sendMessage(chatId, 'Booking cancelled. Send /models to browse again.');
+    await sendMessage(chatId, 'Booking cancelled. Send /start to search again.');
     return;
   }
 
@@ -171,7 +247,7 @@ async function handleBookingStep(chatId, session, text) {
 async function forwardBookingRequest(chatId, data) {
   const TG_CHAT = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
   const TG_THREAD = process.env.TELEGRAM_BOOKINGS_THREAD_ID;
-  const msg = `🔖 <b>New Booking Request (Telegram Bot)</b>\n\n<b>Model:</b> ${data.modelName}\n<b>Client:</b> ${data.name}\n<b>Contact:</b> ${data.contact}\n<b>Date:</b> ${data.date}\n<b>Time:</b> ${data.time}\n\n<i>Sent via the Telegram catalog bot — confirm availability, duration and rate directly with the client.</i>`;
+  const msg = `🔖 <b>New Booking Request (Telegram Bot)</b>\n\n<b>Model:</b> ${escapeHtml(data.modelName)}\n<b>Client:</b> ${escapeHtml(data.name)}\n<b>Contact:</b> ${escapeHtml(data.contact)}\n<b>Date:</b> ${escapeHtml(data.date)}\n<b>Time:</b> ${escapeHtml(data.time)}\n\n<i>Sent via the Telegram catalog bot — confirm availability, duration and rate directly with the client.</i>`;
 
   if (TG_CHAT) {
     try {
@@ -186,6 +262,59 @@ async function forwardBookingRequest(chatId, data) {
   await sendMessage(chatId, "✅ Thanks! Your enquiry has been sent — our team will contact you shortly to confirm.");
 }
 
+// No automated payment processor is wired up yet (no Stripe, no crypto
+// gateway) — the client is pointed straight at the manager's own Telegram
+// to arrange payment out of band, and the manager confirms it manually by
+// tapping the button on the request forwarded to TELEGRAM_BOOKINGS_CHAT_ID.
+const VIP_MANAGER_CONTACT = process.env.TELEGRAM_VIP_MANAGER_CONTACT || '@paradisemodelslondon';
+
+async function startVipPurchase(chatId, from) {
+  await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. Message our manager to arrange payment: ${VIP_MANAGER_CONTACT}\n\nYour reference code: <code>${chatId}</code> — mention it so they can activate your VIP access once payment is confirmed.`);
+  await forwardVipRequest(chatId, from);
+}
+
+// Posts the VIP payment request to the same manager chat bookings use, but
+// in its own topic (TELEGRAM_VIP_THREAD_ID) so VIP requests don't get mixed
+// in with regular booking enquiries. Includes a button that marks this
+// chat as paid (see the grantvip: callback in handleUpdate) once the
+// manager has actually taken payment from the client directly.
+async function forwardVipRequest(chatId, from) {
+  const TG_CHAT = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
+  const TG_THREAD = process.env.TELEGRAM_VIP_THREAD_ID;
+  const username = from && from.username ? `@${from.username}` : 'no username';
+  const msg = `🔓 <b>VIP Access Request (Telegram Bot)</b>\n\n<b>Telegram:</b> ${username} (chat id <code>${chatId}</code>)\n<b>Amount:</b> £${VIP_PRICE_GBP}\n\n<i>The client was given ${VIP_MANAGER_CONTACT}'s contact and this reference code — confirm below once they've paid.</i>`;
+  const keyboard = {inline_keyboard: [[{text: '✅ Confirm payment received', callback_data: `grantvip:${chatId}`}]]};
+
+  if (TG_CHAT) {
+    try {
+      await sendMessage(TG_CHAT, msg, Object.assign({reply_markup: keyboard}, TG_THREAD ? {message_thread_id: TG_THREAD} : {}));
+    } catch (e) {
+      console.error('telegram-bot: failed to forward VIP request to manager chat:', e.message);
+    }
+  } else {
+    console.error('telegram-bot: TELEGRAM_BOOKINGS_CHAT_ID not configured — VIP request not forwarded:', msg);
+  }
+}
+
+async function handleVipShow(chatId, data, from) {
+  const paid = await isTelegramVipPaid(chatId);
+  if (!paid) {
+    await startVipPurchase(chatId, from);
+    return;
+  }
+  await sendResultsBatch(chatId, data, vipModels(), 0, 'vip');
+}
+
+async function showCityStep(chatId, messageId) {
+  const text = 'Where would you like to search?';
+  const keyboard = cityKeyboard();
+  if (messageId) {
+    await editMessageText(chatId, messageId, text, {reply_markup: keyboard}).catch(() => sendMessage(chatId, text, {reply_markup: keyboard}));
+  } else {
+    await sendMessage(chatId, text, {reply_markup: keyboard});
+  }
+}
+
 async function handleUpdate(update) {
   if (update.callback_query) {
     const cq = update.callback_query;
@@ -194,20 +323,94 @@ async function handleUpdate(update) {
     const dataStr = cq.data || '';
     await answerCallbackQuery(cq.id).catch(() => {});
 
-    if (dataStr === 'cities') {
-      await editMessageReplaceWithCities(chatId, messageId);
+    if (dataStr === 'restart') {
+      await setBotSession(chatId, 'idle', {});
+      await showCityStep(chatId, messageId);
       return;
     }
-    if (dataStr.startsWith('c:')) {
-      const [, slug, pageStr] = dataStr.split(':');
-      await showCityPage(chatId, slug, parseInt(pageStr, 10) || 0, messageId);
+
+    if (dataStr.startsWith('city:')) {
+      const slug = dataStr.slice(5);
+      const data = {city: slug, cats: []};
+      await setBotSession(chatId, 'choosing_cats', data);
+      await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data.cats)});
       return;
     }
-    if (dataStr.startsWith('m:')) {
-      const slug = dataStr.slice(2);
-      await showModel(chatId, slug);
+
+    if (dataStr.startsWith('cat:')) {
+      const idx = parseInt(dataStr.slice(4), 10);
+      const session = await getBotSession(chatId);
+      const data = session.data || {};
+      data.cats = data.cats || [];
+      const pos = data.cats.indexOf(idx);
+      if (pos === -1) data.cats.push(idx); else data.cats.splice(pos, 1);
+      await setBotSession(chatId, 'choosing_cats', data);
+      await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data.cats)});
       return;
     }
+
+    if (dataStr === 'cats:done') {
+      const session = await getBotSession(chatId);
+      const data = session.data || {};
+      await setBotSession(chatId, 'choosing_age', data);
+      await editMessageText(chatId, messageId, 'What age range?', {reply_markup: ageKeyboard()});
+      return;
+    }
+
+    if (dataStr.startsWith('age:')) {
+      const key = dataStr.slice(4);
+      const session = await getBotSession(chatId);
+      const data = session.data || {};
+      data.age = key;
+      await setBotSession(chatId, 'choosing_price', data);
+      await editMessageText(chatId, messageId, 'What rate range?', {reply_markup: priceKeyboard()});
+      return;
+    }
+
+    if (dataStr.startsWith('price:')) {
+      const key = dataStr.slice(6);
+      const session = await getBotSession(chatId);
+      const data = session.data || {};
+      data.price = key;
+      await setBotSession(chatId, 'idle', data);
+      await editMessageText(chatId, messageId, `<b>City:</b> ${cityNameFromSlug(data.city)}\nSearching…`);
+      await sendResultsBatch(chatId, data, publicModels(), 0, 'pub');
+      return;
+    }
+
+    if (dataStr.startsWith('pub:')) {
+      const offset = parseInt(dataStr.slice(4), 10) || 0;
+      const session = await getBotSession(chatId);
+      await sendResultsBatch(chatId, session.data || {}, publicModels(), offset, 'pub');
+      return;
+    }
+
+    if (dataStr.startsWith('vip:')) {
+      const rest = dataStr.slice(4);
+      const session = await getBotSession(chatId);
+      if (rest === 'show') {
+        await handleVipShow(chatId, session.data || {}, cq.from);
+        return;
+      }
+      const offset = parseInt(rest, 10) || 0;
+      await sendResultsBatch(chatId, session.data || {}, vipModels(), offset, 'vip');
+      return;
+    }
+
+    if (dataStr.startsWith('grantvip:')) {
+      const targetChatId = dataStr.slice('grantvip:'.length);
+      const managerChat = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
+      if (!managerChat || String(chatId) !== String(managerChat)) return;
+      try {
+        await upsertTelegramVipAccess({chat_id: targetChatId, paid: true, paid_at: new Date().toISOString()});
+        await editMessageText(chatId, messageId, `${cq.message.text}\n\n✅ Marked as paid.`, {reply_markup: {inline_keyboard: []}}).catch(() => {});
+        await sendMessage(targetChatId, "✅ Payment confirmed — VIP companions are now included in your search. Send /start to search again.").catch(() => {});
+      } catch (e) {
+        console.error('telegram-bot: failed to grant VIP access:', e.message);
+      }
+      return;
+    }
+
     if (dataStr.startsWith('bk:')) {
       const slug = dataStr.slice(3);
       await startBooking(chatId, slug);
@@ -223,27 +426,18 @@ async function handleUpdate(update) {
 
   if (/^\/(start|models)\b/i.test(text)) {
     await setBotSession(chatId, 'idle', {});
-    await sendMessage(chatId, "Welcome to Paradise Models. Browse our companions by city:", {reply_markup: cityKeyboard()});
+    await sendMessage(chatId, "Welcome to Paradise Models. Let's find you a companion.");
+    await showCityStep(chatId);
     return;
   }
 
   const session = await getBotSession(chatId);
-  if (session.state !== 'idle') {
+  if (session.state && session.state.startsWith('awaiting_')) {
     await handleBookingStep(chatId, session, text);
     return;
   }
 
-  await sendMessage(chatId, "Send /models to browse our companions.");
-}
-
-// A city-list message replaces itself in place (edit) when reached via the
-// "All cities" button so browsing doesn't leave a trail of old messages —
-// editMessageText can't switch a photo-caption message back to plain text,
-// so that one case falls back to a fresh message instead.
-async function editMessageReplaceWithCities(chatId, messageId) {
-  const text = 'Choose a city:';
-  const keyboard = cityKeyboard();
-  await editMessageText(chatId, messageId, text, {reply_markup: keyboard}).catch(() => sendMessage(chatId, text, {reply_markup: keyboard}));
+  await sendMessage(chatId, "Send /start to search our companions.");
 }
 
 module.exports = async function handler(req, res) {
