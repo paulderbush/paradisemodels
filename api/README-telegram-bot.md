@@ -47,6 +47,9 @@ vars, never in the repo or in the browser.
      Leave unset to have them land in the same place as
      `TELEGRAM_BOOKINGS_THREAD_ID` (or the General topic if that's unset
      too).
+   - `TELEGRAM_VIP_MANAGER_CONTACT` — optional, the Telegram contact
+     (e.g. `@paradisemodelslondon`) a client is told to message to arrange
+     VIP payment. Defaults to `@paradisemodelslondon` if unset.
    - `SUPABASE_SERVICE_ROLE_KEY` — the bot uses it to store conversation
      state (`sql/002_bot_sessions.sql`) and Telegram-chat VIP access
      (`sql/003_bot_vip_access.sql`).
@@ -106,8 +109,8 @@ vars, never in the repo or in the browser.
    "🔓 N VIP companions also match — I want VIP" button appears after the
    last page of public results (it's omitted entirely when there's no VIP
    match for the current filters). Tapping it either shows the matching VIP
-   companions (if this chat has already paid) or starts the VIP payment
-   request below.
+   companions (if this chat has already paid) or gives the client the
+   manager's contact and a reference code — see "VIP access" below.
 7. **Book** on any card (public or VIP, VIP requires the chat to have
    already paid) starts a short guided flow — name → contact → date → time
    — stored per-chat in `bot_sessions` between webhook calls since a
@@ -131,19 +134,22 @@ There's no automated payment processor wired up for the bot yet (no
 Stripe, no crypto gateway — the site doesn't have one live either at the
 moment). Instead:
 
-1. Tapping **"💳 Pay by card"** asks the client how a manager can reach
-   them (WhatsApp, Telegram username, or phone).
-2. The bot forwards that, along with the client's chat id, to
+1. Tapping **"I want VIP"** immediately messages the client the manager's
+   own Telegram contact (`TELEGRAM_VIP_MANAGER_CONTACT`, defaults to
+   `@paradisemodelslondon`) and a reference code (their chat id) to give
+   the manager.
+2. At the same time, the bot forwards a heads-up to
    `TELEGRAM_BOOKINGS_CHAT_ID` (in the `TELEGRAM_VIP_THREAD_ID` topic, kept
-   separate from regular bookings) with a **"✅ Confirm payment received"**
-   button.
-3. A manager arranges and takes the £300 payment directly with the client
-   (outside the bot), then taps that button.
-4. The tap is only honoured if it comes from inside
-   `TELEGRAM_BOOKINGS_CHAT_ID` — anyone else tapping a copy of that button
-   (they'd have to be in the group to see it in the first place) is
-   ignored. On a valid tap, the bot marks that chat as paid in
-   `bot_vip_access` and messages the client directly that VIP is unlocked.
+   separate from regular bookings) with the client's Telegram username and
+   the same reference code, plus a **"✅ Confirm payment received"** button.
+3. The client messages the manager directly and arranges the £300 payment
+   out of band — the bot itself isn't part of that conversation.
+4. Once paid, the manager taps the button on the forwarded heads-up. The
+   tap is only honoured if it comes from inside `TELEGRAM_BOOKINGS_CHAT_ID`
+   — anyone else tapping a copy of that button (they'd have to be in the
+   group to see it in the first place) is ignored. On a valid tap, the bot
+   marks that chat as paid in `bot_vip_access` and messages the client
+   directly that VIP is unlocked.
 
 When a real payment processor (Stripe, crypto, or both) is ready to go
 live, `startVipPurchase`/`forwardVipRequest` in `telegram-bot.js` is the

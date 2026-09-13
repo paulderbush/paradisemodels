@@ -263,34 +263,26 @@ async function forwardBookingRequest(chatId, data) {
 }
 
 // No automated payment processor is wired up yet (no Stripe, no crypto
-// gateway) — a manager takes payment out of band (card details over the
-// phone, bank transfer, etc.) and confirms it manually by tapping the
-// button on the request forwarded to TELEGRAM_BOOKINGS_CHAT_ID below.
-async function startVipPurchase(chatId) {
-  await setBotSession(chatId, 'awaiting_vip_contact', {});
-  await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. How can our manager reach you to arrange payment? (WhatsApp, Telegram username, or phone)\n\n(/cancel to stop)`);
-}
+// gateway) — the client is pointed straight at the manager's own Telegram
+// to arrange payment out of band, and the manager confirms it manually by
+// tapping the button on the request forwarded to TELEGRAM_BOOKINGS_CHAT_ID.
+const VIP_MANAGER_CONTACT = process.env.TELEGRAM_VIP_MANAGER_CONTACT || '@paradisemodelslondon';
 
-async function handleVipContactStep(chatId, text, from) {
-  if (/^\/cancel$/i.test(text.trim())) {
-    await setBotSession(chatId, 'idle', {});
-    await sendMessage(chatId, 'Cancelled. Send /start to search again.');
-    return;
-  }
-  await setBotSession(chatId, 'idle', {});
-  await forwardVipRequest(chatId, text.trim(), from);
+async function startVipPurchase(chatId, from) {
+  await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. Message our manager to arrange payment: ${VIP_MANAGER_CONTACT}\n\nYour reference code: <code>${chatId}</code> — mention it so they can activate your VIP access once payment is confirmed.`);
+  await forwardVipRequest(chatId, from);
 }
 
 // Posts the VIP payment request to the same manager chat bookings use, but
 // in its own topic (TELEGRAM_VIP_THREAD_ID) so VIP requests don't get mixed
 // in with regular booking enquiries. Includes a button that marks this
 // chat as paid (see the grantvip: callback in handleUpdate) once the
-// manager has actually taken payment.
-async function forwardVipRequest(chatId, contact, from) {
+// manager has actually taken payment from the client directly.
+async function forwardVipRequest(chatId, from) {
   const TG_CHAT = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
   const TG_THREAD = process.env.TELEGRAM_VIP_THREAD_ID;
   const username = from && from.username ? `@${from.username}` : 'no username';
-  const msg = `🔓 <b>VIP Access Request (Telegram Bot)</b>\n\n<b>Telegram:</b> ${username} (chat id <code>${chatId}</code>)\n<b>Contact:</b> ${escapeHtml(contact)}\n<b>Amount:</b> £${VIP_PRICE_GBP}\n\n<i>Arrange payment directly with the client, then tap below once it's confirmed.</i>`;
+  const msg = `🔓 <b>VIP Access Request (Telegram Bot)</b>\n\n<b>Telegram:</b> ${username} (chat id <code>${chatId}</code>)\n<b>Amount:</b> £${VIP_PRICE_GBP}\n\n<i>The client was given ${VIP_MANAGER_CONTACT}'s contact and this reference code — confirm below once they've paid.</i>`;
   const keyboard = {inline_keyboard: [[{text: '✅ Confirm payment received', callback_data: `grantvip:${chatId}`}]]};
 
   if (TG_CHAT) {
@@ -302,16 +294,12 @@ async function forwardVipRequest(chatId, contact, from) {
   } else {
     console.error('telegram-bot: TELEGRAM_BOOKINGS_CHAT_ID not configured — VIP request not forwarded:', msg);
   }
-
-  await sendMessage(chatId, "Thanks! Our manager will contact you shortly to arrange your VIP payment.");
 }
 
-async function handleVipShow(chatId, data) {
+async function handleVipShow(chatId, data, from) {
   const paid = await isTelegramVipPaid(chatId);
   if (!paid) {
-    await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. Tap below and our manager will arrange payment with you directly.`, {
-      reply_markup: {inline_keyboard: [[{text: '💳 Pay by card', callback_data: 'vip:paycard'}]]}
-    });
+    await startVipPurchase(chatId, from);
     return;
   }
   await sendResultsBatch(chatId, data, vipModels(), 0, 'vip');
@@ -401,11 +389,7 @@ async function handleUpdate(update) {
       const rest = dataStr.slice(4);
       const session = await getBotSession(chatId);
       if (rest === 'show') {
-        await handleVipShow(chatId, session.data || {});
-        return;
-      }
-      if (rest === 'paycard') {
-        await startVipPurchase(chatId);
+        await handleVipShow(chatId, session.data || {}, cq.from);
         return;
       }
       const offset = parseInt(rest, 10) || 0;
@@ -448,10 +432,6 @@ async function handleUpdate(update) {
   }
 
   const session = await getBotSession(chatId);
-  if (session.state === 'awaiting_vip_contact') {
-    await handleVipContactStep(chatId, text, msg.from);
-    return;
-  }
   if (session.state && session.state.startsWith('awaiting_')) {
     await handleBookingStep(chatId, session, text);
     return;
