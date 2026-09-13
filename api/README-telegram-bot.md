@@ -76,9 +76,15 @@ vars, never in the repo or in the browser.
 
    ```bash
    curl -s "https://api.telegram.org/bot<TELEGRAM_CATALOG_BOT_TOKEN>/setWebhook" \
-     -d "url=https://velvetescort.co.uk/api/telegram-bot" \
+     -d "url=https://velvetescort.co.uk/api/telegram-bot/" \
      -d "secret_token=<TELEGRAM_WEBHOOK_SECRET>"
    ```
+
+   The trailing `/` on the url is required: `vercel.json` sets
+   `"trailingSlash": true` project-wide, so a request to `/api/telegram-bot`
+   (no slash) gets a 308 redirect to `/api/telegram-bot/` — and Telegram
+   does not follow redirects when delivering webhook updates, so without
+   the slash every update silently fails to reach the bot.
 
    A `{"ok":true,...}` response confirms it. Telegram will now POST every
    update for this bot to that URL. If the webhook was already registered

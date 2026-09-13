@@ -7,6 +7,13 @@ const {upsertVipAccess} = require('./_lib/supabaseAdmin');
 // and break the signature check.
 module.exports.config = {api: {bodyParser: false}};
 
+// vercel.json sets "trailingSlash": true project-wide, so a request to
+// /api/stripe-webhook (no slash) 308-redirects to /api/stripe-webhook/ —
+// and Stripe doesn't follow redirects when delivering webhooks, so the
+// endpoint URL registered in the Stripe dashboard MUST end in a slash
+// (same gotcha documented for the Telegram bot in
+// api/README-telegram-bot.md's webhook-registration step).
+
 function readRawBody(req) {
   return new Promise((resolve, reject) => {
     const chunks = [];
