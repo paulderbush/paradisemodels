@@ -20,67 +20,6 @@ const CATEGORIES = ["All Natural Escorts","British Escorts London","Curvy Escort
 
 const NAMES_F = ["Anastasia","Isabella","Valentina","Sophia","Natasha","Elena","Mia","Camille","Oksana","Alicia","Diana","Kate","Veronika","Lara","Monica","Zara","Nikita","Simone","Irina","Tatiana","Daria","Alina","Yvette","Chloe","Gabrielle","Polina","Roxana","Bianca","Jade","Crystal"];
 
-const COLORS = [
-  ['rgba(123,47,190,0.4)','rgba(74,24,128,0.7)'],
-  ['rgba(155,89,208,0.4)','rgba(100,40,160,0.7)'],
-  ['rgba(80,20,150,0.4)','rgba(50,10,100,0.7)'],
-  ['rgba(140,60,200,0.4)','rgba(90,30,140,0.7)'],
-];
-
-// Seeded LCG random number generator
-function makeRng(seed) {
-  let s = seed;
-  return function() {
-    s = (s * 1664525 + 1013904223) & 0xffffffff;
-    return (s >>> 0) / 0xffffffff;
-  };
-}
-
-function generateModels() {
-  return Array.from({length: 45}, (_, i) => {
-    const rng = makeRng(i * 999 + 1);
-    const rndInt = (a, b) => Math.floor(rng() * (b - a + 1)) + a;
-    const pickN = (arr, n) => {
-      const shuffled = [...arr];
-      for (let j = shuffled.length - 1; j > 0; j--) {
-        const k = Math.floor(rng() * (j + 1));
-        [shuffled[j], shuffled[k]] = [shuffled[k], shuffled[j]];
-      }
-      return shuffled.slice(0, n);
-    };
-
-    const age = rndInt(18, 45);
-    const cats = [];
-    if (rng() > 0.5) cats.push('recommended');
-    if (age < 25) cats.push('under25');
-    if (rng() > 0.5) cats.push('toprated');
-    if (rng() > 0.7) cats.push('new');
-    const svcs = pickN(SERVICES, rndInt(8, 20));
-    const col = COLORS[i % COLORS.length];
-    const name = NAMES_F[i % NAMES_F.length] + (i >= NAMES_F.length ? ` ${i + 1}` : '');
-    const slug = name.toLowerCase().replace(/\s+/g, '-');
-    return {
-      id: i,
-      name,
-      slug,
-      age,
-      height: rndInt(158, 180),
-      weight: rndInt(48, 72),
-      nationality: NATIONALITIES[rndInt(0, NATIONALITIES.length - 1)],
-      station: STATIONS[rndInt(0, STATIONS.length - 1)],
-      city: CITIES[i % CITIES.length],
-      cats,
-      svcs,
-      rateHour: rndInt(3, 8) * 50,
-      color: col,
-      initials: name.charAt(0),
-      rating: (4 + rng()).toFixed(1),
-      reviews: [],
-      real: false,
-    };
-  });
-}
-
 // =================== REAL MODELS ===================
 const JULIA_DATA = {
   id: 9996, real: true, vip: false, folder: 'models/Julia', slug: 'julia',
@@ -365,7 +304,7 @@ const AALIYAH_DATA = {
   rateHour: 1600, extraHourPrice: 1000,
   color: ['rgba(180,60,90,0.4)', 'rgba(110,25,50,0.7)'],
   initials: 'AA',
-  cats: [],
+  cats: ['Bisexual Escorts', 'Busty Escorts', 'Party Girl Escorts', 'Striptease Escorts', 'Brunette Escorts', 'Couples Escorts', 'Roleplay Escorts'],
   breastSize: '32E', breastType: 'Enhanced', clothingSize: '6',
   eyeColor: 'Black', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English',
@@ -400,7 +339,7 @@ const KENDAL_DATA = {
   rateHour: 1600, extraHourPrice: 600,
   color: ['rgba(150,110,70,0.4)', 'rgba(90,60,30,0.7)'],
   initials: 'KE',
-  cats: ['recommended'],
+  cats: ['All Natural Escorts', 'Recommended Escorts', 'Brunette Escorts'],
   breastSize: '34B', breastType: 'Natural', clothingSize: '6',
   eyeColor: 'Black', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English',
@@ -437,7 +376,7 @@ const ALICIA_DATA = {
   rateHour: 1600, extraHourPrice: 900,
   color: ['rgba(140,60,200,0.4)', 'rgba(90,30,140,0.7)'],
   initials: 'AL',
-  cats: [],
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Party Girl Escorts'],
   breastSize: '32C', breastType: '', clothingSize: '4',
   eyeColor: 'Light Brown', hairColor: 'Brunette', orientation: 'Bisexual',
   languages: 'English · Italian · Spanish · Portuguese',
@@ -478,7 +417,7 @@ const ABBEY_DATA = {
   rateHour: 1600, extraHourPrice: 1600,
   color: ['rgba(200,180,150,0.4)', 'rgba(130,110,80,0.7)'],
   initials: 'AB',
-  cats: [],
+  cats: ['All Natural Escorts', 'Blonde Escorts', 'Party Girl Escorts'],
   breastSize: '32B', breastType: 'Natural', clothingSize: '6-8',
   eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Heterosexual',
   languages: 'English',
@@ -697,7 +636,7 @@ const MAIAN_DATA = {
   travelNote: 'Available to travel across Europe and Dubai',
   color: ['rgba(200,160,60,0.4)', 'rgba(130,95,20,0.7)'],
   initials: 'MA',
-  cats: ['new', 'under25'],
+  cats: ['Brunette Escorts'],
   svcs: [],
   extraSvcs: [],
   incallRates: [],
@@ -783,7 +722,7 @@ const NADINE_DATA = {
   languages: 'English · Dutch · Arabic',
   color: ['rgba(80,20,150,0.4)', 'rgba(50,10,100,0.7)'],
   initials: 'ND',
-  cats: ['new'],
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Roleplay Escorts'],
   svcs: [],
   extraSvcs: [
     {name: 'MMF for double price', price: 170},
@@ -911,7 +850,7 @@ const SELENA_DATA = {
   languages: 'English · Russian · Ukrainian',
   color: ['rgba(155,89,208,0.4)', 'rgba(100,40,160,0.7)'],
   initials: 'SE',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Roleplay Escorts', 'Striptease Escorts', 'Ukrainian Escorts'],
   // CIM/CIF were quoted at £0 — folded into the plain "included" services
   // list instead of a priced extras list that would show "+£0".
   svcs: ['69', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWC', 'OWO', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Uniforms', 'CIM', 'CIF'],
@@ -1032,7 +971,7 @@ const LIVIA_DATA = {
   languages: 'Portuguese · English · Spanish',
   color: ['rgba(200,80,120,0.4)', 'rgba(140,30,70,0.7)'],
   initials: 'LI',
-  cats: ['new'],
+  cats: ['Bisexual Escorts', 'Recommended Escorts', 'Brunette Escorts'],
   svcs: [],
   extraSvcs: [],
   incallRates: [
@@ -1090,7 +1029,7 @@ const HELENA_DATA = {
   languages: 'English · Russian · Ukrainian',
   color: ['rgba(90,150,120,0.4)', 'rgba(30,90,60,0.7)'],
   initials: 'HE',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Roleplay Escorts', 'Ukrainian Escorts'],
   svcs: ['GFE', 'OWC', 'OWO'],
   extraSvcs: [],
   incallRates: [],
@@ -1119,7 +1058,7 @@ const EMILIANA_DATA = {
   languages: 'English',
   color: ['rgba(80,110,190,0.4)', 'rgba(30,50,140,0.7)'],
   initials: 'EI',
-  cats: ['new'],
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Striptease Escorts'],
   svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Couples', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Squirting', 'Striptease', 'Tie and Tease', 'Uniforms', 'WS giving'],
   extraSvcs: [
     {name: 'Couples', price: 600},
@@ -1149,7 +1088,7 @@ const ZENDAYA_DATA = {
   languages: 'English · Spanish · Portuguese',
   color: ['rgba(200,150,90,0.4)', 'rgba(140,90,30,0.7)'],
   initials: 'ZE',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Brazilian Escorts London', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts'],
   svcs: ['69', 'Bi DUO', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Spanking giving', 'Uniforms', 'WS giving'],
   extraSvcs: [
     {name: 'Couples', price: 750},
@@ -1203,7 +1142,7 @@ const KETANA_DATA = {
   languages: 'English · Russian',
   color: ['rgba(200,190,130,0.4)', 'rgba(150,130,60,0.7)'],
   initials: 'KE',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Blonde Escorts', 'Recommended Escorts', 'Bisexual Escorts', 'Party Girl Escorts', 'Russian Escorts London'],
   svcs: [],
   extraSvcs: [],
   incallRates: [
@@ -1239,7 +1178,7 @@ const ISA_DATA = {
   languages: 'English · Portuguese',
   color: ['rgba(220,170,190,0.4)', 'rgba(160,90,120,0.7)'],
   initials: 'IS',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts'],
   svcs: ['69', 'A-Level', 'Bi DUO', 'Body to body massage', 'CIF', 'COB', 'DFK', 'Dirty talk', 'Domination', 'Couples', 'Face sitting', 'GFE', 'OWO', 'Party girl', 'Roleplay', 'Tie and Tease'],
   extraSvcs: [],
   incallRates: [
@@ -1275,7 +1214,7 @@ const LEENA_DATA = {
   languages: 'English · French · Spanish · Chinese',
   color: ['rgba(90,120,190,0.4)', 'rgba(40,60,140,0.7)'],
   initials: 'LE',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Busty Escorts', 'Recommended Escorts', 'Roleplay Escorts'],
   svcs: ['A-Level', 'Bi DUO', 'GFE', 'Light domination', 'OWO', 'Roleplay'],
   extraSvcs: [],
   incallRates: [
@@ -1307,7 +1246,7 @@ const RACHEL_DATA = {
   languages: 'English · Russian',
   color: ['rgba(90,160,190,0.4)', 'rgba(30,100,130,0.7)'],
   initials: 'RA',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Curvy Escorts', 'Mature Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Russian Escorts London', 'Striptease Escorts'],
   svcs: ['69', 'A-Level', 'Bi DUO', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Couples', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
   extraSvcs: [],
   incallRates: [
@@ -7359,7 +7298,7 @@ const ANGEL_DATA = {
   languages: 'English · Italian · Portuguese',
   color: ['rgba(140,170,110,0.4)', 'rgba(70,110,40,0.7)'],
   initials: 'NG',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Brunette Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Striptease Escorts'],
   svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Massage', 'OWC', 'OWO', 'Party girl', 'Rimming giving', 'Rimming receiving', 'Strap-on', 'Striptease', 'WS giving'],
   extraSvcs: [
     {name: 'CIM', price: 100},
@@ -7401,7 +7340,7 @@ const EMILIE_DATA = {
   languages: 'English · French',
   color: ['rgba(180,140,100,0.4)', 'rgba(120,80,40,0.7)'],
   initials: 'IL',
-  cats: ['new'],
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Recommended Escorts'],
   svcs: ['Bi DUO', 'Dinner Dates', 'GFE', 'OWC', 'OWO'],
   extraSvcs: [],
   incallRates: [
@@ -7437,7 +7376,7 @@ const MAYA_DATA = {
   languages: 'English',
   color: ['rgba(170,130,110,0.4)', 'rgba(110,70,50,0.7)'],
   initials: 'YM',
-  cats: ['new'],
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Recommended Escorts'],
   svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Fingering', 'FK', 'Foot fetish', 'Handcuffs', "Lady's service", 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Party girl', 'Poppers', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Tie and Tease'],
   extraSvcs: [
     {name: 'CIF', price: 100},
@@ -7495,6 +7434,457 @@ const VERA_DATA = {
     "Vera is a striking Russian beauty who carries herself with warmth and quiet self-assurance. Her green eyes and rich brunette hair frame a naturally elegant look, complemented by a toned, curvy figure that feels both athletic and softly feminine.",
     "Completely natural, with no tattoos or piercings, Vera blends confidence with genuine warmth. She has a playful, easygoing energy that makes conversation flow effortlessly, paired with a polished sense of style that never feels overdone.",
     "Fluent in Russian and English, Vera connects easily with an international clientele, bringing an authentic Russian charm paired with refined manners. Based in Mayfair, she offers a memorable blend of sophistication, playfulness, and heartfelt hospitality.",
+  ],
+  reviews: [],
+};
+
+const MARSALINA_DATA = {
+  id: 9792, real: true, vip: false, folder: 'models/Marsalina', slug: 'marsalina',
+  name: 'Marsalina', age: 25, height: 155, weight: 50,
+  nationality: 'Ukrainian', station: "Earl's Court", city: 'London',
+  color: ['rgba(200,190,140,0.4)', 'rgba(140,120,40,0.7)'],
+  initials: 'MS',
+  cats: ['Blonde Escorts', 'Roleplay Escorts', 'Striptease Escorts', 'Ukrainian Escorts'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · Russian · Ukrainian',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'DT', 'Erotic massage', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'OWO', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Spanking giving', 'Striptease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'CIM', price: 50},
+    {name: 'WS giving', price: 50},
+    {name: 'WS receiving', price: 50},
+    {name: 'CIF', price: 50},
+    {name: 'Rimming giving', price: 100},
+    {name: 'Bi DUO', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 300},
+    {label: '90 Min', price: 450},
+    {label: '2 Hours', price: 550},
+    {label: '3 Hours', price: 700},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 1700},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 600},
+    {label: '3 Hours', price: 750},
+    {label: 'Extra Hour', price: 250},
+    {label: 'Overnight', price: 1700},
+  ],
+  description: [
+    "Marsalina is a 25-year-old Ukrainian blonde with captivating blue eyes and a charming, petite 155cm frame. Her engaging personality and warm presence create an atmosphere of effortless connection and genuine enjoyment.",
+    "With a natural talent for creating memorable moments, Marsalina approaches each encounter with enthusiasm and attention to detail. She specializes in crafting experiences that feel both exciting and comfortable, ensuring every meeting is uniquely satisfying.",
+    "Meeting Marsalina means engaging with a companion who embodies Ukrainian beauty and warmth in a delightfully petite package—charming, attentive, and genuinely delightful. She combines classic blonde allure with engaging personality to create memorable, enjoyable encounters.",
+  ],
+  reviews: [],
+};
+
+const WUNDEBA_DATA = {
+  id: 9791, real: true, vip: false, folder: 'models/Wundeba', slug: 'wundeba',
+  name: 'Wundeba', age: 19, height: 174, weight: 62,
+  nationality: 'Brazilian', station: 'Marble Arch', city: 'London',
+  color: ['rgba(210,180,110,0.4)', 'rgba(150,110,30,0.7)'],
+  initials: 'WU',
+  cats: ['Blonde Escorts', 'Busty Escorts'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Blue/Green', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'DT', 'Erotic massage', 'Face sitting', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'OWC', 'Prostate massage', 'Rimming receiving', 'Striptease'],
+  extraSvcs: [
+    {name: 'OWO', price: 50},
+    {name: 'Toys', price: 50},
+    {name: 'CIF', price: 60},
+    {name: 'CIM (Includes OWO)', price: 60},
+    {name: 'WS giving', price: 60},
+    {name: 'A-Level', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 650},
+    {label: '3 Hours', price: 950},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 700},
+    {label: '3 Hours', price: 1000},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2500},
+  ],
+  description: [
+    "Meet Wundeba, a gorgeous Brazilian blonde with a vibe that's all about fun and good times. Her bright blonde hair and sparkling eyes radiate energy and excitement, while her playful personality and confident attitude make her impossible to ignore.",
+    "Wundeba's super open-minded and loves exploring new adventures. She's all about giving you the best experience possible, making sure everything's tailored to keep things fun and satisfying. Whether it's flirty banter or some wild roleplay, she's down for whatever gets you going.",
+    "Beyond her stunning looks, she's friendly, easygoing, and really into making sure you feel comfortable and have a great time. Lively and full of energy, Wundeba is the perfect choice to make your fantasies come true.",
+  ],
+  reviews: [],
+};
+
+const GATITA_DATA = {
+  id: 9790, real: true, vip: false, folder: 'models/Gatita', slug: 'gatita',
+  name: 'Gatita', age: 21, height: 150, weight: 50,
+  nationality: 'Brazilian', station: 'Knightsbridge', city: 'London',
+  color: ['rgba(190,150,120,0.4)', 'rgba(130,90,50,0.7)'],
+  initials: 'GT',
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Blonde Escorts', 'Brunette Escorts', 'Busty Escorts', 'Curvy Escorts', 'Party Girl Escorts', 'Striptease Escorts'],
+  breastSize: '36C', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Light Brown', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Body to body massage', 'DFK', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fetish', 'FK', 'Foot fetish', 'GFE', 'Light domination', 'Massage', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Soft spanking receiving', 'Spanking giving', 'Striptease'],
+  extraSvcs: [
+    {name: 'WS receiving', price: 50},
+    {name: 'OWO', price: 50},
+    {name: 'WS giving', price: 60},
+    {name: 'Rimming giving', price: 60},
+    {name: 'CIM (Includes OWO)', price: 70},
+    {name: 'Filming with mask', price: 80},
+    {name: 'Bi DUO', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 350},
+    {label: '90 Min', price: 500},
+    {label: '2 Hours', price: 650},
+    {label: '3 Hours', price: 950},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2700},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 400},
+    {label: '90 Min', price: 550},
+    {label: '2 Hours', price: 700},
+    {label: '3 Hours', price: 1000},
+    {label: 'Extra Hour', price: 300},
+    {label: 'Overnight', price: 2700},
+  ],
+  description: [
+    "Gatita is a petite Brazilian beauty whose warm brown eyes and soft light-brown hair give her an effortlessly charming look. Standing at 150 cm with a naturally curvy figure, she carries herself with playful confidence and an inviting presence.",
+    "Open-minded and bisexual, Gatita brings a spirited, easygoing energy to every meeting. She's confident, communicative, and always ready to make time together feel fun, relaxed, and genuinely enjoyable.",
+    "Fluent in English and Portuguese, Gatita connects easily with an international clientele. Based in Knightsbridge, she offers a lively blend of Brazilian warmth and playful sophistication.",
+  ],
+  reviews: [],
+};
+
+const MELISSA_DATA = {
+  id: 9789, real: true, vip: false, folder: 'models/Melissa', slug: 'melissa',
+  name: 'Melissa', age: 21, height: 176, weight: 47,
+  nationality: 'French', city: 'Istanbul',
+  color: ['rgba(150,170,200,0.4)', 'rgba(50,80,140,0.7)'],
+  initials: 'LM',
+  cats: ['Bisexual Escorts', 'Brunette Escorts', 'Couples Escorts', 'Recommended Escorts'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Blue', hairColor: 'Brown', orientation: 'Bisexual',
+  languages: 'English · Turkish · French',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'DP', 'Erotic massage', 'Face sitting', 'Filming with mask', 'Fingering', 'FK', 'GFE', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Prostate massage', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Swallow', 'Tie and Tease', 'WS giving', 'WS receiving'],
+  extraSvcs: [
+    {name: 'A-Level', price: 1000},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1700},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
+    {label: 'Overnight', price: 5750},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1700},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
+    {label: 'Overnight', price: 5750},
+  ],
+  description: [
+    "At just 21 years old, Melissa boasts a slender, model-esque physique that captivates everyone she meets. Her stunning blue eyes add to her mesmerizing charm. Her lively personality and open-minded nature help create a comfortable and enjoyable environment, making every encounter pleasant and memorable.",
+    "As a professional actress, she is skilled in fulfilling a wide range of fantasies, from tender and sensual moments to more daring adventures. Her services include exhilarating oral stimulation, teasing dirty talk, and the strength to withstand more intense play. Melissa's flexible approach allows her to tailor each session to your personal desires, ensuring a unique and satisfying experience.",
+    "Reliable, discreet, and highly talented, Melissa offers an experience you won't forget. Her exceptional abilities combined with her friendly demeanor make her a top choice. Reserve your session today and discover the extraordinary with this talented actress.",
+  ],
+  reviews: [],
+};
+
+const LEYSAN_DATA = {
+  id: 9788, real: true, vip: false, folder: 'models/Leysan', slug: 'leysan',
+  name: 'Leysan', age: 24, height: 175, weight: 56,
+  nationality: 'Russian', city: 'Dubai',
+  color: ['rgba(170,130,140,0.4)', 'rgba(110,60,80,0.7)'],
+  initials: 'YL',
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Brunette Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Russian Escorts London', 'Striptease Escorts'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Russian',
+  svcs: ['69', 'CIF', 'COB', 'DT', 'Face sitting', 'FK', 'GFE', 'Lapdancing', 'Light domination', 'MMF for double price', 'OWC', 'Party girl', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Striptease', 'Uniforms'],
+  extraSvcs: [
+    {name: 'WS giving', price: 30},
+    {name: 'OWO', price: 50},
+    {name: 'WS receiving', price: 50},
+    {name: 'Massage', price: 50},
+    {name: 'Couples', price: 100},
+    {name: 'Rimming giving', price: 100},
+  ],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 500},
+    {label: '90 Min', price: 700},
+    {label: '2 Hours', price: 850},
+    {label: '3 Hours', price: 1200},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 2200},
+  ],
+  description: [
+    "Leysan is a Russian open minded escort in Dubai who is extremely sexy and charming. You won't be able to take your eyes of her. Her amazing body and model-like face really make her an unbelievably amazing girl to meet.",
+    "But it's not just her looks that make Leysan such a babe; she is also well-educated, articulate, and great company which makes her a luxury escort. She knows how to have fun and enjoy every moment.",
+    "Book this bombshell today before anyone else and have the time of your life with her!",
+  ],
+  reviews: [],
+};
+
+const KSENIA_DATA = {
+  id: 9787, real: true, vip: false, folder: 'models/Ksenia', slug: 'ksenia',
+  name: 'Ksenia', age: 26, height: 168, weight: 52,
+  nationality: 'German', city: 'Zurich',
+  color: ['rgba(170,150,120,0.4)', 'rgba(110,80,40,0.7)'],
+  initials: 'KS',
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Party Girl Escorts'],
+  breastSize: '75B', breastType: 'Natural', clothingSize: 'XS/S',
+  eyeColor: 'Green/Brown', hairColor: 'Brown', orientation: 'Heterosexual',
+  languages: 'English · German',
+  svcs: ['69', 'COB', 'DFK', 'Dirty talk', 'DT', 'Toys', 'Face sitting', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Massage', 'OWC', 'OWO', 'Prostate massage', 'Soft spanking receiving', 'Tie and Tease'],
+  extraSvcs: [
+    {name: 'CIF', price: 100},
+    {name: 'CIM (Includes OWO)', price: 100},
+    {name: 'Swallow (Includes OWO & CIM)', price: 100},
+  ],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1250},
+    {label: '90 Min', price: 1600},
+    {label: '2 Hours', price: 2000},
+    {label: '3 Hours', price: 2750},
+    {label: 'Extra Hour', price: 750},
+    {label: 'Overnight', price: 5500},
+  ],
+  description: [
+    "Ksenia is a refined German beauty with a calm, sophisticated presence that instantly puts you at ease. Her warm brown hair frames a gentle face illuminated by expressive green-brown eyes, giving her an aura that feels both intelligent and quietly alluring. She carries herself with natural grace, the kind that doesn't seek attention but effortlessly receives it.",
+    "Her look is pure and timeless — naturally feminine, slender, and beautifully balanced. With no tattoos or piercings, Ksenia embodies a clean, classic elegance that feels refreshing and authentic. There is a softness in the way she moves and a quiet confidence in her posture, creating an impression that is subtle yet deeply captivating.",
+    "Based in Zurich and open to worldwide travel, Ksenia brings a cosmopolitan spirit to her charm. She is thoughtful, composed, and genuinely warm, making every interaction feel relaxed and meaningful. Time with her feels unhurried and refined, marked by sincere connection and understated romance. Ksenia is the kind of woman whose presence lingers — not loudly, but beautifully and long after the moment has passed.",
+  ],
+  reviews: [],
+};
+
+const CONSTANCE_DATA = {
+  id: 9786, real: true, vip: false, folder: 'models/Constance', slug: 'constance',
+  name: 'Constance', age: 26, height: 168, weight: 58,
+  nationality: 'French', station: 'Mayfair', city: 'London',
+  color: ['rgba(200,180,110,0.4)', 'rgba(140,110,30,0.7)'],
+  initials: 'CS',
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Busty Escorts', 'Curvy Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Striptease Escorts'],
+  breastSize: '34D', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Heterosexual',
+  languages: 'English · French · Spanish',
+  svcs: ['69', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fetish', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Lapdancing', 'Light domination', 'Massage', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Poppers', 'Prostate massage', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'Tie and Tease', 'WS giving'],
+  extraSvcs: [
+    {name: 'A-Level', price: 700},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "Constance is one of the most gorgeous French international luxury escorts, with the sweetest, most seductively blue eyes and a flawless body. It will be difficult for men to resist falling in love with this extraordinary beauty. She enjoys trying new things and meeting new people. Thanks to her model-like figure, she stands out as one of the most alluring luxury escorts today.",
+    "Constance hot physique, along with her hypnotic eyes, make her not only seductive but also stunning. She can go anywhere in the world, which makes her the ideal traveling companion. She is skilled at holding an interesting conversation and leaving each interaction with a positive impression.",
+    "If you are looking for a top-class companion who is also smart and striking, party lover and available 24/7 Constance is the perfect one for you. Book a meeting with this bombshell today.",
+  ],
+  reviews: [],
+};
+
+const MICA_DATA = {
+  id: 9785, real: true, vip: false, folder: 'models/Mica', slug: 'mica',
+  name: 'Mica', age: 32, height: 160, weight: 50,
+  nationality: 'Dutch', city: 'Amsterdam',
+  color: ['rgba(180,150,190,0.4)', 'rgba(120,80,140,0.7)'],
+  initials: 'CM',
+  cats: ['Bisexual Escorts', 'Blonde Escorts', 'Brunette Escorts', 'Couples Escorts', 'Mature Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Striptease Escorts'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '6',
+  eyeColor: 'Blue', hairColor: 'Light Brown', orientation: 'Bisexual',
+  languages: 'English · Dutch',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'COB', 'DFK', 'Dirty talk', 'Domination', 'DT', 'Erotic massage', 'Toys', 'Face sitting', 'Fetish', 'Filming with mask', 'Fingering', 'FK', 'Foot fetish', 'GFE', 'Handcuffs', 'Lapdancing', 'Light domination', 'Massage', 'OWC', 'OWO', 'Poppers', 'Prostate massage', 'PSE', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Spanking giving', 'Strap-on', 'Striptease', 'Tie and Tease'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '2 Hours', price: 800},
+    {label: '3 Hours', price: 1150},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 2500},
+  ],
+  outcallRates: [
+    {label: '2 Hours', price: 800},
+    {label: '3 Hours', price: 1150},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 2500},
+  ],
+  description: [
+    "With her radiant allure, Mica embodies the essence of refined beauty. Standing at 160 cm, she carries herself with graceful charm, her light brown hair flowing softly and framing her enchanting blue eyes that hold a touch of mystery. At 32, her elegance and poise shine effortlessly, giving her a magnetic presence that is both captivating and unforgettable.",
+    "A true embodiment of elite luxury, Mica brings her Dutch heritage into an experience that is sophisticated and deeply alluring. Her style reflects the perfect balance of confidence and sensuality, offering moments that feel both indulgent and intimate. Every encounter with her is marked by a sense of exclusivity, designed for those who appreciate finesse, passion, and high-class companionship.",
+    "Mica invites you to immerse yourself in her world of top-tier luxury in Amsterdam. Whether for a refined evening or a private escape, she is the ultimate choice for those seeking an unforgettable connection with an elite muse.",
+  ],
+  reviews: [],
+};
+
+const DIANA_DATA = {
+  id: 9784, real: true, vip: true, folder: 'vip-models/Diana', slug: 'diana',
+  name: 'Diana', age: 22, height: 175,
+  breastSize: '2', breastType: 'Natural',
+  eyeColor: 'Green', hairColor: 'Dark Brown', orientation: 'Bisexual',
+  nationality: 'Ukrainian', city: 'Dubai',
+  languages: 'English · Russian · Ukrainian',
+  color: ['rgba(150,180,140,0.4)', 'rgba(80,120,70,0.7)'],
+  initials: 'ID',
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Ukrainian Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1300},
+    {label: 'Overnight', price: 3200},
+  ],
+  description: [
+    "Diana is the kind of beauty that feels effortless—soft, natural, and quietly magnetic. With her tall, graceful silhouette and the delicate balance of her green eyes and dark-brown hair, she carries an elegance that draws attention without ever needing to demand it. Her presence is calm, feminine, and refined, shaped by a lifestyle free of smoking, tattoos, or piercings—pure, untouched, and authentically her.",
+    "Her figure, defined by harmonious lines and natural curves, reflects a woman who embodies confidence through simplicity. The subtle allure of her natural shape, combined with her balanced proportions, creates an impression of both fragility and strength—a duality that makes her beauty genuinely captivating. There is a softness in her gaze, but also a spark, hinting at depth beneath her serene exterior.",
+    "As a Ukrainian beauty with a quiet charm and a gentle nature, Diana brings sophistication into every room she enters. She moves with natural grace, her elegance rooted not in extravagance but in genuine femininity. Whether she stands still or walks past, she leaves behind an impression of purity, warmth, and understated sensuality—an unforgettable blend that sets her apart.",
+  ],
+  reviews: [],
+};
+
+const VERADUBAI_DATA = {
+  id: 9783, real: true, vip: true, folder: 'vip-models/Vera', slug: 'vera-dubai',
+  name: 'Vera', age: 21, height: 170, weight: 48,
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Hazel', hairColor: 'Brunette', orientation: 'Heterosexual',
+  nationality: 'Ukrainian', city: 'Dubai',
+  languages: 'English · Russian',
+  color: ['rgba(170,150,190,0.4)', 'rgba(110,90,140,0.7)'],
+  initials: 'RV',
+  cats: ['All Natural Escorts', 'Brunette Escorts', 'Recommended Escorts', 'Ukrainian Escorts'],
+  svcs: ['69', 'COB', 'DFK', 'Dinner Dates', 'FK', 'GFE', 'Massage', 'OWC', 'OWO'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 800},
+    {label: '90 Min', price: 1200},
+    {label: '2 Hours', price: 1500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 800},
+    {label: '90 Min', price: 1200},
+    {label: '2 Hours', price: 1500},
+  ],
+  description: [
+    "Vera is a charismatic and elegant Ukrainian woman, aged 21, who is also a talented TV host and singer. Standing at 170 cm and weighing 48 kg, she exudes grace and confidence in everything she does. Fluent in English and Russian, she effortlessly connects with people from diverse backgrounds.",
+    "Her love for singing, dancing, and figure skating reflects her vibrant personality and passion for the arts. Vera actively practices Pilates, stretching, skiing, and ice skating, which helps her maintain a graceful, strong, and feminine physique. As a professional escort, she provides a wide range of services with enthusiasm and passion, ensuring an unforgettable experience for her clients.",
+    "In addition to her beauty and talent, Vera is a great dinner companion and an intelligent, engaging conversationalist. Her charm, elegance, and dedication make her truly unforgettable, whether she's performing or simply sharing a moment with others.",
+  ],
+  reviews: [],
+};
+
+const IRINA_DATA = {
+  id: 9782, real: true, vip: true, folder: 'vip-models/Irina', slug: 'irina',
+  name: 'Irina', age: 23, height: 168, weight: 50,
+  breastSize: '4', breastType: 'Enhanced', clothingSize: 'XS',
+  eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
+  nationality: 'Ukrainian', city: 'Dubai',
+  languages: 'English · Russian · Ukrainian',
+  color: ['rgba(190,140,110,0.4)', 'rgba(130,80,50,0.7)'],
+  initials: 'IR',
+  cats: ['Brunette Escorts', 'Busty Escorts', 'Ukrainian Escorts'],
+  svcs: ['69', 'Bi DUO', 'Dinner Dates', 'GFE', 'OWC', 'OWO'],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1130},
+    {label: '90 Min', price: 1530},
+    {label: 'Extra Hour', price: 620},
+  ],
+  description: [
+    "Irina is a captivating Ukrainian beauty whose warm brown eyes and soft chestnut hair give her an aura of effortless allure. With a graceful silhouette shaped by her natural elegance, she carries herself with quiet confidence that draws attention without ever demanding it. At first glance she seems delicate, but her presence is magnetic — calm, poised, and irresistibly inviting.",
+    "Her figure is refined and feminine, highlighted by her harmonious proportions and the gentle charm she radiates. Irina takes pride in her appearance, maintaining a balanced lifestyle that reflects in her slender shape and luminous, healthy look. She is open-minded, playful, and deeply attentive, making every interaction feel natural and easy. Her personality is a blend of sweetness and boldness, creating a unique chemistry that is both exciting and comforting.",
+    "What makes Irina truly special is her adventurous spirit. She enjoys shared experiences, meaningful connections, and the thrill of something a little unconventional. When accompanied by another girl, she brings a sense of harmony, softness, and spontaneity, turning moments into something unforgettable. With Irina, every encounter feels beautifully synchronised — warm, sensual in atmosphere, and effortlessly enjoyable.",
+  ],
+  reviews: [],
+};
+
+const KATY_DATA = {
+  id: 9781, real: true, vip: true, folder: 'vip-models/Katy', slug: 'katy',
+  name: 'Katy', age: 29, height: 170,
+  breastSize: '36D', breastType: 'Natural', clothingSize: '8',
+  eyeColor: 'Hazel', hairColor: 'Brown', orientation: 'Heterosexual',
+  nationality: 'British', city: 'Dubai',
+  languages: 'English',
+  color: ['rgba(200,170,120,0.4)', 'rgba(140,110,50,0.7)'],
+  initials: 'KT',
+  cats: ['Brunette Escorts', 'Busty Escorts', 'Curvy Escorts', 'Recommended Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '2 Hours', price: 2750},
+    {label: '3 Hours', price: 3900},
+    {label: 'Extra Hour', price: 1150},
+  ],
+  description: [
+    "Katy is a 29-year-old professional escort, standing at 170 cm with a naturally curvy and slender physique reminiscent of a runway model. Her captivating hazel eyes and cheerful, engaging personality make her an exceptional companion for any occasion. She exudes a warm and friendly demeanor, ensuring a comfortable and enjoyable experience.",
+    "With a versatile approach, Katy is skilled in fulfilling a range of desires, from tender and sensual encounters to more adventurous pursuits. She is proficient in oral pleasure, engaging in stimulating conversation, and possesses the stamina necessary for more intense experiences. Additionally, she is well-suited for dinner dates, offering charm and sophistication to complement any evening.",
+    "Katy is attentive, discreet, and committed to providing an exceptional service tailored to her clients' preferences. Her professionalism, reliability, and personable nature make her a highly sought-after companion. Book with her today to enjoy an unforgettable and refined experience with this distinguished British escort.",
+  ],
+  reviews: [],
+};
+
+const RUSALKA_DATA = {
+  id: 9780, real: true, vip: true, folder: 'vip-models/Rusalka', slug: 'rusalka',
+  name: 'Rusalka', age: 23, height: 175, weight: 52,
+  breastSize: '32B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Green', hairColor: 'Brunette', orientation: 'Bisexual',
+  nationality: 'Lebanese/Ukrainian', city: 'Dubai',
+  languages: 'English · Russian · Arabic',
+  color: ['rgba(140,180,160,0.4)', 'rgba(70,120,100,0.7)'],
+  initials: 'RS',
+  cats: ['All Natural Escorts', 'Brunette Escorts'],
+  svcs: ['69', 'Body to body massage', 'COB', 'DFK', 'Dinner Dates', 'Dirty talk', 'FK', 'GFE', 'OWC', 'OWO', 'Shower together', 'Soft spanking receiving', 'Striptease'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1150},
+    {label: '2 Hours', price: 1500},
+    {label: '3 Hours', price: 2000},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 2500},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1150},
+    {label: '2 Hours', price: 1500},
+    {label: '3 Hours', price: 2000},
+    {label: 'Extra Hour', price: 500},
+    {label: 'Overnight', price: 2500},
+  ],
+  description: [
+    "Rusalka is a stunning 23-year-old model with a unique mix of Lebanese and Ukrainian heritage. Her striking look combines Middle Eastern charm with Eastern European elegance, making her stand out in any setting. She's confident, versatile, and has a natural presence that draws attention on and off the runway.",
+    "As a signed professional model, Rusalka excels in both fashion and commercial shoots, bringing a polished and adaptable style to every project. She's also a passionate dancer and keeps herself in top shape with a dedicated gym routine. Known for her chilled, relaxed attitude, she's easygoing and fun to be around, but she also has a naughty, playful side that she loves to show in more intimate moments.",
+    "Beyond her career, Rusalka's personality shines through. She enjoys dancing, working out, and maintaining her beauty and strength. Her mix of talent, discipline, and a laid-back yet mischievous vibe makes her a captivating presence in the industry and beyond.",
   ],
   reviews: [],
 };
@@ -7563,7 +7953,7 @@ const VIP_TEASER_MODELS = [
 // never reach the general catalog/search MODELS list (see its own comment
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
-const FAKE_MODELS = generateModels().filter(m => m.city !== 'London' && m.city !== 'Zurich');
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA,...FAKE_MODELS];
+const FAKE_MODELS = [];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, VERADUBAI_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, ANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, ALINA_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, VERADUBAI_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
