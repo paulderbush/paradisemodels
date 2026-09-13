@@ -51,7 +51,7 @@ let vipSelectedNats = [];
 let vipSelectedSvcs = [];
 let vipAgeRange = [18, 60];
 let vipWeightRange = [40, 100];
-let vipHeightRange = [150, 185];
+let vipHeightRange = [150, 195];
 
 async function renderVipUnlocked() {
   const grid = document.getElementById('vipUnlocked');
@@ -184,7 +184,7 @@ function updateVipRange(type) {
   if (valsEl) valsEl.textContent = lo + ' – ' + hi;
   const fill = document.getElementById('vip' + cap + 'Fill');
   if (fill) {
-    const bounds = {age: [18, 60], weight: [40, 100], height: [150, 185]}[type];
+    const bounds = {age: [18, 60], weight: [40, 100], height: [150, 195]}[type];
     const range = bounds[1] - bounds[0];
     const left = ((lo - bounds[0]) / range) * 100;
     const right = ((hi - bounds[0]) / range) * 100;
@@ -209,10 +209,10 @@ function sortVipModels(val) {
 function clearVipFilters() {
   vipNameQuery = '';
   vipSelectedCats = []; vipSelectedCities = []; vipSelectedNats = []; vipSelectedSvcs = [];
-  vipAgeRange = [18, 60]; vipWeightRange = [40, 100]; vipHeightRange = [150, 185];
+  vipAgeRange = [18, 60]; vipWeightRange = [40, 100]; vipHeightRange = [150, 195];
   const nameEl = document.getElementById('vipNameSearch'); if (nameEl) nameEl.value = '';
   document.querySelectorAll('#filtersSidebar .filter-check input').forEach(cb => cb.checked = false);
-  const bounds = {age: [18, 60], weight: [40, 100], height: [150, 185]};
+  const bounds = {age: [18, 60], weight: [40, 100], height: [150, 195]};
   Object.keys(bounds).forEach(type => {
     const cap = type.charAt(0).toUpperCase() + type.slice(1);
     const minEl = document.getElementById('vip' + cap + 'Min'); if (minEl) minEl.value = bounds[type][0];
