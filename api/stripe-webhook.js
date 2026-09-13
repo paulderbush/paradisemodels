@@ -1,7 +1,6 @@
 'use strict';
 const Stripe = require('stripe');
-const {upsertVipAccess, upsertTelegramVipAccess} = require('./_lib/supabaseAdmin');
-const {sendMessage} = require('./_lib/telegramBot');
+const {upsertVipAccess} = require('./_lib/supabaseAdmin');
 
 // Stripe signs the raw request body, so it must reach this handler
 // unparsed — Vercel's default JSON body parsing would rewrite whitespace
@@ -44,34 +43,7 @@ module.exports = async function handler(req, res) {
 
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object;
-    const telegramChatId = session.metadata && session.metadata.telegram_chat_id;
     const userId = session.client_reference_id || (session.metadata && session.metadata.supabase_user_id);
-
-    // Two independent VIP-unlock flows can land here: the website's
-    // Supabase-account one (client_reference_id/supabase_user_id) and the
-    // Telegram bot's chat-id one (metadata.telegram_chat_id, set in
-    // telegram-bot.js's checkout session). A session only ever carries one.
-    if (telegramChatId) {
-      try {
-        await upsertTelegramVipAccess({
-          chat_id: telegramChatId,
-          paid: true,
-          stripe_session_id: session.id,
-          currency: session.currency,
-          amount: session.amount_total,
-          paid_at: new Date().toISOString()
-        });
-      } catch (e) {
-        console.error('stripe-webhook: failed to record bot VIP access:', e.message);
-        return res.status(500).json({error: 'Failed to record access'});
-      }
-      // Best-effort — the payment and the access record are already safe
-      // even if this notification fails (Telegram outage, chat blocked, etc).
-      await sendMessage(telegramChatId, "✅ Payment received — VIP companions are now included in your search. Send /start to search again.").catch(e => {
-        console.error('stripe-webhook: failed to notify bot user of VIP unlock:', e.message);
-      });
-      return res.status(200).json({received: true});
-    }
 
     if (!userId) {
       console.error('stripe-webhook: checkout.session.completed with no supabase user id or telegram chat id', session.id);

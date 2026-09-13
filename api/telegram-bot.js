@@ -9,17 +9,19 @@
 // stats + price + Book/More buttons). If any VIP companion also matches the
 // same filters, a "Want VIP models too?" button appears below the public
 // results; tapping it either shows the matching VIP companions (if this
-// chat has already paid) or offers a one-time £300 Stripe Checkout to
-// unlock them (see api/stripe-webhook.js's telegram_chat_id branch).
+// chat has already paid) or asks for a contact method and forwards a VIP
+// payment request to the manager chat — there's no automated checkout yet
+// (no Stripe, no crypto processor configured), so a manager takes payment
+// out of band and taps "Confirm payment received" on the forwarded request
+// to unlock that chat (see the grantvip: callback in handleUpdate).
 //
 // VIP model data is read directly from data/models.js here (this is
 // server-side code, same trust level as api/vip-catalog.js) but is only
 // ever sent to a chat after isTelegramVipPaid() confirms that chat has
 // paid — the same "never leaves the server until paid" rule the website
 // enforces, just checked against bot_vip_access instead of vip_access.
-const Stripe = require('stripe');
 const {MODELS, CATEGORIES} = require('../data/models.js');
-const {getBotSession, setBotSession, isTelegramVipPaid} = require('./_lib/supabaseAdmin');
+const {getBotSession, setBotSession, isTelegramVipPaid, upsertTelegramVipAccess} = require('./_lib/supabaseAdmin');
 const {sendMessage, editMessageText, sendPhoto, answerCallbackQuery} = require('./_lib/telegramBot');
 
 const SITE_URL = process.env.SITE_URL || 'https://velvetescort.co.uk';
@@ -59,6 +61,13 @@ function startPrice(m) {
 
 function citySlug(c) {
   return c.toLowerCase().replace(/\s+/g, '-');
+}
+
+// Escapes the handful of characters that matter to Telegram's HTML
+// parse_mode (used on every sendMessage/editMessageText call) so free-text
+// a client types — a booking contact, a date — can't break the message.
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 // Union of every city with a public model and every city with a VIP model —
@@ -238,7 +247,7 @@ async function handleBookingStep(chatId, session, text) {
 async function forwardBookingRequest(chatId, data) {
   const TG_CHAT = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
   const TG_THREAD = process.env.TELEGRAM_BOOKINGS_THREAD_ID;
-  const msg = `🔖 <b>New Booking Request (Telegram Bot)</b>\n\n<b>Model:</b> ${data.modelName}\n<b>Client:</b> ${data.name}\n<b>Contact:</b> ${data.contact}\n<b>Date:</b> ${data.date}\n<b>Time:</b> ${data.time}\n\n<i>Sent via the Telegram catalog bot — confirm availability, duration and rate directly with the client.</i>`;
+  const msg = `🔖 <b>New Booking Request (Telegram Bot)</b>\n\n<b>Model:</b> ${escapeHtml(data.modelName)}\n<b>Client:</b> ${escapeHtml(data.name)}\n<b>Contact:</b> ${escapeHtml(data.contact)}\n<b>Date:</b> ${escapeHtml(data.date)}\n<b>Time:</b> ${escapeHtml(data.time)}\n\n<i>Sent via the Telegram catalog bot — confirm availability, duration and rate directly with the client.</i>`;
 
   if (TG_CHAT) {
     try {
@@ -253,50 +262,54 @@ async function forwardBookingRequest(chatId, data) {
   await sendMessage(chatId, "✅ Thanks! Your enquiry has been sent — our team will contact you shortly to confirm.");
 }
 
-// Creates a one-time Stripe Checkout session for this chat, mirroring
-// api/create-checkout-session.js's website flow but keyed by
-// metadata.telegram_chat_id instead of a Supabase user id — there's no
-// website account behind a Telegram conversation. Called directly from the
-// bot's own server-side code rather than a public endpoint, since nothing
-// in the browser needs to trigger this.
-async function startVipCheckout(chatId) {
-  if (!process.env.STRIPE_SECRET_KEY) {
-    await sendMessage(chatId, "Payments aren't configured yet — please contact us directly to arrange VIP access.");
+// No automated payment processor is wired up yet (no Stripe, no crypto
+// gateway) — a manager takes payment out of band (card details over the
+// phone, bank transfer, etc.) and confirms it manually by tapping the
+// button on the request forwarded to TELEGRAM_BOOKINGS_CHAT_ID below.
+async function startVipPurchase(chatId) {
+  await setBotSession(chatId, 'awaiting_vip_contact', {});
+  await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. How can our manager reach you to arrange payment? (WhatsApp, Telegram username, or phone)\n\n(/cancel to stop)`);
+}
+
+async function handleVipContactStep(chatId, text, from) {
+  if (/^\/cancel$/i.test(text.trim())) {
+    await setBotSession(chatId, 'idle', {});
+    await sendMessage(chatId, 'Cancelled. Send /start to search again.');
     return;
   }
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-  try {
-    const session = await stripe.checkout.sessions.create({
-      mode: 'payment',
-      payment_method_types: ['card'],
-      metadata: {telegram_chat_id: String(chatId)},
-      line_items: [{
-        price_data: {
-          currency: 'gbp',
-          unit_amount: VIP_PRICE_GBP * 100,
-          product_data: {
-            name: 'Paradise Models — VIP Catalog Access (Telegram)',
-            description: 'One-time payment. Unlocks VIP companions in this Telegram chat’s search results.'
-          }
-        },
-        quantity: 1
-      }],
-      success_url: `${SITE_URL}/vip-models/?checkout=success`,
-      cancel_url: `${SITE_URL}/vip-models/?checkout=cancelled`
-    });
-    await sendMessage(chatId, `Unlock VIP companions for a one-time £${VIP_PRICE_GBP}. Tap below to pay securely — I'll message you here the moment it's confirmed.`, {
-      reply_markup: {inline_keyboard: [[{text: `💳 Pay £${VIP_PRICE_GBP}`, url: session.url}]]}
-    });
-  } catch (e) {
-    console.error('telegram-bot: failed to create VIP checkout session:', e.message);
-    await sendMessage(chatId, "Couldn't start checkout just now — please try again shortly.");
+  await setBotSession(chatId, 'idle', {});
+  await forwardVipRequest(chatId, text.trim(), from);
+}
+
+// Posts the VIP payment request to the same manager chat bookings use, with
+// a button that marks this chat as paid (see the grantvip: callback in
+// handleUpdate) once the manager has actually taken payment.
+async function forwardVipRequest(chatId, contact, from) {
+  const TG_CHAT = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
+  const TG_THREAD = process.env.TELEGRAM_BOOKINGS_THREAD_ID;
+  const username = from && from.username ? `@${from.username}` : 'no username';
+  const msg = `🔓 <b>VIP Access Request (Telegram Bot)</b>\n\n<b>Telegram:</b> ${username} (chat id <code>${chatId}</code>)\n<b>Contact:</b> ${escapeHtml(contact)}\n<b>Amount:</b> £${VIP_PRICE_GBP}\n\n<i>Arrange payment directly with the client, then tap below once it's confirmed.</i>`;
+  const keyboard = {inline_keyboard: [[{text: '✅ Confirm payment received', callback_data: `grantvip:${chatId}`}]]};
+
+  if (TG_CHAT) {
+    try {
+      await sendMessage(TG_CHAT, msg, Object.assign({reply_markup: keyboard}, TG_THREAD ? {message_thread_id: TG_THREAD} : {}));
+    } catch (e) {
+      console.error('telegram-bot: failed to forward VIP request to manager chat:', e.message);
+    }
+  } else {
+    console.error('telegram-bot: TELEGRAM_BOOKINGS_CHAT_ID not configured — VIP request not forwarded:', msg);
   }
+
+  await sendMessage(chatId, "Thanks! Our manager will contact you shortly to arrange your VIP payment.");
 }
 
 async function handleVipShow(chatId, data) {
   const paid = await isTelegramVipPaid(chatId);
   if (!paid) {
-    await startVipCheckout(chatId);
+    await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. Tap below and our manager will arrange payment with you directly.`, {
+      reply_markup: {inline_keyboard: [[{text: '💳 Pay by card', callback_data: 'vip:paycard'}]]}
+    });
     return;
   }
   await sendResultsBatch(chatId, data, vipModels(), 0, 'vip');
@@ -389,12 +402,26 @@ async function handleUpdate(update) {
         await handleVipShow(chatId, session.data || {});
         return;
       }
-      if (rest === 'pay') {
-        await startVipCheckout(chatId);
+      if (rest === 'paycard') {
+        await startVipPurchase(chatId);
         return;
       }
       const offset = parseInt(rest, 10) || 0;
       await sendResultsBatch(chatId, session.data || {}, vipModels(), offset, 'vip');
+      return;
+    }
+
+    if (dataStr.startsWith('grantvip:')) {
+      const targetChatId = dataStr.slice('grantvip:'.length);
+      const managerChat = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
+      if (!managerChat || String(chatId) !== String(managerChat)) return;
+      try {
+        await upsertTelegramVipAccess({chat_id: targetChatId, paid: true, paid_at: new Date().toISOString()});
+        await editMessageText(chatId, messageId, `${cq.message.text}\n\n✅ Marked as paid.`, {reply_markup: {inline_keyboard: []}}).catch(() => {});
+        await sendMessage(targetChatId, "✅ Payment confirmed — VIP companions are now included in your search. Send /start to search again.").catch(() => {});
+      } catch (e) {
+        console.error('telegram-bot: failed to grant VIP access:', e.message);
+      }
       return;
     }
 
@@ -419,6 +446,10 @@ async function handleUpdate(update) {
   }
 
   const session = await getBotSession(chatId);
+  if (session.state === 'awaiting_vip_contact') {
+    await handleVipContactStep(chatId, text, msg.from);
+    return;
+  }
   if (session.state && session.state.startsWith('awaiting_')) {
     await handleBookingStep(chatId, session, text);
     return;

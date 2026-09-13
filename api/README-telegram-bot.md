@@ -33,30 +33,33 @@ vars, never in the repo or in the browser.
      `X-Telegram-Bot-Api-Secret-Token` header Telegram sends, so a request
      to the webhook URL that doesn't know this value is rejected.
    - `TELEGRAM_BOOKINGS_CHAT_ID` — the Telegram group/chat id where booking
-     enquiries from the bot should land. Can be the same group the site
-     already notifies (`TG_CHAT` in `assets/main.js`) or a different one.
+     enquiries **and VIP payment requests** from the bot should land. Can be
+     the same group the site already notifies (`TG_CHAT` in
+     `assets/main.js`) or a different one. This chat is also the only place
+     the "✅ Confirm payment received" button (see "VIP access" below) is
+     allowed to be tapped from, so whoever needs to grant VIP access must be
+     a member of it.
    - `TELEGRAM_BOOKINGS_THREAD_ID` — optional, a forum topic id within that
      chat (leave unset for a non-forum group or the General topic).
-   - `SUPABASE_SERVICE_ROLE_KEY` — already required for the VIP/Stripe
-     flow; the bot reuses it to store conversation state
-     (`sql/002_bot_sessions.sql`) and Telegram-chat VIP access
+   - `SUPABASE_SERVICE_ROLE_KEY` — the bot uses it to store conversation
+     state (`sql/002_bot_sessions.sql`) and Telegram-chat VIP access
      (`sql/003_bot_vip_access.sql`).
-   - `STRIPE_SECRET_KEY` / `STRIPE_WEBHOOK_SECRET` — already required for
-     the site's VIP checkout; the bot reuses the same Stripe account for
-     its own £300 one-time VIP unlock.
    - `SITE_URL` — optional, used to build the model-photo and "More" links
      the bot sends (e.g. `https://velvetescort.co.uk`); falls back to that
      same URL if unset.
+
+   No Stripe or crypto keys are needed for the bot — VIP payment is
+   currently confirmed manually by a manager (see "VIP access" below).
 
 3. **Run the SQL migrations.** Supabase dashboard → SQL Editor → paste and
    run `sql/002_bot_sessions.sql` (conversation state) and
    `sql/003_bot_vip_access.sql` (per-chat VIP payment record) if you
    haven't already.
 
-4. **Add the bot to the bookings chat.** If `TELEGRAM_BOOKINGS_CHAT_ID` is
-   a group, invite the new bot into it (and give it permission to post, and
-   to post in the specific topic if using threads) — otherwise the booking
-   forward silently fails with a logged error.
+4. **Add the bot to the bookings chat.** Invite the bot into the
+   `TELEGRAM_BOOKINGS_CHAT_ID` group (and give it permission to post, and to
+   post in the specific topic if using threads) — otherwise both booking
+   forwards and VIP payment requests silently fail with a logged error.
 
 5. **Register the webhook.** Deploy first so the URL exists, then run
    this once from your own machine (never paste the token into a shared
@@ -96,13 +99,9 @@ vars, never in the repo or in the browser.
 6. If any **VIP** companion also matches the same filters, a
    "🔓 N VIP companions also match — I want VIP" button appears after the
    last page of public results (it's omitted entirely when there's no VIP
-   match for the current filters). Tapping it:
-   - sends the matching VIP companions the same way, if this chat has
-     already paid; otherwise
-   - offers a one-time **£300** Stripe Checkout link. On successful
-     payment, `stripe-webhook.js` records the chat as paid in
-     `bot_vip_access` and the bot messages the chat directly — no need to
-     come back and re-tap anything, just `/start` again to search.
+   match for the current filters). Tapping it either shows the matching VIP
+   companions (if this chat has already paid) or starts the VIP payment
+   request below.
 7. **Book** on any card (public or VIP, VIP requires the chat to have
    already paid) starts a short guided flow — name → contact → date → time
    — stored per-chat in `bot_sessions` between webhook calls since a
@@ -120,7 +119,28 @@ client (browser or Telegram chat) until server-side payment verification
 succeeds. `isTelegramVipPaid(chatId)` (in `api/_lib/supabaseAdmin.js`)
 checks `bot_vip_access` — a table keyed by Telegram `chat_id` instead of a
 Supabase user id, since a bot conversation has no website account behind
-it (see `sql/003_bot_vip_access.sql`). It's written to only by
-`stripe-webhook.js` after a completed Checkout Session carrying
-`metadata.telegram_chat_id`, the same way `vip_access` is written to only
-after a completed Checkout Session carrying a Supabase user id.
+it (see `sql/003_bot_vip_access.sql`).
+
+There's no automated payment processor wired up for the bot yet (no
+Stripe, no crypto gateway — the site doesn't have one live either at the
+moment). Instead:
+
+1. Tapping **"💳 Pay by card"** asks the client how a manager can reach
+   them (WhatsApp, Telegram username, or phone).
+2. The bot forwards that, along with the client's chat id, to
+   `TELEGRAM_BOOKINGS_CHAT_ID` with a **"✅ Confirm payment received"**
+   button.
+3. A manager arranges and takes the £300 payment directly with the client
+   (outside the bot), then taps that button.
+4. The tap is only honoured if it comes from inside
+   `TELEGRAM_BOOKINGS_CHAT_ID` — anyone else tapping a copy of that button
+   (they'd have to be in the group to see it in the first place) is
+   ignored. On a valid tap, the bot marks that chat as paid in
+   `bot_vip_access` and messages the client directly that VIP is unlocked.
+
+When a real payment processor (Stripe, crypto, or both) is ready to go
+live, `startVipPurchase`/`forwardVipRequest` in `telegram-bot.js` is the
+place to swap in an automated checkout instead of the manual request —
+`upsertTelegramVipAccess` (already wired up) is what a payment webhook
+would call to mark the chat paid, the same way `stripe-webhook.js` does
+for the site's own `vip_access` table.
