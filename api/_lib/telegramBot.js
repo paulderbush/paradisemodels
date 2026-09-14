@@ -44,10 +44,18 @@ function sendPhoto(chatId, photoUrl, caption, extra) {
   ));
 }
 
+// Sends an album of 2-10 photos as one Telegram message. Unlike sendPhoto,
+// the Bot API doesn't accept reply_markup on media groups — a keyboard
+// needs its own follow-up sendMessage.
+function sendMediaGroup(chatId, photoUrls, extra) {
+  const media = photoUrls.map(url => ({type: 'photo', media: url}));
+  return callTelegram('sendMediaGroup', Object.assign({chat_id: chatId, media}, extra));
+}
+
 // Telegram requires every callback query to be acknowledged (even with an
 // empty body) or the client's button shows a permanent loading spinner.
 function answerCallbackQuery(callbackQueryId, extra) {
   return callTelegram('answerCallbackQuery', Object.assign({callback_query_id: callbackQueryId}, extra));
 }
 
-module.exports = {callTelegram, sendMessage, editMessageText, sendPhoto, answerCallbackQuery};
+module.exports = {callTelegram, sendMessage, editMessageText, sendPhoto, sendMediaGroup, answerCallbackQuery};

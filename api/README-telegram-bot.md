@@ -107,10 +107,12 @@ vars, never in the repo or in the browser.
    fall through a gap between two buttons — adjust `AGE_BUCKETS`/
    `PRICE_BUCKETS` in `telegram-bot.js` if you'd rather have hard cutoffs).
 4. → **rate**: `Under £500` / `£501–£1000` / `£1000+`.
-5. → **results**: up to 5 matching public companions at a time (photo +
-   age/nationality/area + starting price + top services, with **Book** and
-   **More** — a link to her profile on the site — buttons), then a
-   "Show N more" button if there are further matches.
+5. → **results**: up to 5 matching public companions at a time — a 3-photo
+   album per companion (become-a-model requires a minimum of 3 photos per
+   profile) followed by age/nationality/area + starting price + top
+   services, with **Book** and **More info** — a link to her profile on the
+   site — buttons, then a "Show N more" button if there are further
+   matches.
 6. If any **VIP** companion also matches the same filters, a
    "🔓 N VIP companions also match — I want VIP" button appears after the
    last page of public results (it's omitted entirely when there's no VIP
@@ -118,11 +120,16 @@ vars, never in the repo or in the browser.
    companions (if this chat has already paid) or offers a choice of payment
    method — see "VIP access" below.
 7. **Book** on any card (public or VIP, VIP requires the chat to have
-   already paid) starts a short guided flow — name → contact → date → time
-   — stored per-chat in `bot_sessions` between webhook calls since a
+   already paid) starts a short guided flow — name, then a **contact
+   method** (buttons: Telegram — auto-filled from the tapper's @username
+   with no typing needed, WhatsApp, or Email; the latter two still need a
+   quick text reply for the actual number/address), then date, then time —
+   stored per-chat in `bot_sessions` between webhook calls since a
    serverless function has no memory of its own. `/cancel` aborts it at
-   any point. Date and time are free text (no format is enforced) since a
-   manager confirms the exact details with the client afterwards anyway.
+   any point (only while at a text-input step; it isn't checked while the
+   contact-method buttons are showing). Date and time are free text (no
+   format is enforced) since a manager confirms the exact details with the
+   client afterwards anyway.
    The enquiry is forwarded to `TELEGRAM_BOOKINGS_CHAT_ID` for a manager to
    confirm availability and rate directly with the client — it does not
    walk them through the site's full incall/outcall/duration price
