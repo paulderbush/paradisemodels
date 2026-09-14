@@ -101,25 +101,36 @@ vars, never in the repo or in the browser.
 2. → **categories**, multi-select: tapping a button toggles a ✅ prefix and
    re-renders the same message (Telegram has no native multi-select), tap
    **Continue** when done (zero selected = no category filter).
-3. → **age**: `Under 23` / `24–27` / `27+` (single choice; the 24–27 and
-   27+ buckets both match an exact age of 27, and the under-500/over-1000
-   rate buckets below both match an exact £500/£1000, so a client can't
-   fall through a gap between two buttons — adjust `AGE_BUCKETS`/
-   `PRICE_BUCKETS` in `telegram-bot.js` if you'd rather have hard cutoffs).
-4. → **rate**: `Under £500` / `£501–£1000` / `£1000+`.
-5. → **results**: up to 5 matching public companions at a time — a 3-photo
+3. → **rate**, also multi-select (same toggle pattern): `Under £500` /
+   `£501–£1000` / `£1000+` — a match needs to fall in ANY selected bucket
+   (unlike categories, which need ALL selected ones), since a model has
+   exactly one price. Zero selected = no rate filter. Also has a
+   **"🌟 Show VIP Models"** button that skips straight to VIP results with
+   no price filter applied at all — many VIP companions don't have a
+   listed rate, so any of the three buckets would otherwise silently
+   exclude them.
+4. → **results**: up to 5 matching public companions at a time — a 3-photo
    album per companion (become-a-model requires a minimum of 3 photos per
    profile) followed by age/nationality/area + starting price + top
    services, with **Book** and **More info** — a link to her profile on the
    site — buttons, then a "Show N more" button if there are further
    matches.
-6. If any **VIP** companion also matches the same filters, a
+5. If any **VIP** companion also matches the same filters, a
    "🔓 N VIP companions also match — I want VIP" button appears after the
    last page of public results (it's omitted entirely when there's no VIP
    match for the current filters). Tapping it either shows the matching VIP
    companions (if this chat has already paid) or offers a choice of payment
    method — see "VIP access" below.
-7. **Book** on any card (public or VIP, VIP requires the chat to have
+
+Every button screen from categories onward has a **"◀️ Back"** button that
+returns to the previous stage of the wizard (categories → city, price →
+categories; the results footer's "◀️ Back to filters" and the VIP
+payment-choice screen's Back both return to price) — implemented as
+`nav:<step>` callbacks in `telegram-bot.js` that re-render whichever
+message the tap came from, so it works the same whether that message is
+the original stepper message or a later one like the results footer.
+
+6. **Book** on any card (public or VIP, VIP requires the chat to have
    already paid) starts a short guided flow — name, then a **contact
    method** (buttons: Telegram — auto-filled from the tapper's @username
    with no typing needed, WhatsApp, or Email; the latter two still need a
