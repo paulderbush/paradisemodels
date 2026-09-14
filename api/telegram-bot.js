@@ -75,7 +75,7 @@ function cityKeyboard() {
   const vipCities = new Set(vipModels().map(m => m.city));
   const allCities = new Set([...pubCounts.keys(), ...vipCities]);
   const rows = Array.from(allCities).sort((a, b) => a.localeCompare(b)).map(city => {
-    const label = pubCounts.has(city) ? `${city} (${pubCounts.get(city)})` : `${city} (VIP only)`;
+    const label = pubCounts.has(city) ? `(${pubCounts.get(city)}) ${city}` : `(VIP only) ${city}`;
     return [{text: label, callback_data: `city:${citySlug(city)}`}];
   });
   return {inline_keyboard: rows};
@@ -110,7 +110,7 @@ function catKeyboard(data) {
       const testCats = Array.from(new Set([...sel, j]));
       const count = pool.filter(m => matchesFilters(m, Object.assign({}, data, {cats: testCats}))).length;
       return {
-        text: `${sel.has(j) ? '✅ ' : ''}${CATEGORIES[j]} (${count})`,
+        text: `${sel.has(j) ? '✅ ' : ''}(${count}) ${CATEGORIES[j]}`,
         callback_data: `cat:${j}`
       };
     });
@@ -138,7 +138,7 @@ function priceKeyboard(data) {
   const rows = PRICE_BUCKETS.map(b => {
     const testPrices = Array.from(new Set([...sel, b.key]));
     const count = pool.filter(m => matchesFilters(m, Object.assign({}, data, {prices: testPrices}))).length;
-    return [{text: `${sel.has(b.key) ? '✅ ' : ''}${b.label} (${count})`, callback_data: `price:${b.key}`}];
+    return [{text: `${sel.has(b.key) ? '✅ ' : ''}(${count}) ${b.label}`, callback_data: `price:${b.key}`}];
   });
   rows.push([{text: '🌟 Show VIP Models', callback_data: 'price:vip'}]);
   rows.push([{text: '◀️ Back', callback_data: 'nav:cats'}, {text: '▶️ Continue', callback_data: 'price:done'}]);
