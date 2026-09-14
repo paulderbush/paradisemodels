@@ -106,7 +106,10 @@ vars, never in the repo or in the browser.
    rate buckets below both match an exact £500/£1000, so a client can't
    fall through a gap between two buttons — adjust `AGE_BUCKETS`/
    `PRICE_BUCKETS` in `telegram-bot.js` if you'd rather have hard cutoffs).
-4. → **rate**: `Under £500` / `£501–£1000` / `£1000+`.
+4. → **rate**: `Under £500` / `£501–£1000` / `£1000+`, plus a **"🌟 Show VIP
+   Models"** button that skips straight to VIP results with no price filter
+   applied — many VIP companions don't have a listed rate, so any of the
+   three buckets above would otherwise silently exclude them.
 5. → **results**: up to 5 matching public companions at a time — a 3-photo
    album per companion (become-a-model requires a minimum of 3 photos per
    profile) followed by age/nationality/area + starting price + top

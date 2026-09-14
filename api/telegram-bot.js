@@ -125,6 +125,7 @@ function ageKeyboard() {
 function priceKeyboard() {
   return {inline_keyboard: [
     PRICE_BUCKETS.map(b => ({text: b.label, callback_data: `price:${b.key}`})),
+    [{text: '🌟 Show VIP Models', callback_data: 'price:vip'}],
     [{text: '◀️ Back', callback_data: 'nav:age'}]
   ]};
 }
@@ -463,6 +464,19 @@ async function handleUpdate(update) {
       data.age = key;
       await setBotSession(chatId, 'choosing_price', data);
       await editMessageText(chatId, messageId, 'What rate range?', {reply_markup: priceKeyboard()});
+      return;
+    }
+
+    // Many VIP companions don't have a listed rate, so any price bucket
+    // filter (below) silently excludes them — this button skips straight
+    // to VIP results with no price filter applied, same payment gate as
+    // the "I want VIP" button on public results.
+    if (dataStr === 'price:vip') {
+      const session = await getBotSession(chatId);
+      const data = session.data || {};
+      await setBotSession(chatId, 'idle', data);
+      await editMessageText(chatId, messageId, `<b>City:</b> ${cityNameFromSlug(data.city)}\nSearching VIP companions…`).catch(() => {});
+      await handleVipShow(chatId, data);
       return;
     }
 
