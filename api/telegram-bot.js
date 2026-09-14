@@ -96,7 +96,7 @@ function catStepText(data) {
   return [
     `<b>City:</b> ${cityNameFromSlug(data.city)}`,
     '',
-    'Choose one or more categories (tap to select), then Continue:',
+    'Choose one or more categories (tap to select), then Continue — or tap Continue with none selected to skip, since city, age and rate will narrow it down anyway:',
     chosen.length ? `\n<i>Selected: ${chosen.join(', ')}</i>` : ''
   ].filter(Boolean).join('\n');
 }
@@ -111,16 +111,22 @@ function catKeyboard(selected) {
     }));
     rows.push(row);
   }
-  rows.push([{text: '▶️ Continue', callback_data: 'cats:done'}]);
+  rows.push([{text: '◀️ Back', callback_data: 'nav:city'}, {text: '▶️ Continue', callback_data: 'cats:done'}]);
   return {inline_keyboard: rows};
 }
 
 function ageKeyboard() {
-  return {inline_keyboard: [AGE_BUCKETS.map(b => ({text: b.label, callback_data: `age:${b.key}`}))]};
+  return {inline_keyboard: [
+    AGE_BUCKETS.map(b => ({text: b.label, callback_data: `age:${b.key}`})),
+    [{text: '◀️ Back', callback_data: 'nav:cats'}]
+  ]};
 }
 
 function priceKeyboard() {
-  return {inline_keyboard: [PRICE_BUCKETS.map(b => ({text: b.label, callback_data: `price:${b.key}`}))]};
+  return {inline_keyboard: [
+    PRICE_BUCKETS.map(b => ({text: b.label, callback_data: `price:${b.key}`})),
+    [{text: '◀️ Back', callback_data: 'nav:age'}]
+  ]};
 }
 
 function matchesFilters(m, data) {
@@ -183,7 +189,7 @@ async function sendResultsBatch(chatId, data, pool, offset, kind) {
       tailButtons.push([{text: `🔓 ${vipMatches.length} VIP companion${vipMatches.length === 1 ? '' : 's'} also match — I want VIP`, callback_data: 'vip:show'}]);
     }
   }
-  tailButtons.push([{text: '🔁 New search', callback_data: 'restart'}]);
+  tailButtons.push([{text: '◀️ Back to filters', callback_data: 'nav:price'}, {text: '🔁 New search', callback_data: 'restart'}]);
 
   if (!matches.length && offset === 0) {
     const noun = kind === 'vip' ? 'VIP companions' : 'companions';
@@ -195,9 +201,10 @@ async function sendResultsBatch(chatId, data, pool, offset, kind) {
 
 function contactMethodKeyboard() {
   return {inline_keyboard: [
-    [{text: '✈️ Telegram (this chat)', callback_data: 'bkc:telegram'}],
+    [{text: '✈️ Telegram', callback_data: 'bkc:telegram'}],
     [{text: '📱 WhatsApp', callback_data: 'bkc:whatsapp'}],
-    [{text: '📧 Email', callback_data: 'bkc:email'}]
+    [{text: '📧 Email', callback_data: 'bkc:email'}],
+    [{text: '◀️ Back', callback_data: 'bkcancel'}]
   ]};
 }
 
@@ -344,7 +351,8 @@ async function handleVipShow(chatId, data) {
     await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. How would you like to pay?`, {
       reply_markup: {inline_keyboard: [
         [{text: '🪙 Pay with Crypto', callback_data: 'vip:crypto'}],
-        [{text: '🏦 Bank Transfer', callback_data: 'vip:bank'}]
+        [{text: '🏦 Bank Transfer', callback_data: 'vip:bank'}],
+        [{text: '◀️ Back', callback_data: 'nav:price'}]
       ]}
     });
     return;
@@ -380,6 +388,43 @@ async function handleUpdate(update) {
     if (dataStr === 'restart') {
       await setBotSession(chatId, 'idle', {});
       await showCityStep(chatId, messageId);
+      return;
+    }
+
+    // Steps back one stage in the city -> categories -> age -> price wizard,
+    // editing whichever message the tapped Back button lives on — the
+    // original stepper message while moving through it, or a later message
+    // (results footer, VIP payment choice) when backing out of those.
+    if (dataStr.startsWith('nav:')) {
+      const step = dataStr.slice(4);
+      const session = await getBotSession(chatId);
+      const data = session.data || {};
+      if (step === 'city') {
+        await showCityStep(chatId, messageId);
+        return;
+      }
+      if (step === 'cats') {
+        data.cats = data.cats || [];
+        await setBotSession(chatId, 'choosing_cats', data);
+        await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data.cats)});
+        return;
+      }
+      if (step === 'age') {
+        await setBotSession(chatId, 'choosing_age', data);
+        await editMessageText(chatId, messageId, 'What age range?', {reply_markup: ageKeyboard()});
+        return;
+      }
+      if (step === 'price') {
+        await setBotSession(chatId, 'choosing_price', data);
+        await editMessageText(chatId, messageId, 'What rate range?', {reply_markup: priceKeyboard()});
+        return;
+      }
+      return;
+    }
+
+    if (dataStr === 'bkcancel') {
+      await setBotSession(chatId, 'idle', {});
+      await editMessageText(chatId, messageId, 'Booking cancelled. Send /start to search again.').catch(() => {});
       return;
     }
 

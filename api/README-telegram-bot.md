@@ -119,6 +119,14 @@ vars, never in the repo or in the browser.
    match for the current filters). Tapping it either shows the matching VIP
    companions (if this chat has already paid) or offers a choice of payment
    method — see "VIP access" below.
+
+Every button screen from categories onward has a **"◀️ Back"** button that
+returns to the previous stage of the wizard (categories → city, age →
+categories, price → age; the results footer's "◀️ Back to filters" and the
+VIP payment-choice screen's Back both return to price) — implemented as
+`nav:<step>` callbacks in `telegram-bot.js` that re-render whichever
+message the tap came from, so it works the same whether that message is
+the original stepper message or a later one like the results footer.
 7. **Book** on any card (public or VIP, VIP requires the chat to have
    already paid) starts a short guided flow — name, then a **contact
    method** (buttons: Telegram — auto-filled from the tapper's @username
