@@ -203,6 +203,91 @@ const BLOG_POSTS = [
     image: null,
     published: false,
   },
+
+  {
+    slug: 'is-mayfair-good-for-first-time-escort-meets',
+    title: 'Is Mayfair Good for First-Time Escort Meets?',
+    excerpt: 'Is Mayfair good for a first escort booking? Learn how to plan your hotel, drinks, discretion and booking time for a relaxed first date.',
+    date: '2026-09-11',
+    image: 'is-mayfair-good-for-first-time-escort-meets.webp',
+    published: true,
+    intro: [
+      "Mayfair seems like an obvious place to meet one of our luxury companions. Five-star hotels? Gorgeous cocktail bars? Michelin-starred restaurants? Some of the most exclusive addresses in the capital? You're hardly struggling for somewhere impressive to take her.",
+      "But if this is your first escort booking (or even the first time you're meeting a particular model), your choice of hotel, where you meet, how much time you book, and even which side of the district you choose can change how relaxed the whole evening feels.",
+      'So... let\'s look at when this affluent area works brilliantly for a first booking with one of our <a href="/models/">high-class Mayfair escorts</a>, where clients can make life unnecessarily difficult for themselves, and how to properly plan your date around the area.',
+    ],
+    sections: [
+      {
+        heading: 'Should You Meet for Drinks First?',
+        id: 'should-you-meet-for-drinks-first',
+        paragraphs: [
+          "If you've never booked an escort before and feel a little nervous about meeting somebody new, starting with one drink can make those first 20 or 30 minutes much easier.",
+          "Book a girlfriend experience escort service, and you can enjoy a proper date with your chosen companion, have a decent conversation, and get used to each other without feeling like you need to rush anything. That being said, don't arrange drinks simply because you think a high-class model expects an elaborate Mayfair date. If you're comfortable meeting directly at your hotel, there's absolutely nothing wrong with going directly there. Some clients find a drink settles their nerves, but there are others who would rather meet privately and let the chemistry develop there.",
+          "If you do fancy a cocktail first, The Connaught Bar at Carlos Place (W1K 2AL) currently operates without reservations, as does Donovan Bar at 33 Albemarle Street. Both are excellent choices when you can get in... just don't leave it until late in the evening. The Rivoli Bar at The Ritz currently accepts reservations, although a minimum spend applies. For the sort of client already arranging a luxury companion in Mayfair, the spend itself is unlikely to be the issue. What you're really paying for is certainty: your table is sorted before the date even begins.",
+          'Need somewhere suitably sexy for that first drink? Read our guide to <a href="/blog/vip-cocktail-bars-for-london-escort-dates/">VIP cocktail bars for London escort dates</a>, or take a look at <a href="/blog/the-best-rooftop-bars-in-mayfair/">the best rooftop bars in Mayfair</a>.',
+        ],
+      },
+      {
+        heading: 'Get the Hotel Arrangements Sorted Beforehand',
+        id: 'get-the-hotel-arrangements-sorted-beforehand',
+        paragraphs: [
+          "If you're arranging an outcall to a Mayfair hotel, don't assume that booking a beautiful five-star room is the only preparation required.",
+          "The first thing to check is the hotel's visitor policy. Different properties handle visitors differently, and those policies can change. Find out beforehand whether your guest can come directly to your room, whether reception needs any information, and whether there are other requirements you should know about.",
+          "You should also be completely checked in before she's due to arrive. A room can occasionally take longer than expected to become available, reception may need to verify your card, or there may be some other minor issue to sort out. None of that is particularly annoying when you're alone with an hour to spare, but it does become considerably more irritating when your model has arrived and her booked time has already started.",
+          "Then make sure Paradise Models has the correct arrival details. Give us the exact property, correct address and whatever information your model needs to reach you without unnecessary calls back and forth. If the hotel has several entrances, a huge lobby or a separate entrance for its restaurant or bar, make the meeting point clear.",
+          'Still deciding where to stay? See our <a href="/blog/top-escort-friendly-hotels-in-london/">top escort-friendly hotels in London</a>. You can also read our guide to <a href="/blog/the-details-needed-to-book-an-elite-escort/">the details needed to book an elite escort</a> before sending your enquiry.',
+        ],
+      },
+      {
+        heading: 'Is Mayfair Discreet Enough for Escort Bookings?',
+        id: 'is-mayfair-discreet-enough-for-escort-bookings',
+        paragraphs: [
+          "For many clients, yes. Mayfair actually works well because a man meeting an attractive, well-dressed woman at a five-star hotel or smart bar doesn't look remotely out of place. The bigger question is whether Mayfair is anonymous for you personally.",
+          "If you're staying in London on business and rarely visit the area, the chances of randomly encountering somebody you know may be fairly small. If, on the other hand, you work nearby, regularly entertain clients around Berkeley Square, use the same Mayfair hotels for business meetings, or have a favourite restaurant where the staff know you by name, choosing the area could actually make the booking less discreet.",
+          "For particularly privacy-conscious clients, we'd therefore avoid the places you normally use professionally or socially. Don't book the hotel where your company regularly puts up executives, or meet in the bar where you entertain clients every Thursday. And if you're a member somewhere that half your business circle uses, that probably isn't the cleverest place for a first escort date either.",
+          "Instead, choose a high-end venue that still feels natural for you, but sits slightly outside your usual routine. You get all the advantages of Mayfair without spending the evening scanning the room for someone from work.",
+        ],
+      },
+      {
+        heading: 'How Much Time Do You Need for a Mayfair Date?',
+        id: 'how-much-time-do-you-need-for-a-mayfair-date',
+        paragraphs: [
+          "This is where your plans need to match the amount of time you've actually booked.",
+          "If you've booked one hour, keep the meeting straightforward. If the private side of the date is what you're looking forward to most, meet at the hotel and enjoy the time properly. Sixty minutes disappears very quickly once you start adding cocktails, waiting to be served and moving between venues.",
+          "With two hours, you have a little more room to play with. A cocktail beforehand can work nicely, particularly if the bar is only a few minutes from your hotel. You're getting enough time to settle into each other's company without sacrificing most of the booking to the social part of the date.",
+          "Three hours or longer makes far more sense if you want companionship to be a major part of the evening. You can enjoy proper drinks, perhaps have something to eat, and let things develop naturally without constantly wondering how much of the booking is left.",
+        ],
+      },
+      {
+        heading: 'So... Is Mayfair Good for Your First Escort Booking?',
+        id: 'so-is-mayfair-good-for-your-first-escort-booking',
+        paragraphs: [
+          "For many clients, absolutely. Mayfair gives you excellent hotels, some of London's best places for a first drink, and an environment where spending an evening with a beautifully dressed companion feels completely normal. More importantly, you can shape the booking around what makes you comfortable. Meet over cocktails if you'd rather break the ice first, head straight to your hotel if you don't need that, or arrange a longer date if you want dinner and a proper evening together.",
+          "If, however, you feel that Mayfair clashes with your need for discretion, adds unnecessary travelling, or isn't actually part of what you want from the date, there are plenty of other excellent locations around London. But if it suits your plans? Get the practical details sorted beforehand, and once your model arrives, you can forget the rest... and concentrate on the rather more enjoyable company in front of you.",
+          'Ready to arrange your date? Browse our <a href="/models/">high-class Mayfair escorts</a> and choose the model you\'d most like to meet.',
+        ],
+      },
+    ],
+  },
+
+  // Referenced from the article above — pages exist so the links work,
+  // not yet listed on /blog/ until their real content is written.
+  {
+    slug: 'vip-cocktail-bars-for-london-escort-dates',
+    title: 'VIP Cocktail Bars for London Escort Dates',
+    excerpt: '',
+    date: null,
+    image: null,
+    published: false,
+  },
+  {
+    slug: 'the-best-rooftop-bars-in-mayfair',
+    title: 'The Best Rooftop Bars in Mayfair',
+    excerpt: '',
+    date: null,
+    image: null,
+    published: false,
+  },
 ];
 
 module.exports = { BLOG_POSTS };
