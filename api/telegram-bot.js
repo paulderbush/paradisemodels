@@ -209,31 +209,26 @@ async function handleBookingStep(chatId, session, text) {
   if (session.state === 'awaiting_name') {
     data.name = text.trim();
     await setBotSession(chatId, 'awaiting_contact', data);
-    await sendMessage(chatId, 'How should we contact you? (WhatsApp, Telegram username, or email)');
+    await sendMessage(chatId, "What's the best way to reach you? Please send the actual number or handle (e.g. \"WhatsApp: +44 7911 123456\", \"@yourtelegram\", or an email address).");
     return;
   }
 
   if (session.state === 'awaiting_contact') {
     data.contact = text.trim();
     await setBotSession(chatId, 'awaiting_date', data);
-    await sendMessage(chatId, 'What date would you like to book? (e.g. 2026-09-10)');
+    await sendMessage(chatId, 'What date would you like to book? (any format is fine — our manager will confirm the details with you)');
     return;
   }
 
   if (session.state === 'awaiting_date') {
     data.date = text.trim();
     await setBotSession(chatId, 'awaiting_time', data);
-    await sendMessage(chatId, 'What time? (24h format, e.g. 14:30)');
+    await sendMessage(chatId, 'What time? (any format is fine)');
     return;
   }
 
   if (session.state === 'awaiting_time') {
-    const time = text.trim();
-    if (!/^\d{2}:\d{2}$/.test(time) || +time.slice(0, 2) > 23 || +time.slice(3) > 59) {
-      await sendMessage(chatId, 'Please enter a valid time in 24h format (e.g. 14:30).');
-      return;
-    }
-    data.time = time;
+    data.time = text.trim();
     await setBotSession(chatId, 'idle', {});
     await forwardBookingRequest(chatId, data);
     return;
@@ -296,13 +291,25 @@ async function forwardVipRequest(chatId, from) {
   }
 }
 
-async function handleVipShow(chatId, data, from) {
+async function handleVipShow(chatId, data) {
   const paid = await isTelegramVipPaid(chatId);
   if (!paid) {
-    await startVipPurchase(chatId, from);
+    await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. How would you like to pay?`, {
+      reply_markup: {inline_keyboard: [
+        [{text: '🪙 Pay with Crypto', callback_data: 'vip:crypto'}],
+        [{text: '🏦 Bank Transfer', callback_data: 'vip:bank'}]
+      ]}
+    });
     return;
   }
   await sendResultsBatch(chatId, data, vipModels(), 0, 'vip');
+}
+
+// Crypto isn't wired up to anything yet — the button exists now so it's
+// visible in the flow, but just tells the client to use Bank Transfer
+// until a crypto processor is actually connected.
+async function showCryptoComingSoon(chatId) {
+  await sendMessage(chatId, "Crypto payment isn't set up yet — please use Bank Transfer for now, or check back soon.");
 }
 
 async function showCityStep(chatId, messageId) {
@@ -389,7 +396,15 @@ async function handleUpdate(update) {
       const rest = dataStr.slice(4);
       const session = await getBotSession(chatId);
       if (rest === 'show') {
-        await handleVipShow(chatId, session.data || {}, cq.from);
+        await handleVipShow(chatId, session.data || {});
+        return;
+      }
+      if (rest === 'crypto') {
+        await showCryptoComingSoon(chatId);
+        return;
+      }
+      if (rest === 'bank') {
+        await startVipPurchase(chatId, cq.from);
         return;
       }
       const offset = parseInt(rest, 10) || 0;
