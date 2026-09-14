@@ -96,14 +96,24 @@ function catStepText(data) {
   ].filter(Boolean).join('\n');
 }
 
-function catKeyboard(selected) {
-  const sel = new Set(selected || []);
+// Each button shows how many public companions would still match if that
+// category were (also) applied on top of the current city/cats/prices —
+// lets a client see a combination is a dead end before tapping it, instead
+// of finding out only after "Continue" (a real risk once a city only has
+// one or two companions and 16 categories to pick from).
+function catKeyboard(data) {
+  const sel = new Set(data.cats || []);
+  const pool = publicModels();
   const rows = [];
   for (let i = 0; i < CATEGORIES.length; i += 2) {
-    const row = [i, i + 1].filter(j => j < CATEGORIES.length).map(j => ({
-      text: `${sel.has(j) ? '✅ ' : ''}${CATEGORIES[j]}`,
-      callback_data: `cat:${j}`
-    }));
+    const row = [i, i + 1].filter(j => j < CATEGORIES.length).map(j => {
+      const testCats = Array.from(new Set([...sel, j]));
+      const count = pool.filter(m => matchesFilters(m, Object.assign({}, data, {cats: testCats}))).length;
+      return {
+        text: `${sel.has(j) ? '✅ ' : ''}${CATEGORIES[j]} (${count})`,
+        callback_data: `cat:${j}`
+      };
+    });
     rows.push(row);
   }
   rows.push([{text: '◀️ Back', callback_data: 'nav:city'}, {text: '▶️ Continue', callback_data: 'cats:done'}]);
@@ -120,9 +130,16 @@ function priceStepText(data) {
   ].filter(Boolean).join('\n');
 }
 
-function priceKeyboard(selected) {
-  const sel = new Set(selected || []);
-  const rows = PRICE_BUCKETS.map(b => [{text: `${sel.has(b.key) ? '✅ ' : ''}${b.label}`, callback_data: `price:${b.key}`}]);
+// Same idea as catKeyboard() above: each bucket shows the count if it were
+// (also) applied on top of city/cats/whatever prices are already selected.
+function priceKeyboard(data) {
+  const sel = new Set(data.prices || []);
+  const pool = publicModels();
+  const rows = PRICE_BUCKETS.map(b => {
+    const testPrices = Array.from(new Set([...sel, b.key]));
+    const count = pool.filter(m => matchesFilters(m, Object.assign({}, data, {prices: testPrices}))).length;
+    return [{text: `${sel.has(b.key) ? '✅ ' : ''}${b.label} (${count})`, callback_data: `price:${b.key}`}];
+  });
   rows.push([{text: '🌟 Show VIP Models', callback_data: 'price:vip'}]);
   rows.push([{text: '◀️ Back', callback_data: 'nav:cats'}, {text: '▶️ Continue', callback_data: 'price:done'}]);
   return {inline_keyboard: rows};
@@ -157,7 +174,8 @@ function resultCaption(m) {
 function resultKeyboard(m) {
   const moreUrl = m.vip ? `${SITE_URL}/vip-models/` : `${SITE_URL}/models/${m.slug}/`;
   return {inline_keyboard: [
-    [{text: '📅 Book', callback_data: `bk:${m.slug}`}, {text: '🔗 More info', url: moreUrl}]
+    [{text: '📅 Book', callback_data: `bk:${m.slug}`}, {text: '🔗 More info', url: moreUrl}],
+    [{text: '💬 Contact Manager', callback_data: `cm:${m.slug}`}]
   ]};
 }
 
@@ -251,8 +269,36 @@ async function startBooking(chatId, slug) {
       return;
     }
   }
-  await setBotSession(chatId, 'awaiting_name', {modelSlug: slug, modelName: m.name});
+  // Keep the existing city/cats/prices in the session (merge, don't
+  // replace) — a stale Back button tapped on an older results message
+  // later would otherwise land on a filter step with no city recorded
+  // ("City: undefined") since it reads whatever's currently in the session.
+  const session = await getBotSession(chatId);
+  const data = Object.assign({}, session.data || {}, {modelSlug: slug, modelName: m.name});
+  await setBotSession(chatId, 'awaiting_name', data);
   await sendMessage(chatId, `Booking enquiry for <b>${m.name}</b>.\n\nWhat's your name? (/cancel to stop)`);
+}
+
+// One-tap escape hatch on a result card for a client who'd rather just talk
+// to a person than step through Book's guided flow — gives them the
+// manager's contact directly (reusing the same VIP_MANAGER_CONTACT) and
+// gives the manager a heads-up with which companion they're asking about.
+async function contactManagerAbout(chatId, slug, from) {
+  const m = modelBySlug(slug);
+  const name = m ? m.name : 'a companion';
+  await sendMessage(chatId, `Message our manager directly about <b>${name}</b>: ${VIP_MANAGER_CONTACT}\n\nYour reference code: <code>${chatId}</code> — mention it along with her name so they know who you're asking about.`);
+
+  const TG_CHAT = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
+  const TG_THREAD = process.env.TELEGRAM_BOOKINGS_THREAD_ID;
+  const username = from && from.username ? `@${from.username}` : 'no username';
+  const msg = `💬 <b>Contact Manager Request (Telegram Bot)</b>\n\n<b>Model:</b> ${escapeHtml(name)}\n<b>Telegram:</b> ${username} (chat id <code>${chatId}</code>)\n\n<i>Client was given the manager's contact and this reference code.</i>`;
+  if (TG_CHAT) {
+    try {
+      await sendMessage(TG_CHAT, msg, TG_THREAD ? {message_thread_id: TG_THREAD} : undefined);
+    } catch (e) {
+      console.error('telegram-bot: failed to forward contact-manager notice:', e.message);
+    }
+  }
 }
 
 async function handleBookingStep(chatId, session, text) {
@@ -409,13 +455,13 @@ async function handleUpdate(update) {
       if (step === 'cats') {
         data.cats = data.cats || [];
         await setBotSession(chatId, 'choosing_cats', data);
-        await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data.cats)});
+        await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data)});
         return;
       }
       if (step === 'price') {
         data.prices = data.prices || [];
         await setBotSession(chatId, 'choosing_price', data);
-        await editMessageText(chatId, messageId, priceStepText(data), {reply_markup: priceKeyboard(data.prices)});
+        await editMessageText(chatId, messageId, priceStepText(data), {reply_markup: priceKeyboard(data)});
         return;
       }
       return;
@@ -431,7 +477,7 @@ async function handleUpdate(update) {
       const slug = dataStr.slice(5);
       const data = {city: slug, cats: []};
       await setBotSession(chatId, 'choosing_cats', data);
-      await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data.cats)});
+      await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data)});
       return;
     }
 
@@ -443,7 +489,7 @@ async function handleUpdate(update) {
       const pos = data.cats.indexOf(idx);
       if (pos === -1) data.cats.push(idx); else data.cats.splice(pos, 1);
       await setBotSession(chatId, 'choosing_cats', data);
-      await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data.cats)});
+      await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data)});
       return;
     }
 
@@ -452,7 +498,7 @@ async function handleUpdate(update) {
       const data = session.data || {};
       data.prices = data.prices || [];
       await setBotSession(chatId, 'choosing_price', data);
-      await editMessageText(chatId, messageId, priceStepText(data), {reply_markup: priceKeyboard(data.prices)});
+      await editMessageText(chatId, messageId, priceStepText(data), {reply_markup: priceKeyboard(data)});
       return;
     }
 
@@ -486,7 +532,7 @@ async function handleUpdate(update) {
       const pos = data.prices.indexOf(key);
       if (pos === -1) data.prices.push(key); else data.prices.splice(pos, 1);
       await setBotSession(chatId, 'choosing_price', data);
-      await editMessageText(chatId, messageId, priceStepText(data), {reply_markup: priceKeyboard(data.prices)});
+      await editMessageText(chatId, messageId, priceStepText(data), {reply_markup: priceKeyboard(data)});
       return;
     }
 
@@ -537,6 +583,12 @@ async function handleUpdate(update) {
       return;
     }
 
+    if (dataStr.startsWith('cm:')) {
+      const slug = dataStr.slice(3);
+      await contactManagerAbout(chatId, slug, cq.from);
+      return;
+    }
+
     if (dataStr.startsWith('bk:')) {
       const slug = dataStr.slice(3);
       await startBooking(chatId, slug);
@@ -547,6 +599,12 @@ async function handleUpdate(update) {
 
   const msg = update.message;
   if (!msg || typeof msg.text !== 'string') return;
+  // The bot is an admin of the staff group (so it can post/forward there),
+  // which means Telegram delivers it every message in every topic of that
+  // group, not just what's meant for it. Only ever treat a text message as
+  // part of the client conversation when it's a private 1:1 chat with the
+  // bot — the group side only ever interacts via button taps (grantvip:).
+  if (msg.chat.type !== 'private') return;
   const chatId = msg.chat.id;
   const text = msg.text.trim();
 

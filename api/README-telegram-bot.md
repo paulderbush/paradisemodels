@@ -69,6 +69,13 @@ vars, never in the repo or in the browser.
    `TELEGRAM_BOOKINGS_CHAT_ID` group (and give it permission to post, and to
    post in the specific topic if using threads) — otherwise both booking
    forwards and VIP payment requests silently fail with a logged error.
+   Making the bot an admin of that group (needed so it can post into
+   specific topics) also means Telegram delivers it every text message
+   posted in every topic of that group, not just what's meant for it — this
+   is harmless (`telegram-bot.js` only treats a text message as part of the
+   client conversation when it's a private 1:1 chat; anything typed in the
+   group itself is ignored) but worth knowing if you ever see the bot's own
+   messages appear unprompted in an unrelated topic during testing.
 
 5. **Register the webhook.** Deploy first so the URL exists, then run
    this once from your own machine (never paste the token into a shared
@@ -100,7 +107,13 @@ vars, never in the repo or in the browser.
    presence marked "VIP only").
 2. → **categories**, multi-select: tapping a button toggles a ✅ prefix and
    re-renders the same message (Telegram has no native multi-select), tap
-   **Continue** when done (zero selected = no category filter).
+   **Continue** when done (zero selected = no category filter). Each
+   button's label includes a live count — how many public companions would
+   still match if that category were applied on top of whatever's already
+   selected — so a client sees a dead-end combination (a small city with
+   few companions and 16 categories to choose from makes this a real risk)
+   before tapping it, not after. The rate step below shows the same kind of
+   count on its buttons.
 3. → **rate**, also multi-select (same toggle pattern): `Under £500` /
    `£501–£1000` / `£1000+` — a match needs to fall in ANY selected bucket
    (unlike categories, which need ALL selected ones), since a model has
@@ -112,9 +125,13 @@ vars, never in the repo or in the browser.
 4. → **results**: up to 5 matching public companions at a time — a 3-photo
    album per companion (become-a-model requires a minimum of 3 photos per
    profile) followed by age/nationality/area + starting price + top
-   services, with **Book** and **More info** — a link to her profile on the
-   site — buttons, then a "Show N more" button if there are further
-   matches.
+   services, with **Book** and **More info** (a link to her profile on the
+   site) buttons, plus a **"💬 Contact Manager"** button for a client who'd
+   rather just message a person than step through Book's guided flow —
+   gives them the manager's contact directly and a reference code, same as
+   the VIP bank-transfer flow, and gives the manager a heads-up naming
+   which companion they're asking about. Then a "Show N more" button if
+   there are further matches.
 5. If any **VIP** companion also matches the same filters, a
    "🔓 N VIP companions also match — I want VIP" button appears after the
    last page of public results (it's omitted entirely when there's no VIP
