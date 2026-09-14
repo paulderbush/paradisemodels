@@ -107,25 +107,34 @@ vars, never in the repo or in the browser.
    fall through a gap between two buttons — adjust `AGE_BUCKETS`/
    `PRICE_BUCKETS` in `telegram-bot.js` if you'd rather have hard cutoffs).
 4. → **rate**: `Under £500` / `£501–£1000` / `£1000+`.
-5. → **results**: up to 5 matching public companions at a time (photo +
-   age/nationality/area + starting price + top services, with **Book** and
-   **More** — a link to her profile on the site — buttons), then a
-   "Show N more" button if there are further matches.
+5. → **results**: up to 5 matching public companions at a time — a 3-photo
+   album per companion (become-a-model requires a minimum of 3 photos per
+   profile) followed by age/nationality/area + starting price + top
+   services, with **Book** and **More info** — a link to her profile on the
+   site — buttons, then a "Show N more" button if there are further
+   matches.
 6. If any **VIP** companion also matches the same filters, a
    "🔓 N VIP companions also match — I want VIP" button appears after the
    last page of public results (it's omitted entirely when there's no VIP
    match for the current filters). Tapping it either shows the matching VIP
-   companions (if this chat has already paid) or gives the client the
-   manager's contact and a reference code — see "VIP access" below.
+   companions (if this chat has already paid) or offers a choice of payment
+   method — see "VIP access" below.
 7. **Book** on any card (public or VIP, VIP requires the chat to have
-   already paid) starts a short guided flow — name → contact → date → time
-   — stored per-chat in `bot_sessions` between webhook calls since a
+   already paid) starts a short guided flow — name, then a **contact
+   method** (buttons: Telegram — auto-filled from the tapper's @username
+   with no typing needed, WhatsApp, or Email; the latter two still need a
+   quick text reply for the actual number/address), then date, then time —
+   stored per-chat in `bot_sessions` between webhook calls since a
    serverless function has no memory of its own. `/cancel` aborts it at
-   any point. The enquiry is forwarded to `TELEGRAM_BOOKINGS_CHAT_ID` for a
-   manager to confirm availability and rate directly with the client — it
-   does not walk them through the site's full incall/outcall/duration
-   price calculator; widen `handleBookingStep` in `telegram-bot.js` if
-   that's not enough.
+   any point (only while at a text-input step; it isn't checked while the
+   contact-method buttons are showing). Date and time are free text (no
+   format is enforced) since a manager confirms the exact details with the
+   client afterwards anyway.
+   The enquiry is forwarded to `TELEGRAM_BOOKINGS_CHAT_ID` for a manager to
+   confirm availability and rate directly with the client — it does not
+   walk them through the site's full incall/outcall/duration price
+   calculator; widen `handleBookingStep` in `telegram-bot.js` if that's not
+   enough.
 
 ## VIP access
 
@@ -138,28 +147,36 @@ it (see `sql/003_bot_vip_access.sql`).
 
 There's no automated payment processor wired up for the bot yet (no
 Stripe, no crypto gateway — the site doesn't have one live either at the
-moment). Instead:
+moment). Instead, tapping "I want VIP" (when the chat hasn't paid) offers
+two buttons:
 
-1. Tapping **"I want VIP"** immediately messages the client the manager's
-   own Telegram contact (`TELEGRAM_VIP_MANAGER_CONTACT`, defaults to
-   `@paradisemodelslondon`) and a reference code (their chat id) to give
-   the manager.
-2. At the same time, the bot forwards a heads-up to
-   `TELEGRAM_BOOKINGS_CHAT_ID` (in the `TELEGRAM_VIP_THREAD_ID` topic, kept
-   separate from regular bookings) with the client's Telegram username and
-   the same reference code, plus a **"✅ Confirm payment received"** button.
-3. The client messages the manager directly and arranges the £300 payment
-   out of band — the bot itself isn't part of that conversation.
-4. Once paid, the manager taps the button on the forwarded heads-up. The
-   tap is only honoured if it comes from inside `TELEGRAM_BOOKINGS_CHAT_ID`
-   — anyone else tapping a copy of that button (they'd have to be in the
-   group to see it in the first place) is ignored. On a valid tap, the bot
-   marks that chat as paid in `bot_vip_access` and messages the client
-   directly that VIP is unlocked.
+- **"🪙 Pay with Crypto"** — not wired up to anything yet (`showCryptoComingSoon`
+  in `telegram-bot.js` just tells the client to use Bank Transfer for now).
+  The button is there so it's visible in the flow ahead of connecting an
+  actual crypto processor later.
+- **"🏦 Bank Transfer"**:
+  1. Immediately messages the client the manager's own Telegram contact
+     (`TELEGRAM_VIP_MANAGER_CONTACT`, defaults to `@paradisemodelslondon`)
+     and a reference code (their chat id) to give the manager.
+  2. At the same time, the bot forwards a heads-up to
+     `TELEGRAM_BOOKINGS_CHAT_ID` (in the `TELEGRAM_VIP_THREAD_ID` topic,
+     kept separate from regular bookings) with the client's Telegram
+     username and the same reference code, plus a **"✅ Confirm payment
+     received"** button.
+  3. The client messages the manager directly and arranges the £300
+     payment out of band — the bot itself isn't part of that conversation.
+  4. Once paid, the manager taps the button on the forwarded heads-up. The
+     tap is only honoured if it comes from inside
+     `TELEGRAM_BOOKINGS_CHAT_ID` — anyone else tapping a copy of that
+     button (they'd have to be in the group to see it in the first place)
+     is ignored. On a valid tap, the bot marks that chat as paid in
+     `bot_vip_access` and messages the client directly that VIP is
+     unlocked.
 
 When a real payment processor (Stripe, crypto, or both) is ready to go
-live, `startVipPurchase`/`forwardVipRequest` in `telegram-bot.js` is the
-place to swap in an automated checkout instead of the manual request —
+live, `showCryptoComingSoon`/`startVipPurchase`/`forwardVipRequest` in
+`telegram-bot.js` are the places to swap in an automated checkout instead
+of the manual request —
 `upsertTelegramVipAccess` (already wired up) is what a payment webhook
 would call to mark the chat paid, the same way `stripe-webhook.js` does
 for the site's own `vip_access` table.

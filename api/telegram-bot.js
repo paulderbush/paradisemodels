@@ -5,15 +5,16 @@
 //
 // Flow: /start -> city (incl. cities that only have VIP presence) ->
 // categories (multi-select toggle) -> age bucket -> rate bucket -> results
-// (public models matching the filters, one message per companion: photo +
-// stats + price + Book/More buttons). If any VIP companion also matches the
-// same filters, a "Want VIP models too?" button appears below the public
-// results; tapping it either shows the matching VIP companions (if this
-// chat has already paid) or asks for a contact method and forwards a VIP
-// payment request to the manager chat — there's no automated checkout yet
-// (no Stripe, no crypto processor configured), so a manager takes payment
-// out of band and taps "Confirm payment received" on the forwarded request
-// to unlock that chat (see the grantvip: callback in handleUpdate).
+// (public models matching the filters, a 3-photo album per companion
+// followed by stats + price + Book/More info buttons). If any VIP
+// companion also matches the same filters, a "Want VIP models too?" button
+// appears below the public results; tapping it either shows the matching
+// VIP companions (if this chat has already paid) or offers a payment
+// method (crypto is a placeholder for now; bank transfer gives the client
+// the manager's contact and forwards a heads-up to the manager chat) —
+// there's no automated checkout yet, so a manager takes payment out of
+// band and taps "Confirm payment received" on the forwarded request to
+// unlock that chat (see the grantvip: callback in handleUpdate).
 //
 // VIP model data is read directly from data/models.js here (this is
 // server-side code, same trust level as api/vip-catalog.js) but is only
@@ -22,7 +23,7 @@
 // enforces, just checked against bot_vip_access instead of vip_access.
 const {MODELS, CATEGORIES} = require('../data/models.js');
 const {getBotSession, setBotSession, isTelegramVipPaid, upsertTelegramVipAccess} = require('./_lib/supabaseAdmin');
-const {sendMessage, editMessageText, sendPhoto, answerCallbackQuery} = require('./_lib/telegramBot');
+const {sendMessage, editMessageText, sendPhoto, sendMediaGroup, answerCallbackQuery} = require('./_lib/telegramBot');
 
 const SITE_URL = process.env.SITE_URL || 'https://velvetescort.co.uk';
 const RESULTS_PER_PAGE = 5;
@@ -147,16 +148,27 @@ function resultCaption(m) {
 function resultKeyboard(m) {
   const moreUrl = m.vip ? `${SITE_URL}/vip-models/` : `${SITE_URL}/models/${m.slug}/`;
   return {inline_keyboard: [
-    [{text: '📅 Book', callback_data: `bk:${m.slug}`}, {text: '🔗 More', url: moreUrl}]
+    [{text: '📅 Book', callback_data: `bk:${m.slug}`}, {text: '🔗 More info', url: moreUrl}]
   ]};
 }
+
+const RESULT_PHOTO_COUNT = 3;
 
 async function sendResultsBatch(chatId, data, pool, offset, kind) {
   const matches = pool.filter(m => matchesFilters(m, data));
   const page = matches.slice(offset, offset + RESULTS_PER_PAGE);
   for (const m of page) {
-    const photoUrl = `${SITE_URL}/${m.folder}/1.webp`;
-    await sendPhoto(chatId, photoUrl, resultCaption(m), {reply_markup: resultKeyboard(m)});
+    const photoUrls = Array.from({length: RESULT_PHOTO_COUNT}, (_, i) => `${SITE_URL}/${m.folder}/${i + 1}.webp`);
+    // Become-a-model requires at least 3 photos per profile, but fall back
+    // to her single main photo if the album send fails for any reason
+    // (e.g. an older profile with fewer than 3) rather than showing nothing.
+    try {
+      await sendMediaGroup(chatId, photoUrls);
+    } catch (e) {
+      console.error('telegram-bot: sendMediaGroup failed, falling back to single photo:', e.message);
+      await sendPhoto(chatId, photoUrls[0]);
+    }
+    await sendMessage(chatId, resultCaption(m), {reply_markup: resultKeyboard(m)});
   }
   const nextOffset = offset + RESULTS_PER_PAGE;
   const hasMore = nextOffset < matches.length;
@@ -179,6 +191,41 @@ async function sendResultsBatch(chatId, data, pool, offset, kind) {
     return;
   }
   await sendMessage(chatId, offset === 0 ? `Showing ${Math.min(RESULTS_PER_PAGE, matches.length)} of ${matches.length} match${matches.length === 1 ? '' : 'es'}:` : 'More matches:', {reply_markup: {inline_keyboard: tailButtons}});
+}
+
+function contactMethodKeyboard() {
+  return {inline_keyboard: [
+    [{text: '✈️ Telegram (this chat)', callback_data: 'bkc:telegram'}],
+    [{text: '📱 WhatsApp', callback_data: 'bkc:whatsapp'}],
+    [{text: '📧 Email', callback_data: 'bkc:email'}]
+  ]};
+}
+
+// Handles a tap on contactMethodKeyboard(). Telegram picks itself up
+// automatically from the tapper's @username (no typing needed); WhatsApp
+// and Email still need a text reply since that detail isn't something the
+// bot already knows.
+async function handleContactMethod(chatId, method, from) {
+  const session = await getBotSession(chatId);
+  const data = session.data || {};
+
+  if (method === 'telegram') {
+    const username = from && from.username;
+    if (username) {
+      data.contact = `@${username} (Telegram)`;
+      await setBotSession(chatId, 'awaiting_date', data);
+      await sendMessage(chatId, 'What date would you like to book? (any format is fine — our manager will confirm the details with you)');
+      return;
+    }
+    data.contactMethod = 'Telegram';
+    await setBotSession(chatId, 'awaiting_contact_detail', data);
+    await sendMessage(chatId, "You don't have a public Telegram username set — please type your Telegram username or phone number instead.");
+    return;
+  }
+
+  data.contactMethod = method === 'whatsapp' ? 'WhatsApp' : 'Email';
+  await setBotSession(chatId, 'awaiting_contact_detail', data);
+  await sendMessage(chatId, method === 'whatsapp' ? 'Please send your WhatsApp number (with country code).' : 'Please send your email address.');
 }
 
 async function startBooking(chatId, slug) {
@@ -208,32 +255,27 @@ async function handleBookingStep(chatId, session, text) {
 
   if (session.state === 'awaiting_name') {
     data.name = text.trim();
-    await setBotSession(chatId, 'awaiting_contact', data);
-    await sendMessage(chatId, 'How should we contact you? (WhatsApp, Telegram username, or email)');
+    await setBotSession(chatId, 'choosing_contact_method', data);
+    await sendMessage(chatId, 'How should we contact you?', {reply_markup: contactMethodKeyboard()});
     return;
   }
 
-  if (session.state === 'awaiting_contact') {
-    data.contact = text.trim();
+  if (session.state === 'awaiting_contact_detail') {
+    data.contact = `${text.trim()} (${data.contactMethod})`;
     await setBotSession(chatId, 'awaiting_date', data);
-    await sendMessage(chatId, 'What date would you like to book? (e.g. 2026-09-10)');
+    await sendMessage(chatId, 'What date would you like to book? (any format is fine — our manager will confirm the details with you)');
     return;
   }
 
   if (session.state === 'awaiting_date') {
     data.date = text.trim();
     await setBotSession(chatId, 'awaiting_time', data);
-    await sendMessage(chatId, 'What time? (24h format, e.g. 14:30)');
+    await sendMessage(chatId, 'What time? (any format is fine)');
     return;
   }
 
   if (session.state === 'awaiting_time') {
-    const time = text.trim();
-    if (!/^\d{2}:\d{2}$/.test(time) || +time.slice(0, 2) > 23 || +time.slice(3) > 59) {
-      await sendMessage(chatId, 'Please enter a valid time in 24h format (e.g. 14:30).');
-      return;
-    }
-    data.time = time;
+    data.time = text.trim();
     await setBotSession(chatId, 'idle', {});
     await forwardBookingRequest(chatId, data);
     return;
@@ -296,13 +338,25 @@ async function forwardVipRequest(chatId, from) {
   }
 }
 
-async function handleVipShow(chatId, data, from) {
+async function handleVipShow(chatId, data) {
   const paid = await isTelegramVipPaid(chatId);
   if (!paid) {
-    await startVipPurchase(chatId, from);
+    await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. How would you like to pay?`, {
+      reply_markup: {inline_keyboard: [
+        [{text: '🪙 Pay with Crypto', callback_data: 'vip:crypto'}],
+        [{text: '🏦 Bank Transfer', callback_data: 'vip:bank'}]
+      ]}
+    });
     return;
   }
   await sendResultsBatch(chatId, data, vipModels(), 0, 'vip');
+}
+
+// Crypto isn't wired up to anything yet — the button exists now so it's
+// visible in the flow, but just tells the client to use Bank Transfer
+// until a crypto processor is actually connected.
+async function showCryptoComingSoon(chatId) {
+  await sendMessage(chatId, "Crypto payment isn't set up yet — please use Bank Transfer for now, or check back soon.");
 }
 
 async function showCityStep(chatId, messageId) {
@@ -389,7 +443,15 @@ async function handleUpdate(update) {
       const rest = dataStr.slice(4);
       const session = await getBotSession(chatId);
       if (rest === 'show') {
-        await handleVipShow(chatId, session.data || {}, cq.from);
+        await handleVipShow(chatId, session.data || {});
+        return;
+      }
+      if (rest === 'crypto') {
+        await showCryptoComingSoon(chatId);
+        return;
+      }
+      if (rest === 'bank') {
+        await startVipPurchase(chatId, cq.from);
         return;
       }
       const offset = parseInt(rest, 10) || 0;
@@ -408,6 +470,12 @@ async function handleUpdate(update) {
       } catch (e) {
         console.error('telegram-bot: failed to grant VIP access:', e.message);
       }
+      return;
+    }
+
+    if (dataStr.startsWith('bkc:')) {
+      const method = dataStr.slice(4);
+      await handleContactMethod(chatId, method, cq.from);
       return;
     }
 
