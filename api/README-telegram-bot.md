@@ -115,10 +115,12 @@ vars, never in the repo or in the browser.
    before tapping it, not after. The rate step below shows the same kind of
    count on its buttons.
 3. → **rate**, also multi-select (same toggle pattern): `Under £500` /
-   `£501–£1000` / `£1000+` — a match needs to fall in ANY selected bucket
-   (unlike categories, which need ALL selected ones), since a model has
-   exactly one price. Zero selected = no rate filter. Also has a
-   **"🔎 Show all (N)"** button that bypasses the rate filter entirely —
+   `£500–£999` / `£1000+` — deliberately non-overlapping (a model priced
+   at exactly £500 or £1000 used to match two buckets at once). A match
+   needs to fall in ANY selected bucket (unlike categories, which need ALL
+   selected ones), since a model has exactly one price. Zero selected = no
+   rate filter. Also has a **"(N) 🔎 Show all"** button that bypasses the
+   rate filter entirely —
    many companions don't have a listed rate, so a city with only one or
    two companions can otherwise show zero results at every bucket. VIP
    isn't offered on this step at all; it only ever comes up after public
