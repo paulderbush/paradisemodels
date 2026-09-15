@@ -220,7 +220,11 @@ async function sendResultsBatch(chatId, data, pool, offset, kind) {
       tailButtons.push([{text: `🔓 ${vipMatches.length} VIP companion${vipMatches.length === 1 ? '' : 's'} also match — I want VIP`, callback_data: 'vip:show'}]);
     }
   }
-  tailButtons.push([{text: '◀️ Back to filters', callback_data: 'nav:price'}, {text: '🔁 New search', callback_data: 'restart'}]);
+  // VIP results reached straight from categories (the "(N) ⭐ VIP Models"
+  // button, which skips the rate step entirely) should back out to
+  // categories, not price — everywhere else "back" means the rate step.
+  const backTarget = (kind === 'vip' && data.cameFromCats) ? 'nav:cats' : 'nav:price';
+  tailButtons.push([{text: '◀️ Back to filters', callback_data: backTarget}, {text: '🔁 New search', callback_data: 'restart'}]);
 
   if (!matches.length && offset === 0) {
     const noun = kind === 'vip' ? 'VIP companions' : 'companions';
@@ -511,6 +515,7 @@ async function handleUpdate(update) {
       const session = await getBotSession(chatId);
       const data = session.data || {};
       data.cats = data.cats || [];
+      data.cameFromCats = true;
       await setBotSession(chatId, 'idle', data);
       await handleVipShow(chatId, data);
       return;
@@ -570,7 +575,9 @@ async function handleUpdate(update) {
       const rest = dataStr.slice(4);
       const session = await getBotSession(chatId);
       if (rest === 'show') {
-        await handleVipShow(chatId, session.data || {});
+        const data = session.data || {};
+        data.cameFromCats = false;
+        await handleVipShow(chatId, data);
         return;
       }
       if (rest === 'crypto') {

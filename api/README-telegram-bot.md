@@ -156,7 +156,12 @@ categories; the results footer's "◀️ Back to filters" and the VIP
 payment-choice screen's Back both return to price) — implemented as
 `nav:<step>` callbacks in `telegram-bot.js` that re-render whichever
 message the tap came from, so it works the same whether that message is
-the original stepper message or a later one like the results footer.
+the original stepper message or a later one like the results footer. The
+one exception: VIP results reached via the categories step's own
+"(N) ⭐ VIP Models" button (which skips rate entirely) back out to
+categories instead of price, since that's genuinely where the client
+came from — tracked with a `cameFromCats` flag on the session data,
+set by that button and cleared by every other path into VIP results.
 
 6. **Book** on any card (public or VIP, VIP requires the chat to have
    already paid) starts a short guided flow — name, then a **contact
