@@ -30,9 +30,11 @@ const RESULTS_PER_PAGE = 5;
 const VIP_PRICE_GBP = 300;
 const WEBHOOK_SECRET = process.env.TELEGRAM_WEBHOOK_SECRET;
 
+// Non-overlapping on purpose — a model priced at exactly £500 or £1000
+// used to match two buckets at once.
 const PRICE_BUCKETS = [
   {key: 'u', label: 'Under £500', test: p => p != null && p < 500},
-  {key: 'm', label: '£501–£1000', test: p => p != null && p >= 500 && p <= 1000},
+  {key: 'm', label: '£500–£999', test: p => p != null && p >= 500 && p < 1000},
   {key: 'p', label: '£1000+', test: p => p != null && p >= 1000},
 ];
 
@@ -147,7 +149,7 @@ function priceKeyboard(data) {
     return [{text: `${sel.has(b.key) ? '✅ ' : ''}(${count}) ${b.label}`, callback_data: `price:${b.key}`}];
   });
   const allCount = pool.filter(m => matchesFilters(m, Object.assign({}, data, {prices: []}))).length;
-  rows.push([{text: `🔎 Show all (${allCount})`, callback_data: 'price:all'}]);
+  rows.push([{text: `(${allCount}) 🔎 Show all`, callback_data: 'price:all'}]);
   rows.push([{text: '◀️ Back', callback_data: 'nav:cats'}, {text: '▶️ Continue', callback_data: 'price:done'}]);
   return {inline_keyboard: rows};
 }
