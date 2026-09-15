@@ -14,7 +14,7 @@ const BLOG_POSTS = [
     published: true,
     intro: [
       "Choosing the right escort service can make your booking more enjoyable because every agency offers its own selection of escorts and services. Our high class escort agency gives clients access to trustworthy profiles, a wide range of options and a professional way to arrange bookings. Spending time comparing choices helps you find an escort who offers the services you are looking for.",
-      'A reputable agency makes it easier to browse genuine profiles and varied services in one place, helping you decide which option matches your plans. Before comparing agencies or escorts, think carefully about what you want from your booking and the type of experience you would like with our <a href="/models/">elite London escorts</a>.',
+      'A reputable agency makes it easier to browse genuine profiles and varied services in one place, helping you decide which option matches your plans. Before comparing agencies or escorts, think carefully about what you want from your booking and the type of experience you would like with our <a href="/models/">elite escorts</a>.',
     ],
     sections: [
       {
@@ -214,7 +214,7 @@ const BLOG_POSTS = [
     intro: [
       "Mayfair seems like an obvious place to meet one of our luxury companions. Five-star hotels? Gorgeous cocktail bars? Michelin-starred restaurants? Some of the most exclusive addresses in the capital? You're hardly struggling for somewhere impressive to take her.",
       "But if this is your first escort booking (or even the first time you're meeting a particular model), your choice of hotel, where you meet, how much time you book, and even which side of the district you choose can change how relaxed the whole evening feels.",
-      'So... let\'s look at when this affluent area works brilliantly for a first booking with one of our <a href="/models/">high-class Mayfair escorts</a>, where clients can make life unnecessarily difficult for themselves, and how to properly plan your date around the area.',
+      'So... let\'s look at when this affluent area works brilliantly for a first booking with one of our <a href="/models/">high-class escorts</a>, where clients can make life unnecessarily difficult for themselves, and how to properly plan your date around the area.',
     ],
     sections: [
       {
@@ -264,7 +264,7 @@ const BLOG_POSTS = [
         paragraphs: [
           "For many clients, absolutely. Mayfair gives you excellent hotels, some of London's best places for a first drink, and an environment where spending an evening with a beautifully dressed companion feels completely normal. More importantly, you can shape the booking around what makes you comfortable. Meet over cocktails if you'd rather break the ice first, head straight to your hotel if you don't need that, or arrange a longer date if you want dinner and a proper evening together.",
           "If, however, you feel that Mayfair clashes with your need for discretion, adds unnecessary travelling, or isn't actually part of what you want from the date, there are plenty of other excellent locations around London. But if it suits your plans? Get the practical details sorted beforehand, and once your model arrives, you can forget the rest... and concentrate on the rather more enjoyable company in front of you.",
-          'Ready to arrange your date? Browse our <a href="/models/">high-class Mayfair escorts</a> and choose the model you\'d most like to meet.',
+          'Ready to arrange your date? Browse our <a href="/models/">high-class escorts</a> and choose the model you\'d most like to meet.',
         ],
       },
     ],
@@ -289,7 +289,7 @@ const BLOG_POSTS = [
     published: true,
     intro: [
       "Choosing somewhere for an evening date can take more thought than simply picking a good bar. You want somewhere with enough character to give you things to talk about while still allowing the evening to feel memorable. Mayfair has several rooftop venues where food, drinks and unusual interiors can make your date feel more special.",
-      'Each one brings something interesting to the table, whether that means seasonal dishes, Japanese small plates or a sunset view across London. The selection below includes established venues alongside newer additions currently operating in the area. Take a look at these options before arranging your date with one of our <a href="/models/">VIP Mayfair escorts</a>, then choose the setting that appeals to you most.',
+      'Each one brings something interesting to the table, whether that means seasonal dishes, Japanese small plates or a sunset view across London. The selection below includes established venues alongside newer additions currently operating in the area. Take a look at these options before arranging your date with one of our <a href="/models/">VIP escorts</a>, then choose the setting that appeals to you most.',
     ],
     sections: [
       {
@@ -374,7 +374,7 @@ const BLOG_POSTS = [
     intro: [
       "There's a reason why Canary Wharf has such a specific reputation in London. Quite a few, in fact. This is an area that is highly polished, expensive, corporate, international, and home to some of the most successful men working in the capital.",
       "So it is hardly surprising that some of the most desirable companions London has to offer are regularly booked in and around Canary Wharf. After all, this is one of few parts of the city where wealth, business, luxury apartments, five-star hotels, and international visitors all sit right on top of each other.",
-      'But why exactly is our <a href="/models/">high-class Canary Wharf escorts</a> so popular with wealthy London men? Is it just because the area is full of banks and expensive hotel bars, or is there a little more to it than that? Let\'s take a closer look.',
+      'But why exactly are our <a href="/models/">high-class escorts</a> so popular with wealthy men in Canary Wharf? Is it just because the area is full of banks and expensive hotel bars, or is there a little more to it than that? Let\'s take a closer look.',
     ],
     sections: [
       {
@@ -436,7 +436,7 @@ const BLOG_POSTS = [
         paragraphs: [
           "Canary Wharf escorts are popular with wealthy men because the area brings together the right people, places, and expectations. The area is often successful, busy, and comfortable paying for quality, with the hotels, restaurants, bars, apartments, and transport links to make high-end bookings simple, whether the client wants drinks, dinner, or a longer overnight booking.",
           "Of course, this doesn't mean Canary Wharf companions only meet bankers or men with ridiculous amounts of money. But it does explain why the area is so closely linked with luxury companionship. When you have wealth, business, discretion, convenience, and beautiful women all in one part of London, the popularity starts to make a lot of sense.",
-          'If you\'d like to arrange your own luxury booking, browse our <a href="/vip-models/">exclusive gallery of high-class London escorts</a> and meet a VIP companion who knows exactly how to make your evening feel worth it.',
+          'If you\'d like to arrange your own luxury booking, browse our <a href="/vip-models/">exclusive gallery of high-class escorts</a> and meet a VIP companion who knows exactly how to make your evening feel worth it.',
           'If you\'re still weighing up what to spend, our blog on <a href="/blog/the-average-price-of-a-vip-escort-in-london/">the average price of a VIP escort in London</a> may help you understand what goes into a truly high-end booking.',
         ],
       },
@@ -590,14 +590,14 @@ const BLOG_POSTS = [
   {
     slug: 'are-british-escorts-more-popular-with-local-london-clients',
     title: 'Are British Escorts More Popular With Local London Clients?',
-    excerpt: 'Explore the reasons British London escorts appeal to local men and international visitors seeking an escort in London.',
+    excerpt: 'Explore the reasons British escorts appeal to local men and international visitors seeking an escort in London.',
     date: '2026-08-31',
     image: 'are-british-escorts-more-popular-with-local-london-clients.webp',
     published: true,
     intro: [
       "British escorts have a particular appeal in London, but does that mean local clients prefer British women more than visitors from overseas? It is an interesting question because London attracts clients with plenty of different tastes.",
       "British women bring familiar qualities that can appeal to men who already know the culture, humour and accents around them. At the same time, those very British qualities can look especially appealing to someone visiting from another country.",
-      'British women can appeal to local clients and international visitors for separate reasons, which shows just how popular our <a href="/models/">British London escorts</a> can be.',
+      'British women can appeal to local clients and international visitors for separate reasons, which shows just how popular our <a href="/models/">British escorts</a> can be.',
     ],
     sections: [
       {
@@ -653,7 +653,7 @@ const BLOG_POSTS = [
           "If you like the qualities described above, take a look through our British models and see which catches your eye.",
           "British women can offer the familiar qualities that appeal to London clients while also providing the distinctly British experience that attracts visitors from overseas.",
           "Our selection gives you the chance to look through a variety of British women in London and choose the escort who is perfect for what you want.",
-          'You can also take a look through our whole gallery of <a href="/models/">high class London escorts</a> and book your preferred woman for your next London booking.',
+          'You can also take a look through our whole gallery of <a href="/models/">high class escorts</a> and book your preferred woman for your next London booking.',
         ],
       },
     ],
@@ -689,12 +689,12 @@ const BLOG_POSTS = [
   {
     slug: 'best-date-spots-for-bayswater-escort-meets',
     title: 'Best Date Spots for Bayswater Escort Meets',
-    excerpt: 'Meeting one of our Bayswater escorts for the first time? Here are the best date spots in the area for dinner, drinks or both.',
+    excerpt: 'Meeting one of our escorts in Bayswater for the first time? Here are the best date spots in the area for dinner, drinks or both.',
     date: '2026-08-30',
     image: 'best-date-spots-for-bayswater-escort-meets.webp',
     published: true,
     intro: [
-      'Meeting one of our <a href="/models/">Bayswater escorts</a> for the first time? Well, before the two of you disappear somewhere a little more private, it makes sense to begin the date somewhere you can both get comfortable around each other.',
+      'Meeting one of our <a href="/models/">escorts</a> in Bayswater for the first time? Well, before the two of you disappear somewhere a little more private, it makes sense to begin the date somewhere you can both get comfortable around each other.',
       "Luckily for you, Bayswater gives you plenty of decent options, including polished hotel lounges beside Hyde Park, relaxed restaurants along Westbourne Grove, lively venues around Queensway and even a glamorous rooftop spot close to Paddington. So, where are the best places in Bayswater to meet one of our models before continuing the evening elsewhere? Let's take a closer look.",
     ],
     sections: [
@@ -706,16 +706,16 @@ const BLOG_POSTS = [
           "Urban Meadow sits directly on Westbourne Road, opposite Hyde Park and close to both Queensway and Lancaster Gate. It operates throughout the day with a restaurant, bar and outdoor patio, making it one of the more flexible meeting points around.",
           "This is particularly useful when meeting a Bayswater model for the first time, since you can begin with a cocktail and keep the opening drink fairly low-key. The lounge has an anonymous, neutral quality that means you don't need to worry about who's watching. Travellers coming and going pass unnoticed here too, and nobody is especially likely to remember your table.",
           "On warmer days, the patio gives you the option of sitting outside for the evening.",
-          '<b>View Urban Meadow Café &amp; Bar</b>',
+          '<b><a href="https://urbanmeadowcafe.com" target="_blank" rel="noopener">View Urban Meadow Café &amp; Bar</a></b>',
           '<b>The Hayden</b><br>Address: 43 Westbourne Grove, London W2 4UA<br>Best for: relaxed cocktails with the option to stay for food',
           "The Hayden is a modern gastropub on Westbourne Grove serving cocktails, craft beers and comforting European and British inspired dishes. It feels stylish enough for a date without being overly formal, keeping the mood relaxed rather than showy.",
           "That balance is precisely why it works so well for escort meets. You can begin with a cocktail and let the evening find its own rhythm before deciding whether to stay for food. If you both agree things are going well, you can order dinner and extend the evening without moving anywhere else.",
           "The Hayden tends to be fairly quiet on weekday evenings and busier on Sundays, so if you're after a quieter atmosphere rather than noise, ask for a table away from the busiest corner of the restaurant.",
-          '<b>Visit The Hayden</b>',
+          '<b><a href="https://www.haydennottinghill.com" target="_blank" rel="noopener">Visit The Hayden</a></b>',
           '<b>The Mitre</b><br>Address: 24 Craven Terrace, Lancaster Gate, London W2',
           "If you would prefer a classic London setting rather than a modern cocktail lounge, The Mitre is a characterful alternative close to Lancaster Gate. The Grade II listed pub retains traditional details including etched glass and mosaic flooring, while its downstairs bar offers a more intimate, cosy atmosphere.",
           "During a busy after-work period, the main pub can become rather lively. If you'd prefer a quieter setting for your conversation, the outside terrace or a snug corner table can help you avoid the crowd and enjoy your date without competing with other conversations.",
-          '<b>Book your table at The Mitre</b>',
+          '<b><a href="https://www.themitrew11.co.uk" target="_blank" rel="noopener">Book your table at The Mitre</a></b>',
         ],
       },
       {
@@ -725,7 +725,7 @@ const BLOG_POSTS = [
           '<b>Drunch Notting Hill</b><br>Address: 2 Westbourne Grove, London W2 5RH<br>Best for: brunch dates, colourful cocktails and a more energetic atmosphere',
           "Drunch sits at the eastern end of Westbourne Grove and offers a brighter, livelier style of date. Its menu blends brunch dishes, Mediterranean-inspired plates, sweet treats and cocktails, and the colourful presentation and playful theming make it a memorable venue.",
           "If you and your escort want a fun, sociable date with plenty to look at and try, sharing plates here gives you just as much to talk about as the food itself.",
-          '<b>View Drunch Notting Hill</b>',
+          '<b><a href="https://www.drunch.co.uk" target="_blank" rel="noopener">View Drunch Notting Hill</a></b>',
         ],
       },
       {
@@ -736,12 +736,12 @@ const BLOG_POSTS = [
           "Grilandia is a Lebanese restaurant positioned between Westbourne Grove and Notting Hill, with a range of grilled and vegetarian dishes that give you plenty of choice.",
           "Sharing food always makes a great date choice, since it encourages conversation to unfold naturally as plates arrive at the table, offering something a little different from the usual one-dish-each approach.",
           "The setting matters just as much as the food, with warm colours and a garden-inspired interior that reflects the character of Bayswater and Notting Hill, offering a similarly memorable evening once you've settled in with your escort.",
-          '<b>Book Grilandia Bayswater</b>',
+          '<b><a href="https://www.grilandia.com/grilandia-bayswater" target="_blank" rel="noopener">Book Grilandia Bayswater</a></b>',
           '<b>Mandarin Kitchen</b><br>Address: 14-16 Queensway, London W2 3RX<br>Best for: a memorable dinner with fresh seafood',
           "Mandarin Kitchen has been part of the Queensway dining scene since 1979 and is particularly well known for its lobster noodles. The menu has a real sense of nostalgia, offering signature seafood dishes alongside old-fashioned dining decor and confident service.",
           "This is a brilliant choice when you and your companion both love food, making for a memorable evening through the flavours on offer rather than the elegance of the setting.",
           "The location on Queensway also means easy access towards Hyde Park and the rest of Bayswater, so once the meal is finished, you're well positioned to continue the evening through the neighbourhood at your own leisure.",
-          '<b>Book your table at Mandarin Kitchen today</b>',
+          '<b><a href="https://mandarin.kitchen" target="_blank" rel="noopener">Book your table at Mandarin Kitchen today</a></b>',
         ],
       },
       {
@@ -751,7 +751,7 @@ const BLOG_POSTS = [
           '<b>CÉ LA VI London</b><br>Address: 17th &amp; 18th Floors, 1 Paddington Square, London W2 1DL<br>Best for: a rooftop terrace, glamorous atmosphere and standout cocktails',
           "CÉ LA VI is technically closer to Paddington than central Bayswater, but sits just minutes away within the same W2 postcode as Bayswater and Notting Hill Gate. The rooftop setting delivers dramatic lighting, Asian-inspired cuisine, sharing plates and standout cocktails.",
           "The setting suits clients who want to make more of an impression, particularly if you're both interested in stunning skyline views alongside the food and drink, with several dishes designed to be shared over the course of the evening.",
-          '<b>Book your table now at CÉ LA VI London</b>',
+          '<b><a href="https://ldn.celavi.com" target="_blank" rel="noopener">Book your table now at CÉ LA VI London</a></b>',
         ],
       },
       {
@@ -773,7 +773,7 @@ const BLOG_POSTS = [
         id: 'so-which-bayswater-date-spot-should-you-choose',
         paragraphs: [
           "The most important thing is to choose a venue that suits your companion, the length of the meeting and the atmosphere you want. If you want something lighter and casual, a relaxed bar table works well; if you want a longer conversation, book a quiet corner instead.",
-          'Ready to arrange your evening? Browse our full gallery of <a href="/models/">high class Bayswater escorts</a> and choose the woman you would like to meet.',
+          'Ready to arrange your evening? Browse our full gallery of <a href="/models/">high class escorts</a> and choose the woman you would like to meet.',
         ],
       },
     ],
