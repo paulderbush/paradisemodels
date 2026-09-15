@@ -282,11 +282,86 @@ const BLOG_POSTS = [
   },
   {
     slug: 'the-best-rooftop-bars-in-mayfair',
-    title: 'The Best Rooftop Bars in Mayfair',
-    excerpt: '',
-    date: null,
-    image: null,
-    published: false,
+    title: 'Best Rooftop Bars in Mayfair',
+    excerpt: 'Find the best rooftop bars in Mayfair for an escort date, with standout drinks, dining options and unique features to help you choose your venue',
+    date: '2026-09-04',
+    image: 'the-best-rooftop-bars-in-mayfair.webp',
+    published: true,
+    intro: [
+      "Choosing somewhere for an evening date can take more thought than simply picking a good bar. You want somewhere with enough character to give you things to talk about while still allowing the evening to feel memorable. Mayfair has several rooftop venues where food, drinks and unusual interiors can make your date feel more special.",
+      'Each one brings something interesting to the table, whether that means seasonal dishes, Japanese small plates or a sunset view across London. The selection below includes established venues alongside newer additions currently operating in the area. Take a look at these options before arranging your date with one of our <a href="/models/">VIP Mayfair escorts</a>, then choose the setting that appeals to you most.',
+    ],
+    sections: [
+      {
+        heading: "Stanley's",
+        id: 'stanleys',
+        paragraphs: [
+          '35 Charles Street, London W1J 5EB',
+          "Stanley's offers several details that can give your date plenty of character before you even reach the main bar. An Art Deco lift takes you upstairs, while artwork around the venue provides interesting details to notice as you settle in. The marble bar also creates an impressive backdrop for ordering drinks.",
+          "British weather can change quickly, so the retractable roof and heating can prove useful during an evening here. Seasonal small plates like lobster rolls, chicken satay and cheddar toasties let you order several dishes for the table. The drinks menu includes the Stanley's Martini and Thymes in Paris, giving you recognisable cocktails alongside the food. Sharing plates can also make dinner feel less formal while you get to enjoy spending more time with your escort.",
+          'Our high class escorts are ideal to offer any company at high-end bars like this. Learn more about <a href="/blog/why-successful-men-choose-vip-london-escorts/">why successful men choose our high class escorts</a>.',
+        ],
+      },
+      {
+        heading: "Sparrow's Nest At Sparrow Italia",
+        id: 'sparrows-nest-at-sparrow-italia',
+        paragraphs: [
+          "4 St James's Street, London SW1A 1EF",
+          "Sparrow's Nest brings a seasonal terrace to Sparrow Italia, with its summer 2026 reopening making it an appealing choice during its limited annual run. The Italian menu provides plenty to discuss when you are deciding what to order, particularly if you enjoy seafood.",
+          "Oysters provide an easy starting point, while the wider menu includes Italian dishes that can turn drinks into a fuller dinner. Sparkling wine can accompany the food, creating a straightforward option when you want your evening to centre on dinner and drinks. The seafood selection also gives you more interesting choices than simply ordering a standard bar snack.",
+          "For an escort date, having oysters, Italian dishes and sparkling wine at the same venue can make the evening feel more substantial. The seasonal nature of Sparrow's Nest also means you can experience something that only forms part of the restaurant's yearly offering.",
+        ],
+      },
+      {
+        heading: 'Hanover Bar',
+        id: 'hanover-bar',
+        paragraphs: [
+          '22 Hanover Square, London W1S 1JP',
+          "Japanese influences give Hanover Bar a useful talking point for an evening date, particularly when you want more than conventional bar food. The menu includes spicy tuna maki, miso aubergine and salmon tataki, so you can order several smaller dishes while enjoying drinks with your escort.",
+          "The drinks menu continues the Japanese influence through ingredients and combinations that complement the food. Clients who enjoy classic cocktails can also consider the Saturday Negroni evenings, where a resident DJ creates a livelier atmosphere later in the evening.",
+          "Hanover Bar makes sense for an escort date because the food encourages you to order several dishes instead of committing to one large meal. You can try salmon tataki alongside maki before continuing with drinks. The combination creates a more varied dinner than a simple bar visit.",
+          'Wondering whether to book a dinner date with your escort? Read through our advice on <a href="/blog/how-to-pick-the-perfect-elite-escort-service/">how to choose the perfect elite escort service</a>.',
+        ],
+      },
+      {
+        heading: 'Eagle Bar Upper West',
+        id: 'eagle-bar-upper-west',
+        paragraphs: [
+          '30 Grosvenor Square, London W1K, United Kingdom',
+          "Eagle Bar Upper West centres its appeal around sunset views, Champagne and aperitif-led drinks. The Champagne offering can make a date feel more luxurious, particularly when you order a bottle to share. Cocktails also feature through the bar's shared drink rituals, creating another option once you have settled into the evening.",
+          "A key feature here comes from the sunset itself. Watching the light change across the city gives you a natural focal point with your escort while you enjoy your drinks. The terrace also caters specifically to adults, which keeps the setting centred on an evening out. If you want your date to include Champagne alongside a changing skyline view, Eagle Bar Upper West provides both within the same venue.",
+        ],
+      },
+      {
+        heading: 'The Perch Bar At RH London',
+        id: 'the-perch-bar-at-rh-london',
+        paragraphs: [
+          '7 Burlington Gardens, London W1S 3ES',
+          "The Perch Bar gives you plenty of unusual details to notice during an evening date. Blackened dolomite finishes cover parts of the bar while a smoked glass canopy sits overhead. Nearby, grand glass birdcages form part of the adjoining rooftop garden, creating an unusual backdrop while you enjoy drinks with your escort.",
+          "Food provides another reason to consider this venue. The wider RH London menu includes lobster rolls, king crab legs and seafood towers, allowing you to order substantial seafood alongside cocktails. These choices can turn the evening into dinner as well as drinks.",
+          "The unusual interiors also provide useful conversation topics. You can discuss the birdcages, glasswork and other details around the venue instead of relying entirely on small talk. Ordering seafood alongside drinks then gives your evening a fuller dining element.",
+          'If you are looking for places to stay nearby, take a look at our <a href="/blog/top-escort-friendly-hotels-in-london/">favourite hotels on Park Lane</a> that are perfect for hosting your escort rendezvous.',
+        ],
+      },
+      {
+        heading: 'World Of RH Bar & Lounge',
+        id: 'world-of-rh-bar-and-lounge',
+        paragraphs: [
+          '7 Burlington Gardens, London W1S 3ES',
+          "World Of RH Bar & Lounge takes a more classic approach to its drinks selection, with Champagne, wine and traditional cocktails available for an evening date. This gives you familiar choices when you already know which drinks you enjoy or want to order something straightforward with your escort.",
+          "The surrounding furniture also makes this venue more interesting than a standard cocktail bar. You can discuss individual pieces or the interior details while enjoying Champagne or wine. Classic cocktails provide another route if you prefer spirits, with the menu offering familiar choices that do not require a complicated decision.",
+        ],
+      },
+      {
+        heading: 'Make Your Mayfair Date Special',
+        id: 'make-your-mayfair-date-special',
+        paragraphs: [
+          "Choosing the right rooftop bar can give your evening a beautiful setting and plenty of details to enjoy with your escort. Think about the type of food and drinks you would like before settling on your preferred venue.",
+          "Browse our range of escorts to find someone who will make your evening enjoyable. Once you've chosen your venue, arrange your date and look forward to experiencing one of these rooftop bars together. Each of these venues offers something worth experiencing during an evening out.",
+          'For some more ideas of where to go, see our guide to the <a href="/blog/best-vip-bars-in-chelsea/">best VIP bars in Chelsea</a>.',
+        ],
+      },
+    ],
   },
 
   {
@@ -381,6 +456,14 @@ const BLOG_POSTS = [
   {
     slug: 'the-average-price-of-a-vip-escort-in-london',
     title: 'The Average Price of a VIP Escort in London',
+    excerpt: '',
+    date: null,
+    image: null,
+    published: false,
+  },
+  {
+    slug: 'best-vip-bars-in-chelsea',
+    title: 'Best VIP Bars in Chelsea',
     excerpt: '',
     date: null,
     image: null,
