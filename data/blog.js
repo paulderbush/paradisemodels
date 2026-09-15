@@ -463,7 +463,124 @@ const BLOG_POSTS = [
   },
   {
     slug: 'best-vip-bars-in-chelsea',
-    title: 'Best VIP Bars in Chelsea',
+    title: 'Most VIP Places for a Date in Chelsea',
+    excerpt: 'Chelsea has plenty of VIP date venues, with Michelin starred dining, private members clubs, gardens and impressive bars that suit an evening booking.',
+    date: '2026-09-02',
+    image: 'best-vip-bars-in-chelsea.webp',
+    published: true,
+    intro: [
+      "Chelsea offers plenty of upscale options when you want a memorable setting for a date with your escort. King's Road brings together restaurants, bars and members clubs where excellent food, drinks and attractive surroundings can make your booking appealing.",
+      'You can choose a venue with Art Deco details, Michelin starred cooking or a garden setting, depending on the kind of evening you want. Several Chelsea addresses also offer unusual menus, Champagne or specialist drinks that can make your plans more interesting. If you are arranging a booking with <a href="/models/">high class escorts</a>, choosing an impressive restaurant or bar can help create the right setting for your evening. Here are several Chelsea venues worth considering when you want to take your escort somewhere special.',
+    ],
+    sections: [
+      {
+        heading: 'Bluebird Chelsea',
+        id: 'bluebird-chelsea',
+        paragraphs: [
+          "Address: 350 King's Rd, London SW3 5UU",
+          "Bluebird Chelsea brings Art Deco details into one of Chelsea's best known addresses. The restaurant combines modern British cooking with English wines and classic cocktails, giving you plenty to choose from when arranging dinner with your escort. Its first floor provides the main dining setting while the courtyard offers another attractive setting for your escort date.",
+          "Bluebird also has private dining rooms and an exclusive members club for guests seeking something more secluded. Seasonal British dishes provide the food selection while English wines bring a distinctly local touch to the drinks menu. The building's connection to Chelsea's motoring history also gives you an interesting subject to discuss during dinner, especially if you enjoy unusual London landmarks.",
+          'Discover more reasons <a href="/blog/why-chelsea-is-perfect-for-a-high-end-escort-date/">why Chelsea is perfect for a high-end escort date</a> here.',
+        ],
+      },
+      {
+        heading: 'The Ivy Chelsea Garden',
+        id: 'the-ivy-chelsea-garden',
+        paragraphs: [
+          "Address: 197 King's Rd, London SW3 5EQ",
+          "The Ivy Chelsea Garden brings one of the area's most attractive garden settings to King's Road, making it a natural choice when you want greenery and a picturesque backdrop for your dinner date. The restaurant also has a private dining room overlooking the garden, creating an appealing option for a more secluded booking with your escort.",
+          "Its menu includes truffle arancini, imperial caviar and the Ivy Chocolate Bombe while tableside flambéed crème brûlée provides an entertaining dessert choice.",
+          "Seasonal dishes give the menu variety throughout the year, so you can choose something that appeals to you both. The combination of garden surroundings and recognisable dishes makes this Chelsea address particularly appealing for an upscale restaurant date.",
+          'For some more <a href="/blog/best-restaurants-in-chelsea-for-a-date/">ideas for restaurants in Chelsea</a>, see our guide to the must-see spots.',
+        ],
+      },
+      {
+        heading: 'Beaufort House Chelsea',
+        id: 'beaufort-house-chelsea',
+        paragraphs: [
+          "Address: 354 King's Rd, London SW3 5UZ",
+          "Beaufort House Chelsea offers a members club setting on King's Road with a bar and restaurant at ground level plus dining spaces across its upper floors. The Champagne Bar provides the main attraction for anyone who wants to make drinks an important part of your date.",
+          "The modern British menu gives you substantial dishes to choose from, so the venue can work for clients who want food alongside their drinks. Its members club also brings a more exclusive character to the address. Friday and Saturday nights continue until late, making Beaufort House useful when you want a Chelsea venue where your date can continue later into the evening.",
+        ],
+      },
+      {
+        heading: 'Elystan Street',
+        id: 'elystan-street',
+        paragraphs: [
+          'Address: 43 Elystan St, London SW3 3NT',
+          "Elystan Street offers Michelin starred dining for clients who want exceptional cooking during a Chelsea date. It provides seasonal dishes with carefully selected produce from Britain and beyond, with the menu changing according to what the kitchen can source. You can choose between the set menu and à la carte options, allowing you to decide how much food you want to order for the evening.",
+          "The restaurant has earned its Michelin star through high standards in the kitchen, making it one of Chelsea's most prestigious dining choices. Its Elystan Street location also places you close to other notable addresses in the neighbourhood.",
+          'If you are looking for a place to stay nearby to continue your escort date, see our guide to <a href="/blog/luxury-hotels-in-chelsea/">luxury hotels in Chelsea</a>.',
+        ],
+      },
+      {
+        heading: 'Hunan',
+        id: 'hunan',
+        paragraphs: [
+          'Address: 51 Pimlico Rd, London SW1W 8NE',
+          "Hunan on Pimlico Road offers a completely unusual dining concept because diners do not choose individual dishes from a conventional menu. Instead, you tell the restaurant about your food preferences, spice tolerance and dietary requirements before the kitchen creates a sequence of Hunanese dishes.",
+          "This approach gives you an opportunity to try dishes you might not normally order when eating with your escort. Hunanese cooking provides the main attraction here, with the restaurant drawing on flavours and techniques associated with Hunan province. If you want your Chelsea date to centre on discovering new food, Hunan offers the perfect dining format.",
+        ],
+      },
+      {
+        heading: 'Medlar',
+        id: 'medlar',
+        paragraphs: [
+          "Address: 438 King's Rd, London SW10 0LJ",
+          "Medlar on King's Road gives you another high-end dining option. The restaurant uses French cooking techniques alongside seasonal ingredients sourced from Britain and Europe, creating a menu with several recognisable combinations.",
+          "Crab ravioli with samphire and brown shrimps provides one option while duck egg tart with red wine sauce offers another. Dessert brings a warm chocolate mousse with salted caramel tartlet for clients who want something rich to finish dinner. Medlar also offers a three course dinner, making it a useful choice when you want a substantial meal with your escort.",
+        ],
+      },
+      {
+        heading: 'The Cadogan Arms',
+        id: 'the-cadogan-arms',
+        paragraphs: [
+          "Address: 298 King's Rd, London SW3 5UG",
+          "The Cadogan Arms brings a premium pub experience to King's Road, offering clients a more informal alternative to Chelsea's fine dining restaurants. The pub underwent a major renovation, restoring details that reflect its long history while creating an attractive setting for dinner and drinks.",
+          "Beef Wellington provides a substantial choice from the food menu while oysters offer something lighter for clients who prefer seafood. The drinks list includes an extensive selection of wines, cask ales and cocktails, so you can choose something appropriate for your evening with your escort. The combination of classic pub food and a substantial drinks selection makes The Cadogan Arms a useful option when your escort date needs to include dinner at a well known Chelsea address.",
+        ],
+      },
+      {
+        heading: 'Choose Your Perfect Chelsea Venue',
+        id: 'choose-your-perfect-chelsea-venue',
+        paragraphs: [
+          "Chelsea gives you plenty of high-end venues for a date with your escort, so you can choose a restaurant, pub or members club according to the kind of evening you want. Michelin starred cooking, Champagne, Hunanese dishes, British food and garden dining all offer new reasons for selecting a particular address.",
+          "Browse our range of elite escorts and choose who you'd like to book before making your plans. Once you've selected your escort, choose the Chelsea venue that appeals to you and arrange your evening around the food and drinks you want to enjoy together.",
+          'If you have not already made plans, learn <a href="/blog/how-to-plan-a-last-minute-date-in-chelsea/">how you can plan a last minute date in Chelsea</a>.',
+        ],
+      },
+    ],
+  },
+
+  // Referenced from the article above — pages exist so the links work,
+  // not yet listed on /blog/ until their real content is written.
+  {
+    slug: 'why-chelsea-is-perfect-for-a-high-end-escort-date',
+    title: 'Why Chelsea Is Perfect for a High-End Escort Date',
+    excerpt: '',
+    date: null,
+    image: null,
+    published: false,
+  },
+  {
+    slug: 'best-restaurants-in-chelsea-for-a-date',
+    title: 'Best Restaurants in Chelsea for a Date',
+    excerpt: '',
+    date: null,
+    image: null,
+    published: false,
+  },
+  {
+    slug: 'luxury-hotels-in-chelsea',
+    title: 'Luxury Hotels in Chelsea',
+    excerpt: '',
+    date: null,
+    image: null,
+    published: false,
+  },
+  {
+    slug: 'how-to-plan-a-last-minute-date-in-chelsea',
+    title: 'How to Plan a Last-Minute Date in Chelsea',
     excerpt: '',
     date: null,
     image: null,
