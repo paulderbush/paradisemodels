@@ -102,9 +102,10 @@ vars, never in the repo or in the browser.
 
 ## How it works
 
-1. `/start` (or `/models`) → **city** (inline buttons: every city with a
-   public model, showing the count, plus any city that only has VIP
-   presence marked "VIP only").
+1. `/start` (or `/models`) → **city** (inline buttons for every city with
+   at least one real companion, counting public and VIP together — a city
+   with 1 public and 1 VIP companion shows `(2)`, not just the public
+   count).
 2. → **categories**, multi-select: tapping a button toggles a ✅ prefix and
    re-renders the same message (Telegram has no native multi-select), tap
    **Continue** when done (zero selected = no category filter). Each
@@ -113,7 +114,13 @@ vars, never in the repo or in the browser.
    selected — so a client sees a dead-end combination (a small city with
    few companions and 16 categories to choose from makes this a real risk)
    before tapping it, not after. The rate step below shows the same kind of
-   count on its buttons.
+   count on its buttons. This screen also has a **"(N) ⭐ VIP Models"**
+   button — same entry point as "I want VIP" after public results
+   (`handleVipShow`: shows matches if the chat already paid, otherwise the
+   payment choice) but reachable immediately, since a client who already
+   knows they want VIP shouldn't have to click through rate first. `N` is
+   a live count of VIP companions matching the city/categories chosen so
+   far (no rate filter applied, same as the results-page one).
 3. → **rate**, also multi-select (same toggle pattern): `Under £500` /
    `£500–£999` / `£1000+` — deliberately non-overlapping (a model priced
    at exactly £500 or £1000 used to match two buckets at once). A match
