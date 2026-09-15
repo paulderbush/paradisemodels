@@ -72,13 +72,12 @@ function escapeHtml(s) {
 // a client can pick a VIP-only city and still reach the "want VIP?" offer
 // even though no public result will ever show for it.
 function cityKeyboard() {
-  const pubCounts = new Map();
-  publicModels().forEach(m => pubCounts.set(m.city, (pubCounts.get(m.city) || 0) + 1));
-  const vipCities = new Set(vipModels().map(m => m.city));
-  const allCities = new Set([...pubCounts.keys(), ...vipCities]);
-  const rows = Array.from(allCities).sort((a, b) => a.localeCompare(b)).map(city => {
-    const label = pubCounts.has(city) ? `(${pubCounts.get(city)}) ${city}` : `(VIP only) ${city}`;
-    return [{text: label, callback_data: `city:${citySlug(city)}`}];
+  // Combined public + VIP count — a city with 1 public and 1 VIP companion
+  // showing "(1)" understated how many companions are actually there.
+  const counts = new Map();
+  MODELS.filter(m => m.real).forEach(m => counts.set(m.city, (counts.get(m.city) || 0) + 1));
+  const rows = Array.from(counts.keys()).sort((a, b) => a.localeCompare(b)).map(city => {
+    return [{text: `(${counts.get(city)}) ${city}`, callback_data: `city:${citySlug(city)}`}];
   });
   return {inline_keyboard: rows};
 }
@@ -118,6 +117,8 @@ function catKeyboard(data) {
     });
     rows.push(row);
   }
+  const vipCount = vipModels().filter(m => matchesFilters(m, data)).length;
+  rows.push([{text: `(${vipCount}) ⭐ VIP Models`, callback_data: 'cats:vip'}]);
   rows.push([{text: '◀️ Back', callback_data: 'nav:city'}, {text: '▶️ Continue', callback_data: 'cats:done'}]);
   return {inline_keyboard: rows};
 }
@@ -499,6 +500,19 @@ async function handleUpdate(update) {
       if (pos === -1) data.cats.push(idx); else data.cats.splice(pos, 1);
       await setBotSession(chatId, 'choosing_cats', data);
       await editMessageText(chatId, messageId, catStepText(data), {reply_markup: catKeyboard(data)});
+      return;
+    }
+
+    // Same VIP entry point as the one after public results (handleVipShow
+    // shows matches if this chat already paid, otherwise the payment
+    // choice) — just reachable straight from categories too, since a
+    // client interested in VIP shouldn't have to click through rate first.
+    if (dataStr === 'cats:vip') {
+      const session = await getBotSession(chatId);
+      const data = session.data || {};
+      data.cats = data.cats || [];
+      await setBotSession(chatId, 'idle', data);
+      await handleVipShow(chatId, data);
       return;
     }
 
