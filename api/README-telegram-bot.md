@@ -118,10 +118,12 @@ vars, never in the repo or in the browser.
    `£501–£1000` / `£1000+` — a match needs to fall in ANY selected bucket
    (unlike categories, which need ALL selected ones), since a model has
    exactly one price. Zero selected = no rate filter. Also has a
-   **"🌟 Show VIP Models"** button that skips straight to VIP results with
-   no price filter applied at all — many VIP companions don't have a
-   listed rate, so any of the three buckets would otherwise silently
-   exclude them.
+   **"🔎 Show all (N)"** button that bypasses the rate filter entirely —
+   many companions don't have a listed rate, so a city with only one or
+   two companions can otherwise show zero results at every bucket. VIP
+   isn't offered on this step at all; it only ever comes up after public
+   results (step 5 below), and only when a VIP companion actually matches,
+   so a client is never sent to an empty VIP screen from here.
 4. → **results**: up to 5 matching public companions at a time — a 3-photo
    album per companion (become-a-model requires a minimum of 3 photos per
    profile) followed by age/nationality/area + starting price + top

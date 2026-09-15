@@ -132,6 +132,12 @@ function priceStepText(data) {
 
 // Same idea as catKeyboard() above: each bucket shows the count if it were
 // (also) applied on top of city/cats/whatever prices are already selected.
+// "Show all" bypasses price entirely (many companions have no listed rate,
+// so a single-companion city can otherwise look empty at every bucket) —
+// VIP isn't offered here at all; that only ever comes up after public
+// results, and only when a VIP companion actually matches (see
+// sendResultsBatch/handleVipShow), so a client is never sent to an empty
+// VIP screen from this step.
 function priceKeyboard(data) {
   const sel = new Set(data.prices || []);
   const pool = publicModels();
@@ -140,7 +146,8 @@ function priceKeyboard(data) {
     const count = pool.filter(m => matchesFilters(m, Object.assign({}, data, {prices: testPrices}))).length;
     return [{text: `${sel.has(b.key) ? '✅ ' : ''}(${count}) ${b.label}`, callback_data: `price:${b.key}`}];
   });
-  rows.push([{text: '🌟 Show VIP Models', callback_data: 'price:vip'}]);
+  const allCount = pool.filter(m => matchesFilters(m, Object.assign({}, data, {prices: []}))).length;
+  rows.push([{text: `🔎 Show all (${allCount})`, callback_data: 'price:all'}]);
   rows.push([{text: '◀️ Back', callback_data: 'nav:cats'}, {text: '▶️ Continue', callback_data: 'price:done'}]);
   return {inline_keyboard: rows};
 }
@@ -502,16 +509,16 @@ async function handleUpdate(update) {
       return;
     }
 
-    // Many VIP companions don't have a listed rate, so any price bucket
-    // filter (below) silently excludes them — this button skips straight
-    // to VIP results with no price filter applied, same payment gate as
-    // the "I want VIP" button on public results.
-    if (dataStr === 'price:vip') {
+    // Many companions don't have a listed rate, so any price bucket filter
+    // silently excludes them — this button clears the price filter
+    // entirely and shows every city/category match regardless of rate.
+    if (dataStr === 'price:all') {
       const session = await getBotSession(chatId);
       const data = session.data || {};
+      data.prices = [];
       await setBotSession(chatId, 'idle', data);
-      await editMessageText(chatId, messageId, `<b>City:</b> ${cityNameFromSlug(data.city)}\nSearching VIP companions…`).catch(() => {});
-      await handleVipShow(chatId, data);
+      await editMessageText(chatId, messageId, `<b>City:</b> ${cityNameFromSlug(data.city)}\nSearching…`);
+      await sendResultsBatch(chatId, data, publicModels(), 0, 'pub');
       return;
     }
 
