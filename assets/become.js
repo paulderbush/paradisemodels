@@ -88,6 +88,7 @@ async function submitApplication(e) {
 Real Name: ${v('realName')}
 Working Name: ${v('workingName')}
 Phone: ${v('phone')}
+UK Number: ${v('ukNumber')}
 Telegram: ${v('telegram')}
 Age: ${v('age')}
 Nationality: ${v('nationality')}

@@ -738,6 +738,7 @@ ${ageModalHTML()}
           <div class="form-field"><label>Real Name *</label><input class="form-input" type="text" name="realName" placeholder="Legal name" required></div>
           <div class="form-field"><label>Working Name *</label><input class="form-input" type="text" name="workingName" placeholder="Model name" required></div>
           <div class="form-field"><label>Phone Number *</label><input class="form-input" type="tel" name="phone" placeholder="+44 7700 000000" required></div>
+          <div class="form-field"><label>Your UK Number</label><input class="form-input" type="tel" name="ukNumber" placeholder="+44 7700 000000 (if different)"></div>
           <div class="form-field"><label>Telegram Username</label><input class="form-input" type="text" name="telegram" placeholder="@username"></div>
           <div class="form-field"><label>Age *</label><input class="form-input" type="number" name="age" placeholder="18" min="18" max="60" required></div>
           <div class="form-field"><label>Nationality *</label><input class="form-input" type="text" name="nationality" placeholder="e.g. Russian" required></div>
