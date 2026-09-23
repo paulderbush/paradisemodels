@@ -1571,7 +1571,7 @@ const MEILYN_DATA = {
 const TAVRIA_DATA = {
   id: 9974, real: true, vip: false, folder: 'models/Tavria', slug: 'tavria',
   name: 'Tavria', age: 21, height: 168, weight: 50,
-  nationality: 'Ukrainian', station: 'Mansion House', city: 'London',
+  nationality: 'Ukrainian', city: 'Madrid',
   travelNote: 'Available to travel across Europe',
   rateHour: 1000, extraHourPrice: 600,
   color: ['rgba(160,180,70,0.4)', 'rgba(100,120,30,0.7)'],
@@ -7361,7 +7361,7 @@ const EMILIE_DATA = {
   name: 'Emilie', age: 23, height: 167, weight: 50,
   clothingSize: '6', breastSize: '34B', breastType: 'Natural',
   eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Heterosexual',
-  nationality: 'American/Korean', station: "Earl's Court", city: 'London',
+  nationality: 'American/Korean', city: 'Miami',
   languages: 'English · French',
   color: ['rgba(180,140,100,0.4)', 'rgba(120,80,40,0.7)'],
   initials: 'IL',
@@ -7397,7 +7397,7 @@ const MAYA_DATA = {
   name: 'Maya', age: 25, height: 181, weight: 73,
   clothingSize: '8', breastSize: '34D', breastType: 'Enhanced',
   eyeColor: 'Brown', hairColor: 'Brunette', orientation: 'Bisexual',
-  nationality: 'British', station: 'Marylebone', city: 'London',
+  nationality: 'British', city: 'Dubai',
   languages: 'English',
   color: ['rgba(170,130,110,0.4)', 'rgba(110,70,50,0.7)'],
   initials: 'YM',
@@ -7433,7 +7433,8 @@ const MAYA_DATA = {
 const VERA_DATA = {
   id: 9793, real: true, vip: false, folder: 'models/Vera', slug: 'vera',
   name: 'Vera', age: 24, height: 170, weight: 58,
-  nationality: 'Russian', station: 'Mayfair', city: 'London',
+  nationality: 'Russian', city: 'Moscow',
+  travelNote: 'Available to travel to Dubai and London',
   color: ['rgba(150,180,140,0.4)', 'rgba(80,120,70,0.7)'],
   initials: 'VR',
   cats: ['All Natural Escorts', 'Brunette Escorts', 'Party Girl Escorts', 'Recommended Escorts', 'Roleplay Escorts', 'Russian Escorts', 'Striptease Escorts'],
@@ -7795,6 +7796,11 @@ const DIANA_DATA = {
   reviews: [],
 };
 
+// Temporarily paused (she's unwell) — deliberately left out of the MODELS
+// array below (search for "VERADUBAI_DATA" in that array) so she drops out
+// of the VIP catalog/search/sitemap/homepage teasers without losing her
+// data. Re-add her to the MODELS array (and module.exports, where she's
+// still listed) to bring her back.
 const VERADUBAI_DATA = {
   id: 9783, real: true, vip: true, folder: 'vip-models/Vera', slug: 'vera-dubai',
   name: 'Vera', age: 21, height: 170, weight: 48,
@@ -8471,9 +8477,11 @@ const EMANUELLALONDON_DATA = {
 
 const POLINA_DATA = {
   id: 9764, real: true, vip: true, folder: 'vip-models/Polina', slug: 'polina',
-  name: 'Polina', age: 23, height: 167,
-  measurements: '90-63-98',
+  name: 'Polina', age: 23, height: 167, weight: 53,
+  measurements: '90-63-98', clothingSize: 'XS', breastType: 'Natural',
+  eyeColor: 'Green/Blue', hairColor: 'Light Blonde', orientation: 'Heterosexual',
   nationality: 'Ukrainian', city: 'New York',
+  languages: 'Russian · English',
   color: ['rgba(155,89,208,0.4)', 'rgba(100,40,160,0.7)'],
   initials: 'PO',
   cats: ['Blonde Escorts', 'Ukrainian Escorts'],
@@ -8481,6 +8489,282 @@ const POLINA_DATA = {
   extraSvcs: [],
   incallRates: [],
   outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const CRELIA_DATA = {
+  id: 9763, real: true, vip: false, folder: 'models/Crelia', slug: 'crelia',
+  name: 'Crelia', age: 20, height: 174, weight: 50,
+  nationality: 'Brazilian/German', station: 'Marylebone', city: 'London',
+  color: ['rgba(200,170,140,0.4)', 'rgba(140,100,60,0.7)'],
+  initials: 'CR',
+  cats: ['All Natural Escorts', 'Bisexual Escorts', 'Blonde Escorts', 'Couples Escorts', 'Party Girl Escorts', 'Roleplay Escorts', 'Striptease Escorts'],
+  breastSize: '34B', breastType: 'Natural', clothingSize: '6',
+  eyeColor: 'Hazel', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'English · German · Portuguese',
+  svcs: ['69', 'Bi DUO', 'Body to body massage', 'CIF', 'CIM', 'COB', 'DFK', 'Couples', 'Toys', 'Face sitting', 'FK', 'Foot fetish', 'GFE', "Lady's service", 'Lapdancing', 'Light domination', 'Massage', 'MMF', 'MMF for double price', 'OWC', 'OWO', 'Party girl', 'Rimming receiving', 'Roleplay', 'Soft spanking receiving', 'Striptease', 'Tie and Tease', 'Uniform schoolgirl', 'Uniform teacher', 'WS giving', 'WS receiving'],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 600},
+    {label: '90 Min', price: 800},
+    {label: '2 Hours', price: 950},
+    {label: '3 Hours', price: 1300},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 650},
+    {label: '90 Min', price: 850},
+    {label: '2 Hours', price: 1000},
+    {label: '3 Hours', price: 1350},
+    {label: 'Extra Hour', price: 350},
+    {label: 'Overnight', price: 3000},
+  ],
+  description: [
+    "Crelia is a mesmerizing Brazilian–German beauty whose youthful energy and striking elegance make her truly unforgettable. With light-brown hair, glowing hazel eyes, and a graceful 174 cm frame, she moves with effortless allure — every step and glance radiating natural confidence and soft temptation. Her beauty is pure yet daring, a perfect harmony of innocence and intrigue.",
+    "Playful by nature and open-minded at heart, Crelia brings an irresistible spark to every encounter. She's adventurous, curious, and unafraid to explore connection in all its forms. Her natural 34B curves and smooth skin only enhance the magnetic warmth she exudes — the kind that makes you want to know her deeper, to feel her laughter, her energy, her touch.",
+    "Fluent in the language of passion, Crelia blends her Brazilian fire with German sophistication. Whether it's gentle intimacy or something more daring, she turns every moment into something vibrant and real. Confident and endlessly seductive — Crelia is the kind of fantasy that feels alive.",
+  ],
+  reviews: [],
+};
+
+const MIZONA_DATA = {
+  id: 9762, real: true, vip: false, folder: 'models/Mizona', slug: 'mizona',
+  name: 'Mizona', age: 28, height: 165, weight: 60,
+  nationality: 'Brazilian', station: 'Battersea', city: 'London',
+  color: ['rgba(190,140,110,0.4)', 'rgba(130,80,50,0.7)'],
+  initials: 'MZ',
+  cats: ['Bisexual Escorts', 'Brazilian Escorts', 'Brunette Escorts', 'Striptease Escorts'],
+  breastSize: '34C', breastType: 'Enhanced', clothingSize: '8',
+  eyeColor: 'Green', hairColor: 'Brunette', orientation: 'Bisexual',
+  languages: 'English · Portuguese',
+  svcs: ['69', 'Bi DUO', 'CIF', 'COB', 'DFK', 'DT', 'FK', 'Foot fetish', 'GFE', 'Group for extra price', 'Massage', 'OWO', 'Rimming giving', 'Rimming receiving', 'Striptease'],
+  extraSvcs: [
+    {name: 'CIF', price: 50},
+    {name: 'Bi DUO', price: 100},
+  ],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1300},
+    {label: '2 Hours', price: 1600},
+    {label: '3 Hours', price: 2200},
+    {label: 'Extra Hour', price: 600},
+    {label: 'Overnight', price: 4600},
+  ],
+  description: [
+    "At 28 years old, she has a naturally captivating presence, combining feminine elegance with a confident and sophisticated style. Standing at 165 cm with a graceful figure, brunette hair, and striking green eyes, she has a warm yet alluring appearance that is effortlessly memorable.",
+    "Brazilian by nationality, she speaks fluent English and Portuguese, making her comfortable and engaging in international company. Her polished appearance and easy communication style allow her to adapt naturally to different settings, whether enjoying a relaxed conversation or a more refined evening.",
+    "With her confident personality, exotic Brazilian charm, and distinctive green eyes, she offers a beautiful balance of sophistication and approachability. Her feminine look, outgoing nature, and international background make her an intriguing and versatile companion.",
+  ],
+  reviews: [],
+};
+
+const GALE_DATA = {
+  id: 9761, real: true, vip: true, folder: 'vip-models/Gale', slug: 'gale',
+  name: 'Gale', age: 25, height: 175, weight: 54,
+  clothingSize: '6', breastSize: '34B', breastType: 'Natural',
+  eyeColor: 'Green', hairColor: 'Light Brunette', orientation: 'Heterosexual',
+  nationality: 'Russian', city: 'London',
+  languages: 'English · Russian',
+  color: ['rgba(160,190,150,0.4)', 'rgba(90,130,80,0.7)'],
+  initials: 'GA',
+  cats: ['Blonde Escorts', 'Recommended Escorts', 'Russian Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '90 Min', price: 2200},
+    {label: '2 Hours', price: 2600},
+    {label: '3 Hours', price: 3600},
+    {label: 'Extra Hour', price: 1000},
+    {label: 'Overnight', price: 9000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1600},
+    {label: '90 Min', price: 2200},
+    {label: '2 Hours', price: 2600},
+    {label: '3 Hours', price: 3600},
+    {label: 'Extra Hour', price: 1000},
+    {label: 'Overnight', price: 9000},
+  ],
+  description: [
+    "At 25 years old, she is a stunning Russian beauty standing at an impressive 175 cm, with a slim and graceful figure. Her light brunette hair and striking green eyes create a fresh, elegant look, while her natural beauty gives her an effortlessly sophisticated appearance.",
+    "Fluent in both Russian and English, she is confident communicating in an international environment and has a naturally warm and engaging personality. Her understated style, combined with her graceful presence, makes her comfortable in both relaxed and more refined settings.",
+    "With her tall silhouette, delicate features, and captivating green eyes, she has an elegant yet approachable charm. Her confident personality and international outlook make her a memorable companion with a distinctive and sophisticated presence.",
+  ],
+  reviews: [],
+};
+
+const ANNANEWYORK_DATA = {
+  id: 9760, real: true, vip: false, folder: 'models/Ana', slug: 'anna-new-york',
+  name: 'Anna', age: 24, height: 171, weight: 54,
+  nationality: 'Russian/Georgian', city: 'New York',
+  color: ['rgba(200,190,150,0.4)', 'rgba(140,130,60,0.7)'],
+  initials: 'AN',
+  cats: ['Blonde Escorts', 'Russian Escorts'],
+  breastType: 'Natural', clothingSize: 'XS',
+  eyeColor: 'Blue-Green', hairColor: 'Blonde', orientation: 'Bisexual',
+  languages: 'Russian · English',
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const LUCIA_DATA = {
+  id: 9759, real: true, vip: true, folder: 'vip-models/Lucia', slug: 'lucia',
+  name: 'Lucia', age: 23, height: 165,
+  breastType: 'Natural',
+  hairColor: 'Brunette',
+  nationality: 'Italian', city: 'Milan',
+  languages: 'Italian · English',
+  color: ['rgba(190,150,120,0.4)', 'rgba(130,80,50,0.7)'],
+  initials: 'LU',
+  cats: ['All Natural Escorts', 'Brunette Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  // Client gave "$1000 per hour" — converted to GBP at roughly USD->GBP 0.79
+  // (data/models.js stores every price in GBP; re-check this conversion if
+  // the client meant an exact GBP figure).
+  incallRates: [{label: '1 Hour', price: 790}],
+  outcallRates: [{label: '1 Hour', price: 790}],
+  description: [],
+  reviews: [],
+};
+
+const NERO_DATA = {
+  id: 9758, real: true, vip: true, folder: 'vip-models/Nero', slug: 'nero',
+  name: 'Nero', age: 24, height: 173, weight: 55,
+  clothingSize: '6', breastType: 'Natural',
+  eyeColor: 'Brown', hairColor: 'Brown', orientation: 'Bisexual',
+  nationality: 'American', city: 'New York',
+  languages: 'English',
+  color: ['rgba(170,130,100,0.4)', 'rgba(110,70,40,0.7)'],
+  initials: 'NE',
+  cats: ['Bisexual Escorts', 'Brunette Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  // Client gave outcall-only rates in USD ($1,800 / $2,200 / $1,500 /
+  // $10,000) — converted to GBP at roughly USD->GBP 0.79 (data/models.js
+  // stores every price in GBP; re-check this conversion if the client
+  // meant exact GBP figures).
+  incallRates: [],
+  outcallRates: [
+    {label: '1 Hour', price: 1420},
+    {label: '90 Min', price: 1740},
+    {label: 'Extra Hour', price: 1185},
+    {label: 'Overnight', price: 7900},
+  ],
+  description: [],
+  reviews: [],
+};
+
+const MARTINA_DATA = {
+  id: 9757, real: true, vip: true, folder: 'vip-models/Martina', slug: 'martina',
+  name: 'Martina', age: 23, height: 172, weight: 50,
+  clothingSize: 'S', breastSize: '34C', breastType: 'Silicone',
+  eyeColor: 'Brown', hairColor: 'Brown', orientation: 'Heterosexual',
+  nationality: 'Italian', city: 'Milan',
+  languages: 'Italian · French · English',
+  color: ['rgba(180,140,160,0.4)', 'rgba(120,80,110,0.7)'],
+  initials: 'MA',
+  cats: ['Brunette Escorts', 'Party Girl Escorts'],
+  svcs: ['69', 'FK', 'DFK', 'GFE', 'OWO', 'OWC', 'COB', 'DT', 'Fingering', 'Party girl', 'Face sitting', 'Smoking fetish', 'Foot fetish', 'Open minded', 'Light domination'],
+  extraSvcs: [
+    {name: 'CIF', price: 250},
+    {name: 'WS giving', price: 500},
+    {name: 'Rimming giving', price: 500},
+  ],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const TORY_DATA = {
+  id: 9756, real: true, vip: true, folder: 'vip-models/Tory', slug: 'tory',
+  name: 'Tory', age: 21, height: 170, weight: 53,
+  clothingSize: 'S', breastSize: '34B', breastType: 'Natural',
+  eyeColor: 'Blue', hairColor: 'Blonde', orientation: 'Heterosexual',
+  nationality: 'Slovenian', city: 'Zurich',
+  languages: 'Slovenian · English · German · Russian',
+  color: ['rgba(150,180,200,0.4)', 'rgba(80,120,150,0.7)'],
+  initials: 'TO',
+  cats: ['Blonde Escorts', 'Russian Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [],
+  outcallRates: [],
+  description: [],
+  reviews: [],
+};
+
+const JAZMINE_DATA = {
+  id: 9755, real: true, vip: true, folder: 'vip-models/Jazmine', slug: 'jazmine',
+  name: 'Jazmine', age: 25, height: 171, weight: 49,
+  clothingSize: 'XS', breastSize: '32B', breastType: 'Natural',
+  eyeColor: 'Brown', hairColor: 'Black', orientation: 'Heterosexual',
+  nationality: 'Italian', city: 'Milan',
+  languages: 'English · Spanish',
+  color: ['rgba(150,120,140,0.4)', 'rgba(90,60,90,0.7)'],
+  initials: 'JA',
+  cats: ['All Natural Escorts', 'Brunette Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  // Client gave rates in EUR (€800 / €1k / €500 / €2000) — converted to GBP
+  // at roughly EUR->GBP 0.87 (data/models.js stores every price in GBP;
+  // re-check this conversion if the client meant exact GBP figures).
+  incallRates: [
+    {label: '1 Hour', price: 695},
+    {label: '90 Min', price: 870},
+    {label: 'Extra Hour', price: 435},
+    {label: 'Overnight', price: 1740},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 695},
+    {label: '90 Min', price: 870},
+    {label: 'Extra Hour', price: 435},
+    {label: 'Overnight', price: 1740},
+  ],
+  description: [],
+  reviews: [],
+};
+
+const KETIA_DATA = {
+  id: 9754, real: true, vip: true, folder: 'vip-models/Ketia', slug: 'ketia',
+  name: 'Ketia', age: 26, height: 170, weight: 63,
+  clothingSize: 'S', breastSize: '34D', breastType: 'Natural',
+  eyeColor: 'Green', hairColor: 'Black', orientation: 'Bisexual',
+  nationality: 'Italian', city: 'Milan',
+  languages: 'Italian · English · Spanish',
+  color: ['rgba(140,170,120,0.4)', 'rgba(80,110,60,0.7)'],
+  initials: 'KE',
+  cats: ['Bisexual Escorts', 'Mature Escorts', 'Brunette Escorts', 'Recommended Escorts'],
+  svcs: [],
+  extraSvcs: [],
+  incallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1500},
+    {label: 'Extra Hour', price: 2000},
+    {label: 'Overnight', price: 6000},
+  ],
+  outcallRates: [
+    {label: '1 Hour', price: 1000},
+    {label: '90 Min', price: 1500},
+    {label: 'Extra Hour', price: 2000},
+    {label: 'Overnight', price: 6000},
+  ],
   description: [],
   reviews: [],
 };
@@ -8550,6 +8834,6 @@ const VIP_TEASER_MODELS = [
 // above). _build/build.js embeds it as its own separate script variable,
 // only on the /vip-models/ page, for vipTeaserPool() in assets/vip.js.
 const FAKE_MODELS = [];
-const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, PAVANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, CELESTE_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, VERADUBAI_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA, EMANUELLA_DATA, KASABIA_DATA, ELIZAVETA_DATA, HANNA_DATA, VANESSA_DATA, DARIA_DATA, MONIKA_DATA, TONYA_DATA, PRESTIGE_DATA, ALESIA_DATA, ALPHINA_DATA, BIANCA_DATA, AVRELIA_DATA, ANGELICA_DATA, EMANUELLALONDON_DATA, POLINA_DATA,...FAKE_MODELS];
+const MODELS = [JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, PAVANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, CELESTE_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA, EMANUELLA_DATA, KASABIA_DATA, ELIZAVETA_DATA, HANNA_DATA, VANESSA_DATA, DARIA_DATA, MONIKA_DATA, TONYA_DATA, PRESTIGE_DATA, ALESIA_DATA, ALPHINA_DATA, BIANCA_DATA, AVRELIA_DATA, ANGELICA_DATA, EMANUELLALONDON_DATA, POLINA_DATA, CRELIA_DATA, MIZONA_DATA, GALE_DATA, ANNANEWYORK_DATA, LUCIA_DATA, NERO_DATA, MARTINA_DATA, TORY_DATA, JAZMINE_DATA, KETIA_DATA,...FAKE_MODELS];
 
-module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, PAVANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, CELESTE_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, VERADUBAI_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA, EMANUELLA_DATA, KASABIA_DATA, ELIZAVETA_DATA, HANNA_DATA, VANESSA_DATA, DARIA_DATA, MONIKA_DATA, TONYA_DATA, PRESTIGE_DATA, ALESIA_DATA, ALPHINA_DATA, BIANCA_DATA, AVRELIA_DATA, ANGELICA_DATA, EMANUELLALONDON_DATA, POLINA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
+module.exports = { MODELS, JULIA_DATA, LUISA_DATA, AIRA_DATA, ANASTASIIA_DATA, SKYLAH_DATA, ELDORA_DATA, LUNA_DATA, AALIYAH_DATA, KENDAL_DATA, ALICIA_DATA, ABBEY_DATA, AVRORA_DATA, PAVANA_DATA, BAYLA_DATA, ADRIANA_DATA, LEYLA_DATA, RUNALDA_DATA, TETIANA_DATA, RAVEN_DATA, MAIAN_DATA, TANIA_DATA, ESTELLE_DATA, ESMERALDA_DATA, NASTYA_DATA, NADINE_DATA, SOUTH_DATA, AMINA_DATA, SELENA_DATA, MAURA_DATA, CELESTE_DATA, GRACE_DATA, KOA_DATA, LIVIA_DATA, EMMA_DATA, HELENA_DATA, EMILIANA_DATA, ZENDAYA_DATA, KAMILA_DATA, KETANA_DATA, ISA_DATA, LEENA_DATA, RACHEL_DATA, SOFIA_DATA, SILLA_DATA, LOLA_DATA, ISABELLA_DATA, GARUDA_DATA, CANTU_DATA, GELATO_DATA, YOSHI_DATA, MEILYN_DATA, TAVRIA_DATA, LUMONA_DATA, EUPHORIA_DATA, CAMDICE_DATA, ZOMELA_DATA, KARMELITA_DATA, MERCEDES_DATA, SAVANNAH_DATA, CAPA_DATA, COLENIA_DATA, IVY_DATA, CORESSA_DATA, RIONA_DATA, SHAE_DATA, DEBINI_DATA, LAUREN_DATA, KRETA_DATA, CATRINA_DATA, ESMIRA_DATA, NEMUNA_DATA, SAVAGE_DATA, ARIELLE_DATA, AVA_DATA, PAULA_DATA, TALISTA_DATA, DIAMOND_DATA, APRILINA_DATA, MATRIX_DATA, BELVA_DATA, MALAGA_DATA, ANGELIN_DATA, WEIZEL_DATA, MEARA_DATA, ELARA_DATA, TWILIGHT_DATA, SAVANA_DATA, ALDARI_DATA, LINDA_DATA, AGAVA_DATA, MIKAMI_DATA, DARISTE_DATA, MEL_DATA, MERCURY_DATA, BELLORIA_DATA, MAINE_DATA, BECCA_DATA, BELAGIO_DATA, CAROLYN_DATA, EVA_DATA, STELLARIA_DATA, ALISA_DATA, AMANDA_DATA, KITTY_DATA, DOLIKA_DATA, HOLIKA_DATA, LIANNE_DATA, DELIGHT_DATA, EGERIA_DATA, CEPURA_DATA, KELLY_DATA, MAPLE_DATA, TEJANA_DATA, TERESA_DATA, GIDRIA_DATA, VENTANA_DATA, ZARAH_DATA, KIRA_DATA, MOJO_DATA, BOUNTY_DATA, LIKORIS_DATA, MALINA_DATA, COLIEN_DATA, COBRA_DATA, VALESKA_DATA, DYSIS_DATA, ENRIKETA_DATA, SVETLANA_DATA, YUNITA_DATA, TAHLIA_DATA, CARIDEE_DATA, MANNU_DATA, ZERIVA_DATA, LAVATERRA_DATA, MANZANA_DATA, BAILEY_DATA, PHYLLIS_DATA, GIULIA_DATA, AISHA_DATA, YAROSLAVA_DATA, CHAVELA_DATA, IEVA_DATA, ANNA_DATA, ANGELINA_DATA, BRENDA_DATA, MANORI_DATA, MANTERRA_DATA, MILEVA_DATA, ROSE_DATA, FRANCESCA_DATA, FRANCHE_DATA, ANDREA_DATA, CELINE_DATA, GUMMI_DATA, KLORANE_DATA, DINASTIA_DATA, LASCA_DATA, JUTURNA_DATA, ENGRACIA_DATA, BAMERTA_DATA, CHAPA_DATA, RADA_DATA, REPRISE_DATA, NEMOLA_DATA, TIGRESS_DATA, AIZERE_DATA, BILLA_DATA, MILKYWAY_DATA, MINILLA_DATA, VEGA_DATA, VANILLA_DATA, DELMAR_DATA, FURONDA_DATA, NADEL_DATA, MALATI_DATA, GLO_DATA, MINOLA_DATA, OPHELIA_DATA, ZIVANKA_DATA, EVITA_DATA, NATALY_DATA, ZOYA_DATA, AIGERIM_DATA, VIREA_DATA, EMILY_DATA, KUGISAKI_DATA, BERMUDA_DATA, TUMAR_DATA, MALKY_DATA, ESTEVA_DATA, DAMITA_DATA, MEGREZ_DATA, ISMAT_DATA, KOLACHELLA_DATA, REBECCA_DATA, ANGEL_DATA, EMILIE_DATA, MAYA_DATA, VERA_DATA, MARSALINA_DATA, WUNDEBA_DATA, GATITA_DATA, MELISSA_DATA, LEYSAN_DATA, KSENIA_DATA, CONSTANCE_DATA, MICA_DATA, DIANA_DATA, VERADUBAI_DATA, IRINA_DATA, KATY_DATA, RUSALKA_DATA, EMANUELLA_DATA, KASABIA_DATA, ELIZAVETA_DATA, HANNA_DATA, VANESSA_DATA, DARIA_DATA, MONIKA_DATA, TONYA_DATA, PRESTIGE_DATA, ALESIA_DATA, ALPHINA_DATA, BIANCA_DATA, AVRELIA_DATA, ANGELICA_DATA, EMANUELLALONDON_DATA, POLINA_DATA, CRELIA_DATA, MIZONA_DATA, GALE_DATA, ANNANEWYORK_DATA, LUCIA_DATA, NERO_DATA, MARTINA_DATA, TORY_DATA, JAZMINE_DATA, KETIA_DATA, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES, NAMES_F };
