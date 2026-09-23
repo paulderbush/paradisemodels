@@ -312,7 +312,7 @@ function modelCardHTML(m, clickable = true, showTags = true) {
 
 // =================== FAKE MODEL OVERLAY ===================
 function openFakeModel(id) {
-  const m = MODELS.find(x => x.id === id);
+  const m = MODELS.find(x => x.id === id) || (typeof SEARCH_MODELS !== 'undefined' && SEARCH_MODELS.find(x => x.id === id));
   if (!m) return;
   const overlay = document.getElementById('fakeModelOverlay');
   if (!overlay) return;
@@ -424,7 +424,14 @@ function renderSearchDropdown(q, ddId) {
   const dd = document.getElementById(ddId);
   if (!dd) return;
   if (!q.trim()) { dd.innerHTML = ''; dd.classList.remove('show'); return; }
-  const res = MODELS.filter(m => m.name.toLowerCase().includes(q.toLowerCase())).slice(0, 6);
+  // Most pages only embed a slice of MODELS (a single model's own profile,
+  // an empty array on blog/static pages, …) to avoid shipping the full
+  // ~250-model dataset everywhere. SEARCH_MODELS (see _navHTML in
+  // _build/build.js) is a much smaller index embedded on every page
+  // precisely so the nav search bar can find any model regardless of what
+  // the current page's own MODELS happens to contain.
+  const pool = typeof SEARCH_MODELS !== 'undefined' ? SEARCH_MODELS : MODELS;
+  const res = pool.filter(m => m.name.toLowerCase().includes(q.toLowerCase())).slice(0, 6);
   if (!res.length) { dd.innerHTML = '<div class="search-result-item" style="color:var(--text-muted)">No results found</div>'; dd.classList.add('show'); return; }
   dd.innerHTML = res.map(m => `
     <div class="search-result-item" onclick="${m.real ? `window.location='/models/${m.slug}/'` : `openFakeModel(${m.id})`}">
