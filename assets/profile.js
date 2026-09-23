@@ -25,6 +25,10 @@ const CITY_COORDS = {
   'Rio de Janeiro': '-22.9068,-43.1729',
   'Shanghai': '31.2304,121.4737',
   'Valletta': '35.8989,14.5146',
+  'Moscow': '55.7558,37.6173',
+  'Singapore': '1.3521,103.8198',
+  'Warsaw': '52.2297,21.0122',
+  'Los Angeles': '34.0522,-118.2437',
 };
 let _gallery = {items: [], current: 0};
 let _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), includedChoices: new Set(), includedExtras: new Set(), model: null};
