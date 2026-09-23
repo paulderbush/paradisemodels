@@ -40,6 +40,19 @@ const VIP_CITY_TEASERS = MODELS
     initials: m.initials,
     teaserImg: `/${m.folder}/teaser-blur.webp`,
   }));
+// The nav search bar (see _navHTML below) needs to find any public model
+// from any page, but most pages only embed a tiny slice of MODELS (a
+// single model's own profile page, an empty array on blog/static pages,
+// etc.) to avoid shipping the ~250-model dataset everywhere. This is a
+// separate, much smaller index — just what renderSearchDropdown/startPrice
+// in assets/main.js actually read — embedded on every page via _navHTML so
+// search works the same everywhere, without bloating every page with the
+// full model objects (descriptions, services, rates breakdowns, …).
+const SEARCH_INDEX = PUBLIC_MODELS.map(m => ({
+  id: m.id, real: m.real, slug: m.slug, folder: m.folder, name: m.name,
+  nationality: m.nationality, initials: m.initials, age: m.age,
+  incallRates: m.incallRates, outcallRates: m.outcallRates, rateHour: m.rateHour,
+}));
 const SITE_URL = 'https://velvetescort.co.uk';
 // Single source of truth for the Telegram contact — it lives in the hero,
 // the footer and the mobile menu, so define it once.
@@ -187,7 +200,8 @@ function _navHTML(logo, heroVideo = false) {
       Become a Model
     </a>
   </div>
-</div>`;
+</div>
+<script>const SEARCH_MODELS = ${JSON.stringify(SEARCH_INDEX)};<\/script>`;
 }
 
 function footerHTML(paradise = false) {
