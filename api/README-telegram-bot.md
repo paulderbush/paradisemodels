@@ -241,3 +241,13 @@ message being replied to, and sends the reply's text to that chat
 directly from the bot, exactly as if the manager had messaged the
 client themselves. A reply to any other message in the group (or one
 that isn't a reply at all) is ignored, same as before.
+
+It works both ways: once `forwardVipRequest`/`contactManagerAbout` has
+pointed a chat at the manager, `markManagerContact` flags that chat in
+`bot_sessions`, so any later message that chat sends — once it's past
+`/start` and not a step in the booking flow — gets forwarded to the
+bookings chat too (into the same topic), instead of the bot's usual
+"Send /start" nudge. That forward also embeds `(chat id NNN)`, so the
+manager can just keep replying to whichever message is newest to carry
+the conversation on in either direction, without ever needing the
+client's actual Telegram username.

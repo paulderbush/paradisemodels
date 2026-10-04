@@ -313,6 +313,28 @@ async function contactManagerAbout(chatId, slug, from) {
       console.error('telegram-bot: failed to forward contact-manager notice:', e.message);
     }
   }
+  await markManagerContact(chatId, TG_THREAD);
+}
+
+// Flags a chat as "in touch with the manager" so any free-text message it
+// sends afterwards (once it's past /start and not mid-booking — see the
+// fallback at the end of handleUpdate) gets forwarded to the bookings
+// chat instead of the generic "Send /start" reply, and keeps track of
+// which topic those forwards (and the manager's replies via
+// relayManagerReply) should use. Merges into whatever's already in the
+// session rather than overwriting it, so it doesn't clobber in-progress
+// search filters or a booking in flight.
+async function markManagerContact(chatId, thread) {
+  try {
+    const session = await getBotSession(chatId);
+    const data = Object.assign({}, session.data || {}, {
+      managerContact: true,
+      managerContactThread: thread || (session.data && session.data.managerContactThread),
+    });
+    await setBotSession(chatId, session.state || 'idle', data);
+  } catch (e) {
+    console.error('telegram-bot: failed to flag chat for manager contact:', e.message);
+  }
 }
 
 // A client with no public @username can still open a chat with the
@@ -444,6 +466,7 @@ async function forwardVipRequest(chatId, from) {
   } else {
     console.error('telegram-bot: TELEGRAM_BOOKINGS_CHAT_ID not configured — VIP request not forwarded:', msg);
   }
+  await markManagerContact(chatId, TG_THREAD);
 }
 
 async function handleVipShow(chatId, data, from) {
@@ -669,6 +692,29 @@ async function handleUpdate(update) {
   if (session.state && session.state.startsWith('awaiting_')) {
     await handleBookingStep(chatId, session, text);
     return;
+  }
+
+  // Once a chat has been pointed at the manager (forwardVipRequest,
+  // contactManagerAbout), any ordinary message it sends afterwards — not a
+  // command, not a step in the booking flow — is the other half of that
+  // conversation, so forward it instead of the generic nudge below.
+  // The forward itself embeds "(chat id NNN)", so the manager can just
+  // keep replying to whichever message is newest to keep the thread going
+  // (see relayManagerReply).
+  if (session.data && session.data.managerContact) {
+    const TG_CHAT = process.env.TELEGRAM_BOOKINGS_CHAT_ID;
+    if (TG_CHAT) {
+      const username = msg.from && msg.from.username ? `@${msg.from.username}` : 'no username';
+      const fwd = `💬 <b>Message from client</b> (Telegram Bot)\n\n<b>Telegram:</b> ${username} (chat id <code>${chatId}</code>)\n\n${escapeHtml(text)}`;
+      const threadExtra = session.data.managerContactThread ? {message_thread_id: session.data.managerContactThread} : undefined;
+      try {
+        await sendMessage(TG_CHAT, fwd, threadExtra);
+        await sendMessage(chatId, "Message sent to our manager — they'll reply here shortly.");
+      } catch (e) {
+        console.error('telegram-bot: failed to forward client message to manager chat:', e.message);
+      }
+      return;
+    }
   }
 
   await sendMessage(chatId, "Send /start to search our companions.");
