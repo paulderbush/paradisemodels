@@ -376,12 +376,22 @@ async function forwardBookingRequest(chatId, data) {
 
 // No automated payment processor is wired up yet (no Stripe, no crypto
 // gateway) — the client is pointed straight at the manager's own Telegram
-// to arrange payment out of band, and the manager confirms it manually by
-// tapping the button on the request forwarded to TELEGRAM_BOOKINGS_CHAT_ID.
+// to arrange payment (crypto or bank transfer) out of band, and the
+// manager confirms it manually by tapping the button on the request
+// forwarded to TELEGRAM_BOOKINGS_CHAT_ID.
 const VIP_MANAGER_CONTACT = process.env.TELEGRAM_VIP_MANAGER_CONTACT || '@paradisemodelslondon';
+// Turns "@username" (or a bare "username") into a t.me link a URL button
+// can use to open a chat with the manager directly, rather than a
+// callback_data button that only triggers another bot message.
+const VIP_MANAGER_URL = `https://t.me/${VIP_MANAGER_CONTACT.replace(/^@/, '')}`;
 
 async function startVipPurchase(chatId, from) {
-  await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. Message our manager to arrange payment: ${VIP_MANAGER_CONTACT}\n\nYour reference code: <code>${chatId}</code> — mention it so they can activate your VIP access once payment is confirmed.`);
+  await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. You can pay with Crypto or Bank Transfer. To make payment - contact our manager.\n\nYour reference code: <code>${chatId}</code> — mention it so they can activate your VIP access once payment is confirmed.`, {
+    reply_markup: {inline_keyboard: [
+      [{text: '💬 Contact Manager', url: VIP_MANAGER_URL}],
+      [{text: '◀️ Back', callback_data: 'nav:price'}]
+    ]}
+  });
   await forwardVipRequest(chatId, from);
 }
 
@@ -408,26 +418,13 @@ async function forwardVipRequest(chatId, from) {
   }
 }
 
-async function handleVipShow(chatId, data) {
+async function handleVipShow(chatId, data, from) {
   const paid = await isTelegramVipPaid(chatId);
   if (!paid) {
-    await sendMessage(chatId, `VIP access is a one-time £${VIP_PRICE_GBP}. How would you like to pay?`, {
-      reply_markup: {inline_keyboard: [
-        [{text: '🪙 Pay with Crypto', callback_data: 'vip:crypto'}],
-        [{text: '🏦 Bank Transfer', callback_data: 'vip:bank'}],
-        [{text: '◀️ Back', callback_data: 'nav:price'}]
-      ]}
-    });
+    await startVipPurchase(chatId, from);
     return;
   }
   await sendResultsBatch(chatId, data, vipModels(), 0, 'vip');
-}
-
-// Crypto isn't wired up to anything yet — the button exists now so it's
-// visible in the flow, but just tells the client to use Bank Transfer
-// until a crypto processor is actually connected.
-async function showCryptoComingSoon(chatId) {
-  await sendMessage(chatId, "Crypto payment isn't set up yet — please use Bank Transfer for now, or check back soon.");
 }
 
 async function showCityStep(chatId, messageId) {
@@ -517,7 +514,7 @@ async function handleUpdate(update) {
       data.cats = data.cats || [];
       data.cameFromCats = true;
       await setBotSession(chatId, 'idle', data);
-      await handleVipShow(chatId, data);
+      await handleVipShow(chatId, data, cq.from);
       return;
     }
 
@@ -577,15 +574,7 @@ async function handleUpdate(update) {
       if (rest === 'show') {
         const data = session.data || {};
         data.cameFromCats = false;
-        await handleVipShow(chatId, data);
-        return;
-      }
-      if (rest === 'crypto') {
-        await showCryptoComingSoon(chatId);
-        return;
-      }
-      if (rest === 'bank') {
-        await startVipPurchase(chatId, cq.from);
+        await handleVipShow(chatId, data, cq.from);
         return;
       }
       const offset = parseInt(rest, 10) || 0;
