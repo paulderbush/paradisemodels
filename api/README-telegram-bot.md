@@ -223,3 +223,21 @@ places to swap in an automated checkout instead of the manual request —
 `upsertTelegramVipAccess` (already wired up) is what a payment webhook
 would call to mark the chat paid, the same way `stripe-webhook.js` does
 for the site's own `vip_access` table.
+
+## Messaging a client with no @username
+
+The "Contact Manager" button a client sees only needs the *manager* to
+have a username (it's a Telegram URL link) — but there's no equivalent
+for the manager to open a chat with a client who has no public
+@username, since Telegram gives a human no way to start a chat with an
+arbitrary chat id the way a bot (which already has that chat open) can.
+
+To work around that, every notice the bot forwards to the bookings chat
+(VIP Access Request, Contact Manager Request) embeds the client's
+`(chat id NNN)`. If the manager replies to that notice — using
+Telegram's own "Reply" feature, right there in the group — `telegram-bot.js`'s
+`relayManagerReply` picks up the reply, extracts the chat id from the
+message being replied to, and sends the reply's text to that chat
+directly from the bot, exactly as if the manager had messaged the
+client themselves. A reply to any other message in the group (or one
+that isn't a reply at all) is ignored, same as before.
