@@ -8715,7 +8715,7 @@ const JAZMINE_DATA = {
   name: 'Jazmine', age: 25, height: 171, weight: 49,
   clothingSize: 'XS', breastSize: '32B', breastType: 'Natural',
   eyeColor: 'Brown', hairColor: 'Black', orientation: 'Heterosexual',
-  nationality: 'Italian', city: 'Milan',
+  nationality: 'Italian', city: 'Ibiza',
   languages: 'English · Spanish',
   color: ['rgba(150,120,140,0.4)', 'rgba(90,60,90,0.7)'],
   initials: 'JA',
