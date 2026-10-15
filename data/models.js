@@ -9199,7 +9199,7 @@ const KAPI_DATA = {
   name: 'Kapi', age: 22, height: 167, weight: 44,
   clothingSize: 'S', breastSize: '34B', breastType: 'Natural',
   eyeColor: 'Green', hairColor: 'Blonde',
-  nationality: 'Ukrainian', city: 'Nice',
+  nationality: 'Ukrainian', city: 'Monaco',
   languages: 'Ukrainian · Russian · English · Italian',
   color: ['rgba(210,200,150,0.4)', 'rgba(150,140,60,0.7)'],
   initials: 'KA',
