@@ -9578,13 +9578,10 @@ const KELRI_DATA = {
 // gives her bust as "95C" (the EU/French equivalent of a 34C UK/US
 // band) — the stats block was used as the source of truth below, worth
 // double-checking with the client if the About text was meant literally.
-// Location wasn't given for Sirena; the client's message repeated the
-// previous entry's "Based in London, Marylebone" header, which was used
-// here but is worth confirming.
 const SIRENA_DATA = {
   id: 9724, real: true, vip: false, folder: 'models/Sirena', slug: 'sirena',
   name: 'Sirena', age: 27, height: 176, weight: 59,
-  nationality: 'Spanish', station: 'Marylebone', city: 'London',
+  nationality: 'Spanish', station: "Earl's Court", city: 'London',
   color: ['rgba(160,140,150,0.4)', 'rgba(100,80,90,0.7)'],
   initials: 'SI',
   cats: ['Bisexual Escorts', 'Brunette Escorts', 'Busty Escorts', 'Couples Escorts', 'Curvy Escorts', 'Mature Escorts', 'Party Girl Escorts', 'Recommended Escorts'],
