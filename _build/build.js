@@ -53,7 +53,7 @@ const SEARCH_INDEX = PUBLIC_MODELS.map(m => ({
   nationality: m.nationality, initials: m.initials, age: m.age,
   incallRates: m.incallRates, outcallRates: m.outcallRates, rateHour: m.rateHour,
 }));
-const SITE_URL = 'https://velvetescort.co.uk';
+const SITE_URL = 'https://www.paradisemodels.com';
 // Single source of truth for the Telegram contact — it lives in the hero,
 // the footer and the mobile menu, so define it once.
 const TG_LINK = 'https://t.me/paradisemodelslondon?text=Hello%20Paradise%20Models%20%F0%9F%91%8B%F0%9F%8F%BC';

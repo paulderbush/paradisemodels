@@ -25,7 +25,7 @@ const {MODELS, CATEGORIES} = require('../data/models.js');
 const {getBotSession, setBotSession, isTelegramVipPaid, upsertTelegramVipAccess} = require('./_lib/supabaseAdmin');
 const {sendMessage, editMessageText, sendPhoto, sendMediaGroup, answerCallbackQuery} = require('./_lib/telegramBot');
 
-const SITE_URL = process.env.SITE_URL || 'https://velvetescort.co.uk';
+const SITE_URL = process.env.SITE_URL || 'https://www.paradisemodels.com';
 const RESULTS_PER_PAGE = 5;
 const VIP_PRICE_GBP = 300;
 const WEBHOOK_SECRET = process.env.TELEGRAM_WEBHOOK_SECRET;

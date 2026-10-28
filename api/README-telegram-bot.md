@@ -54,8 +54,8 @@ vars, never in the repo or in the browser.
      state (`sql/002_bot_sessions.sql`) and Telegram-chat VIP access
      (`sql/003_bot_vip_access.sql`).
    - `SITE_URL` — optional, used to build the model-photo and "More" links
-     the bot sends (e.g. `https://velvetescort.co.uk`); falls back to that
-     same URL if unset.
+     the bot sends (e.g. `https://www.paradisemodels.com`); falls back to
+     that same URL if unset.
 
    No Stripe or crypto keys are needed for the bot — VIP payment is
    currently confirmed manually by a manager (see "VIP access" below).
@@ -83,7 +83,7 @@ vars, never in the repo or in the browser.
 
    ```bash
    curl -s "https://api.telegram.org/bot<TELEGRAM_CATALOG_BOT_TOKEN>/setWebhook" \
-     -d "url=https://velvetescort.co.uk/api/telegram-bot/" \
+     -d "url=https://www.paradisemodels.com/api/telegram-bot/" \
      -d "secret_token=<TELEGRAM_WEBHOOK_SECRET>"
    ```
 

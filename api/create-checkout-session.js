@@ -4,7 +4,7 @@ const {getUserFromAuthHeader} = require('./_lib/supabaseAdmin');
 const {convertGbpToVisitorCurrency} = require('./_lib/currency');
 
 const VIP_PRICE_GBP = 300;
-const SITE_URL = process.env.SITE_URL || 'https://velvetescort.co.uk';
+const SITE_URL = process.env.SITE_URL || 'https://www.paradisemodels.com';
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
