@@ -8,6 +8,11 @@
 // no caller at all) gets a 401/403, not a redacted version of the data.
 const {getUserFromAuthHeader, isVipPaid} = require('./_lib/supabaseAdmin');
 const {MODELS} = require('../data/models.js');
+// Built by _build/build.js (scans each model's folder once, at build
+// time) so the gallery can skip its old 60-request probe — see the
+// comment above scanMediaCounts in _build/build.js for why.
+const MEDIA_MANIFEST = require('../data/media-manifest.json');
+const withMediaCounts = m => Object.assign({}, m, {reviews: []}, MEDIA_MANIFEST[m.folder]);
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -31,8 +36,8 @@ module.exports = async function handler(req, res) {
   if (slug) {
     const m = vipModels.find(x => x.slug === slug);
     if (!m) return res.status(404).json({error: 'Not found.'});
-    return res.status(200).json({model: Object.assign({}, m, {reviews: []})});
+    return res.status(200).json({model: withMediaCounts(m)});
   }
 
-  return res.status(200).json({models: vipModels.map(m => Object.assign({}, m, {reviews: []}))});
+  return res.status(200).json({models: vipModels.map(withMediaCounts)});
 };

@@ -11,6 +11,34 @@ const { BLOG_POSTS } = require('../data/blog.js');
 // URL-safe slug for a city name, used for element ids and query params.
 const citySlug = (c) => c.toLowerCase().replace(/\s+/g, '-');
 const REAL_MODELS = MODELS.filter(m => m.real);
+const REPO_ROOT = path.join(__dirname, '..');
+// The gallery used to discover a model's photos/videos by having the
+// browser speculatively request 1.webp..50.webp and v1.mp4..v10.mp4 and
+// see which ones 404'd — 60 requests per page view, most of them wasted,
+// which is slow on anything but a fast/low-latency connection. Since the
+// build already has filesystem access to every model's folder, it's
+// cheaper to just count the real files once here and ship the exact
+// numbers — see MEDIA_MANIFEST below and its two consumers: the
+// photoCount/videoCount embedded per-model in buildModelProfile, and
+// data/media-manifest.json (read by api/vip-catalog.js, which has no
+// access to the actual photo files at runtime). assets/profile.js still
+// has the old probe as a fallback for the rare case neither is present.
+function scanMediaCounts(folder) {
+  let photoCount = 0, videoCount = 0;
+  try {
+    for (const f of fs.readdirSync(path.join(REPO_ROOT, folder))) {
+      const photoMatch = /^(\d+)\.webp$/i.exec(f);
+      if (photoMatch) { photoCount = Math.max(photoCount, parseInt(photoMatch[1], 10)); continue; }
+      const videoMatch = /^v(\d+)\.mp4$/i.exec(f);
+      if (videoMatch) videoCount = Math.max(videoCount, parseInt(videoMatch[1], 10));
+    }
+  } catch (e) {
+    // Folder missing on disk — leave both at 0, profile.js's probe fallback covers it.
+  }
+  return {photoCount, videoCount};
+}
+const MEDIA_MANIFEST = {};
+REAL_MODELS.forEach(m => { MEDIA_MANIFEST[m.folder] = scanMediaCounts(m.folder); });
 // Everything served to the general public (home, catalog, search) excludes
 // vip:true models entirely — their data only ever leaves the server via
 // /api/vip-catalog, which checks payment first. See buildVipModelProfile.
@@ -603,7 +631,7 @@ ${lightboxHTML()}
 
 ${footerHTML(true)}
 <script>
-const MODEL_DATA = ${JSON.stringify(Object.assign({}, m, {reviews: []}))};
+const MODEL_DATA = ${JSON.stringify(Object.assign({}, m, {reviews: []}, MEDIA_MANIFEST[m.folder]))};
 const MODELS = [MODEL_DATA];
 const SERVICES = ${JSON.stringify(SERVICES)};
 const NATIONALITIES = ${JSON.stringify(NATIONALITIES)};
@@ -2187,5 +2215,6 @@ BLOG_POSTS.forEach(p => {
 write(path.join(OUT, 'account/index.html'), buildAccount());
 write(path.join(OUT, 'sitemap.xml'), buildSitemap());
 write(path.join(OUT, 'robots.txt'), buildRobots());
+write(path.join(OUT, 'data/media-manifest.json'), JSON.stringify(MEDIA_MANIFEST, null, 2));
 
 console.log('\nBuild complete!');

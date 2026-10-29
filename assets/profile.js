@@ -35,7 +35,29 @@ let _gallery = {items: [], current: 0};
 let _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), includedChoices: new Set(), includedExtras: new Set(), model: null};
 
 // =================== GALLERY ===================
-function probeModelMedia(folder, cb) {
+// Known counts (from the build-time folder scan — see scanMediaCounts in
+// _build/build.js) let the gallery skip probing entirely: it already knows
+// exactly which files exist, so it can build the item list synchronously
+// with zero network requests spent discovering them, instead of
+// speculatively requesting 1.webp..50.webp and v1.mp4..v10.mp4 and seeing
+// what 404s. Falls back to the old probe-based discovery below when counts
+// aren't available (e.g. the folder was added after the last build).
+function buildKnownMediaItems(folder, photoCount, videoCount) {
+  const items = [];
+  for (let i = 1; i <= photoCount; i++) {
+    items.push({type: 'photo', idx: i, src: `/${folder}/${i}.webp${window.BUILD_TS ? '?v=' + window.BUILD_TS : ''}`});
+  }
+  for (let i = 1; i <= (videoCount || 0); i++) {
+    items.push({type: 'video', idx: i, src: `/${folder}/v${i}.mp4${window.BUILD_TS ? '?v=' + window.BUILD_TS : ''}`});
+  }
+  return items;
+}
+
+function probeModelMedia(folder, cb, knownCounts) {
+  if (knownCounts && knownCounts.photoCount > 0) {
+    cb(buildKnownMediaItems(folder, knownCounts.photoCount, knownCounts.videoCount));
+    return;
+  }
   const found = []; let done = 0; let settled = false;
   const photoMax = 50, videoMax = 10, total = photoMax + videoMax;
   // A flaky connection (or a browser that never fires onerror for a missing
@@ -392,7 +414,7 @@ function openRealModel(m) {
     const ctr = document.getElementById('gallery-counter');
     if (ctr) ctr.textContent = `1 / ${items.length}`;
     if (items.length <= 1) document.querySelectorAll('.gallery-arrow').forEach(a => a.style.display = 'none');
-  });
+  }, {photoCount: m.photoCount, videoCount: m.videoCount});
 }
 
 // =================== VIP MODEL PROFILE ===================
