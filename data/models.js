@@ -1633,7 +1633,7 @@ const LUMONA_DATA = {
 };
 
 const EUPHORIA_DATA = {
-  id: 9966, real: true, vip: false, folder: 'models/Euphoria', slug: 'euphoria',
+  id: 9966, real: true, vip: true, folder: 'vip-models/Euphoria', slug: 'euphoria',
   name: 'Euphoria', age: 25, height: 175, weight: 60,
   measurements: '90-60-90', eyeColor: 'Blue',
   nationality: 'Romanian', city: 'Dubai',
