@@ -445,7 +445,7 @@ async function initVipModelProfile(slug) {
   try {
     const {data: sessionData} = await sb.auth.getSession();
     const token = sessionData && sessionData.session && sessionData.session.access_token;
-    const r = await fetch('/api/vip-catalog?slug=' + encodeURIComponent(slug), {
+    const r = await fetch('/api/vip-catalog/?slug=' + encodeURIComponent(slug), {
       headers: {Authorization: `Bearer ${token}`}
     });
     if (!r.ok) { showLocked(); return; }

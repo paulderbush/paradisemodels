@@ -11,7 +11,7 @@ async function fetchVipModels() {
     const {data: sessionData} = await sb.auth.getSession();
     const token = sessionData && sessionData.session && sessionData.session.access_token;
     if (!token) return [];
-    const r = await fetch('/api/vip-catalog', {headers: {Authorization: `Bearer ${token}`}});
+    const r = await fetch('/api/vip-catalog/', {headers: {Authorization: `Bearer ${token}`}});
     if (!r.ok) return [];
     const json = await r.json();
     return json.models || [];
