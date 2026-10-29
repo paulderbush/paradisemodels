@@ -36,14 +36,25 @@ let _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), includedChoic
 
 // =================== GALLERY ===================
 function probeModelMedia(folder, cb) {
-  const found = []; let done = 0;
+  const found = []; let done = 0; let settled = false;
   const photoMax = 50, videoMax = 10, total = photoMax + videoMax;
+  // A flaky connection (or a browser that never fires onerror for a missing
+  // video, which happens on some mobile Safari versions) can leave one of
+  // the 60 probes neither loaded nor errored forever — without a timeout
+  // the gallery would then wait on all of them and never render past the
+  // single fallback slide. 8s is generous for 60 tiny same-origin requests
+  // on a normal connection, but short enough that a stuck probe doesn't
+  // leave a visitor staring at "1 / 1" indefinitely.
+  function settle() {
+    if (settled) return;
+    settled = true;
+    const photos = found.filter(x => x.type === 'photo').sort((a, b) => a.idx - b.idx);
+    const videos = found.filter(x => x.type === 'video').sort((a, b) => a.idx - b.idx);
+    cb([...photos, ...videos]);
+  }
+  const timeoutId = setTimeout(settle, 8000);
   function finish() {
-    if (++done === total) {
-      const photos = found.filter(x => x.type === 'photo').sort((a, b) => a.idx - b.idx);
-      const videos = found.filter(x => x.type === 'video').sort((a, b) => a.idx - b.idx);
-      cb([...photos, ...videos]);
-    }
+    if (++done === total) { clearTimeout(timeoutId); settle(); }
   }
   for (let i = 1; i <= photoMax; i++) {
     const img = new Image(); const idx = i;
