@@ -287,9 +287,18 @@ function modelCardHTML(m, clickable = true, showTags = true) {
     : `<div class="model-card" onclick="${clickable ? `openFakeModel(${m.id})` : ''}">`;
   const cardEnd = m.real ? '</a>' : '</div>';
 
+  // Real models and fake ones with a teaser both get an actual photo — an
+  // <img loading="lazy"> (unlike a CSS background-image, which has no
+  // native lazy-loading) so a catalog of hundreds of cards only downloads
+  // the handful currently on screen instead of every cover photo at once.
+  const photoSrc = m.real
+    ? `/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}`
+    : (m.teaserImg ? `${m.teaserImg}${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}` : null);
+
   return `
   ${cardStart}
-    <div class="model-card-img" style="${m.real ? `background:url('/${m.folder}/1.webp${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') top center/cover no-repeat` : m.teaserImg ? `background:url('${m.teaserImg}${window.BUILD_TS ? '?v='+window.BUILD_TS : ''}') center/cover no-repeat` : `background:${PLACEHOLDER_BG}`}">
+    <div class="model-card-img"${photoSrc ? '' : ` style="background:${PLACEHOLDER_BG}"`}>
+      ${photoSrc ? `<img class="model-card-photo" src="${photoSrc}" alt="${m.name}" loading="lazy" decoding="async">` : ''}
       ${!m.real && !m.teaserImg ? `<div class="model-photo-placeholder">
         <svg class="model-silhouette-svg" width="60" height="100" viewBox="0 0 60 100" fill="none">
           <ellipse cx="30" cy="14" rx="13" ry="13" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
