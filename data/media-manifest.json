@@ -1078,5 +1078,17 @@
   "models/Marvel": {
     "photoCount": 7,
     "videoCount": 0
+  },
+  "models/Cameo": {
+    "photoCount": 18,
+    "videoCount": 0
+  },
+  "models/Gigi": {
+    "photoCount": 20,
+    "videoCount": 0
+  },
+  "models/Maya": {
+    "photoCount": 12,
+    "videoCount": 0
   }
 }
