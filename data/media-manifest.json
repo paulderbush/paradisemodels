@@ -980,7 +980,7 @@
     "videoCount": 0
   },
   "vip-models/Roux": {
-    "photoCount": 6,
+    "photoCount": 8,
     "videoCount": 0
   },
   "vip-models/Barbara": {
@@ -1061,6 +1061,22 @@
   },
   "models/Mile": {
     "photoCount": 17,
+    "videoCount": 0
+  },
+  "vip-models/Tyra": {
+    "photoCount": 8,
+    "videoCount": 0
+  },
+  "vip-models/Tess": {
+    "photoCount": 9,
+    "videoCount": 0
+  },
+  "models/Tarla": {
+    "photoCount": 9,
+    "videoCount": 0
+  },
+  "models/Marvel": {
+    "photoCount": 7,
     "videoCount": 0
   }
 }
