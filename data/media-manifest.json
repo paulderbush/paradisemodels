@@ -1058,5 +1058,9 @@
   "models/Sirena": {
     "photoCount": 15,
     "videoCount": 0
+  },
+  "models/Mile": {
+    "photoCount": 17,
+    "videoCount": 0
   }
 }
