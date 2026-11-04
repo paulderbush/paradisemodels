@@ -1098,5 +1098,9 @@
   "models/Niranya": {
     "photoCount": 15,
     "videoCount": 3
+  },
+  "vip-models/Mellow": {
+    "photoCount": 17,
+    "videoCount": 0
   }
 }
