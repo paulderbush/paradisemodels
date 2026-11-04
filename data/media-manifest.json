@@ -49,7 +49,7 @@
   },
   "vip-models/Pavana": {
     "photoCount": 9,
-    "videoCount": 0
+    "videoCount": 1
   },
   "vip-models/Bayla": {
     "photoCount": 10,
@@ -172,12 +172,12 @@
     "videoCount": 0
   },
   "vip-models/Silla": {
-    "photoCount": 9,
+    "photoCount": 10,
     "videoCount": 0
   },
   "vip-models/Lola": {
-    "photoCount": 10,
-    "videoCount": 0
+    "photoCount": 16,
+    "videoCount": 1
   },
   "vip-models/Isabella": {
     "photoCount": 10,
@@ -461,7 +461,7 @@
   },
   "vip-models/Zarah": {
     "photoCount": 13,
-    "videoCount": 0
+    "videoCount": 3
   },
   "models/Kira": {
     "photoCount": 27,
@@ -780,8 +780,8 @@
     "videoCount": 0
   },
   "vip-models/Emilie": {
-    "photoCount": 7,
-    "videoCount": 0
+    "photoCount": 8,
+    "videoCount": 1
   },
   "vip-models/Maya": {
     "photoCount": 16,
@@ -900,8 +900,8 @@
     "videoCount": 0
   },
   "vip-models/Polina": {
-    "photoCount": 10,
-    "videoCount": 0
+    "photoCount": 11,
+    "videoCount": 1
   },
   "models/Crelia": {
     "photoCount": 17,
@@ -921,7 +921,7 @@
   },
   "vip-models/Lucia": {
     "photoCount": 7,
-    "videoCount": 0
+    "videoCount": 2
   },
   "vip-models/Nero": {
     "photoCount": 9,
@@ -929,7 +929,7 @@
   },
   "vip-models/Martina": {
     "photoCount": 7,
-    "videoCount": 0
+    "videoCount": 1
   },
   "vip-models/Tory": {
     "photoCount": 8,
@@ -948,7 +948,7 @@
     "videoCount": 0
   },
   "vip-models/Tara": {
-    "photoCount": 15,
+    "photoCount": 0,
     "videoCount": 0
   },
   "vip-models/Priva": {
@@ -988,12 +988,12 @@
     "videoCount": 0
   },
   "vip-models/Salma": {
-    "photoCount": 20,
-    "videoCount": 0
+    "photoCount": 17,
+    "videoCount": 5
   },
   "vip-models/Jade": {
-    "photoCount": 5,
-    "videoCount": 0
+    "photoCount": 6,
+    "videoCount": 2
   },
   "vip-models/Kapi": {
     "photoCount": 14,
@@ -1016,7 +1016,7 @@
     "videoCount": 0
   },
   "vip-models/Camille": {
-    "photoCount": 9,
+    "photoCount": 10,
     "videoCount": 0
   },
   "models/Pollee": {
@@ -1068,7 +1068,7 @@
     "videoCount": 0
   },
   "vip-models/Tess": {
-    "photoCount": 0,
+    "photoCount": 9,
     "videoCount": 0
   },
   "models/Tarla": {
