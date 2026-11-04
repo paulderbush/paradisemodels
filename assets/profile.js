@@ -30,6 +30,7 @@ const CITY_COORDS = {
   'Warsaw': '52.2297,21.0122',
   'Los Angeles': '34.0522,-118.2437',
   'Nice': '43.7102,7.2620',
+  'Parma': '44.8015,10.3279',
 };
 let _gallery = {items: [], current: 0};
 let _pricing = {type: 'incall', durationIdx: 0, extras: new Set(), includedChoices: new Set(), includedExtras: new Set(), model: null};

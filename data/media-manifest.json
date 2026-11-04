@@ -1068,7 +1068,7 @@
     "videoCount": 0
   },
   "vip-models/Tess": {
-    "photoCount": 9,
+    "photoCount": 0,
     "videoCount": 0
   },
   "models/Tarla": {
@@ -1090,5 +1090,13 @@
   "models/Maya": {
     "photoCount": 12,
     "videoCount": 0
+  },
+  "vip-models/Begowy": {
+    "photoCount": 8,
+    "videoCount": 2
+  },
+  "models/Niranya": {
+    "photoCount": 15,
+    "videoCount": 3
   }
 }
