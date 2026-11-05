@@ -101,6 +101,7 @@ function head(title, desc, canonical, extra = '', themeColor = '#0D0812') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="${themeColor}">
+<meta name="google-site-verification" content="eT7m2nd1NOE-qq_dP-gBi_HOUc-B2Liyz8MKCpxL8fI" />
 <title>${title}</title>
 <meta name="description" content="${desc}">
 <link rel="canonical" href="${canonical}">
