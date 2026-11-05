@@ -8,6 +8,7 @@ const css = fs.readFileSync(path.join(__dirname, '../assets/style.css'), 'utf8')
 // Load models
 const { MODELS, VIP_TEASER_MODELS, SERVICES, NATIONALITIES, STATIONS, CITIES, CATEGORIES } = require('../data/models.js');
 const { BLOG_POSTS } = require('../data/blog.js');
+const { FAQS } = require('../data/faq.js');
 // URL-safe slug for a city name, used for element ids and query params.
 const citySlug = (c) => c.toLowerCase().replace(/\s+/g, '-');
 const REAL_MODELS = MODELS.filter(m => m.real);
@@ -122,6 +123,23 @@ function head(title, desc, canonical, extra = '', themeColor = '#0D0812') {
 ${extra}
 </head>`;
 }
+
+// Renders a JSON-LD structured data block. `obj` is a plain object (or
+// array of objects) — pass it straight through JSON.stringify so callers
+// just describe the schema.org shape they want.
+function ldJson(obj) {
+  return `<script type="application/ld+json">${JSON.stringify(obj)}<\/script>`;
+}
+
+const ORGANIZATION_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Paradise Models',
+  url: SITE_URL + '/',
+  logo: SITE_URL + '/images/logo-new.png',
+  description: 'Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions.',
+  sameAs: ['https://t.me/paradisemodelslondon'],
+};
 
 function navHTML(paradise = false, heroVideo = false, newLogo = false) {
   // The client's new logo (PARADISE wordmark only, no MODELS subtitle) is
@@ -336,7 +354,8 @@ function buildHome() {
     'Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions you will find nowhere else.',
     SITE_URL + '/',
     `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
+${ldJson(ORGANIZATION_SCHEMA)}`,
     '#1a1e42'
   ) + `
 <body class="page-home">
@@ -427,6 +446,7 @@ ${footerHTML(true)}
 ${modelsDataScript()}
 <script>
 const VIP_CITY_TEASERS = ${JSON.stringify(VIP_CITY_TEASERS)};
+const FAQS = ${JSON.stringify(FAQS)};
 <\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
@@ -702,12 +722,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // =================== FAQ PAGE ===================
 function buildFaq() {
+  const faqPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a.replace(/\n+/g, ' '),
+      },
+    })),
+  };
   return head(
     'FAQ — Paradise Models',
     'Frequently asked questions about our services, companions, and bookings at Paradise Models.',
     SITE_URL + '/faq/',
     `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
+${ldJson(faqPageSchema)}`,
     '#1a1e42'
   ) + `
 <body class="page-faq">
@@ -733,12 +766,13 @@ const MODELS = [];
 const SERVICES = [];
 const NATIONALITIES = [];
 const STATIONS = [];
+const FAQS = ${JSON.stringify(FAQS)};
 <\/script>
 <script src="/assets/main.js?v=${BUILD_TS}"><\/script>
 <script src="/assets/chat.js?v=${BUILD_TS}"><\/script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const allIds = Array.from({length: 17}, (_, i) => i);
+  const allIds = Array.from({length: FAQS.length}, (_, i) => i);
   renderFAQs(allIds, 'faqAll');
 });
 <\/script>
@@ -2005,6 +2039,21 @@ const CITIES = [];
   }
 
   const {day, monthLong, year} = formatBlogDate(post.date);
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    image: `${SITE_URL}/images/blog/${post.image}`,
+    datePublished: post.date,
+    author: {'@type': 'Organization', name: 'Paradise Models'},
+    publisher: {
+      '@type': 'Organization',
+      name: 'Paradise Models',
+      logo: {'@type': 'ImageObject', url: `${SITE_URL}/images/logo-new.png`},
+    },
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}/`,
+  };
 
   return head(
     `${post.title} — Paradise Models Blog`,
@@ -2012,7 +2061,8 @@ const CITIES = [];
     `${SITE_URL}/blog/${post.slug}/`,
     `<meta property="og:image" content="${SITE_URL}/images/blog/${post.image}">
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
+${ldJson(blogPostingSchema)}`,
     '#1a1e42'
   ) + `
 <body class="page-blog-post">
