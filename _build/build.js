@@ -95,7 +95,7 @@ const BUILD_TS = new Date().toISOString().replace(/[-:T.]/g, '').slice(0, 14);
 
 // =================== SHARED PARTS ===================
 
-function head(title, desc, canonical, extra = '', themeColor = '#0D0812') {
+function head(title, desc, canonical, extra = '', themeColor = '#0D0812', ogImage = `${SITE_URL}/images/hero-poster.jpg`) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,6 +110,12 @@ function head(title, desc, canonical, extra = '', themeColor = '#0D0812') {
 <meta property="og:description" content="${desc}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Paradise Models">
+<meta property="og:image" content="${ogImage}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${desc}">
+<meta name="twitter:image" content="${ogImage}">
 <link rel="icon" type="image/png" href="/images/favicon.png?v=${BUILD_TS}">
 <link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=${BUILD_TS}">
 <link rel="apple-touch-icon" href="/images/favicon.png?v=${BUILD_TS}">
@@ -633,10 +639,10 @@ function buildModelProfile(m) {
     `${m.name} — Elite London Escort | Paradise Models`,
     desc,
     `${SITE_URL}/models/${m.slug}/`,
-    `<meta property="og:image" content="${SITE_URL}/${m.folder}/1.webp">
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
-    '#1a1e42'
+    '#1a1e42',
+    `${SITE_URL}/${m.folder}/1.webp`
   ) + `
 <body class="page-model">
 ${orbsHTML()}
@@ -2059,11 +2065,11 @@ const CITIES = [];
     `${post.title} — Paradise Models Blog`,
     post.excerpt,
     `${SITE_URL}/blog/${post.slug}/`,
-    `<meta property="og:image" content="${SITE_URL}/images/blog/${post.image}">
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
 ${ldJson(blogPostingSchema)}`,
-    '#1a1e42'
+    '#1a1e42',
+    `${SITE_URL}/images/blog/${post.image}`
   ) + `
 <body class="page-blog-post">
 ${orbsHTML()}
