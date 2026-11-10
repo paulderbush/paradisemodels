@@ -440,12 +440,14 @@ async function initVipModelProfile(slug) {
   const container = document.getElementById('modelDetailContent');
   const showLocked = () => { if (container) container.innerHTML = vipLockedProfileHTML(); };
 
-  const user = await authGetUser();
-  if (!user) { showLocked(); return; }
-
   try {
+    // sb.auth.getSession() is a local read (no network round trip), unlike
+    // authGetUser() which re-validates the JWT against Supabase — the real
+    // gate is /api/vip-catalog's own server-side auth + payment check below,
+    // so there's nothing to gain from checking twice.
     const {data: sessionData} = await sb.auth.getSession();
     const token = sessionData && sessionData.session && sessionData.session.access_token;
+    if (!token) { showLocked(); return; }
     const r = await fetch('/api/vip-catalog/?slug=' + encodeURIComponent(slug), {
       headers: {Authorization: `Bearer ${token}`}
     });

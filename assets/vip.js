@@ -6,17 +6,19 @@ const VIP_PRICE_GBP = 300;
 // the unlocked grid is fetched from /api/vip-catalog instead, which only
 // returns them after verifying payment server-side. Nothing client-side
 // can be trusted to gate the real data, only the UI around it.
-async function fetchVipModels() {
+//
+// Returns null (not an empty array) when the request didn't come back
+// with data, so the caller can tell "locked/unauthorized" apart from
+// "authorized, roster just happens to be empty".
+async function fetchVipModels(token) {
   try {
-    const {data: sessionData} = await sb.auth.getSession();
-    const token = sessionData && sessionData.session && sessionData.session.access_token;
-    if (!token) return [];
+    if (!token) return null;
     const r = await fetch('/api/vip-catalog/', {headers: {Authorization: `Bearer ${token}`}});
-    if (!r.ok) return [];
+    if (!r.ok) return null;
     const json = await r.json();
     return json.models || [];
   } catch (e) {
-    return [];
+    return null;
   }
 }
 
@@ -53,10 +55,8 @@ let vipAgeRange = [18, 60];
 let vipWeightRange = [40, 100];
 let vipHeightRange = [150, 195];
 
-async function renderVipUnlocked() {
-  const grid = document.getElementById('vipUnlocked');
-  if (!grid) return;
-  allVipModels = await fetchVipModels();
+function renderVipUnlocked(models) {
+  allVipModels = models;
   buildVipCatList();
   buildVipCityList();
   buildVipNatList();
@@ -262,18 +262,24 @@ async function initVipPage() {
   renderVipTeaser();
   setVipPriceTag();
 
-  const user = await authGetUser();
+  // sb.auth.getSession() reads the persisted session locally (no network
+  // round trip), unlike authGetUser()/checkVipAccess() which each call out
+  // to Supabase. The real gate is /api/vip-catalog's own server-side auth +
+  // payment check below — this is just enough to know whether to show the
+  // signed-in paywall copy and whether a token exists to send at all.
+  const {data: sessionData} = await sb.auth.getSession();
+  const token = sessionData && sessionData.session && sessionData.session.access_token;
 
-  if (!user) {
+  if (!token) {
     setVipPaywallCopy(false);
     showVipState('locked');
     return;
   }
 
   setVipPaywallCopy(true);
-  const hasVip = await checkVipAccess(user.id);
-  if (hasVip) {
-    await renderVipUnlocked();
+  const models = await fetchVipModels(token);
+  if (models) {
+    renderVipUnlocked(models);
     showVipState('unlocked');
   } else {
     showVipState('locked');
