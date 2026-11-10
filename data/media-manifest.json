@@ -215,10 +215,6 @@
     "photoCount": 12,
     "videoCount": 0
   },
-  "models/Camdice": {
-    "photoCount": 10,
-    "videoCount": 0
-  },
   "models/Zomela": {
     "photoCount": 10,
     "videoCount": 0
@@ -1102,5 +1098,21 @@
   "vip-models/Mellow": {
     "photoCount": 17,
     "videoCount": 0
+  },
+  "models/Klaudia": {
+    "photoCount": 7,
+    "videoCount": 0
+  },
+  "models/Apelsina": {
+    "photoCount": 14,
+    "videoCount": 0
+  },
+  "models/Herleen": {
+    "photoCount": 10,
+    "videoCount": 0
+  },
+  "vip-models/Karolina": {
+    "photoCount": 7,
+    "videoCount": 1
   }
 }
