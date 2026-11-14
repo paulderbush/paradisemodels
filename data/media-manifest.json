@@ -1130,5 +1130,13 @@
   "models/Waverley": {
     "photoCount": 9,
     "videoCount": 0
+  },
+  "vip-models/Elisabeth": {
+    "photoCount": 9,
+    "videoCount": 1
+  },
+  "vip-models/Evvi": {
+    "photoCount": 10,
+    "videoCount": 0
   }
 }
