@@ -1118,5 +1118,25 @@
   "models/Gabriela": {
     "photoCount": 15,
     "videoCount": 0
+  },
+  "models/Lesly": {
+    "photoCount": 9,
+    "videoCount": 0
+  },
+  "models/Sabina": {
+    "photoCount": 20,
+    "videoCount": 0
+  },
+  "models/Waverley": {
+    "photoCount": 9,
+    "videoCount": 0
+  },
+  "vip-models/Elisabeth": {
+    "photoCount": 9,
+    "videoCount": 1
+  },
+  "vip-models/Evvi": {
+    "photoCount": 10,
+    "videoCount": 0
   }
 }
