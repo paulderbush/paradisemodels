@@ -1150,5 +1150,9 @@
   "models/Benicia": {
     "photoCount": 17,
     "videoCount": 0
+  },
+  "vip-models/EvaVip": {
+    "photoCount": 3,
+    "videoCount": 3
   }
 }
