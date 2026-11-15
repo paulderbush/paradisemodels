@@ -1138,5 +1138,17 @@
   "vip-models/Evvi": {
     "photoCount": 10,
     "videoCount": 0
+  },
+  "models/Corale": {
+    "photoCount": 7,
+    "videoCount": 0
+  },
+  "models/Hope": {
+    "photoCount": 12,
+    "videoCount": 0
+  },
+  "models/Benicia": {
+    "photoCount": 17,
+    "videoCount": 0
   }
 }
