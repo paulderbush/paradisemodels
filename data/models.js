@@ -3054,7 +3054,7 @@ const MIKAMI_DATA = {
 const DARISTE_DATA = {
   id: 9900, real: true, vip: false, folder: 'models/Dariste', slug: 'dariste',
   name: 'Dariste', age: 24, height: 160, weight: 50,
-  nationality: 'Brazilian', station: 'Mayfair', city: 'London',
+  nationality: 'Brazilian', city: 'Dubai',
   rateHour: 750, extraHourPrice: 500,
   color: ['rgba(190,110,140,0.4)', 'rgba(130,50,80,0.7)'],
   initials: 'DA',
@@ -3088,7 +3088,7 @@ const DARISTE_DATA = {
   description: [
     "Dariste is a sweet and irresistible 24-year-old beauty who knows how to leave a lasting impression. Standing at 160 cm, she carries herself with a natural elegance that's both youthful and alluring. Her soft features, gentle smile, and playful gaze make her feel like a dream you don't want to wake up from. Everything about her — from the way she moves to the way she speaks — radiates charm and warmth.",
     "Beneath that angelic exterior is a deliciously naughty side. Dariste is full of sensual energy and loves to explore desire without hesitation. She thrives on passion and connection, always eager to make every encounter intense and unforgettable. With her, every moment feels spontaneous, fiery, and deeply satisfying.",
-    "Whether you're craving soft kisses or wild nights, Dariste is ready to turn your fantasies into reality. Let her sweetness disarm you, then let her fire take over — she's waiting for you in London.",
+    "Whether you're craving soft kisses or wild nights, Dariste is ready to turn your fantasies into reality. Let her sweetness disarm you, then let her fire take over — she's waiting for you in Dubai.",
   ],
   reviews: [],
 };
