@@ -907,6 +907,60 @@ const BLOG_POSTS = [
       },
     ],
   },
+
+  {
+    slug: 'international-vip-escorts-cities-worldwide',
+    title: 'International VIP Escorts: Now in 20+ Cities Worldwide',
+    excerpt: 'Paradise Models isn\'t just a London escort agency — our international VIP escorts are available in over 20 cities worldwide, from Dubai and Paris to Monaco, Milan and beyond.',
+    date: '2026-11-14',
+    image: 'international-vip-escorts-cities-worldwide.webp',
+    published: true,
+    intro: [
+      "Paradise Models started as a London escort agency, and London remains the heart of everything we do. But our clients don't stay in one city — they fly to Dubai for business, spend summers on the Côte d'Azur, and think nothing of a weekend in Milan or New York. Over time, our roster has followed them.",
+      'Today we\'re a genuinely <a href="/models/">international escort agency</a>, with companions based in more than twenty cities across four continents. Here\'s where you can currently meet one of our companions.',
+    ],
+    sections: [
+      {
+        heading: 'Why an International Agency Actually Matters',
+        id: 'why-an-international-agency-actually-matters',
+        paragraphs: [
+          "A single-city agency can only ever be useful to you once. An international one means the same trusted standard of companion, screening and discretion follows you wherever your work or travel takes you next, rather than starting from scratch with an unfamiliar local agency every time you land somewhere new.",
+          "It also means a far wider, more interesting roster overall. A companion who splits her time between London and Dubai, or who tours Europe's summer season from Monaco to Mykonos, brings a different kind of experience than someone who has never left a single city — more worldly, more adaptable, and usually more comfortable in the five-star settings our clients prefer.",
+        ],
+      },
+      {
+        heading: 'Europe',
+        id: 'europe',
+        paragraphs: [
+          "Europe remains the backbone of our roster. Alongside <strong>London</strong>, we have companions based in <strong>Paris</strong> and <strong>Monaco</strong>, two of the continent's most glamorous addresses, as well as <strong>Milan, Rome, Parma</strong> and <strong>Capri</strong> across Italy.",
+          "Further afield, you'll find our companions in <strong>Zurich</strong>, <strong>Amsterdam</strong>, <strong>Madrid</strong>, <strong>Barcelona</strong> and <strong>Marbella</strong>, the Greek island of <strong>Mykonos</strong>, the Balearic party capital <strong>Ibiza</strong>, Malta's capital <strong>Valletta</strong>, and <strong>Warsaw</strong> in Poland.",
+        ],
+      },
+      {
+        heading: 'The Middle East',
+        id: 'the-middle-east',
+        paragraphs: [
+          'Our fastest-growing market by far is <a href="/blog/is-dubai-the-best-city-for-vip-escort-meets/"><strong>Dubai</strong></a>, where dozens of our companions are now based full time — a reflection of just how many of our clients now pass through the Gulf for business. We also have companions based in <strong>Istanbul</strong>, the bridge between Europe and Asia and a city with its own distinct glamour.',
+        ],
+      },
+      {
+        heading: 'The Americas and Asia',
+        id: 'the-americas-and-asia',
+        paragraphs: [
+          "Across the Atlantic, we have companions based in <strong>New York</strong>, <strong>Miami</strong> and <strong>Florianópolis</strong> in Brazil. In Asia, our roster currently includes companions based in <strong>Shanghai</strong> and the Thai beach resort of <strong>Phuket</strong>.",
+          "We're adding new cities regularly as client demand grows — if you don't see your destination here yet, it's worth checking back or simply asking us directly.",
+        ],
+      },
+      {
+        heading: 'How to Book Wherever You Are',
+        id: 'how-to-book-wherever-you-are',
+        paragraphs: [
+          'Booking abroad works exactly the same way it does in London. Browse our <a href="/models/">full roster</a> and filter by city, or message us directly on Telegram with your destination and dates — our team will confirm who\'s available and handle the rest.',
+          'Prefer the most exclusive end of the roster wherever you travel? Our <a href="/vip-models/">VIP catalog</a> spans every city above, with members-only access to companions who aren\'t listed publicly anywhere on the site.',
+        ],
+      },
+    ],
+  },
 ];
 
 module.exports = { BLOG_POSTS };
