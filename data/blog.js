@@ -88,10 +88,58 @@ const BLOG_POSTS = [
   {
     slug: 'a-guide-to-a-night-out-with-your-escort',
     title: 'A Guide to a Night Out With Your Escort',
-    excerpt: '',
-    date: null,
-    image: null,
-    published: false,
+    excerpt: 'Planning a night out with an escort in London? Our guide covers choosing the right companion, picking a venue and getting the details right for a GFE dinner date, a party night or a quiet evening in.',
+    date: '2026-08-15',
+    image: 'a-guide-to-a-night-out-with-your-escort.webp',
+    published: true,
+    intro: [
+      "A night out with an escort should feel effortless — good company, a good venue, and nothing to overthink. In practice, a little planning is what actually makes that happen. The details you sort out before the evening starts are exactly what let you relax once it does.",
+      'Whether you\'re arranging a quiet dinner date or a proper night out on the town, here\'s how to plan an evening with one of our <a href="/models/">London escorts</a> that goes smoothly from start to finish.',
+    ],
+    sections: [
+      {
+        heading: 'Decide What Kind of Night You Actually Want',
+        id: 'decide-what-kind-of-night-you-actually-want',
+        paragraphs: [
+          "The first decision shapes everything else: are you after a relaxed, intimate evening, or a proper night out? A quiet dinner date calls for a completely different companion, venue and pace than a party night that ends on a dance floor.",
+          "A GFE booking — the girlfriend experience — tends to suit the first kind of evening best: conversation, genuine connection, and a companion who makes you feel like you're out with someone who actually wants to be there, not just going through the motions. If you'd rather have an energetic, sociable night, look for companions who list themselves as party girls or describe striptease and dancing among their services — they tend to bring exactly that kind of energy.",
+          "Either way, deciding this first makes it far easier to choose the right companion from our roster.",
+        ],
+      },
+      {
+        heading: 'Choose a Companion Who Matches the Evening',
+        id: 'choose-a-companion-who-matches-the-evening',
+        paragraphs: [
+          'Once you know what kind of night you want, browse profiles with that in mind rather than photos alone. Read the services listed, the nationality and languages spoken, and the description — these tell you far more about how an evening will actually feel than a gallery ever will.',
+          "Our roster is genuinely international, with companions from Brazil, Russia, Eastern Europe and well beyond, each bringing a different energy and style to an evening. A Brazilian companion known for her party-girl energy suits a lively night out; a Russian or Eastern European companion with a reputation for elegance and conversation might suit a dinner date far better.",
+          'If you\'re bringing a partner along, check which companions list couples or duo bookings among their services — not every profile does, and it\'s worth confirming with the agency before you book.',
+        ],
+      },
+      {
+        heading: 'Pick a Venue That Fits the Mood',
+        id: 'pick-a-venue-that-fits-the-mood',
+        paragraphs: [
+          'London makes this easy. For a relaxed dinner date, our guides to <a href="/blog/best-restaurants-in-chelsea-for-a-date/">the best restaurants in Chelsea</a> and <a href="/blog/best-date-spots-for-bayswater-escort-meets/">date spots in Bayswater</a> are a good starting point. For something with more energy, <a href="/blog/the-best-rooftop-bars-in-mayfair/">Mayfair\'s rooftop bars</a> or a cocktail bar in Chelsea both work well before the evening moves on somewhere more private.',
+          "Whichever you choose, tell the agency exactly where and when you're meeting when you book — some venues need advance notice, and it avoids any confusion on the night itself.",
+        ],
+      },
+      {
+        heading: 'Get the Practical Details Right',
+        id: 'get-the-practical-details-right',
+        paragraphs: [
+          "A few small things make a real difference to how smoothly the evening runs. Book enough time — a single hour can feel short once you've settled into conversation, so if you're planning dinner plus anything afterwards, an overnight booking or at least a few hours gives you room to actually enjoy it rather than watching the clock.",
+          "Let your companion know the dress code in advance; most are used to dressing for anything, but it helps her prepare properly. Have payment ready and handled discreetly before the evening gets going, so it's never something either of you has to think about again. And if you have a special request, mention it when you book rather than on the night — the agency can only pass it along in advance.",
+        ],
+      },
+      {
+        heading: 'Making the Evening Feel Natural',
+        id: 'making-the-evening-feel-natural',
+        paragraphs: [
+          "The best nights out with an escort rarely feel staged. Treat the start of the evening the way you would any date — a drink, easy conversation, no rush — and let things develop from there. Companions who offer the girlfriend experience are specifically good at this, turning what could feel transactional into something that genuinely flows.",
+          'Ready to plan your own evening? Browse our full <a href="/models/">gallery of elite escorts</a> and find the companion who matches the night you have in mind.',
+        ],
+      },
+    ],
   },
   {
     slug: 'why-russian-escorts-have-a-luxury-image',
