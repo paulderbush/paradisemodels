@@ -88,18 +88,119 @@ const BLOG_POSTS = [
   {
     slug: 'a-guide-to-a-night-out-with-your-escort',
     title: 'A Guide to a Night Out With Your Escort',
-    excerpt: '',
-    date: null,
-    image: null,
-    published: false,
+    excerpt: 'Planning a night out with an escort in London? Our guide covers choosing the right companion, picking a venue and getting the details right for a GFE dinner date, a party night or a quiet evening in.',
+    date: '2026-08-15',
+    image: 'a-guide-to-a-night-out-with-your-escort.webp',
+    published: true,
+    intro: [
+      "A night out with an escort should feel effortless — good company, a good venue, and nothing to overthink. In practice, a little planning is what actually makes that happen. The details you sort out before the evening starts are exactly what let you relax once it does.",
+      'Whether you\'re arranging a quiet dinner date or a proper night out on the town, here\'s how to plan an evening with one of our <a href="/models/">London escorts</a> that goes smoothly from start to finish.',
+    ],
+    sections: [
+      {
+        heading: 'Decide What Kind of Night You Actually Want',
+        id: 'decide-what-kind-of-night-you-actually-want',
+        paragraphs: [
+          "The first decision shapes everything else: are you after a relaxed, intimate evening, or a proper night out? A quiet dinner date calls for a completely different companion, venue and pace than a party night that ends on a dance floor.",
+          "A GFE booking — the girlfriend experience — tends to suit the first kind of evening best: conversation, genuine connection, and a companion who makes you feel like you're out with someone who actually wants to be there, not just going through the motions. If you'd rather have an energetic, sociable night, look for companions who list themselves as party girls or describe striptease and dancing among their services — they tend to bring exactly that kind of energy.",
+          "Either way, deciding this first makes it far easier to choose the right companion from our roster.",
+        ],
+      },
+      {
+        heading: 'Choose a Companion Who Matches the Evening',
+        id: 'choose-a-companion-who-matches-the-evening',
+        paragraphs: [
+          'Once you know what kind of night you want, browse profiles with that in mind rather than photos alone. Read the services listed, the nationality and languages spoken, and the description — these tell you far more about how an evening will actually feel than a gallery ever will.',
+          "Our roster is genuinely international, with companions from Brazil, Russia, Eastern Europe and well beyond, each bringing a different energy and style to an evening. A Brazilian companion known for her party-girl energy suits a lively night out; a Russian or Eastern European companion with a reputation for elegance and conversation might suit a dinner date far better.",
+          'If you\'re bringing a partner along, check which companions list couples or duo bookings among their services — not every profile does, and it\'s worth confirming with the agency before you book.',
+        ],
+      },
+      {
+        heading: 'Pick a Venue That Fits the Mood',
+        id: 'pick-a-venue-that-fits-the-mood',
+        paragraphs: [
+          'London makes this easy. For a relaxed dinner date, our guides to <a href="/blog/best-restaurants-in-chelsea-for-a-date/">the best restaurants in Chelsea</a> and <a href="/blog/best-date-spots-for-bayswater-escort-meets/">date spots in Bayswater</a> are a good starting point. For something with more energy, <a href="/blog/the-best-rooftop-bars-in-mayfair/">Mayfair\'s rooftop bars</a> or a cocktail bar in Chelsea both work well before the evening moves on somewhere more private.',
+          "Whichever you choose, tell the agency exactly where and when you're meeting when you book — some venues need advance notice, and it avoids any confusion on the night itself.",
+        ],
+      },
+      {
+        heading: 'Get the Practical Details Right',
+        id: 'get-the-practical-details-right',
+        paragraphs: [
+          "A few small things make a real difference to how smoothly the evening runs. Book enough time — a single hour can feel short once you've settled into conversation, so if you're planning dinner plus anything afterwards, an overnight booking or at least a few hours gives you room to actually enjoy it rather than watching the clock.",
+          "Let your companion know the dress code in advance; most are used to dressing for anything, but it helps her prepare properly. Have payment ready and handled discreetly before the evening gets going, so it's never something either of you has to think about again. And if you have a special request, mention it when you book rather than on the night — the agency can only pass it along in advance.",
+        ],
+      },
+      {
+        heading: 'Making the Evening Feel Natural',
+        id: 'making-the-evening-feel-natural',
+        paragraphs: [
+          "The best nights out with an escort rarely feel staged. Treat the start of the evening the way you would any date — a drink, easy conversation, no rush — and let things develop from there. Companions who offer the girlfriend experience are specifically good at this, turning what could feel transactional into something that genuinely flows.",
+          'Ready to plan your own evening? Browse our full <a href="/models/">gallery of elite escorts</a> and find the companion who matches the night you have in mind.',
+        ],
+      },
+    ],
   },
   {
     slug: 'why-russian-escorts-have-a-luxury-image',
     title: 'Why Russian Escorts Have a Luxury Image',
-    excerpt: '',
-    date: null,
-    image: null,
-    published: false,
+    excerpt: 'Why do Russian escorts have such a strong reputation for glamour and elegance? From a culture built around presentation to a genuine international presence, here\'s what sets them apart.',
+    date: '2026-08-14',
+    image: 'why-russian-escorts-have-a-luxury-image.webp',
+    published: true,
+    intro: [
+      "Ask most people to picture a glamorous woman and, fairly or not, a certain image comes to mind almost automatically: Russian. Tall, polished, effortlessly put together — the association between Russian women and luxury didn't come from nowhere.",
+      'So where does that reputation actually come from, and does it hold up once you meet one of our <a href="/models/">Russian escorts</a> in person? Here\'s a closer look.',
+    ],
+    sections: [
+      {
+        heading: 'A Culture That Takes Presentation Seriously',
+        id: 'a-culture-that-takes-presentation-seriously',
+        paragraphs: [
+          "In Russia, looking polished isn't treated as vanity — it's closer to a basic social expectation. Full makeup, done hair and a considered outfit for an ordinary day out are simply normal in a way that's less universal in many other countries.",
+          "That standard doesn't disappear once a Russian companion is travelling internationally. It becomes a habit carried into every date, every dinner, every evening out — the kind of effortless, consistent polish that's hard to fake and even harder to switch off.",
+        ],
+      },
+      {
+        heading: 'An Industry Built Around Beauty',
+        id: 'an-industry-built-around-beauty',
+        paragraphs: [
+          "Russia and the wider region have produced a disproportionate number of the world's top fashion models for decades, and that pipeline shapes more than just the modelling industry itself. Many Russian women grow up surrounded by that same visual culture — the angles, the posture, the sense of how to hold a room.",
+          "It's a big part of why so many of our Russian companions carry themselves the way they do. The polish isn't limited to photographs; it's a learned, practised way of moving through the world.",
+        ],
+      },
+      {
+        heading: 'Ballet, Gymnastics and a Lifetime of Posture',
+        id: 'ballet-gymnastics-and-a-lifetime-of-posture',
+        paragraphs: [
+          "Russia's ballet and rhythmic gymnastics schools are among the most demanding in the world, and a striking number of Russian women pass through some version of that training as children, whether they go on to perform or not.",
+          "The result is a quality that's difficult to teach later in life: genuine poise. Years of ballet discipline leave a lasting mark on how someone stands, walks and holds themselves at dinner — exactly the kind of understated elegance that makes a Russian companion feel effortlessly luxurious rather than performatively so.",
+        ],
+      },
+      {
+        heading: 'The Russian Glamour Aesthetic',
+        id: 'the-russian-glamour-aesthetic',
+        paragraphs: [
+          "There's also a distinct visual style associated with Russian glamour — fur, fine jewellery, a love of genuinely luxurious fabrics and a taste for the dramatic that doesn't shy away from being noticed. It's a more maximalist, confident take on elegance than the quieter styles found elsewhere in Europe.",
+          "For clients who want a companion who looks the part of a five-star evening without even trying, that aesthetic does a lot of the work on its own.",
+        ],
+      },
+      {
+        heading: 'A Genuinely International Presence',
+        id: 'a-genuinely-international-presence',
+        paragraphs: [
+          'Russian companions are also some of the most well-travelled on our roster, found not just in <a href="/models/">London</a> but across our <a href="/blog/international-vip-escorts-cities-worldwide/">international cities</a>, from Dubai and Monaco to Milan and beyond. That international comfort — equally at home at a London dinner or a Dubai rooftop — is its own kind of sophistication.',
+        ],
+      },
+      {
+        heading: 'So, Is the Reputation Deserved?',
+        id: 'so-is-the-reputation-deserved',
+        paragraphs: [
+          "Largely, yes. It's the product of a culture that prizes presentation, an industry that has exported Russian beauty standards worldwide, and a training in posture and poise that starts in childhood for many of these women — not a stereotype invented out of thin air.",
+          'Curious to see it for yourself? Browse our <a href="/models/">gallery of elite escorts</a> and filter by nationality to find one of our Russian companions.',
+        ],
+      },
+    ],
   },
 
   {
