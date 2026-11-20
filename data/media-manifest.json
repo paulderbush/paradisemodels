@@ -279,10 +279,6 @@
     "photoCount": 18,
     "videoCount": 0
   },
-  "models/Arielle": {
-    "photoCount": 12,
-    "videoCount": 0
-  },
   "vip-models/Ava": {
     "photoCount": 24,
     "videoCount": 0
@@ -1154,5 +1150,13 @@
   "vip-models/EvaVip": {
     "photoCount": 3,
     "videoCount": 3
+  },
+  "models/Shara": {
+    "photoCount": 10,
+    "videoCount": 0
+  },
+  "models/Belconti": {
+    "photoCount": 15,
+    "videoCount": 0
   }
 }
