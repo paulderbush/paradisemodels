@@ -300,7 +300,7 @@
     "videoCount": 0
   },
   "models/Matrix": {
-    "photoCount": 14,
+    "photoCount": 20,
     "videoCount": 0
   },
   "models/Belva": {
@@ -1157,6 +1157,18 @@
   },
   "models/Belconti": {
     "photoCount": 15,
+    "videoCount": 0
+  },
+  "models/Ren": {
+    "photoCount": 16,
+    "videoCount": 0
+  },
+  "models/Sharon": {
+    "photoCount": 18,
+    "videoCount": 0
+  },
+  "vip-models/Ksenia": {
+    "photoCount": 8,
     "videoCount": 0
   }
 }
