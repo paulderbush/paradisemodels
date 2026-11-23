@@ -6,6 +6,93 @@
 // for any post with no sections.
 const BLOG_POSTS = [
   {
+    slug: 'paradise-concierge-yachts-jets-and-every-service-explained',
+    title: 'Paradise Concierge: Yachts, Private Jets and Every Service Explained',
+    excerpt: 'Yacht charters, private jets, rare acquisitions and more — a full guide to everything our Paradise Concierge service can arrange, and how it actually works.',
+    date: '2026-11-23',
+    image: 'paradise-concierge-yachts-jets-and-every-service-explained.webp',
+    published: true,
+    intro: [
+      'Most people only discover our <a href="/concierge/">concierge service</a> after they\'ve already booked a companion — a client mentions he needs a table that\'s fully booked, or a flight rearranged at the last minute, and finds out we can simply handle it. In reality, the concierge stands on its own: no membership, no subscription, no annual fee. You send a request, and we arrange it.',
+      'Here\'s a full breakdown of everything Paradise Concierge covers, from a chartered yacht to a watch that isn\'t supposed to be available.',
+    ],
+    sections: [
+      {
+        heading: 'How It Actually Works',
+        id: 'how-it-actually-works',
+        paragraphs: [
+          "There's no tier system and no retainer. Every request goes to the same team you already trust for discretion, is handled personally, and you pay only for what you actually ask for — nothing is bundled, and nothing is assumed.",
+          "That also means there's no request too small or too specific to ask about. Some clients use the concierge once a year for a single big trip; others send through two or three requests a month as a standing arrangement. Both are normal.",
+        ],
+      },
+      {
+        heading: 'Yachts and Private Aviation',
+        id: 'yachts-and-private-aviation',
+        paragraphs: [
+          "This is the category clients ask about most, and the one where timing matters most. A yacht charter in the Mediterranean or the Caribbean, arranged with only a few days' notice, a full crewed vessel for a week on the Côte d'Azur, or ongoing management of a yacht you already own — all handled through relationships built with charter brokers and operators over years, not a generic booking site.",
+          "Private aviation works the same way: a jet charter for a same-day meeting, a multi-leg itinerary across several cities, or simply the right aircraft for the number of passengers and the runway you need. If you read our piece on the <a href=\"/blog/vip-escorts-on-the-french-riviera-monaco-cannes-nice/\">French Riviera</a>, this is exactly how clients move between Monaco, Cannes and Nice in a single afternoon.",
+        ],
+      },
+      {
+        heading: 'Travel and Getaways',
+        id: 'travel-and-getaways',
+        paragraphs: [
+          "Beyond the jet itself, we build the rest of the trip — secluded resorts that don't show up on the usual booking platforms, itineraries routed around your schedule rather than a package tour, and the small logistics (transfers, visas, timing) that make the difference between a smooth trip and a stressful one.",
+          "This includes multi-city trips as easily as a single weekend: a long weekend in Dubai, a week split between London and Paris, or an extended stay somewhere quieter. Wherever the plan takes you, it's built around you specifically, not adapted from a template.",
+        ],
+      },
+      {
+        heading: 'Stays and Real Estate',
+        id: 'stays-and-real-estate',
+        paragraphs: [
+          "Private villas, penthouses and private islands, arranged for a weekend, a season, or anything in between. Many of the properties we source are never publicly listed — they come through relationships with owners and estate managers who prefer not to advertise at all.",
+          "This also covers longer-term arrangements: a base for an entire summer season on the Riviera or in Ibiza, or a pied-à-terre in a city you visit often enough that a hotel no longer makes sense.",
+        ],
+      },
+      {
+        heading: 'Events and Celebrations',
+        id: 'events-and-celebrations',
+        paragraphs: [
+          "Private dinners, parties and milestone occasions, produced and run from the first idea to the last detail — venue, catering, entertainment, guest logistics, all of it. Some clients want a single intimate dinner for two; others need a full private party arranged in a matter of days.",
+          "We also handle logistics around existing events — securing entry to something already sold out, or coordinating the rest of an evening around an event you're already attending.",
+        ],
+      },
+      {
+        heading: 'Access and Reservations',
+        id: 'access-and-reservations',
+        paragraphs: [
+          "Tables, tickets and rooms that are normally closed to the public, opened through contacts built over years rather than a booking app. A fully reserved restaurant on short notice, tickets to a sold-out show, or a reservation at a members-only venue you aren't yet a member of.",
+          "This is often the fastest request to fulfil, and one of the most common — sometimes the entire concierge interaction is a single message asking for a table tonight.",
+        ],
+      },
+      {
+        heading: 'Rare Acquisitions',
+        id: 'rare-acquisitions',
+        paragraphs: [
+          "Hard-to-get pieces — watches, bags, jewellery, gifts — sourced through relationships built over years, including items officially listed as unavailable or sold out. If it exists somewhere in the world and can legally change hands, it's worth asking.",
+          "This extends to gifting as well: a last-minute present for an important occasion, sourced and delivered with the same discretion as everything else we arrange.",
+        ],
+      },
+      {
+        heading: 'Lifestyle Support',
+        id: 'lifestyle-support',
+        paragraphs: [
+          "Personal shoppers, private chefs, wellness practitioners and security — the everyday handled seamlessly, whether that's a one-off booking for a single evening or an ongoing arrangement for a longer stay in one city.",
+          "This category covers whatever makes daily life easier while you're travelling: a driver for the week, a private trainer, or someone who simply knows the city well enough to make a short stay feel effortless.",
+        ],
+      },
+      {
+        heading: 'Bespoke Requests',
+        id: 'bespoke-requests',
+        paragraphs: [
+          "Anything else. If it can be arranged, we'll arrange it — the categories above cover what we're asked for most often, but they're not a limit on what you can request.",
+          'Ready to put the concierge to use? Visit the <a href="/concierge/">Paradise Concierge page</a> and send us your request — there\'s no membership or subscription to sign up for first, just tell us what you need.',
+        ],
+      },
+    ],
+  },
+
+  {
     slug: 'how-to-pick-the-perfect-elite-escort-service',
     title: 'How to Pick the Perfect Elite Escort Service',
     excerpt: 'Choose the right escort service for your plans with practical tips on profiles, services and value so you can enjoy the booking you want.',
