@@ -997,6 +997,64 @@ const BLOG_POSTS = [
   },
 
   {
+    slug: 'vip-escorts-on-the-french-riviera-monaco-cannes-nice',
+    title: 'VIP Escorts on the French Riviera: Monaco, Cannes and Nice',
+    excerpt: 'From Monte Carlo\'s casinos to the Croisette and the Promenade des Anglais, discover why the French Riviera — Monaco, Cannes and Nice — is one of Europe\'s favourite destinations for a VIP escort meet.',
+    date: '2026-11-19',
+    image: 'vip-escorts-on-the-french-riviera-monaco-cannes-nice.webp',
+    published: true,
+    intro: [
+      "Few stretches of coastline carry the same reputation as the French Riviera. Superyachts line the marinas from Monaco to Cannes, five-star hotels face the Mediterranean along the Croisette and the Promenade des Anglais, and every summer the region fills with exactly the kind of international, high-net-worth crowd our clients move in.",
+      'That concentration of wealth, glamour and discretion is why the Riviera has become one of our busiest European destinations outside London and Paris. Here\'s a closer look at Monaco, Cannes and Nice, and what makes each one so well suited to a booking with one of our <a href="/models/">VIP companions</a>.',
+    ],
+    sections: [
+      {
+        heading: 'Monaco: Europe\'s Most Concentrated Address for Wealth',
+        id: 'monaco-europes-most-concentrated-address-for-wealth',
+        paragraphs: [
+          "There is no principality quite like Monaco. In under two square kilometres you'll find the Casino de Monte-Carlo, a harbour permanently lined with some of the largest yachts afloat, and a resident population with one of the highest concentrations of millionaires anywhere on earth. Every May, the Monaco Grand Prix turns the entire city into a single VIP enclosure, with the paddock and the harbour's superyacht terraces among the most sought-after seats in global sport.",
+          "That density of wealth is exactly why we keep a dedicated roster of companions based in Monaco year-round, rather than only during race week or the summer season. Clients arriving for a weekend at the Hôtel de Paris or an evening at the Casino Square rarely want to wait for an introduction — they want a companion who already knows the city.",
+          'Our Monaco-based companions include both <a href="/models/">publicly listed profiles</a> and women available only through our <a href="/vip-models/">exclusive VIP gallery</a>, for clients who prefer an introduction handled with an extra layer of privacy.',
+        ],
+      },
+      {
+        heading: 'Cannes: Film Festival Glamour, All Year Round',
+        id: 'cannes-film-festival-glamour-all-year-round',
+        paragraphs: [
+          "Cannes is best known for two weeks in May, when the Festival de Cannes turns La Croisette into the most photographed red carpet on the planet and every suite at the Carlton, the Martinez and the Majestic is booked months in advance. But the infrastructure that makes the festival possible — the private beach clubs, the rooftop bars, the harbour full of charter yachts — doesn't disappear once the cameras leave.",
+          "Outside festival season, Cannes settles into a quieter rhythm that many clients actually prefer: the same five-star hotels and Michelin-starred restaurants, with none of the crowds. A dinner at the Martinez's La Palme d'Or, followed by a walk along the Croisette, remains one of the most elegant evenings the Riviera has to offer, festival or not.",
+          'A short drive or a quick transfer brings Cannes within easy reach of our Monaco roster, so a companion based in the principality can usually join you there with minimal notice — a point worth raising with our team when you enquire.',
+        ],
+      },
+      {
+        heading: 'Nice: The Riviera\'s Elegant, Easy-Going Gateway',
+        id: 'nice-the-rivieras-elegant-easy-going-gateway',
+        paragraphs: [
+          "If Monaco is the Riviera at its most concentrated and Cannes its most cinematic, Nice is its most liveable. The Promenade des Anglais stretches for miles along the Baie des Anges, Old Nice's narrow streets hide some of the coast's best restaurants away from the tourist crush, and the city's belle époque hotels — the Negresco chief among them — have been hosting discreet, well-heeled guests for well over a century.",
+          "Nice also happens to be the Riviera's main point of entry: Nice Côte d'Azur Airport is the busiest on the coast, putting Monaco twenty minutes away and Cannes under an hour, which makes the city a natural base for clients splitting a trip across more than one Riviera town.",
+          "For an evening in Nice itself, the rooftop terraces overlooking the bay and the old town's intimate wine bars offer a slightly more relaxed alternative to Monaco's formality — ideal for a first meeting before deciding where the rest of the trip should take you.",
+        ],
+      },
+      {
+        heading: 'Why Clients Choose the Riviera for a VIP Meet',
+        id: 'why-clients-choose-the-riviera-for-a-vip-meet',
+        paragraphs: [
+          "Part of the appeal is simply logistics. Monaco, Cannes and Nice sit within an hour of each other along the same coastline, so a single trip can easily take in a casino evening in Monte Carlo, a Michelin dinner in Cannes and a relaxed afternoon on the Promenade des Anglais — all without changing hotels.",
+          "The other part is culture. The entire Riviera is built around visitors who travel well, dress well and expect their evenings handled with discretion, whether they're arriving by private jet into Nice or by yacht into Monaco's harbour. A well-dressed couple at a hotel bar in any of these three cities draws no attention whatsoever — it's simply what the Riviera looks like.",
+        ],
+      },
+      {
+        heading: 'Planning a Riviera Booking',
+        id: 'planning-a-riviera-booking',
+        paragraphs: [
+          "The French Riviera combines three of Europe's most glamorous addresses within a single short coastline, each with its own character but all built around the same expectation of five-star discretion. Whether your evening starts at the tables in Monte Carlo, on the Croisette in Cannes, or along the Promenade des Anglais in Nice, a companion who already knows the coast makes all the difference.",
+          'Ready to plan your trip? Browse our <a href="/models/">full roster</a> or our <a href="/vip-models/">exclusive VIP gallery</a> to find your Riviera companion, or read more about our reach across the continent in <a href="/blog/international-vip-escorts-cities-worldwide/">international VIP escorts in 20+ cities worldwide</a>.',
+        ],
+      },
+    ],
+  },
+
+  {
     slug: 'is-dubai-the-best-city-for-vip-escort-meets',
     title: 'Is Dubai the Best City for VIP Escort Meets?',
     excerpt: 'Is Dubai the world\'s most glamorous city for a VIP escort meet? Discover why our Dubai escorts, the skyline views and five-star venues make every booking extraordinary.',
