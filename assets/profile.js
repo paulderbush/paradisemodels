@@ -280,7 +280,7 @@ function buildRealModelHTML(m) {
       <div class="detail-left">
         <div class="detail-gallery">
           <div class="gallery-track" id="gallery-track">
-            <img class="gallery-slide" src="/${m.folder}/1.webp" alt="${m.name}" onclick="openLightbox(0)">
+            <img class="gallery-slide" src="/${m.folder}/1.webp" alt="${m.name}" title="${m.name}${m.nationality ? ' — ' + m.nationality + ' Escort' : ''}${m.city ? ' in ' + m.city : ''}" onclick="openLightbox(0)">
           </div>
           <button class="gallery-arrow prev" onclick="galleryGo(-1)">&#8249;</button>
           <button class="gallery-arrow next" onclick="galleryGo(1)">&#8250;</button>
@@ -405,7 +405,7 @@ function openRealModel(m) {
           </div>
         </div>`;
       }
-      return `<img class="gallery-slide" src="${item.src}" alt="${m.name}" onclick="openLightbox(${i})">`;
+      return `<img class="gallery-slide" src="${item.src}" alt="${m.name}" title="${m.name}${m.nationality ? ' — ' + m.nationality + ' Escort' : ''}${m.city ? ' in ' + m.city : ''}" onclick="openLightbox(${i})">`;
     }).join('');
     const dotsEl = document.getElementById('gallery-dots');
     if (dotsEl) dotsEl.innerHTML = items.map((item, i) => {

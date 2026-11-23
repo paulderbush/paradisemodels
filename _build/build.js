@@ -127,8 +127,8 @@ function head(title, desc, canonical, extra = '', themeColor = '#0D0812', ogImag
 <link rel="apple-touch-icon" href="/images/favicon.png?v=${BUILD_TS}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>${css}</style>
+<link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=${BUILD_TS}">
 <script>window.BUILD_TS='${BUILD_TS}';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"><\/script>
 <script src="/assets/currency.js?v=${BUILD_TS}"><\/script>
@@ -160,7 +160,7 @@ function navHTML(paradise = false, heroVideo = false, newLogo = false) {
   // pages carrying the new design (e.g. Julia's profile trial).
   const logoFile = (heroVideo || newLogo) ? 'logo-new.png' : 'logo-nav.png';
   const logo = paradise
-    ? `<a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/${logoFile}?v=${BUILD_TS}" alt="Paradise Models"></a>`
+    ? `<a class="nav-logo nav-logo-img" href="/" style="cursor:pointer;text-decoration:none"><img src="/images/${logoFile}?v=${BUILD_TS}" alt="Paradise Models" title="Paradise Models — High Class International Escort Agency"></a>`
     : `<a class="nav-logo" href="/" style="cursor:pointer;text-decoration:none">VELVET</a>`;
   return _navHTML(logo, heroVideo);
 }
@@ -365,8 +365,7 @@ function buildHome() {
     'Paradise Models — HIGH CLASS INTERNATIONAL ESCORT AGENCY',
     'Paradise Models — a high-class international escort agency. Absolute discretion, private events, bespoke travel by private jet, and exclusive introductions you will find nowhere else.',
     SITE_URL + '/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
 ${ldJson(ORGANIZATION_SCHEMA)}`,
     '#1a1e42'
   ) + `
@@ -432,22 +431,22 @@ ${CITIES.map((c, i) => `  <div class="section"${i === 0 ? '' : ' style="padding-
     <div class="partners-title">Our Partners</div>
     <div class="partners-row">
       <a class="partner-banner" href="https://www.eurogirlsescort.com" target="_blank" rel="noopener noreferrer">
-        <img src="/images/EuroEscortGirls.png" alt="EuroGirlsEscort.com">
+        <img src="/images/EuroEscortGirls.png" alt="EuroGirlsEscort.com" title="EuroGirlsEscort.com">
       </a>
       <a class="partner-banner" href="https://devozki.com" target="_blank" rel="noopener noreferrer">
-        <img src="/images/Devozki.webp" alt="Devozki">
+        <img src="/images/Devozki.webp" alt="Devozki" title="Devozki">
       </a>
       <a class="partner-banner" href="https://www.ukadultzone.com" target="_blank" rel="noopener noreferrer">
-        <img src="/images/UKAdultZone.webp" alt="UK Adult Zone">
+        <img src="/images/UKAdultZone.webp" alt="UK Adult Zone" title="UK Adult Zone">
       </a>
       <a class="partner-banner" href="https://www.happyescorts.com" target="_blank" rel="noopener noreferrer">
-        <img src="/images/HappyEscorts.webp" alt="HappyEscorts">
+        <img src="/images/HappyEscorts.webp" alt="HappyEscorts" title="HappyEscorts">
       </a>
       <a class="partner-banner" href="https://escortnews.com" target="_blank" rel="noopener noreferrer">
-        <img src="/images/EscortNews.webp" alt="EscortNews">
+        <img src="/images/EscortNews.webp" alt="EscortNews" title="EscortNews">
       </a>
       <a class="partner-banner" href="https://www.erotic-guide.com" target="_blank" rel="noopener noreferrer">
-        <img src="/images/EroticGuide.webp" alt="EroticGuide">
+        <img src="/images/EroticGuide.webp" alt="EroticGuide" title="EroticGuide">
       </a>
     </div>
   </div>
@@ -479,8 +478,7 @@ function buildModels() {
     'Our Companions — Paradise Models',
     'Browse our exclusive roster of London companions. Filter by location, nationality, services and more.',
     SITE_URL + '/models/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-models">
@@ -645,8 +643,7 @@ function buildModelProfile(m) {
     `${m.name} — Elite London Escort | Paradise Models`,
     desc,
     `${SITE_URL}/models/${m.slug}/`,
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42',
     `${SITE_URL}/${m.folder}/1.webp`
   ) + `
@@ -695,8 +692,7 @@ function buildVipModelProfile(m) {
     'VIP Companion — Paradise Models',
     'An exclusive VIP companion, available to members with active VIP catalog access.',
     `${SITE_URL}/models/${m.slug}/`,
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-model">
@@ -750,8 +746,7 @@ function buildFaq() {
     'FAQ — Paradise Models',
     'Frequently asked questions about our services, companions, and bookings at Paradise Models.',
     SITE_URL + '/faq/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
 ${ldJson(faqPageSchema)}`,
     '#1a1e42'
   ) + `
@@ -798,8 +793,7 @@ function buildBecome() {
     'Become a Model — Paradise Models',
     'Apply to join Paradise Models as an escort companion. Submit your application and our team will review within 24–48 hours.',
     SITE_URL + '/become-a-model/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-become">
@@ -957,8 +951,7 @@ function buildVipModels() {
     'VIP Models — Paradise Models',
     'An exclusive selection of VIP companions at Paradise Models. Unlock with a one-time payment.',
     SITE_URL + '/vip-models/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-vip-models">
@@ -1143,8 +1136,7 @@ function buildConcierge() {
     'Concierge — Paradise Models',
     'The Paradise Models concierge — bespoke travel, events, access and rare acquisitions, arranged with the same discretion as everything else we do.',
     SITE_URL + '/concierge/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-concierge">
@@ -1211,8 +1203,7 @@ function buildEvents() {
     'Paradise Erotic Events — Paradise Models',
     'Paradise Erotic Events — black tie masquerades, intimate dinners, and immersive theatrical evenings, or a fully bespoke private event built entirely around you.',
     SITE_URL + '/events/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-events">
@@ -1340,8 +1331,7 @@ function buildSinlist() {
     'The Sin List — Opening Night | Paradise Erotic Events',
     "The Sin List — Opening Night: a private members' club we produced in London, an immersive theatrical evening structured as nine circles.",
     SITE_URL + '/sinlist/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-sinlist">
@@ -1383,7 +1373,7 @@ ${ageModalHTML()}
           <p style="color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:1rem">Structured as nine progressive circles, the night moved from observation to full participation, from tension to release. More than twenty actors and actresses built a fully theatrical environment around every guest, from a masquerade dress code through to a private, guided evening.</p>
           <p style="color:var(--text);font-style:italic;font-size:14.5px;line-height:1.8">An experience where control shifted into exploration, and restraint evolved into conscious presence.</p>
         </div>
-        <div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/sinlist-concept-bg.webp" alt="The Sin List — the gate, before the nine circles" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/sinlist-concept-bg.webp" alt="The Sin List — the gate, before the nine circles" title="The Sin List — the gate, before the nine circles" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       </div>
     </div>
 
@@ -1391,7 +1381,7 @@ ${ageModalHTML()}
       <div class="form-section-title">The Experience</div>
       <p style="color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:1.5rem">The Sin List was an immersive environment where every detail was designed to reveal a new dimension of self. The evening unfolded progressively — from tension to release, from observation to participation — with depth of immersion as its primary instrument. More than 20 actors and actresses immersed every guest in a sensual experience of engaging with their own shadow self.</p>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:0.5rem">
-        ${gallery.map(g => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${g.src}" alt="${g.alt}" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
+        ${gallery.map(g => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${g.src}" alt="${g.alt}" title="${g.alt}" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
       </div>
     </div>
 
@@ -1427,10 +1417,10 @@ ${ageModalHTML()}
           </div>
         </div>
         <div class="form-grid-2" style="grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:0.5rem">
-          ${womenOutfits.map(w => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${w}" alt="The Sin List — recommended aesthetic for women" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
+          ${womenOutfits.map(w => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${w}" alt="The Sin List — recommended aesthetic for women" title="The Sin List — recommended aesthetic for women" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
         </div>
         <div class="form-grid-2" style="grid-template-columns:repeat(3,1fr);gap:8px">
-          ${menOutfits.map(m => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${m}" alt="The Sin List — recommended aesthetic for men" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
+          ${menOutfits.map(m => `<div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/${m}" alt="The Sin List — recommended aesthetic for men" title="The Sin List — recommended aesthetic for men" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join('')}
         </div>
       </div>
     </div>
@@ -1469,7 +1459,7 @@ ${ageModalHTML()}
             <li>Our community consisted of accomplished individuals — entrepreneurs, public figures, and recognized personalities.</li>
           </ul>
         </div>
-        <div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/sinlist-8.webp" alt="The Sin List — a moment of surrender" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="border-radius:var(--r-xs);overflow:hidden;aspect-ratio:3/4"><img src="/images/events/sinlist-8.webp" alt="The Sin List — a moment of surrender" title="The Sin List — a moment of surrender" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       </div>
       <p style="color:var(--text-soft);font-size:14px;line-height:1.85;margin-bottom:0.75rem">Confidentiality was the core principle of every experience we create. All participants formally agreed to maintain absolute discretion, ensuring that no details regarding identities, attendance, or any aspect of our events, experiences, or operations were ever disclosed.</p>
       <p style="color:var(--text);font-style:italic;font-size:13.5px">June 2026, London, UK</p>
@@ -1511,8 +1501,7 @@ function buildAbout() {
     'High Class London Escorts | Paradise Models',
     'Paradise Models — a high-class international escort agency in London, Paris, Monaco, Milan, Dubai, New York, Miami, Zurich and Amsterdam. Verified photos, discreet service, available 24/7 from £300/h.',
     SITE_URL + '/about/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-about">
@@ -1561,7 +1550,7 @@ ${ageModalHTML()}
       <div class="about-teaser-grid">
         ${teaserModels.map(m => `
         <a href="/models/${m.slug}/">
-          <img src="/${m.folder}/1.webp?v=${BUILD_TS}" alt="${m.name}">
+          <img src="/${m.folder}/1.webp?v=${BUILD_TS}" alt="${m.name}" title="${m.name}${m.nationality ? ' — ' + m.nationality + ' Escort' : ''}${m.city ? ' in ' + m.city : ''}">
           <div class="about-teaser-name">${m.name}</div>
         </a>`).join('')}
       </div>` : ''}
@@ -1949,8 +1938,7 @@ function buildBlog() {
     'Blog — Paradise Models',
     'The Paradise Models blog — insights, city guides and news from the world of high-class companionship.',
     SITE_URL + '/blog/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-blog">
@@ -2016,8 +2004,7 @@ function buildBlogPost(post) {
       `${post.title} — Paradise Models Blog`,
       'This article is coming soon to the Paradise Models blog.',
       `${SITE_URL}/blog/${post.slug}/`,
-      `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
       '#1a1e42'
     ) + `
 <body class="page-blog-post">
@@ -2071,8 +2058,7 @@ const CITIES = [];
     `${post.title} — Paradise Models Blog`,
     post.excerpt,
     `${SITE_URL}/blog/${post.slug}/`,
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">
 ${ldJson(blogPostingSchema)}`,
     '#1a1e42',
     `${SITE_URL}/images/blog/${post.image}`
@@ -2129,8 +2115,7 @@ function buildAccount() {
     'My Account — Paradise Models',
     'Sign in to your Paradise Models account to manage VIP catalog access.',
     SITE_URL + '/account/',
-    `<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
+    `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
     '#1a1e42'
   ) + `
 <body class="page-account">
