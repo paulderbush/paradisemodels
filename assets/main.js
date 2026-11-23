@@ -298,7 +298,7 @@ function modelCardHTML(m, clickable = true, showTags = true) {
   return `
   ${cardStart}
     <div class="model-card-img"${photoSrc ? '' : ` style="background:${PLACEHOLDER_BG}"`}>
-      ${photoSrc ? `<img class="model-card-photo" src="${photoSrc}" alt="${m.name}" loading="lazy" decoding="async">` : ''}
+      ${photoSrc ? `<img class="model-card-photo" src="${photoSrc}" alt="${m.name}" title="${m.name}${m.nationality ? ' — ' + m.nationality + ' Escort' : ''}${m.city ? ' in ' + m.city : ''}" loading="lazy" decoding="async">` : ''}
       ${!m.real && !m.teaserImg ? `<div class="model-photo-placeholder">
         <svg class="model-silhouette-svg" width="60" height="100" viewBox="0 0 60 100" fill="none">
           <ellipse cx="30" cy="14" rx="13" ry="13" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
