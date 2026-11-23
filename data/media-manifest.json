@@ -271,6 +271,10 @@
     "photoCount": 23,
     "videoCount": 0
   },
+  "models/Esmira": {
+    "photoCount": 11,
+    "videoCount": 0
+  },
   "models/Nemuna": {
     "photoCount": 13,
     "videoCount": 0
@@ -505,10 +509,6 @@
   },
   "models/Tahlia": {
     "photoCount": 10,
-    "videoCount": 0
-  },
-  "models/Caridee": {
-    "photoCount": 17,
     "videoCount": 0
   },
   "models/Mannu": {
@@ -1165,6 +1165,14 @@
   },
   "models/Sharon": {
     "photoCount": 18,
+    "videoCount": 0
+  },
+  "models/Elbe": {
+    "photoCount": 19,
+    "videoCount": 0
+  },
+  "models/Rufa": {
+    "photoCount": 8,
     "videoCount": 0
   },
   "vip-models/Ksenia": {
