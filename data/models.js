@@ -10800,7 +10800,7 @@ const LOUISE_DATA = {
 };
 
 const THAENA_DATA = {
-  id: 9689, real: true, vip: true, folder: 'models/Thaena', slug: 'thaena',
+  id: 9689, real: true, vip: false, folder: 'models/Thaena', slug: 'thaena',
   name: 'Thaena', age: 25, height: 178, weight: 65,
   nationality: 'Russian', station: 'Marylebone', city: 'London',
   rateHour: 700, extraHourPrice: 500,
