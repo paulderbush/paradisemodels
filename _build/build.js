@@ -1133,7 +1133,7 @@ function buildConcierge() {
   ];
 
   return head(
-    'Concierge — Paradise Models',
+    'Luxury Concierge Service & Yacht Charters | Paradise Models',
     'The Paradise Models concierge — bespoke travel, events, access and rare acquisitions, arranged with the same discretion as everything else we do.',
     SITE_URL + '/concierge/',
     `<link rel="stylesheet" href="/assets/home-theme.css?v=${BUILD_TS}">`,
